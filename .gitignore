@@ -1,0 +1,6 @@
+*.pyc
+check.*
+__pycache__/
+.idea/
+.pytest_cache/
+/docs/bin/xsdvi/build/

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema version="0.0.1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:msl="https://www.measurement.govt.nz/equipment-register"
+            elementFormDefault="qualified"
+            targetNamespace="https://www.measurement.govt.nz/equipment-register">
+
+    <xsd:annotation>
+        <xsd:documentation>
+            Copyright (c) 2023, Measurement Standards Laboratory of New Zealand. \
+            XML Schema Definition for the vocabulary and structure of an Equipment Register.
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <!-- Root element -->
+    <xsd:element name="register">
+        <xsd:annotation>
+            <xsd:documentation>
+                Root element that contains zero or more [equipment](#type_equipment) elements.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                <xsd:element name="equipment" type="msl:equipment"/>
+            </xsd:sequence>
+            <xsd:attribute name="team" type="msl:teamEnumeration" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:simpleType name="teamEnumeration">
+        <xsd:annotation>
+            <xsd:documentation>
+                ISO/IEC 17025:2017 Clause 6.4.13 (d) the current (usual) location.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Electrical"/>
+            <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Length"/>
+            <xsd:enumeration value="Light"/>
+            <xsd:enumeration value="Mass"/>
+            <xsd:enumeration value="Pressure"/>
+            <xsd:enumeration value="Temperature"/>
+            <xsd:enumeration value="Time"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="idPattern">
+        <xsd:annotation>
+            <xsd:documentation>
+                ISO/IEC 17025:2017 Clause 6.4.13 (a) the identity of equipment.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="MSLE\.[A-Z]\.[A-Z0-9]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="nonEmptyString">
+        <xsd:annotation>
+            <xsd:documentation>
+                A non-empty string.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value=".*\S.*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="strictString">
+        <xsd:annotation>
+            <xsd:documentation>
+                A string of at least two characters that does not start or end with
+                whitespace and does not contain \r (carriage return), \t (tab), or
+                \n (newline) characters. Whitespace is allowed between words.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\S[^\r\t\n]*\S"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="equipment">
+        <xsd:annotation>
+            <xsd:documentation>
+                Contains all relevant information about the equipment to satisfy
+                ISO/IEC 17025:2017 Clause 6.4.13 and with additional information.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13 (a) the identity of equipment -->
+            <xsd:element name="id" type="msl:idPattern"/>
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) the manufacturer's name -->
+            <xsd:element name="manufacturer" type="msl:strictString"/>
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) type, identification -->
+            <xsd:element name="model" type="msl:strictString"/>
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) serial number or other unique identification -->
+            <xsd:element name="serial" type="msl:strictString"/>
+            <xsd:element name="description" type="xsd:string"/>
+            <xsd:element name="active" type="xsd:boolean"/>
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13
+            (c) evidence of verification that equipment conforms with specified requirements
+            (e) calibration dates, results of calibration, adjustments, acceptance criteria,
+                and the due date of the next calibration or calibration interval -->
+            <xsd:element name="calibrations" type="msl:calibrations"/>
+
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13
+            (f) documentation of reference materials, results, acceptance criteria,
+                relevant dates and the period of validity -->
+            <xsd:element name="documentation" type="msl:documentation"/>
+
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13 (a) software and firmware version -->
+            <xsd:element name="firmware" type="msl:firmware"/>
+
+            <!-- ISO/IEC 17025:2017 Clause 6.4.13
+            (g) maintenance plan
+            (h) details of any damage, malfunction, modification to, or repair of, the equipment -->
+            <xsd:element name="maintenance" type="msl:maintenance"/>
+
+            <xsd:element name="custom" type="msl:custom" minOccurs="0"/>
+        </xsd:sequence>
+
+        <!-- TODO consider using an enumeration: DMM, Laser, PRT, Resistor, ... -->
+        <xsd:attribute name="category" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="comment">
+        <xsd:annotation>
+            <xsd:documentation>
+                A non-empty string that must have a date as an attribute.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="msl:nonEmptyString">
+                <xsd:attribute name="date" type="xsd:date" use="required"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="maintenance">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="task" type="msl:comment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="firmware">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="version" type="msl:comment"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="documentation">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="accessories" type="xsd:string"/>
+            <xsd:element name="manual" type="xsd:anyURI"/>
+            <xsd:element name="personnelRestrictions" type="xsd:string"/>
+            <xsd:element name="serviceAgent" type="xsd:string"/>
+            <xsd:element name="warrantyExpirationDate" type="xsd:date"/>
+            <xsd:element name="yearPurchased" type="xsd:gYear"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="custom">
+        <xsd:annotation>
+            <xsd:documentation>
+                All user-defined elements are contained as sub-elements.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:any processContents="skip"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="calibrations">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="calibration" type="msl:calibration"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="calibration">
+    </xsd:complexType>
+
+</xsd:schema>

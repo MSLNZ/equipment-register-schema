@@ -7,6 +7,9 @@ provided by the `World Wide Web Consortium <https://www.w3.org/>`_.
 2. `XML Schema Part 1: Structures <https://www.w3.org/TR/xmlschema-1/>`_
 3. `XML Schema Part 2: Datatypes <https://www.w3.org/TR/xmlschema-2/>`_
 
+The documentation for the Equipment-Register schema is available
+`here <https://mslnz.github.io/equipment-register-schema/>`_.
+
 Developer Guide
 ===============
 Python is required to run the tests and to build the documentation.

@@ -67,16 +67,27 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-    <xsd:simpleType name="strictString">
+    <xsd:simpleType name="tokenizedString">
         <xsd:annotation>
             <xsd:documentation>
-                A string of at least two characters that does not start or end with
-                whitespace and does not contain \r (carriage return), \t (tab), or
-                \n (newline) characters. Whitespace is allowed between words.
+                A non-empty string that **shall not**
+
+                1. contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
+                2. contain sequences of two or more spaces (0x20),
+                3. have leading or trailing spaces.
+
+                This implementation is what [xsd:token](https://www.w3.org/TR/xmlschema-2/#token)
+                indicates; however, to achieve the desired validation outcome, string normalisation
+                must not occur before validation. This is the reason why the _base_ class is
+                [xsd:string](https://www.w3.org/TR/xmlschema-2/#string) (with a _pattern_ facet)
+                and not [xsd:token](https://www.w3.org/TR/xmlschema-2/#token). The
+                [lexical space](https://www.w3.org/TR/xmlschema-2/#lexical-space)
+                is not what is in the raw XML document, it is what you get after applying
+                _pre-lexical_ normalisations.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="\S[^\r\t\n]*\S"/>
+            <xsd:pattern value="\S(\S*( ?)\S+)*"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -91,11 +102,11 @@
             <!-- ISO/IEC 17025:2017 Clause 6.4.13 (a) the identity of equipment -->
             <xsd:element name="id" type="msl:idPattern"/>
             <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) the manufacturer's name -->
-            <xsd:element name="manufacturer" type="msl:strictString"/>
+            <xsd:element name="manufacturer" type="msl:tokenizedString"/>
             <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) type, identification -->
-            <xsd:element name="model" type="msl:strictString"/>
+            <xsd:element name="model" type="msl:tokenizedString"/>
             <!-- ISO/IEC 17025:2017 Clause 6.4.13 (b) serial number or other unique identification -->
-            <xsd:element name="serial" type="msl:strictString"/>
+            <xsd:element name="serial" type="msl:tokenizedString"/>
             <xsd:element name="description" type="xsd:string"/>
             <xsd:element name="active" type="xsd:boolean"/>
             <!-- ISO/IEC 17025:2017 Clause 6.4.13

@@ -11,7 +11,8 @@ import pytest
      '-,.{}!=-+()*^%$#@!;:',
      'Serial (\u00B0C)',
      's-(°C)',
-     'A     B',
+     '0',
+     '- a b {c} def, g .h @i',
      ])
 def test_valid_pattern(xml, text):
     xml.serial(text)
@@ -22,7 +23,6 @@ def test_valid_pattern(xml, text):
     'text',
     ['',
      ' ',
-     '0',  # must be at least 2 characters
      'b ',
      ' 0',
      '\t0',
@@ -35,7 +35,7 @@ def test_valid_pattern(xml, text):
      '\n\n\n\n',
      '\t\t\t\t\t',
      ' \t\n',
-     ' 000001',
+     '   000001',
      'serial   ',
      '\tserial',
      'Serial\t',
@@ -47,6 +47,8 @@ def test_valid_pattern(xml, text):
      'ab0\txz',
      'a\r9\n2\t3s',
      '9a2\tser',
+     'A     B',
+     'A  Bcd e',
      ])
 def test_invalid_pattern(xml, text):
     xml.serial(text)

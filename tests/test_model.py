@@ -11,7 +11,8 @@ import pytest
      '-,.{}!=-+()*^%$#@!;:',
      'Model (\u00B0C)',
      'Model (°C)',
-     'A     B',
+     'a',
+     '- a b {c} def, g .h @i',
      ])
 def test_valid_pattern(xml, text):
     xml.model(text)
@@ -22,7 +23,6 @@ def test_valid_pattern(xml, text):
     'text',
     ['',
      ' ',
-     'a',  # must be at least 2 characters
      'a ',
      ' a',
      '\ta',
@@ -35,7 +35,7 @@ def test_valid_pattern(xml, text):
      '\n\n\n\n',
      '\t\t\t\t\t',
      ' \t\n',
-     ' Model',
+     '   Model',
      'Model   ',
      '\tModel',
      'Model\t',
@@ -47,6 +47,8 @@ def test_valid_pattern(xml, text):
      'Mod\tel',
      'M\ro\nd\tel',
      'Model\tABC',
+     'A     B',
+     'A  Bcd e',
      ])
 def test_invalid_pattern(xml, text):
     xml.model(text)

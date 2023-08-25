@@ -192,12 +192,13 @@
     <xsd:complexType name="custom">
         <xsd:annotation>
             <xsd:documentation>
-                All user-defined elements are contained as sub-elements.
+                All custom, user-defined elements shall be contained as sub-elements.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:any processContents="skip"/>
+            <xsd:any processContents="lax"/>
         </xsd:sequence>
+        <xsd:anyAttribute processContents="lax"/>
     </xsd:complexType>
 
     <xsd:complexType name="calibrations">

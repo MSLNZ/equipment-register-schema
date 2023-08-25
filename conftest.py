@@ -151,6 +151,9 @@ class XML:
     def active(self, obj: str | int, **attribs) -> None:
         self._active = self._helper(self._active, 'active', obj, **attribs)
 
+    def custom(self, string: str) -> None:
+        self._custom = string
+
 
 @pytest.fixture(scope='function')
 def xml() -> XML:

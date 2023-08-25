@@ -152,8 +152,9 @@
         <xsd:annotation>
             <xsd:documentation>
                 A non-empty string that **shall not** contain the line feed (0x0A)
-                nor carriage return (0x0D) characters and **shall* have a date
-                as an attribute.
+                nor carriage return (0x0D) characters and **shall** have a date
+                as an attribute. The date must be in the YYYY-MM-DD format (see
+                [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>

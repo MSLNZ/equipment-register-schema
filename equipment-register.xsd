@@ -151,7 +151,9 @@
     <xsd:complexType name="comment">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that must have a date as an attribute.
+                A non-empty string that **shall not** contain the line feed (0x0A)
+                nor carriage return (0x0D) characters and **shall* have a date
+                as an attribute.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>

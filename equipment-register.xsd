@@ -93,6 +93,23 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="cyclePeriod">
+        <xsd:annotation>
+            <xsd:documentation>
+                The cycle period as the number of years. \
+
+                The cycle period corresponds to the number of years that may pass
+                before a performance check or a calibration shall be performed.
+                A value of 0 means that the performance check or calibration
+                occurs on demand (when required). For example, specify 0.5 to
+                represent a cycle period of 6 months.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:float">
+            <xsd:minInclusive value="0"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="equipment">
         <xsd:annotation>
             <xsd:documentation>
@@ -155,6 +172,7 @@
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
             <xsd:element name="task" type="msl:comment"/>
         </xsd:sequence>
+        <xsd:attribute name="cycle" type="msl:cyclePeriod" default="0"/>
     </xsd:complexType>
 
     <xsd:complexType name="firmware">

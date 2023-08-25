@@ -154,6 +154,9 @@ class XML:
     def custom(self, string: str) -> None:
         self._custom = string
 
+    def maintenance(self, string: str) -> None:
+        self._maintenance = string
+
 
 @pytest.fixture(scope='function')
 def xml() -> XML:

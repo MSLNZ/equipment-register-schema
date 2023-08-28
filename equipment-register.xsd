@@ -7,8 +7,25 @@
 
     <xsd:annotation>
         <xsd:documentation>
-            Copyright (c) 2023, Measurement Standards Laboratory of New Zealand. \
+            Copyright (c) 2023, Measurement Standards Laboratory of New Zealand.
+
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
+
+            An Equipment Register contains information to satisfy ISO/IEC 17025:2017 Clause 6.4.13:
+
+            ```
+            Records shall be retained for equipment which can influence laboratory activities.
+            The records shall include the following where applicable:
+
+            a) the identity of equipment, including software and firmware versions;
+            b) the manufacturer's name, type identification, and serial number or other unique identification;
+            c) evidence of verification that equipment conforms with specified requirements;
+            d) the current location;
+            e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval;
+            f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity;
+            g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment;
+            h) details of any damage, malfunction, modification to, or repair of, the equipment.
+            ```
         </xsd:documentation>
     </xsd:annotation>
 
@@ -23,7 +40,19 @@
             <xsd:sequence minOccurs="0" maxOccurs="unbounded">
                 <xsd:element name="equipment" type="msl:equipment"/>
             </xsd:sequence>
-            <xsd:attribute name="team" type="msl:teamEnumerationString" use="required"/>
+            <xsd:attribute name="team" type="msl:teamEnumerationString" use="required">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        d) the current location
+
+                        While the Clause states the current _location_, this is interpreted
+                        as the current _team_ that is the primary user of the equipment who
+                        is responsible for updating the information in a particular equipment
+                        register.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
         </xsd:complexType>
     </xsd:element>
 
@@ -110,36 +139,104 @@
     <xsd:complexType name="equipment">
         <xsd:annotation>
             <xsd:documentation>
-                Contains all relevant information about the equipment to satisfy
-                ISO/IEC 17025:2017 Clause 6.4.13:
-
-                ```
-                Records shall be retained for equipment which can influence laboratory activities.
-                The records shall include the following where applicable:
-
-                a) the identity of equipment, including software and firmware versions;
-                b) the manufacturer's name, type identification, and serial number or other unique identification;
-                c) evidence of verification that equipment conforms with specified requirements;
-                d) the current location;
-                e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval;
-                f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity;
-                g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment;
-                h) details of any damage, malfunction, modification to, or repair of, the equipment.
-                ```
+                Contains information about the equipment to satisfy ISO/IEC 17025:2017
+                Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="id" type="msl:idPatternString"/>
-            <xsd:element name="manufacturer" type="msl:tokenizedString"/>
-            <xsd:element name="model" type="msl:tokenizedString"/>
-            <xsd:element name="serial" type="msl:tokenizedString"/>
-            <xsd:element name="description" type="xsd:string"/>
-            <xsd:element name="active" type="xsd:boolean"/>
-            <xsd:element name="calibrations" type="msl:calibrations"/>
-            <xsd:element name="documentation" type="msl:documentation"/>
-            <xsd:element name="firmware" type="msl:firmware"/>
-            <xsd:element name="maintenance" type="msl:maintenance"/>
-            <xsd:element name="custom" type="msl:custom" minOccurs="0"/>
+            <xsd:element name="id" type="msl:idPatternString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        a) the identity of equipment ...
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="manufacturer" type="msl:tokenizedString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        b) the manufacturer's name ...
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="model" type="msl:tokenizedString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        b) the manufacturer's ... type identification ...
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="serial" type="msl:tokenizedString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        b) the manufacturer's ... serial number or other unique identification
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="description" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A short description about the equipment.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="active" type="xsd:boolean">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Whether the equipment is currently active.
+
+                        When equipment is active, it is still operable and in use.
+                        Equipment may become inactive when it is damaged or no longer in use.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="calibrations" type="msl:calibrations">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        c) evidence of verification that equipment conforms with specified requirements \
+                        e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="documentation" type="msl:documentation">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity
+
+                        Also includes the _optional_ information that is specified in the
+                        MSL Quality Manual Section 4.3.6.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="firmware" type="msl:firmware">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        a) ... software and firmware version
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="maintenance" type="msl:maintenance">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment \
+                        h) details of any damage, malfunction, modification to, or repair of, the equipment
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="custom" type="msl:custom" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        All custom, user-defined elements shall be contained as sub-elements.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
         <!-- TODO consider using an enumeration: DMM, Laser, PRT, Resistor, ... -->
         <xsd:attribute name="category" type="xsd:string"/>
@@ -170,7 +267,15 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="task" type="msl:comment"/>
+            <xsd:element name="task" type="msl:comment">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        g) ... maintenance carried out to date, where relevant to the performance of the equipment \
+                        h) details of any damage, malfunction, modification to, or repair of, the equipment
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="period" type="msl:nonNegativeDecimal" default="0">
             <xsd:annotation>
@@ -193,6 +298,9 @@
             <xsd:documentation>
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) ... software and firmware version
+
+                For equipment that support the _*IDN?_ query, the firmware version is
+                typically found as the fourth item in the reply: _manufacturer,model,serial,firmware_
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">

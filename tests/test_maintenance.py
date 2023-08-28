@@ -12,18 +12,26 @@ def test_invalid_attribute(xml):
 
 
 @pytest.mark.parametrize(
-    'cycle',
-    [0, '0.0e0', 1, 2.000000000000, 12678967.543233, 123456789, '9e99', '2e-6'])
-def test_valid_cycle_value(xml, cycle):
-    xml.maintenance(f'<maintenance cycle="{cycle}"/>')
+    'period',
+    ['0.0e0', '1e2', '-2e-5'])
+def test_invalid_period_value(xml, period):
+    xml.maintenance(f'<maintenance period="{period}"/>')
+    xml.raises('not a valid value of the atomic type')
+
+
+@pytest.mark.parametrize(
+    'period',
+    [0, '0.0000', 1, 2.000000000000, 12678967.543233, 123456789])
+def test_valid_period_value(xml, period):
+    xml.maintenance(f'<maintenance period="{period}"/>')
     assert xml.is_valid()
 
 
 @pytest.mark.parametrize(
-    'cycle',
-    [-0.001, -1, -1.00000, -99, -100000, '-1e-9'])
-def test_negative_cycle_value(xml, cycle):
-    xml.maintenance(f'<maintenance cycle="{cycle}"/>')
+    'period',
+    [-0.001, -1, -1.00000, -99, -100000])
+def test_negative_period_value(xml, period):
+    xml.maintenance(f'<maintenance period="{period}"/>')
     xml.raises(r"minimum value allowed \('0'\)")
 
 

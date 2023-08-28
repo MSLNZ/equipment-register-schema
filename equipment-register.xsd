@@ -93,19 +93,16 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-    <xsd:simpleType name="cyclePeriod">
+    <xsd:simpleType name="nonNegativeDecimal">
         <xsd:annotation>
             <xsd:documentation>
-                The cycle period as the number of years. \
+                A decimal number that is &#x2265; 0.
 
-                The cycle period corresponds to the number of years that may pass
-                before a performance check or a calibration shall be performed.
-                A value of 0 means that the performance check or calibration
-                occurs on demand (when required). For example, specify 0.5 to
-                represent a cycle period of 6 months.
+                Derived from [xsd:decimal](https://www.w3.org/TR/xmlschema-2/#decimal)
+                by setting the value of _minInclusive_ to be 0.
             </xsd:documentation>
         </xsd:annotation>
-        <xsd:restriction base="xsd:float">
+        <xsd:restriction base="xsd:decimal">
             <xsd:minInclusive value="0"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -175,7 +172,20 @@
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
             <xsd:element name="task" type="msl:comment"/>
         </xsd:sequence>
-        <xsd:attribute name="cycle" type="msl:cyclePeriod" default="0"/>
+        <xsd:attribute name="period" type="msl:nonNegativeDecimal" default="0">
+            <xsd:annotation>
+                <xsd:documentation>
+                    Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                    g) the maintenance plan ...
+
+                    The period corresponds to the number of years that may pass
+                    before maintenance (a performance check) shall be performed.
+                    For example, specify 0.5 to represent a period of 6 months.
+                    A value of 0 means that the performance check occurs on
+                    demand (when required).
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="firmware">

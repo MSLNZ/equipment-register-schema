@@ -84,6 +84,7 @@ def test_invalid_task_pattern(xml, text):
      'Replaced the diode',
      ' Replaced the    diode',
      'Replaced\tthe\tdiode',
+     'The diode (model xxx) died and therefore it was replace with a newer model (yyy)'
      ])
 def test_valid_task_pattern(xml, text):
     xml.maintenance(f'<maintenance><task date="2023-06-14">{text}</task></maintenance>')

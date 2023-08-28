@@ -135,13 +135,13 @@
         type hierarchy box. -->
    <xsl:param name="printAllSuperTypes">true</xsl:param>
 
-   <!-- If 'true', prints all sub-types in the
+   <!-- If 'true', prints all subtypes in the
         type hierarchy box.
-        Otherwise, prints the direct sub-types only in the
+        Otherwise, prints the direct subtypes only in the
         type hierarchy box. -->
    <xsl:param name="printAllSubTypes">true</xsl:param>
 
-   <!-- If 'true', prints out the SVG section. -->
+   <!-- If 'true', adds "Interactive Diagram" to the table of contents. -->
    <xsl:param name="printSVG">true</xsl:param>
 
    <!-- If 'true', prints out the Glossary section. -->

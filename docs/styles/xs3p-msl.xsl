@@ -145,7 +145,7 @@
    <xsl:param name="printSVG">true</xsl:param>
 
    <!-- If 'true', prints out the Glossary section. -->
-   <xsl:param name="printGlossary">true</xsl:param>
+   <xsl:param name="printGlossary">false</xsl:param>
 
    <!-- If 'true', prints prefix matching namespace of schema
         components in XML Instance Representation tables. -->

@@ -28,6 +28,7 @@ class XML:
         self._serial: str = self.element('serial', text='0123A')
         self._description: str = self.element('description', text='Digital multimeter')
         self._location: str = self.element('location', text='General')
+        self._status: str = self.element('status', text='Active')
         self._active: str = self.element('active', text='false')
         self._calibrations: str = self.element('calibrations')
         self._documentation: str = self.element('documentation')
@@ -55,6 +56,8 @@ class XML:
             elements.append(f'    {self._description}')
         if self._location:
             elements.append(f'    {self._location}')
+        if self._status:
+            elements.append(f'    {self._status}')
         if self._active:
             elements.append(f'    {self._active}')
         if self._calibrations:
@@ -153,6 +156,9 @@ class XML:
 
     def location(self, obj: str | int, **attribs) -> None:
         self._location = self._helper(self._location, 'location', obj, **attribs)
+
+    def status(self, obj: str | int, **attribs) -> None:
+        self._status = self._helper(self._status, 'status', obj, **attribs)
 
     def active(self, obj: str | int, **attribs) -> None:
         self._active = self._helper(self._active, 'active', obj, **attribs)

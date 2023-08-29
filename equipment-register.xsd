@@ -93,6 +93,23 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="statusEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The status of the equipment.
+
+                When equipment is _Active_ it is still operable and in use.
+                Equipment may become inactive when it is _Damaged_ or no
+                longer in use (_Retired_).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Active"/>
+            <xsd:enumeration value="Damaged"/>
+            <xsd:enumeration value="Retired"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
@@ -224,6 +241,17 @@
 
                         While the Clause states the _current_ location, this is interpreted
                         as the _usual_ location (laboratory) that the equipment is found in.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="status" type="msl:statusEnumerationString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The status of the equipment.
+
+                        When equipment is _Active_ it is still operable and in use.
+                        Equipment may become inactive when it is _Damaged_ or no
+                        longer in use (_Retired_).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

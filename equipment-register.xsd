@@ -346,17 +346,15 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="period" type="msl:nonNegativeDecimal" default="0">
+        <xsd:attribute name="due" type="xsd:date">
             <xsd:annotation>
                 <xsd:documentation>
                     Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                     g) the maintenance plan ...
 
-                    The period corresponds to the number of years that may pass
-                    before maintenance (a performance check) shall be performed.
-                    For example, specify 0.5 to represent a period of 6 months.
-                    A value of 0 means that the performance check occurs on
-                    demand (when required).
+                    The due date when routine maintenance (a performance check)
+                    shall be performed. The date must be in the YYYY-MM-DD format
+                    (see [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

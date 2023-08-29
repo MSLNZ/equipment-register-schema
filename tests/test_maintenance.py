@@ -12,27 +12,27 @@ def test_invalid_attribute(xml):
 
 
 @pytest.mark.parametrize(
-    'period',
-    ['0.0e0', '1e2', '-2e-5'])
-def test_invalid_period_value(xml, period):
-    xml.maintenance(f'<maintenance period="{period}"/>')
+    'value',
+    ['',
+     '   ',
+     '2023',
+     '2023-05',
+     '2023-24-05',
+     '23-24-05',
+     '05-24-2023',
+     '24-05-2023',
+     'text',
+     '24 May 2023',
+     ])
+def test_invalid_attribute_value(xml, value):
+    xml.maintenance(f'<maintenance due="{value}"/>')
     xml.raises('not a valid value of the atomic type')
 
 
-@pytest.mark.parametrize(
-    'period',
-    [0, '0.0000', 1, 2.000000000000, 12678967.543233, 123456789])
-def test_valid_period_value(xml, period):
-    xml.maintenance(f'<maintenance period="{period}"/>')
+@pytest.mark.parametrize('value', ['2023-05-24', '2100-01-01'])
+def test_valid_attribute_value(xml, value):
+    xml.maintenance(f'<maintenance due="{value}"/>')
     assert xml.is_valid()
-
-
-@pytest.mark.parametrize(
-    'period',
-    [-0.001, -1, -1.00000, -99, -100000])
-def test_negative_period_value(xml, period):
-    xml.maintenance(f'<maintenance period="{period}"/>')
-    xml.raises(r"minimum value allowed \('0'\)")
 
 
 def test_invalid_subelement_name(xml):

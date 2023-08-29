@@ -29,7 +29,7 @@ class XML:
         self._description: str = self.element('description', text='Digital multimeter')
         self._location: str = self.element('location', text='General')
         self._status: str = self.element('status', text='Active')
-        self._active: str = self.element('active', text='false')
+        self._calibratable: str = self.element('calibratable', text='false')
         self._calibrations: str = self.element('calibrations')
         self._documentation: str = self.element('documentation')
         self._firmware: str = self.element('firmware')
@@ -58,8 +58,8 @@ class XML:
             elements.append(f'    {self._location}')
         if self._status:
             elements.append(f'    {self._status}')
-        if self._active:
-            elements.append(f'    {self._active}')
+        if self._calibratable:
+            elements.append(f'    {self._calibratable}')
         if self._calibrations:
             elements.append(f'    {self._calibrations}')
         if self._documentation:
@@ -160,8 +160,8 @@ class XML:
     def status(self, obj: str | int, **attribs) -> None:
         self._status = self._helper(self._status, 'status', obj, **attribs)
 
-    def active(self, obj: str | int, **attribs) -> None:
-        self._active = self._helper(self._active, 'active', obj, **attribs)
+    def calibratable(self, obj: str | int, **attribs) -> None:
+        self._calibratable = self._helper(self._calibratable, 'calibratable', obj, **attribs)
 
     def custom(self, string: str) -> None:
         self._custom = string

@@ -34,7 +34,7 @@ def test_invalid_enum(xml, text):
 @pytest.mark.parametrize('occurances', [0, 2, 3, 10])
 def test_one_occurance(xml, occurances):
     xml.status(occurances)
-    xml.raises('active')  # <active> must be after <status>
+    xml.raises('calibratable')  # <calibratable> must be after <status>
 
 
 def test_no_attributes(xml):

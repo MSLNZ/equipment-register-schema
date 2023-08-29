@@ -255,13 +255,10 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="active" type="xsd:boolean">
+            <xsd:element name="calibratable" type="xsd:boolean">
                 <xsd:annotation>
                     <xsd:documentation>
-                        Whether the equipment is currently active.
-
-                        When equipment is active, it is still operable and in use.
-                        Equipment may become inactive when it is damaged or no longer in use.
+                        Whether the equipment is capable of being calibrated.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

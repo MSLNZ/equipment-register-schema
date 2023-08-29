@@ -36,7 +36,7 @@ def test_invalid_pattern(xml, text):
 @pytest.mark.parametrize('occurances', [0, 2, 3, 10])
 def test_one_occurance(xml, occurances):
     xml.description(occurances)
-    xml.raises('active')  # <active> must be after <description>
+    xml.raises('location')  # <location> must be after <description>
 
 
 def test_no_attributes(xml):

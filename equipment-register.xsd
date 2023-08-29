@@ -75,6 +75,24 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="labEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The laboratory that the equipment is usually located in.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="General"/>
+            <xsd:enumeration value="Photometric Bench"/>
+            <xsd:enumeration value="Spectrophotometer"/>
+            <xsd:enumeration value="Detector Responsivity"/>
+            <xsd:enumeration value="Cryogenic Radiometer"/>
+            <xsd:enumeration value="Goniospectrophotometer"/>
+            <xsd:enumeration value="Single Photon"/>
+            <xsd:enumeration value="Flexible Optics"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
@@ -195,6 +213,17 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         A short description about the equipment.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="location" type="msl:labEnumerationString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        d) the current location
+
+                        While the Clause states the _current_ location, this is interpreted
+                        as the _usual_ location (laboratory) that the equipment is found in.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

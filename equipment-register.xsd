@@ -95,6 +95,36 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="categoryEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The category that the equipment belongs to.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DMM"/>
+            <xsd:enumeration value="PRT"/>
+            <xsd:enumeration value="Resistor"/>
+            <xsd:enumeration value="ResistanceBridge"/>
+            <xsd:enumeration value="Gauge"/>
+            <xsd:enumeration value="GaugeBLockComparator"/>
+            <xsd:enumeration value="Laser"/>
+            <xsd:enumeration value="Barometer"/>
+            <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Temperature"/>
+            <xsd:enumeration value="TemperatureHumidity"/>
+            <xsd:enumeration value="Monochromator"/>
+            <xsd:enumeration value="LockInAmplifier"/>
+            <xsd:enumeration value="Chopper"/>
+            <xsd:enumeration value="TranslationStage"/>
+            <xsd:enumeration value="RotationStage"/>
+            <xsd:enumeration value="CurrentSource"/>
+            <xsd:enumeration value="OpticalShutter"/>
+            <xsd:enumeration value="Oscilloscope"/>
+            <xsd:enumeration value="DAQ"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="statusEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
@@ -309,8 +339,7 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <!-- TODO consider using an enumeration: DMM, Laser, PRT, Resistor, ... -->
-        <xsd:attribute name="category" type="xsd:string"/>
+        <xsd:attribute name="category" type="msl:categoryEnumerationString"/>
     </xsd:complexType>
 
     <xsd:complexType name="comment">

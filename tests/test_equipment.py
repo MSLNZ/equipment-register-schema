@@ -8,15 +8,41 @@ def test_no_attribute(xml):
 
 @pytest.mark.parametrize(
     'value',
-    ['',
-     ' ',
-     'can',
-     'be any',
-     ' xsd:string',
+    ['DMM',
+     'PRT',
+     'Resistor',
+     'ResistanceBridge',
+     'Gauge',
+     'GaugeBLockComparator',
+     'Laser',
+     'Barometer',
+     'Humidity',
+     'Temperature',
+     'TemperatureHumidity',
      ])
 def test_valid_attribute_value(xml, value):
     xml.equipment('equipment', category=value)
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'value',
+    ['',
+     ' ',
+     '\n',
+     '\t',
+     '\r',
+     '   \t \r  \n',
+     'dmm',
+     ' DMM',
+     'DMM ',
+     'Resistance-Bridge',
+     'Temperature\n',
+     'Temperature Humidity',
+     ])
+def test_invalid_attribute_value(xml, value):
+    xml.equipment('equipment', category=value)
+    xml.raises("not an element of the set")
 
 
 @pytest.mark.parametrize('category', ['bad', 'invalid'])

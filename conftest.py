@@ -22,7 +22,7 @@ class XML:
         self._root_suffix: str = '</register>'
         self._equipment_prefix: str = f'<equipment category="DMM">'
         self._equipment_suffix: str = '</equipment>'
-        self._id: str = self.element('id', text='MSLE.A.000')
+        self._id: str = self.element('id', text='MSLE.L.000')
         self._manufacturer: str = self.element('manufacturer', text='Company, Inc.')
         self._model: str = self.element('model', text='XY-12.3')
         self._serial: str = self.element('serial', text='0123A')

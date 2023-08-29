@@ -78,12 +78,26 @@
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
-                ISO/IEC 17025:2017 Clause 6.4.13 \
-                a) the identity of equipment ...
+                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 a) the identity of equipment ...
+
+                The id pattern _shall_ consist of
+                1) the upper-case letters **MSLE**
+                2) followed by one period **.** (0x2E)
+                3) followed by one of the following letters
+                    * **E**: Electrical
+                    * **F**: Frequency (Time)
+                    * **H**: Humidity
+                    * **L**: Length
+                    * **M**: Mass
+                    * **O**: Optics (Light)
+                    * **P**: Pressure
+                    * **T**: Temperature
+                4) followed by one period **.** (0x2E)
+                5) followed by one or more upper-case letters and/or digits
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="MSLE\.[A-Z]\.[A-Z0-9]+"/>
+            <xsd:pattern value="MSLE\.[EFHLMOPT]\.[A-Z0-9]+"/>
         </xsd:restriction>
     </xsd:simpleType>
 

@@ -3,10 +3,34 @@ import pytest
 
 @pytest.mark.parametrize(
     'text',
-    ['', ' ', '\t', '0123ABC', '  hello\nworl\td ', '-,.{}!=-+()*^%$#@!;:'])
+    ['A',
+     'This is a long description that contains only valid characters',
+     'A thermometer that can only measure in \u00B0C',
+     'any of these characters -,.{}!=-+()*^%$#@!;:',
+     ])
 def test_valid_pattern(xml, text):
     xml.description(text)
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'text',
+    ['',
+     ' ',
+     '           ',
+     '\t',
+     '\n',
+     '\r',
+     '  leading spaces',
+     'trailing space ',
+     'multiple  spaces',
+     'new\nline',
+     'carriage return\r',
+     'contains\tab',
+     ])
+def test_invalid_pattern(xml, text):
+    xml.description(text)
+    xml.raises('not accepted by the pattern')
 
 
 @pytest.mark.parametrize('occurances', [0, 2, 3, 10])

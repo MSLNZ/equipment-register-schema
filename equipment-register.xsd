@@ -191,7 +191,7 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="description" type="xsd:string">
+            <xsd:element name="description" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
                         A short description about the equipment.

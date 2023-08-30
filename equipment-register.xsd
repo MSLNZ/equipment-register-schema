@@ -270,10 +270,13 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="calibratable" type="xsd:boolean">
+            <xsd:element name="traceable" type="xsd:boolean">
                 <xsd:annotation>
                     <xsd:documentation>
-                        Whether the equipment is capable of being calibrated.
+                        Whether the equipment is used for a traceable measurement.
+
+                        If the equipment is part of a traceability chain for a measurement,
+                        the equipment must have [calibrations](#type_calibrations) specified.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

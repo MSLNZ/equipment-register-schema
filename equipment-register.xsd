@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema version="0.0.1"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:msl="https://www.measurement.govt.nz/equipment-register"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+            xmlns:msl="https://www.measurement.govt.nz/equipment-register"
             elementFormDefault="qualified"
             vc:minVersion="1.0"
             targetNamespace="https://www.measurement.govt.nz/equipment-register">

@@ -278,6 +278,16 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="loggable" type="xsd:boolean">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Whether measurements from the equipment should be continuously logged.
+
+                        Equipment that monitor (for example) pressure, temperature
+                        or humidity of a laboratory environment are considered as loggable.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="traceable" type="xsd:boolean">
                 <xsd:annotation>
                     <xsd:documentation>

@@ -29,6 +29,7 @@ class XML:
         self._description: str = self.element('description', text='Digital multimeter')
         self._location: str = self.element('location', text='General')
         self._status: str = self.element('status', text='Active')
+        self._loggable: str = self.element('loggable', text='false')
         self._traceable: str = self.element('traceable', text='false')
         self._calibrations: str = self.element('calibrations')
         self._documentation: str = self.element('documentation')
@@ -58,6 +59,8 @@ class XML:
             elements.append(f'    {self._location}')
         if self._status:
             elements.append(f'    {self._status}')
+        if self._loggable:
+            elements.append(f'    {self._loggable}')
         if self._traceable:
             elements.append(f'    {self._traceable}')
         if self._calibrations:
@@ -159,6 +162,9 @@ class XML:
 
     def status(self, obj: str | int, **attribs) -> None:
         self._status = self._helper(self._status, 'status', obj, **attribs)
+
+    def loggable(self, obj: str | int, **attribs) -> None:
+        self._loggable = self._helper(self._loggable, 'loggable', obj, **attribs)
 
     def traceable(self, obj: str | int, **attribs) -> None:
         self._traceable = self._helper(self._traceable, 'traceable', obj, **attribs)

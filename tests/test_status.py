@@ -5,6 +5,7 @@ import pytest
     'text',
     ['Active',
      'Damaged',
+     'Dormant',
      'Retired',
      ])
 def test_valid_enum(xml, text):

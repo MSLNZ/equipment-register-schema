@@ -110,16 +110,27 @@
     <xsd:simpleType name="statusEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                The status of the equipment.
+                The status of the equipment is an indication of whether the
+                equipment is _active_ (in use) or _inactive_ (not in use).
 
-                When equipment is _Active_ it is still operable and in use.
-                Equipment may become inactive when it is _Damaged_ or no
-                longer in use (_Retired_).
+                A single value indicates that the equipment is _active_:
+
+                * **Active**: The equipment is operable and may be used
+
+                The following values indicate that the equipment is _inactive_, but
+                provide more context as to the reason why it is _inactive_:
+
+                * **Damaged**: The equipment is damaged and is no longer usable
+                * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
+                  (e.g., the equipment was replaced with a newer/different model, and it is kept as a backup)
+                * **Retired**: The equipment is still operable, but there are no intentions of using it again
+                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Active"/>
             <xsd:enumeration value="Damaged"/>
+            <xsd:enumeration value="Dormant"/>
             <xsd:enumeration value="Retired"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -262,11 +273,8 @@
             <xsd:element name="status" type="msl:statusEnumerationString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The status of the equipment.
-
-                        When equipment is _Active_ it is still operable and in use.
-                        Equipment may become inactive when it is _Damaged_ or no
-                        longer in use (_Retired_).
+                        The status of the equipment is an indication of whether the
+                        equipment is _active_ (in use) or _inactive_ (not in use).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

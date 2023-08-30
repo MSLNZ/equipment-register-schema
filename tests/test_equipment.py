@@ -8,17 +8,13 @@ def test_no_attribute(xml):
 
 @pytest.mark.parametrize(
     'value',
-    ['DMM',
-     'PRT',
+    ['DigitalMultiMeter',
      'Resistor',
-     'ResistanceBridge',
-     'Gauge',
-     'GaugeBLockComparator',
+     'GaugeBlock',
      'Laser',
      'Barometer',
      'Hygrometer',
      'Thermometer',
-     'ThermometerHygrometer',
      ])
 def test_valid_attribute_value(xml, value):
     xml.equipment('equipment', category=value)
@@ -33,12 +29,12 @@ def test_valid_attribute_value(xml, value):
      '\t',
      '\r',
      '   \t \r  \n',
-     'dmm',
-     ' DMM',
-     'DMM ',
-     'Resistance-Bridge',
+     'thermometer',
+     ' Thermometer',
+     'Thermometer ',
      'Thermometer\n',
-     'Thermometer Hygrometer',
+     'DMM',
+     'Digital Multimeter',
      ])
 def test_invalid_attribute_value(xml, value):
     xml.equipment('equipment', category=value)

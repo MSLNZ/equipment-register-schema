@@ -283,8 +283,8 @@
                     <xsd:documentation>
                         Whether the equipment is used for a traceable measurement.
 
-                        If the equipment is part of a traceability chain for a measurement,
-                        the equipment must have [calibrations](#type_calibrations) specified.
+                        If the equipment is part of a traceability chain, the equipment
+                        must have [calibrations](#type_calibrations) specified.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

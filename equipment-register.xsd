@@ -45,13 +45,7 @@
             <xsd:attribute name="team" type="msl:teamEnumerationString" use="required">
                 <xsd:annotation>
                     <xsd:documentation>
-                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        d) the current location
-
-                        While the Clause states the current _location_, this is interpreted
-                        as the current _team_ that is the primary user of the equipment who
-                        is responsible for updating the information in a particular equipment
-                        register.
+                        The team that is responsible for the equipment register.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:attribute>
@@ -61,8 +55,7 @@
     <xsd:simpleType name="teamEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                ISO/IEC 17025:2017 Clause 6.4.13 \
-                d) the current location
+                The team that is responsible for the equipment register.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -145,7 +138,8 @@
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
-                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 a) the identity of equipment ...
+                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                a) the identity of equipment ...
 
                 The id pattern _shall_ consist of
                 1) the upper-case letters **MSLE**
@@ -229,7 +223,7 @@
             <xsd:element name="id" type="msl:idPatternString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         a) the identity of equipment ...
                     </xsd:documentation>
                 </xsd:annotation>
@@ -237,7 +231,7 @@
             <xsd:element name="manufacturer" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         b) the manufacturer's name ...
                     </xsd:documentation>
                 </xsd:annotation>
@@ -245,7 +239,7 @@
             <xsd:element name="model" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         b) the manufacturer's ... type identification ...
                     </xsd:documentation>
                 </xsd:annotation>
@@ -253,7 +247,7 @@
             <xsd:element name="serial" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        ISO/IEC 17025:2017 Clause 6.4.13 \
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         b) the manufacturer's ... serial number or other unique identification
                     </xsd:documentation>
                 </xsd:annotation>
@@ -339,7 +333,13 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="category" type="msl:categoryEnumerationString"/>
+        <xsd:attribute name="category" type="msl:categoryEnumerationString">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ The category that the equipment belongs to.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="comment">

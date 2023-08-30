@@ -103,9 +103,9 @@
             <xsd:enumeration value="GaugeBLockComparator"/>
             <xsd:enumeration value="Laser"/>
             <xsd:enumeration value="Barometer"/>
-            <xsd:enumeration value="Humidity"/>
-            <xsd:enumeration value="Temperature"/>
-            <xsd:enumeration value="TemperatureHumidity"/>
+            <xsd:enumeration value="Hygrometer"/>
+            <xsd:enumeration value="Thermometer"/>
+            <xsd:enumeration value="ThermometerHygrometer"/>
             <xsd:enumeration value="Monochromator"/>
             <xsd:enumeration value="LockInAmplifier"/>
             <xsd:enumeration value="Chopper"/>

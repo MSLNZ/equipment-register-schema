@@ -16,9 +16,9 @@ def test_no_attribute(xml):
      'GaugeBLockComparator',
      'Laser',
      'Barometer',
-     'Humidity',
-     'Temperature',
-     'TemperatureHumidity',
+     'Hygrometer',
+     'Thermometer',
+     'ThermometerHygrometer',
      ])
 def test_valid_attribute_value(xml, value):
     xml.equipment('equipment', category=value)
@@ -37,8 +37,8 @@ def test_valid_attribute_value(xml, value):
      ' DMM',
      'DMM ',
      'Resistance-Bridge',
-     'Temperature\n',
-     'Temperature Humidity',
+     'Thermometer\n',
+     'Thermometer Hygrometer',
      ])
 def test_invalid_attribute_value(xml, value):
     xml.equipment('equipment', category=value)

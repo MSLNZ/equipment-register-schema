@@ -3,7 +3,7 @@ import pytest
 
 def test_invalid_name(xml):
     xml.custom('<not_custom/>')
-    xml.raises(r'Expected is \( .*custom \)')
+    xml.raises(r'Expected is .*custom')
 
 
 def test_more_than_one_occurance(xml):

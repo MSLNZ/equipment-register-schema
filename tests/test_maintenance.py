@@ -3,12 +3,12 @@ import pytest
 
 def test_invalid_name(xml):
     xml.maintenance('<invalid/>')
-    xml.raises(r'Expected is \( .*maintenance \)')
+    xml.raises(r'Expected is .*maintenance')
 
 
 def test_invalid_attribute(xml):
     xml.maintenance('<maintenance invalid="1"/>')
-    xml.raises("The attribute 'invalid' is not allowed")
+    xml.raises("maintenance', attribute 'invalid'")
 
 
 @pytest.mark.parametrize(
@@ -37,7 +37,7 @@ def test_valid_attribute_value(xml, value):
 
 def test_invalid_subelement_name(xml):
     xml.maintenance('<maintenance><invalid/></maintenance>')
-    xml.raises(r'Expected is \( .*task \)')
+    xml.raises(r'Expected is .*task')
 
 
 def test_task_date_missing(xml):
@@ -47,7 +47,7 @@ def test_task_date_missing(xml):
 
 def test_invalid_task_attribute_name(xml):
     xml.maintenance('<maintenance><task invalid="2023-06-14"/></maintenance>')
-    xml.raises("attribute 'invalid' is not allowed")
+    xml.raises("task', attribute 'invalid'")
 
 
 def test_invalid_task_attribute_value(xml):
@@ -121,7 +121,7 @@ def test_multiple_tasks_invalid_name(xml):
                     f'  <invalid date="2023-06-16">Fix something</invalid>'
                     f'  <task date="2023-06-15">Fix something</task>'
                     f'</maintenance>')
-    xml.raises(r'Expected is \( .*task \)')
+    xml.raises(r'Expected is .*task')
 
 
 def test_multiple_tasks_invalid_attribute_value(xml):
@@ -143,4 +143,4 @@ def test_multiple_tasks_invalid_attribute_name(xml):
                     f'  <task date="2023-06-16">Fix something</task>'
                     f'  <task invalid="2023-06-15">Fix something</task>'
                     f'</maintenance>')
-    xml.raises("The attribute 'invalid' is not allowed")
+    xml.raises("task', attribute 'invalid'")

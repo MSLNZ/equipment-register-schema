@@ -14,7 +14,7 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.calibrations('', quantity='Humidity')
-    xml.raises("attribute 'quantity' is not allowed")
+    xml.raises("calibrations', attribute 'quantity'")
 
 
 def test_subelement(xml):
@@ -32,7 +32,7 @@ def test_subelement_attribute_unique(xml):
 def test_subelement_attribute_not_unique(xml, quantity):
     xml.calibrations(f'<measurand quantity="{quantity}" unit="%rh" interval="5"/>'
                      f'<measurand quantity="{quantity}" unit="percentRelative" interval="1"/>')
-    xml.raises('Duplicate key-sequence')
+    xml.raises('Duplicate key-sequence .*uniqueMeasurandQuantity')
 
 
 @pytest.mark.parametrize(
@@ -51,12 +51,12 @@ def test_subelement_missing_attributes(xml, attribs, missing):
 
 def test_subelement_invalid_name(xml):
     xml.calibrations('<anything/>')
-    xml.raises(r'Expected is \( .*measurand \)')
+    xml.raises(r'Expected is .*measurand')
 
 
 def test_subelement_invalid_attribute_name(xml):
     xml.calibrations('<measurand quantity="Humidity" unit="%rh" interval="5" foo="bar"/>')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("measurand', attribute 'foo'")
 
 
 def test_subelement_invalid_quantity_value(xml):

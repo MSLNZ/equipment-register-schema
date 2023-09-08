@@ -41,4 +41,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.description('A 6.5 digit digital multimeter', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("description', attribute 'foo'")

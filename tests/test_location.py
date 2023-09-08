@@ -45,4 +45,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.location('General', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("location', attribute 'foo'")

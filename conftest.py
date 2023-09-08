@@ -175,6 +175,46 @@ class XML:
     def maintenance(self, string: str) -> None:
         self._maintenance = string
 
+    def calibrations(self, obj: str | int, **attribs) -> None:
+        cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)
+        if cal.endswith('</calibrations>'):
+            i = -len('calibrations')-3
+            self._calibrations = cal[:i] + '    </calibrations>'
+        else:
+            self._calibrations = cal
+
+    @staticmethod
+    def measurand(reports: str) -> str:
+        return (f'\n      <measurand quantity="Humidity" unit="%rh" interval="5">\n'
+                f'  {reports}\n'
+                f'      </measurand>\n')
+
+    @staticmethod
+    def report(*,
+               id: str = 'any',  # noqa: Shadows built-in name 'id'
+               start: str = '2023-09-18',
+               stop: str = '2023-09-18',
+               choice: str = None,
+               **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            report = f'<report {attributes}>'
+        else:
+            report = '<report>'
+
+        if choice is None:
+            choice = ('<file>\n'
+                      '            <directory/>\n'
+                      '            <filename>data.dat</filename>\n'
+                      '          </file>')
+
+        return (f'      {report}\n'
+                f'          <id>{id}</id>\n'
+                f'          <measurementStartDate>{start}</measurementStartDate>\n'
+                f'          <measurementStopDate>{stop}</measurementStopDate>\n'
+                f'          {choice}\n'
+                f'        </report>')
+
 
 @pytest.fixture(scope='function')
 def xml() -> XML:

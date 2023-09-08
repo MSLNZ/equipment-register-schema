@@ -135,6 +135,18 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="quantityEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The quantity intended to be measured.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Temperature"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
@@ -306,6 +318,10 @@
                         e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
                     </xsd:documentation>
                 </xsd:annotation>
+                <xsd:unique name="uniqueMeasurandQuantity">
+                    <xsd:selector xpath="msl:measurand"/>
+                    <xsd:field xpath="@quantity"/>
+                </xsd:unique>
             </xsd:element>
             <xsd:element name="documentation" type="msl:documentation">
                 <xsd:annotation>
@@ -451,22 +467,159 @@
     <xsd:complexType name="calibrations">
         <xsd:annotation>
             <xsd:documentation>
-                Contains zero or more [calibration](#type_calibration) elements.
+                Contains zero or more [measurand](#type_measurand) elements.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="calibration" type="msl:calibration"/>
+            <xsd:element name="measurand" type="msl:measurand"/>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="calibration">
+    <xsd:complexType name="measurand">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="report" type="msl:report">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A calibration report.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="quantity" type="msl:quantityEnumerationString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The kind of quantity that is measured.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="unit" type="msl:nonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The unit of the measurement quantity.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="interval" type="msl:nonNegativeDecimal" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The number of years that may pass between calibrations. For
+                    equipment that are calibrated _on demand_, use the value 0.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="report">
         <xsd:annotation>
             <xsd:documentation>
-                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                c) evidence of verification that equipment conforms with specified requirements \
-                e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
+                A calibration report.
             </xsd:documentation>
         </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="id" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The identity of the report.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="measurementStartDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The date that the measurement started.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="measurementStopDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The date that the measurement stopped.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice>
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The format of the calibration data.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:element name="equation" type="msl:equation"/>
+                <xsd:element name="file" type="msl:file"/>
+                <xsd:element name="gtcArchive" type="msl:gtcArchive"/>
+                <xsd:element name="table" type="msl:table"/>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:date">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ The date that the report was issued.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="equation">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration equation.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:complexType>
+
+    <xsd:complexType name="file">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is stored in another file.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="directory" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The directory where the `filename` element is located.
+
+                        Including the `directory` element is required, but the
+                        content may be an empty string.
+
+                        The content of `directory` may be an _absolute_ path or a
+                        _relative_ path, where the definition of _relative_ is up to
+                        each _team_ to standardize.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="filename" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The name of the file (including the file extension).
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="gtcArchive">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is expressed as a
+                [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
+
+                The content of this XML element must be created with the
+                [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json).
+                function, which may be loaded with the
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json).
+                function. Any keyword arguments that are required for the
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                function may be specified as the attributes of this XML element.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:anyAttribute processContents="skip"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="table">
     </xsd:complexType>
 
 </xsd:schema>

@@ -70,14 +70,14 @@ def test_valid_id_value(xml, value):
 
 @pytest.mark.parametrize('value', bad_dates)
 def test_invalid_start_value(xml, value):
-    xml.calibrations(xml.measurand(xml.report(start=value)))
-    xml.raises(f"measurementStartDate': '{value}' is not a valid value")
+    xml.calibrations(xml.measurand(xml.component(xml.report(start=value))))
+    xml.raises(f"startDate': '{value}' is not a valid value")
 
 
 @pytest.mark.parametrize('value', bad_dates)
 def test_invalid_stop_value(xml, value):
-    xml.calibrations(xml.measurand(xml.report(stop=value)))
-    xml.raises(f"measurementStopDate': '{value}' is not a valid value")
+    xml.calibrations(xml.measurand(xml.component(xml.report(stop=value))))
+    xml.raises(f"stopDate': '{value}' is not a valid value")
 
 
 def test_invalid_choice(xml):

@@ -208,12 +208,12 @@ class XML:
                       '            <filename>data.dat</filename>\n'
                       '          </file>')
 
-        return (f'      {report}\n'
-                f'          <id>{id}</id>\n'
-                f'          <measurementStartDate>{start}</measurementStartDate>\n'
-                f'          <measurementStopDate>{stop}</measurementStopDate>\n'
-                f'          {choice}\n'
-                f'        </report>')
+        return (f'{report}\n'
+                f'            <id>{id}</id>\n'
+                f'            <startDate>{start}</startDate>\n'
+                f'            <stopDate>{stop}</stopDate>\n'
+                f'            {choice}\n'
+                f'          </report>')
 
 
 @pytest.fixture(scope='function')

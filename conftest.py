@@ -184,10 +184,25 @@ class XML:
             self._calibrations = cal
 
     @staticmethod
-    def measurand(reports: str) -> str:
+    def measurand(components: str) -> str:
         return (f'\n      <measurand quantity="Humidity" unit="%rh" interval="5">\n'
-                f'  {reports}\n'
+                f'  {components}\n'
                 f'      </measurand>\n')
+
+    @staticmethod
+    def component(reports: str = '', **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            component = f'<component {attributes}'
+        else:
+            component = '<component name=""'
+
+        if not reports:
+            return f'      {component}/>'
+
+        return (f'      {component}>\n'
+                f'          {reports}\n'
+                f'        </component>')
 
     @staticmethod
     def report(*,
@@ -204,9 +219,9 @@ class XML:
 
         if choice is None:
             choice = ('<file>\n'
-                      '            <directory/>\n'
-                      '            <filename>data.dat</filename>\n'
-                      '          </file>')
+                      '              <directory/>\n'
+                      '              <filename>data.dat</filename>\n'
+                      '            </file>')
 
         return (f'{report}\n'
                 f'            <id>{id}</id>\n'

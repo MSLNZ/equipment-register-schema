@@ -2,24 +2,24 @@ import pytest
 
 
 def test_missing_directory(xml):
-    xml.calibrations(xml.measurand(xml.report(choice='<file/>')))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice='<file/>'))))
     xml.raises('Missing child element')
 
 
 def test_invalid_subelement_name(xml):
-    xml.calibrations(xml.measurand(xml.report(choice='<file><invalid/></file>')))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice='<file><invalid/></file>'))))
     xml.raises(r'Expected is .*directory')
 
 
 def test_missing_filename(xml):
     choice = '<file><directory/></file>'
-    xml.calibrations(xml.measurand(xml.report(choice=choice)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'Expected is .*filename')
 
 
 def test_invalid_filename_name(xml):
     choice = '<file><directory/><directory/></file>'
-    xml.calibrations(xml.measurand(xml.report(choice=choice)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'Expected is .*filename')
 
 
@@ -37,7 +37,7 @@ def test_invalid_filename_name(xml):
 def test_directory_value(xml, value):
     # not testing that the directory exists, this should be validated by each team
     choice = f'<file><directory>{value}</directory><filename>data.dat</filename></file>'
-    xml.calibrations(xml.measurand(xml.report(choice=choice)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
 
 
@@ -61,7 +61,7 @@ def test_directory_value(xml, value):
      ])
 def test_invalid_filename_value(xml, value):
     choice = f'<file><directory/><filename>{value}</filename></file>'
-    xml.calibrations(xml.measurand(xml.report(choice=choice)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises('not accepted by the pattern')
 
 
@@ -75,5 +75,5 @@ def test_invalid_filename_value(xml, value):
 def test_valid_filename_value(xml, value):
     # not testing that the file exists, this should be validated by each team
     choice = f'<file><directory/><filename>{value}</filename></file>'
-    xml.calibrations(xml.measurand(xml.report(choice=choice)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()

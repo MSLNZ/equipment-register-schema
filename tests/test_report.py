@@ -21,13 +21,13 @@ bad_dates = [
      {'date': '2023-01-01', 'foo': '2023-01-01'},
      ])
 def test_invalid_attribute_name(xml, attribs):
-    xml.calibrations(xml.measurand(xml.report(**attribs)))
-    xml.raises(r"attribute 'foo' is not allowed")
+    xml.calibrations(xml.measurand(xml.component(xml.report(**attribs))))
+    xml.raises(r"report', attribute 'foo'")
 
 
 @pytest.mark.parametrize('value', bad_dates)
 def test_invalid_attribute_value(xml, value):
-    xml.calibrations(xml.measurand(xml.report(date=value)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(date=value))))
     xml.raises(rf"report', attribute 'date': '{value}' is not a valid value")
 
 
@@ -52,7 +52,7 @@ def test_invalid_attribute_value(xml, value):
      'I\rde\nti\ty',
      ])
 def test_invalid_id_value(xml, value):
-    xml.calibrations(xml.measurand(xml.report(id=value)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(id=value))))
     xml.raises('not accepted by the pattern')
 
 
@@ -64,7 +64,7 @@ def test_invalid_id_value(xml, value):
      '#987654-08',
      ])
 def test_valid_id_value(xml, value):
-    xml.calibrations(xml.measurand(xml.report(id=value)))
+    xml.calibrations(xml.measurand(xml.component(xml.report(id=value))))
     assert xml.is_valid()
 
 
@@ -81,5 +81,5 @@ def test_invalid_stop_value(xml, value):
 
 
 def test_invalid_choice(xml):
-    xml.calibrations(xml.measurand(xml.report(choice='<invalid/>')))
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice='<invalid/>'))))
     xml.raises(r'Expected is one of .*equation, .*file, .*gtcArchive, .*table')

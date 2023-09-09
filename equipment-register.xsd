@@ -676,13 +676,12 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The label of each column in a `table`.
-                        Each label must be separated by a comma. A label may contain
-                        whitespace, but the first label shall not begin with whitespace.
+                        Each label must be separated by a comma.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="[^,\s]+(\s*,[^,]+)*"/>
+                        <xsd:pattern value="[^,]+(,[^,]+)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
@@ -692,12 +691,12 @@
                         The datatype of each column in a `table`.
                         Each datatype must be separated by a comma.
 
-                        Allowed datatypes are: **bool**, **int**, **float**, **str**, **date**
+                        Allowed datatypes are: **bool**, **int**, **float**, **str**
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="\s*(bool|int|float|str|date)\s*(,\s*(bool|int|float|str|date)\s*)*"/>
+                        <xsd:pattern value="\s*(bool|int|float|str)\s*(,\s*(bool|int|float|str)\s*)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>

@@ -447,6 +447,7 @@
             <xsd:element name="manual" type="xsd:anyURI"/>
             <xsd:element name="personnelRestrictions" type="xsd:string"/>
             <xsd:element name="serviceAgent" type="xsd:string"/>
+            <xsd:element name="technicalProcedures" type="xsd:string"/>
             <xsd:element name="warrantyExpirationDate" type="xsd:date"/>
             <xsd:element name="yearPurchased" type="xsd:gYear"/>
         </xsd:sequence>

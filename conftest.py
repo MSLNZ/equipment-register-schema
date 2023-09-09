@@ -178,16 +178,25 @@ class XML:
     def calibrations(self, obj: str | int, **attribs) -> None:
         cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)
         if cal.endswith('</calibrations>'):
-            i = -len('calibrations')-3
-            self._calibrations = cal[:i] + '    </calibrations>'
+            i = -len('</calibrations>')
+            self._calibrations = cal[:i] + '\n    </calibrations>'
         else:
             self._calibrations = cal
 
     @staticmethod
-    def measurand(components: str) -> str:
-        return (f'\n      <measurand quantity="Humidity" unit="%rh" interval="5">\n'
+    def measurand(components: str = '', **attribs) -> str:
+        if not attribs:
+            attribs = {'quantity': 'Humidity', 'unit': '%rh',  'interval': '5'}
+
+        attributes = XML.attributes(**attribs)
+        measurand = f'<measurand {attributes}'
+
+        if not components:
+            return f'\n      {measurand}/>'
+
+        return (f'\n      {measurand}>\n'
                 f'  {components}\n'
-                f'      </measurand>\n')
+                f'      </measurand>')
 
     @staticmethod
     def component(reports: str = '', **attribs) -> str:

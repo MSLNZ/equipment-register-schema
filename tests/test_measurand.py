@@ -1,7 +1,7 @@
 import pytest
 
 
-def test_subelement_invalid_name(xml):
+def test_component_invalid_name(xml):
     xml.calibrations(xml.measurand('<report/>'))
     xml.raises(r'Expected is .*component')
 
@@ -13,7 +13,7 @@ def test_component_valid_attribute_value(xml, value):
 
 
 @pytest.mark.parametrize('value', ['', '   ', 'Ch1', '*^!@#)', 'any\thi\ng'])
-def test_component_name_not_unique(xml, value):
+def test_component_name_not_unique_same_measurand(xml, value):
     c1 = xml.component(name=value)
     c2 = xml.component(name='unique')
     c3 = xml.component(name=value)
@@ -21,7 +21,15 @@ def test_component_name_not_unique(xml, value):
     xml.raises('Duplicate key-sequence .*uniqueComponentName')
 
 
-def test_component_name_unique(xml):
+@pytest.mark.parametrize('value', ['', '   ', 'Ch1', '*^!@#)', 'any\thi\ng'])
+def test_component_name_not_unique_different_measurand(xml, value):
+    m1 = xml.measurand(xml.component(name=value), quantity='Humidity', unit='%rh', interval=5)
+    m2 = xml.measurand(xml.component(name=value), quantity='Temperature', unit='C', interval=5)
+    xml.calibrations(f'{m1}  {m2}')
+    assert xml.is_valid()
+
+
+def test_component_name_unique_same_measurand(xml):
     c1 = xml.component(name='a')
     c2 = xml.component(name='b')
     c3 = xml.component(name='c')

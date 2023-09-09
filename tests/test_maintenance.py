@@ -1,5 +1,7 @@
 import pytest
 
+from conftest import INVALID_DATES
+
 
 def test_invalid_name(xml):
     xml.maintenance('<invalid/>')
@@ -11,19 +13,7 @@ def test_invalid_attribute(xml):
     xml.raises("maintenance', attribute 'invalid'")
 
 
-@pytest.mark.parametrize(
-    'value',
-    ['',
-     '   ',
-     '2023',
-     '2023-05',
-     '2023-24-05',
-     '23-24-05',
-     '05-24-2023',
-     '24-05-2023',
-     'text',
-     '24 May 2023',
-     ])
+@pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_attribute_value(xml, value):
     xml.maintenance(f'<maintenance due="{value}"/>')
     xml.raises('not a valid value of the atomic type')

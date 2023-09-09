@@ -1,18 +1,6 @@
 import pytest
 
-
-bad_dates = [
-    '',
-    '   ',
-    '2023',
-    '2023-05',
-    '2023-24-05',
-    '23-24-05',
-    '05-24-2023',
-    '24-05-2023',
-    'text',
-    '24 May 2023',
-]
+from conftest import INVALID_DATES
 
 
 @pytest.mark.parametrize(
@@ -25,7 +13,7 @@ def test_invalid_attribute_name(xml, attribs):
     xml.raises(r"report', attribute 'foo'")
 
 
-@pytest.mark.parametrize('value', bad_dates)
+@pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_attribute_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(date=value))))
     xml.raises(rf"report', attribute 'date': '{value}' is not a valid value")
@@ -68,13 +56,13 @@ def test_valid_id_value(xml, value):
     assert xml.is_valid()
 
 
-@pytest.mark.parametrize('value', bad_dates)
+@pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_start_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(start=value))))
     xml.raises(f"startDate': '{value}' is not a valid value")
 
 
-@pytest.mark.parametrize('value', bad_dates)
+@pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_stop_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(stop=value))))
     xml.raises(f"stopDate': '{value}' is not a valid value")

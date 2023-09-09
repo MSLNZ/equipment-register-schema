@@ -9,6 +9,24 @@ from lxml.etree import DocumentInvalid
 
 schema = etree.XMLSchema(etree.parse('equipment-register.xsd'))
 
+INVALID_DATES = [
+    '',
+    '   ',
+    '2023',
+    '2023-05',
+    '2023-13-05',
+    '2023-08-32',
+    '01-02-03',
+    '05-08-2023',
+    '08-05-2023',
+    'January',
+    '24 May 2023',
+    'May, 24 2023',
+    '2023.03.04',
+    '2023 03 04',
+    '20230304',
+]
+
 
 class XML:
 

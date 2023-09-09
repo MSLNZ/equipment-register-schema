@@ -641,13 +641,13 @@
                 Calibration data is expressed as a
                 [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
 
-                The content of this XML element must be created with the
-                [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json).
+                The content of the `gtcArchive` element must be created with the
+                [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
                 function, which may be loaded with the
-                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json).
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
                 function. Any keyword arguments that are required for the
                 [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                function may be specified as the attributes of this XML element.
+                function may be specified as attributes of the `gtcArchive` element.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>

@@ -658,6 +658,64 @@
     </xsd:complexType>
 
     <xsd:complexType name="table">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is expressed as a CSV table.
+
+                If using Python to load the table, use
+                [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+                with the _fname_ parameter equal to the `data` content wrapped within a
+                [StringIO](https://docs.python.org/3/library/io.html#io.StringIO) object,
+                the _delimiter_ parameter equal to "," and, optionally, the _names_ parameter
+                equal to the `header` content and construct the _dtype_ parameter from the
+                `datatype` content.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="header">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The label of each column in a `table`.
+                        Each label must be separated by a comma. A label may contain
+                        whitespace, but the first label shall not begin with whitespace.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[^,\s]+(\s*,[^,]+)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="datatype">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The datatype of each column in a `table`.
+                        Each datatype must be separated by a comma.
+
+                        Allowed datatypes are: **bool**, **int**, **float**, **str**, **date**
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="\s*(bool|int|float|str|date)\s*(,\s*(bool|int|float|str|date)\s*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="data">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The data in a `table`.
+                        Each value in a row must be separated by a comma.
+                        The line-feed character (0x0A) represents a new row.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[^,]+(,[^,\n][^,]*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
 </xsd:schema>

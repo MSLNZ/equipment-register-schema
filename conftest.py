@@ -239,6 +239,16 @@ class XML:
                 f'            {choice}\n'
                 f'          </report>')
 
+    @staticmethod
+    def table(header: str = 'a',
+              datatype: str = 'int',
+              data: str = '1') -> str:
+        return (f'<table>\n'
+                f'              <header>{header}</header>\n'
+                f'              <datatype>{datatype}</datatype>\n'
+                f'              <data>{data}</data>\n'
+                f'            </table>')
+
 
 @pytest.fixture(scope='function')
 def xml() -> XML:

@@ -676,6 +676,13 @@
                 `pow\((?&lt;x&gt;[^,]+),(?&lt;y&gt;[^,]+)\)`
                 to perform a search and replace.
 
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `parse` element exists and the content is a
+                [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
+                that the equation is mathematically correct (e.g., whether the equation
+                is missing a closing bracket). You must use another tool to validate the
+                mathematical correctness of the equation._
+
                 **Example**
 
                 The correction to apply is expressed as a second-order polynomial
@@ -741,6 +748,12 @@
         <xsd:annotation>
             <xsd:documentation>
                 Calibration data is stored in another file.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `filename` element exists and the content is a
+                [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
+                that the path to the file is correct. You must use another tool to
+                validate the existence of the file._
 
                 **Examples**
 
@@ -809,6 +822,12 @@
                 [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
                 function may be specified as attributes of the `gtcArchive` element.
 
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `gtcArchive` element has content that may be any string).
+                It does not attempt to validate that the content is a valid string that
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                accepts. You must use GTC to validate the string._
+
                 **Example**
                 ```
                 &lt;gtcArchive&gt;{"CLASS": "Archive", ...}&lt;/gtcArchive&gt;
@@ -834,6 +853,12 @@
                 the _delimiter_ parameter equal to `,` and, optionally, the _names_ parameter
                 equal to the `header` content and construct the _dtype_ parameter from the
                 `datatype` content.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `header` element matches the pattern). It does not attempt
+                to validate that the table is structurally correct (e.g., whether `header`,
+                `datatype` and `data` contain the same number of columns). You must use
+                another tool to validate the structure of the table._
 
                 **Example**
                 ```

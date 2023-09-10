@@ -77,3 +77,12 @@ def test_valid_filename_value(xml, value):
     choice = f'<file><directory/><filename>{value}</filename></file>'
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+def test_filename_attributes(xml):
+    choice = (f'<file>'
+              f'  <directory/>'
+              f'  <filename sheet="Sheet1" cell="A1:C20">data.xlsx</filename>'
+              f'</file>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()

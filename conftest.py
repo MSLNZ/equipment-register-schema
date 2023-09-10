@@ -193,6 +193,9 @@ class XML:
     def maintenance(self, string: str) -> None:
         self._maintenance = string
 
+    def firmware(self, string: str) -> None:
+        self._firmware = string
+
     def calibrations(self, obj: str | int, **attribs) -> None:
         cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)
         if cal.endswith('</calibrations>'):

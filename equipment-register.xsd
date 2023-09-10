@@ -645,14 +645,44 @@
             <xsd:documentation>
                 Calibration data is expressed as an equation.
 
-                The equation takes the measured value(s) as input parameter(s)
+                The equation takes measured value(s) as input parameter(s)
                 and calculates the corrected value.
 
+                The content of the equation to `parse` may contain
+                * the space (0x20) and tab (0x09) characters
+                * integer and floating-point numbers (e.g., 100, 100.0, 1e2, 1.0E+02)
+                * the following brackets: `(` `)`
+                * the following (unary) operators: `+` `-` `*` `/`
+                * the following names to represent the corresponding numerical value:
+                  - pi = 3.14159...
+                * the following functions:
+                  - pow
+                  - sqrt
+                  - sin
+                  - asin
+                  - cos
+                  - acos
+                  - tan
+                  - atan
+                  - exp
+                  - ln
+                  - log
+
+                Depending on the programming language that is used to parse the equation,
+                a search and replace may need to be performed. If the programming language
+                does not support the `pow(x,y)` function to raise `x` to the power of `y`,
+                you may use the following regular expression (which uses a named capture
+                group for the `x` and `y` text)
+                `pow\((?&lt;x&gt;[^,]+),(?&lt;y&gt;[^,]+)\)`
+                to perform a search and replace.
+
                 **Example**
+
+                The correction to apply is expressed as a second-order polynomial
                 ```
                 &lt;equation&gt;
-                  &lt;parse&gt;R + (-10.66 + 1.58e-2*R + 1.212e-3*R**2)&lt;/parse&gt;
-                  &lt;variables&gt;R&lt;/variables&gt;
+                  &lt;parse&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/parse&gt;
+                  &lt;variables&gt;x&lt;/variables&gt;
                   &lt;uncertainty&gt;0.45&lt;/uncertainty&gt;
                 &lt;/equation&gt;
                 ```
@@ -664,36 +694,8 @@
                     <xsd:documentation>
                         The equation to parse to calculate the corrected value.
 
-                        The equation may contain space (0x20) and tab (0x09)
-                        characters, but shall not contain the line feed (0x0A)
-                        nor carriage return (0x0D) characters.
-
-                        The equation may contain the brackets `(` and `)`.
-
-                        The following operators may be used
-                        * _+_ (addition, unary positive)
-                        * _-_ (subtraction, unary negative)
-                        * _*_ (multiplication)
-                        * _/_ (division)
-
-                        The following may be used, for example, to raise _a_ to the power of _b_
-                        * a^b
-                        * a**b
-                        * pow(a, b)
-
-                        The following symbols may be used to represent its numerical constant
-                        * pi = 3.14159...
-
-                        The following functions may be used
-                        * sin
-                        * cos
-                        * tan
-                        * exp
-                        * ln
-                        * log
-                        * sqrt
-                        * arcsin
-                        * arccos
+                        See the Documentation of [equation](#type_equation) for
+                        more details.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

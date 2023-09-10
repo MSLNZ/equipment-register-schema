@@ -8,6 +8,11 @@ def test_invalid_name(xml):
     xml.raises(r'Expected is .*maintenance')
 
 
+def test_repeated(xml):
+    xml.maintenance('<maintenance/><maintenance/>')
+    xml.raises(r'Expected is .*custom')
+
+
 def test_invalid_attribute(xml):
     xml.maintenance('<maintenance invalid="1"/>')
     xml.raises("maintenance', attribute 'invalid'")

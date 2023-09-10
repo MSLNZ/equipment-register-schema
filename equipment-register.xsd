@@ -739,6 +739,14 @@
         <xsd:annotation>
             <xsd:documentation>
                 Calibration data is stored in another file.
+
+                **Example**
+                ```
+                &lt;file&gt;
+                  &lt;directory&gt;a/relative/path&lt;/directory&gt;
+                  &lt;filename&gt;data.xlsx/filename&gt;
+                &lt;/file&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>

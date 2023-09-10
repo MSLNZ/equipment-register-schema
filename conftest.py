@@ -233,9 +233,10 @@ class XML:
 
     @staticmethod
     def report(*,
-               id: str = 'any',  # noqa: Shadows built-in name 'id'
+               number: str = 'any',
                start: str = '2023-09-18',
                stop: str = '2023-09-18',
+               criteria: str = None,
                choice: str = None,
                **attribs) -> str:
         if attribs:
@@ -244,6 +245,9 @@ class XML:
         else:
             report = '<report>'
 
+        if criteria is None:
+            criteria = '<criteria/>'
+
         if choice is None:
             choice = ('<file>\n'
                       '              <directory/>\n'
@@ -251,9 +255,10 @@ class XML:
                       '            </file>')
 
         return (f'{report}\n'
-                f'            <id>{id}</id>\n'
+                f'            <number>{number}</number>\n'
                 f'            <startDate>{start}</startDate>\n'
                 f'            <stopDate>{stop}</stopDate>\n'
+                f'            {criteria}\n'
                 f'            {choice}\n'
                 f'          </report>')
 

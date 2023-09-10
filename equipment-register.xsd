@@ -555,10 +555,10 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="id" type="msl:nonEmptyString">
+            <xsd:element name="number" type="msl:nonEmptyString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The identity (number) of the report.
+                        The report number.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -576,16 +576,47 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:choice>
+            <xsd:element name="criteria" type="msl:custom">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The format of the calibration data.
+                        The criteria under which the calibration report is valid.
+
+                        Some examples of user-defined elements that may be specified are:
+                        * the temperature and/or humidity of the lab must be within a certain range
+                        * the calibration equation is only valid within a certain range
                     </xsd:documentation>
                 </xsd:annotation>
-                <xsd:element name="equation" type="msl:equation"/>
-                <xsd:element name="file" type="msl:file"/>
-                <xsd:element name="gtcArchive" type="msl:gtcArchive"/>
-                <xsd:element name="table" type="msl:table"/>
+            </xsd:element>
+            <xsd:choice>
+                <xsd:element name="equation" type="msl:equation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as an equation.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="file" type="msl:file">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is stored in another file.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="gtcArchive" type="msl:gtcArchive">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as a
+                            [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="table" type="msl:table">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as a CSV table.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
             </xsd:choice>
         </xsd:sequence>
         <xsd:attribute name="date" type="xsd:date">

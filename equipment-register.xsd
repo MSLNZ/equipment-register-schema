@@ -633,9 +633,96 @@
     <xsd:complexType name="equation">
         <xsd:annotation>
             <xsd:documentation>
-                Calibration equation.
+                Calibration data is expressed as an equation.
+
+                The equation takes the measured value(s) as input parameter(s)
+                and calculates the corrected value.
+
+                **Example**
+                ```
+                &lt;equation&gt;
+                  &lt;parse&gt;R + (-10.66 + 1.58e-2*R + 1.212e-3*R**2)&lt;/parse&gt;
+                  &lt;variables&gt;R&lt;/variables&gt;
+                  &lt;uncertainty&gt;0.45&lt;/uncertainty&gt;
+                &lt;/equation&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="parse" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The equation to parse to calculate the corrected value.
+
+                        The equation may contain space (0x20) and tab (0x09)
+                        characters, but shall not contain the line feed (0x0A)
+                        nor carriage return (0x0D) characters.
+
+                        The equation may contain the brackets `(` and `)`.
+
+                        The following operators may be used
+                        * _+_ (addition, unary positive)
+                        * _-_ (subtraction, unary negative)
+                        * _*_ (multiplication)
+                        * _/_ (division)
+
+                        The following may be used, for example, to raise _a_ to the power of _b_
+                        * a^b
+                        * a**b
+                        * pow(a, b)
+
+                        The following symbols may be used to represent its numerical constant
+                        * pi = 3.14159...
+
+                        The following functions may be used
+                        * sin
+                        * cos
+                        * tan
+                        * exp
+                        * ln
+                        * log
+                        * sqrt
+                        * arcsin
+                        * arccos
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="variables">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A comma-separated string of the variable name(s) in
+                        the equation (the variables that represent the measured
+                        quantities).
+
+                        Each variable name must begin with a letter and may
+                        be followed by zero or more alphanumeric characters.
+                        No whitespace shall be used.
+
+                        **Examples**
+                        * &lt;variables&gt;t&lt;/variables&gt;
+                        * &lt;variables&gt;T&lt;/variables&gt;
+                        * &lt;variables&gt;x1,x2,x3&lt;/variables&gt;
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[a-zA-Z]\w*(,[a-zA-Z]\w*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="uncertainty">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The standard uncertainty of the corrected value.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:float">
+                        <xsd:minInclusive value="0"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="file">

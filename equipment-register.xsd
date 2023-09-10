@@ -787,9 +787,29 @@
                 [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
                 with the _fname_ parameter equal to the `data` content wrapped within a
                 [StringIO](https://docs.python.org/3/library/io.html#io.StringIO) object,
-                the _delimiter_ parameter equal to "," and, optionally, the _names_ parameter
+                the _delimiter_ parameter equal to `,` and, optionally, the _names_ parameter
                 equal to the `header` content and construct the _dtype_ parameter from the
                 `datatype` content.
+
+                **Example**
+                ```
+                &lt;table&gt;
+                  &lt;header&gt;Wavelength, Irradiance, Irradiance Std. Uncertainty&lt;/header&gt;
+                  &lt;datatype&gt;int, float, float&lt;/datatype&gt;
+                  &lt;data&gt;
+                    250, 0.018184693, 0.020338474
+                    300, 0.184783924, 0.017558388
+                    350, 0.808454870, 0.016061036
+                    400, 2.213559358, 0.014050724
+                    450, 4.490045649, 0.012509585
+                    500, 7.451358772, 0.012003620
+                    550, 10.75754957, 0.011528671
+                    600, 14.03809504, 0.011028261
+                    650, 16.99469553, 0.011031749
+                    700, 19.44093973, 0.010771097
+                  &lt;/data&gt;
+                &lt;/table&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>

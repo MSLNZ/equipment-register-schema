@@ -473,6 +473,11 @@
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
             <xsd:element name="measurand" type="msl:measurand">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The quantity intended to be measured.
+                    </xsd:documentation>
+                </xsd:annotation>
                 <xsd:unique name="uniqueComponentName">
                     <xsd:selector xpath="msl:component"/>
                     <xsd:field xpath="@name"/>
@@ -482,6 +487,11 @@
     </xsd:complexType>
 
     <xsd:complexType name="measurand">
+        <xsd:annotation>
+            <xsd:documentation>
+                The quantity intended to be measured.
+            </xsd:documentation>
+        </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
             <xsd:element name="component" type="msl:component">
                 <xsd:annotation>
@@ -501,7 +511,7 @@
         <xsd:attribute name="unit" type="msl:nonEmptyString" use="required">
             <xsd:annotation>
                 <xsd:documentation>
-                    The unit of the measurement quantity.
+                    The unit of the measured quantity.
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

@@ -1170,7 +1170,7 @@ pre {
                   </tbody>
                </table>
             </xsl:with-param>
-            <xsl:with-param name="isOpened">true</xsl:with-param>
+            <xsl:with-param name="isOpened">false</xsl:with-param>
             <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
          </xsl:call-template>
       </xsl:if>
@@ -1238,7 +1238,7 @@ pre {
                </tbody>
             </table>
          </xsl:with-param>
-         <xsl:with-param name="isOpened">true</xsl:with-param>
+         <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
    </xsl:template>
@@ -1305,7 +1305,7 @@ pre {
                </tbody>
             </table>
          </xsl:with-param>
-         <xsl:with-param name="isOpened">true</xsl:with-param>
+         <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
    </xsl:template>
@@ -1982,7 +1982,7 @@ pre {
             </tbody>
          </table>
          </xsl:with-param>
-         <xsl:with-param name="isOpened">true</xsl:with-param>
+         <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
       <!-- Annotation -->
@@ -2148,7 +2148,7 @@ pre {
                </tbody>
             </table>
          </xsl:with-param>
-         <xsl:with-param name="isOpened">true</xsl:with-param>
+         <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
       <!-- Annotation -->

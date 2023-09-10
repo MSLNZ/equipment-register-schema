@@ -779,6 +779,11 @@
                 function. Any keyword arguments that are required for the
                 [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
                 function may be specified as attributes of the `gtcArchive` element.
+
+                **Example**
+                ```
+                &lt;gtcArchive&gt;{"CLASS": "Archive", ...}&lt;/gtcArchive&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>

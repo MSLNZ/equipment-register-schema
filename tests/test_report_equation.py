@@ -147,7 +147,7 @@ def test_valid_variables_content(xml, variables):
      '\n\n\n\n',
      '\t\t\t\t\t',
      ' \t\n',
-     '1e',
+     '1d0',
      '1. 0982',
      '-1.0 e-4',
      ])

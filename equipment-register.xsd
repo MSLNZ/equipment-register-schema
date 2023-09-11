@@ -546,13 +546,13 @@
                 <xsd:documentation>
                     The name to associate with this `component`. The value must
                     be unique amongst the other `component` elements within
-                    the `measurand` element. An empty string is permitted.
+                    the same `measurand` element. An empty string is permitted.
 
                     Examples
                     --------
-                    * Multimeter: _Front_, _RearTerminal_
-                    * Data Acquisition: _AO1_, _AnalogIn2_
-                    * Scanner: _Ch1_, _Channel2_
+                    * Multimeter: _Front_, _Rear terminal_
+                    * Data Acquisition: _AO1_, _Analog In 2_
+                    * Scanner: _Ch1_, _Channel 2_
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

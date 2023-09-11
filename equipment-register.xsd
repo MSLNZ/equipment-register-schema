@@ -766,7 +766,7 @@
                 ```
 
                 The data is stored in binary [HDF](https://www.hdfgroup.org/) format.
-                The directory is not specified.
+                A value for the `directory` is not specified, but the element must exist.
                 ```
                 &lt;file&gt;
                   &lt;directory/&gt;

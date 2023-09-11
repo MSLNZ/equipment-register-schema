@@ -135,16 +135,28 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="quantityEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The quantity intended to be measured.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Temperature"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) the identity of equipment ...
 
-                The id pattern _shall_ consist of
-                1) the upper-case letters **MSLE**
-                2) followed by one period **.** (0x2E)
-                3) followed by one of the following letters
+                The id pattern shall consist of
+                * the upper-case letters **MSLE**
+                * followed by one period **.** (0x2E)
+                * followed by one of the following letters
                     * **E**: Electrical
                     * **F**: Frequency (Time)
                     * **H**: Humidity
@@ -153,8 +165,8 @@
                     * **O**: Optics (Light)
                     * **P**: Pressure
                     * **T**: Temperature
-                4) followed by one period **.** (0x2E)
-                5) followed by one or more upper-case letters and/or digits
+                * followed by one period **.** (0x2E)
+                * followed by one or more upper-case letters and/or digits
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -165,7 +177,7 @@
     <xsd:simpleType name="nonEmptyString">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not** contain the line feed (0x0A)
+                A non-empty string that shall not contain the line feed (0x0A)
                 nor carriage return (0x0D) characters.
             </xsd:documentation>
         </xsd:annotation>
@@ -177,11 +189,10 @@
     <xsd:simpleType name="tokenizedString">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not**
-
-                1. contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
-                2. contain sequences of two or more spaces (0x20),
-                3. have leading or trailing spaces.
+                A non-empty string that shall not
+                * contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
+                * contain sequences of two or more spaces (0x20),
+                * have leading or trailing spaces.
 
                 This implementation is what [xsd:token](https://www.w3.org/TR/xmlschema-2/#token)
                 indicates; however, to achieve the desired validation outcome, string normalisation
@@ -306,6 +317,10 @@
                         e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
                     </xsd:documentation>
                 </xsd:annotation>
+                <xsd:unique name="uniqueMeasurandQuantity">
+                    <xsd:selector xpath="msl:measurand"/>
+                    <xsd:field xpath="@quantity"/>
+                </xsd:unique>
             </xsd:element>
             <xsd:element name="documentation" type="msl:documentation">
                 <xsd:annotation>
@@ -355,8 +370,8 @@
     <xsd:complexType name="comment">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not** contain the line feed (0x0A)
-                nor carriage return (0x0D) characters and **shall** have a date
+                A non-empty string that shall not contain the line feed (0x0A)
+                nor carriage return (0x0D) characters and shall have a date
                 as an attribute. The date must be in the YYYY-MM-DD format (see
                 [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
             </xsd:documentation>
@@ -431,6 +446,7 @@
             <xsd:element name="manual" type="xsd:anyURI"/>
             <xsd:element name="personnelRestrictions" type="xsd:string"/>
             <xsd:element name="serviceAgent" type="xsd:string"/>
+            <xsd:element name="technicalProcedures" type="xsd:string"/>
             <xsd:element name="warrantyExpirationDate" type="xsd:date"/>
             <xsd:element name="yearPurchased" type="xsd:gYear"/>
         </xsd:sequence>
@@ -451,22 +467,463 @@
     <xsd:complexType name="calibrations">
         <xsd:annotation>
             <xsd:documentation>
-                Contains zero or more [calibration](#type_calibration) elements.
+                Contains zero or more [measurand](#type_measurand) elements.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="calibration" type="msl:calibration"/>
+            <xsd:element name="measurand" type="msl:measurand">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The quantity intended to be measured.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:unique name="uniqueComponentName">
+                    <xsd:selector xpath="msl:component"/>
+                    <xsd:field xpath="@name"/>
+                </xsd:unique>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="calibration">
+    <xsd:complexType name="measurand">
         <xsd:annotation>
             <xsd:documentation>
-                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                c) evidence of verification that equipment conforms with specified requirements \
-                e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
+                The quantity intended to be measured.
             </xsd:documentation>
         </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="component" type="msl:component">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A component of the equipment that measures the `quantity` attribute.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="quantity" type="msl:quantityEnumerationString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The kind of quantity that is measured.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="unit" type="msl:nonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The unit of the measured quantity.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="interval" type="msl:nonNegativeDecimal" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The number of years that may pass between calibrations.
+                    For equipment that do not have a required calibration
+                    interval but are calibrated _on demand_, use the value 0.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="component">
+        <xsd:annotation>
+            <xsd:documentation>
+                A component of the equipment that measures the [quantity](#type_quantity).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="report" type="msl:report">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A calibration report for this `component`.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name to associate with this `component`. The value must
+                    be unique amongst the other `component` elements within
+                    the same `measurand` element. An empty string is permitted.
+
+                    Examples
+                    --------
+                    * Multimeter: _Front_, _Rear terminal_
+                    * Data Acquisition: _AO1_, _Analog In 2_
+                    * Scanner: _Ch1_, _Channel 2_
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="report">
+        <xsd:annotation>
+            <xsd:documentation>
+                A calibration report.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="number" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The report number.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="startDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The date that the measurement started.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="stopDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The date that the measurement stopped.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="criteria" type="msl:custom">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The criteria under which the calibration report is valid.
+
+                        Some examples of user-defined elements that may be specified are
+                        * the temperature of the equipment must be within a certain range
+                        * the temperature and/or humidity of the lab must be within a certain range
+                        * the calibration equation is only valid within a certain range
+                        * the technical procedure that was followed to acquire the measurement data
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice>
+                <xsd:element name="equation" type="msl:equation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as an equation.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="file" type="msl:file">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is stored in another file.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="gtcArchive" type="msl:gtcArchive">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as a
+                            [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="table" type="msl:table">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as a CSV table.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:date">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ The date that the report was issued.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="equation">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is expressed as an equation.
+
+                The equation takes measured value(s) as input parameter(s)
+                and calculates the corrected value.
+
+                The content of the equation to `parse` may contain
+                * the space (0x20) and tab (0x09) characters
+                * integer and floating-point numbers (e.g., 100, 100.0, 1e2, 1.0E+02)
+                * the following brackets: `(` `)`
+                * the following (unary) operators: `+` `-` `*` `/`
+                * the following names to represent the corresponding numerical value:
+                  - pi = 3.14159...
+                * the following functions:
+                  - pow
+                  - sqrt
+                  - sin
+                  - asin
+                  - cos
+                  - acos
+                  - tan
+                  - atan
+                  - exp
+                  - ln
+                  - log
+
+                Depending on the programming language that is used to parse the equation,
+                a search and replace may need to be performed. If the programming language
+                does not support the `pow(x,y)` function to raise `x` to the power of `y`,
+                you may use the following regular expression (which uses a named capture
+                group for the `x` and `y` text)
+                `pow\((?&lt;x&gt;[^,]+),(?&lt;y&gt;[^,]+)\)`
+                to perform a search and replace.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `parse` element exists and the content is a
+                [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
+                that the equation is mathematically correct (e.g., whether the equation
+                is missing a closing bracket). You must use another tool to validate the
+                mathematical correctness of the equation._
+
+                **Example**
+
+                The correction to apply is expressed as a second-order polynomial
+                ```
+                &lt;equation&gt;
+                  &lt;parse&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/parse&gt;
+                  &lt;variables&gt;x&lt;/variables&gt;
+                  &lt;uncertainty&gt;0.45&lt;/uncertainty&gt;
+                &lt;/equation&gt;
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="parse" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The equation to parse to calculate the corrected value.
+
+                        See the Documentation of [equation](#type_equation) for
+                        more details.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="variables">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A comma-separated string of the variable name(s) in
+                        the equation (the variables that represent the measured
+                        quantities).
+
+                        Each variable name must begin with a letter and may
+                        be followed by zero or more alphanumeric characters.
+                        No whitespace shall be used.
+
+                        **Examples**
+                        * &lt;variables&gt;t&lt;/variables&gt;
+                        * &lt;variables&gt;T&lt;/variables&gt;
+                        * &lt;variables&gt;x1,x2,x3&lt;/variables&gt;
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[a-zA-Z]\w*(,[a-zA-Z]\w*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="uncertainty">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The standard uncertainty of the corrected value.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:float">
+                        <xsd:minInclusive value="0"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="file">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is stored in another file.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `filename` element exists and the content is a
+                [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
+                that the path to the file is correct. You must use another tool to
+                validate the existence of the file._
+
+                **Examples**
+
+                The data is stored in an Excel file that is located in a _relative_ path.
+                ```
+                &lt;file&gt;
+                  &lt;directory&gt;a/relative/path&lt;/directory&gt;
+                  &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx/filename&gt;
+                &lt;/file&gt;
+                ```
+
+                The data is stored in binary [HDF](https://www.hdfgroup.org/) format.
+                A value for the `directory` is not specified, but the element must exist.
+                ```
+                &lt;file&gt;
+                  &lt;directory/&gt;
+                  &lt;filename&gt;data.h5/filename&gt;
+                &lt;/file&gt;
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="directory" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The directory where the `filename` element is located.
+
+                        Including the `directory` element is required, but the
+                        content may be an empty string.
+
+                        The content of `directory` may be an _absolute_ path or a
+                        _relative_ path, where the definition of _relative_ is up to
+                        each _team_ to standardize.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="filename">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The name of the file (including the file extension).
+                        May contain zero or more attributes.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="msl:nonEmptyString">
+                            <xsd:anyAttribute processContents="skip"/>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="gtcArchive">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is expressed as a
+                [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
+
+                The content of the `gtcArchive` element must be created with the
+                [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
+                function, which may be loaded with the
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                function. Any keyword arguments that are required for the
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                function may be specified as attributes of the `gtcArchive` element.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `gtcArchive` element has content that may be any string).
+                It does not attempt to validate that the content is a valid string that
+                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                accepts. You must use GTC to validate the string._
+
+                **Example**
+                ```
+                &lt;gtcArchive&gt;{"CLASS": "Archive", ...}&lt;/gtcArchive&gt;
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:anyAttribute processContents="skip"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="table">
+        <xsd:annotation>
+            <xsd:documentation>
+                Calibration data is expressed as a CSV table.
+
+                If using Python to load the table, use
+                [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+                with the _fname_ parameter equal to the `data` content wrapped within a
+                [StringIO](https://docs.python.org/3/library/io.html#io.StringIO) object,
+                the _delimiter_ parameter equal to `,` and, optionally, the _names_ parameter
+                equal to the `header` content and construct the _dtype_ parameter from the
+                `datatype` content.
+
+                _Attention: This XSD document validates the content of an XML document
+                (e.g., that the `header` element matches the pattern). It does not attempt
+                to validate that the table is structurally correct (e.g., whether `header`,
+                `datatype` and `data` contain the same number of columns). You must use
+                another tool to validate the structure of the table._
+
+                **Example**
+                ```
+                &lt;table&gt;
+                  &lt;header&gt;Wavelength, Irradiance, Irradiance Std. Uncertainty&lt;/header&gt;
+                  &lt;datatype&gt;int, float, float&lt;/datatype&gt;
+                  &lt;data&gt;
+                    250, 0.018184693, 0.020338474
+                    300, 0.184783924, 0.017558388
+                    350, 0.808454870, 0.016061036
+                    400, 2.213559358, 0.014050724
+                    450, 4.490045649, 0.012509585
+                    500, 7.451358772, 0.012003620
+                    550, 10.75754957, 0.011528671
+                    600, 14.03809504, 0.011028261
+                    650, 16.99469553, 0.011031749
+                    700, 19.44093973, 0.010771097
+                  &lt;/data&gt;
+                &lt;/table&gt;
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="header">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The label of each column in a `table`.
+                        Each label must be separated by a comma.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[^,]+(,[^,]+)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="datatype">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The datatype of each column in a `table`.
+                        Each datatype must be separated by a comma.
+
+                        Allowed datatypes are: **bool**, **int**, **float**, **str**
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="\s*(bool|int|float|str)\s*(,\s*(bool|int|float|str)\s*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="data">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The data in a `table`.
+                        Each value in a row must be separated by a comma.
+                        The line-feed character (0x0A) represents a new row.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[^,]+(,[^,\n][^,]*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
 </xsd:schema>

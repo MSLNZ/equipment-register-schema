@@ -9,6 +9,24 @@ from lxml.etree import DocumentInvalid
 
 schema = etree.XMLSchema(etree.parse('equipment-register.xsd'))
 
+INVALID_DATES = [
+    '',
+    '   ',
+    '2023',
+    '2023-05',
+    '2023-13-05',
+    '2023-08-32',
+    '01-02-03',
+    '05-08-2023',
+    '08-05-2023',
+    'January',
+    '24 May 2023',
+    'May, 24 2023',
+    '2023.03.04',
+    '2023 03 04',
+    '20230304',
+]
+
 
 class XML:
 
@@ -174,6 +192,88 @@ class XML:
 
     def maintenance(self, string: str) -> None:
         self._maintenance = string
+
+    def firmware(self, string: str) -> None:
+        self._firmware = string
+
+    def calibrations(self, obj: str | int, **attribs) -> None:
+        cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)
+        if cal.endswith('</calibrations>'):
+            i = -len('</calibrations>')
+            self._calibrations = cal[:i] + '\n    </calibrations>'
+        else:
+            self._calibrations = cal
+
+    @staticmethod
+    def measurand(components: str = '', **attribs) -> str:
+        if not attribs:
+            attribs = {'quantity': 'Humidity', 'unit': '%rh',  'interval': '5'}
+
+        attributes = XML.attributes(**attribs)
+        measurand = f'<measurand {attributes}'
+
+        if not components:
+            return f'\n      {measurand}/>'
+
+        return (f'\n      {measurand}>\n'
+                f'  {components}\n'
+                f'      </measurand>')
+
+    @staticmethod
+    def component(reports: str = '', **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            component = f'<component {attributes}'
+        else:
+            component = '<component name=""'
+
+        if not reports:
+            return f'      {component}/>'
+
+        return (f'      {component}>\n'
+                f'          {reports}\n'
+                f'        </component>')
+
+    @staticmethod
+    def report(*,
+               number: str = 'any',
+               start: str = '2023-09-18',
+               stop: str = '2023-09-18',
+               criteria: str = None,
+               choice: str = None,
+               **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            report = f'<report {attributes}>'
+        else:
+            report = '<report>'
+
+        if criteria is None:
+            criteria = '<criteria/>'
+
+        if choice is None:
+            choice = ('<file>\n'
+                      '              <directory/>\n'
+                      '              <filename>data.dat</filename>\n'
+                      '            </file>')
+
+        return (f'{report}\n'
+                f'            <number>{number}</number>\n'
+                f'            <startDate>{start}</startDate>\n'
+                f'            <stopDate>{stop}</stopDate>\n'
+                f'            {criteria}\n'
+                f'            {choice}\n'
+                f'          </report>')
+
+    @staticmethod
+    def table(header: str = 'a',
+              datatype: str = 'int',
+              data: str = '1') -> str:
+        return (f'<table>\n'
+                f'              <header>{header}</header>\n'
+                f'              <datatype>{datatype}</datatype>\n'
+                f'              <data>{data}</data>\n'
+                f'            </table>')
 
 
 @pytest.fixture(scope='function')

@@ -63,4 +63,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.serial('87349862nf3287h', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("serial', attribute 'foo'")

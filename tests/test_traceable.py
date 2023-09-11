@@ -21,4 +21,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.traceable('true', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("traceable', attribute 'foo'")

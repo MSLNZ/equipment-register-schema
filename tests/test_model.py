@@ -63,4 +63,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.model('34401a', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("model', attribute 'foo'")

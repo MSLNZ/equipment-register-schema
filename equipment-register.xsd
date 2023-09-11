@@ -153,10 +153,10 @@
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) the identity of equipment ...
 
-                The id pattern _shall_ consist of
-                1) the upper-case letters **MSLE**
-                2) followed by one period **.** (0x2E)
-                3) followed by one of the following letters
+                The id pattern shall consist of
+                * the upper-case letters **MSLE**
+                * followed by one period **.** (0x2E)
+                * followed by one of the following letters
                     * **E**: Electrical
                     * **F**: Frequency (Time)
                     * **H**: Humidity
@@ -165,8 +165,8 @@
                     * **O**: Optics (Light)
                     * **P**: Pressure
                     * **T**: Temperature
-                4) followed by one period **.** (0x2E)
-                5) followed by one or more upper-case letters and/or digits
+                * followed by one period **.** (0x2E)
+                * followed by one or more upper-case letters and/or digits
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -190,10 +190,9 @@
         <xsd:annotation>
             <xsd:documentation>
                 A non-empty string that **shall not**
-
-                1. contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
-                2. contain sequences of two or more spaces (0x20),
-                3. have leading or trailing spaces.
+                * contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
+                * contain sequences of two or more spaces (0x20),
+                * have leading or trailing spaces.
 
                 This implementation is what [xsd:token](https://www.w3.org/TR/xmlschema-2/#token)
                 indicates; however, to achieve the desired validation outcome, string normalisation

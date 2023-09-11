@@ -177,7 +177,7 @@
     <xsd:simpleType name="nonEmptyString">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not** contain the line feed (0x0A)
+                A non-empty string that shall not contain the line feed (0x0A)
                 nor carriage return (0x0D) characters.
             </xsd:documentation>
         </xsd:annotation>
@@ -189,7 +189,7 @@
     <xsd:simpleType name="tokenizedString">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not**
+                A non-empty string that shall not
                 * contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
                 * contain sequences of two or more spaces (0x20),
                 * have leading or trailing spaces.
@@ -370,8 +370,8 @@
     <xsd:complexType name="comment">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that **shall not** contain the line feed (0x0A)
-                nor carriage return (0x0D) characters and **shall** have a date
+                A non-empty string that shall not contain the line feed (0x0A)
+                nor carriage return (0x0D) characters and shall have a date
                 as an attribute. The date must be in the YYYY-MM-DD format (see
                 [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
             </xsd:documentation>

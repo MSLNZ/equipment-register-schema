@@ -63,6 +63,7 @@ def test_invalid_parse_content(xml, parse):
               f'  <parse>{parse}</parse>'
               f'  <variables>x</variables>'
               f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not accepted by the pattern')
@@ -83,6 +84,7 @@ def test_valid_parse_content(xml, parse):
               f'  <parse>{parse}</parse>'
               f'  <variables>x</variables>'
               f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
@@ -113,6 +115,7 @@ def test_invalid_variables_content(xml, variables):
               f'  <parse>2*x</parse>'
               f'  <variables>{variables}</variables>'
               f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not accepted by the pattern')
@@ -131,6 +134,7 @@ def test_valid_variables_content(xml, variables):
               f'  <parse>2*x</parse>'
               f'  <variables>{variables}</variables>'
               f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
@@ -156,17 +160,19 @@ def test_invalid_uncertainty_content(xml, uncertainty):
               f'  <parse>2*x</parse>'
               f'  <variables>x</variables>'
               f'  <uncertainty>{uncertainty}</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not a valid value')
 
 
 def test_negative_uncertainty_value(xml):
-    choice = (f'<equation>'
-              f'  <parse>2*x</parse>'
-              f'  <variables>x</variables>'
-              f'  <uncertainty>-1.0</uncertainty>'
-              f'</equation>')
+    choice = ('<equation>'
+              '  <parse>2*x</parse>'
+              '  <variables>x</variables>'
+              '  <uncertainty>-1.0</uncertainty>'
+              '  <coverageFactor>1</coverageFactor>'
+              '</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'less than the minimum value')
 
@@ -187,6 +193,62 @@ def test_valid_uncertainty_content(xml, uncertainty):
               f'  <parse>2*x</parse>'
               f'  <variables>x</variables>'
               f'  <uncertainty>{uncertainty}</uncertainty>'
+              f'  <coverageFactor>1</coverageFactor>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+
+@pytest.mark.parametrize(
+    'cf',
+    ['',
+     '     ',
+     '\t',
+     '\n',
+     '\r',
+     '\n\r',
+     '\n\n\n\n',
+     '\t\t\t\t\t',
+     ' \t\n',
+     '1d0',
+     '1. 0982',
+     '-1.0 e-4',
+     ])
+def test_invalid_coverage_factor_content(xml, cf):
+    choice = (f'<equation>'
+              f'  <parse>2*x</parse>'
+              f'  <variables>x</variables>'
+              f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>{cf}</coverageFactor>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r'not a valid value')
+
+
+@pytest.mark.parametrize(
+    ('cf', 'facet'),
+    [(0.99, 'minInclusive'),
+     (12.71, 'maxInclusive'),
+    ])
+def test_invalid_coverage_factor_range(xml, cf, facet):
+    choice = (f'<equation>'
+              f'  <parse>2*x</parse>'
+              f'  <variables>x</variables>'
+              f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>{cf}</coverageFactor>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(f'facet {facet!r}')
+
+
+@pytest.mark.parametrize('cf', [1, 1.0001, 3.1415926, 12.7])
+def test_valid_coverage_factor(xml, cf):
+    choice = (f'<equation>'
+              f'  <parse>2*x</parse>'
+              f'  <variables>x</variables>'
+              f'  <uncertainty>0.1</uncertainty>'
+              f'  <coverageFactor>{cf}</coverageFactor>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()

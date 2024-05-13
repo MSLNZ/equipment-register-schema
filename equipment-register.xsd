@@ -731,7 +731,7 @@
             <xsd:element name="uncertainty">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The standard uncertainty of the corrected value.
+                        The standard or expanded uncertainty of the corrected value.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
@@ -740,6 +740,19 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
+			<xsd:element name="coverageFactor">
+				<xsd:annotation>
+					<xsd:documentation>
+						The coverage factor for the standard uncertainty.
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:float">
+						<xsd:minInclusive value="1"/>
+						<xsd:maxInclusive value="12.70"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 

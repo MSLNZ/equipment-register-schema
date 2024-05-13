@@ -690,6 +690,7 @@
                   &lt;parse&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/parse&gt;
                   &lt;variables&gt;x&lt;/variables&gt;
                   &lt;uncertainty&gt;0.45&lt;/uncertainty&gt;
+                  &lt;coverageFactor&gt;1.0&lt;/coverageFactor&gt;
                 &lt;/equation&gt;
                 ```
             </xsd:documentation>

@@ -55,4 +55,4 @@ def test_one_occurance(xml, occurances):
 
 def test_no_attributes(xml):
     xml.id('MSLE.L.000', foo='bar')
-    xml.raises("attribute 'foo' is not allowed")
+    xml.raises("id', attribute 'foo'")

@@ -732,8 +732,11 @@ pre {
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `filename` element exists and the content is a
                 [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
-                that the path to the file is correct nor if the checksum is correct. You
-                must use another tool to validate the existence of the file and the checksum._
+                that the file exists nor if the checksum is correct for the file
+                (although the general format of the checksum, i.e., has the proper length
+                and contains only allowed characters, is validated). You must use another
+                tool to validate the existence of the file and the validity of the
+                checksum value._
 
                 **Examples**
 
@@ -742,7 +745,7 @@ pre {
                 ```xml
                 &lt;file&gt;
                   &lt;directory&gt;a/relative/path&lt;/directory&gt;
-                  &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx/filename&gt;
+                  &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx&lt;/filename&gt;
                   &lt;sha256&gt;70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```
@@ -753,7 +756,7 @@ pre {
                 ```xml
                 &lt;file&gt;
                   &lt;directory/&gt;
-                  &lt;filename&gt;data.h5/filename&gt;
+                  &lt;filename&gt;data.h5&lt;/filename&gt;
                   &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```

@@ -110,22 +110,22 @@
     <xsd:simpleType name="statusEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-				The status of the equipment is an indication of whether the
-				equipment is _active_ (in use) or _inactive_ (not in use).
+                The status of the equipment is an indication of whether the
+                equipment is _active_ (in use) or _inactive_ (not in use).
 
-				A single value indicates that the equipment is _active_:
+                A single value indicates that the equipment is _active_:
 
-				* **Active**: The equipment is operable and may be used
+                * **Active**: The equipment is operable and may be used
 
-				The following values indicate that the equipment is _inactive_, but
-				provide more context as to the reason why it is _inactive_:
+                The following values indicate that the equipment is _inactive_, but
+                provide more context as to the reason why it is _inactive_:
 
-				* **Damaged**: The equipment is damaged and is no longer usable
-				* **Dormant**: The equipment is still operable, it is no longer in use but may be used again
-				(e.g., the equipment was replaced with a newer/different model, and it is kept as a backup)
-				* **Retired**: The equipment is still operable, but there are no intentions of using it again
-				(e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
-				* **Lost**: The equipment is lost, but if found can be put back into service.
+                * **Damaged**: The equipment is damaged and is no longer usable
+                * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
+                  (e.g., the equipment was replaced with a newer/different model, and it is kept as a backup)
+                * **Retired**: The equipment is still operable, but there are no intentions of using it again
+                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+                * **Lost**: The equipment is lost, but if found may be put back into service.
 			</xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">

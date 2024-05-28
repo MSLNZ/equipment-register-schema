@@ -17,6 +17,14 @@ You should see the following (however, your Java version may be different)
    Java(TM) SE Runtime Environment (build 20.0.2+9-78)
    Java HotSpot(TM) 64-Bit Server VM (build 20.0.2+9-78, mixed mode, sharing)
 
+If `Java`_ is not installed, then on Windows you can install it by running
+
+.. code-block:: console
+
+   winget install --exact --id Oracle.JDK.22
+
+and then open an new terminal.
+
 The documentation files ``index.html`` and ``diagram.svg`` are automatically
 created by running the ``build_docs.py`` script.
 **DO NOT MODIFY THESE FILES AS YOUR CHANGES WILL BE OVERWRITTEN!**

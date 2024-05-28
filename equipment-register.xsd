@@ -767,25 +767,29 @@
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `filename` element exists and the content is a
                 [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
-                that the path to the file is correct. You must use another tool to
-                validate the existence of the file._
+                that the path to the file is correct nor if the checksum is correct. You
+                must use another tool to validate the existence of the file and the checksum._
 
                 **Examples**
 
                 The data is stored in an Excel file that is located in a _relative_ path.
-                ```
+
+                ```xml
                 &lt;file&gt;
                   &lt;directory&gt;a/relative/path&lt;/directory&gt;
                   &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx/filename&gt;
+                  &lt;sha256&gt;70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```
 
                 The data is stored in binary [HDF](https://www.hdfgroup.org/) format.
                 A value for the `directory` is not specified, but the element must exist.
-                ```
+
+                ```xml
                 &lt;file&gt;
                   &lt;directory/&gt;
                   &lt;filename&gt;data.h5/filename&gt;
+                  &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```
             </xsd:documentation>
@@ -819,6 +823,31 @@
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sha256">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The SHA-256 checksum of the file.
+
+                        On a Windows computer, the SHA-256 checksum can be calculated using a
+                        terminal (e.g., PowerShell or Command Prompt) using
+
+                        ```console
+                        > CertUtil -hashfile "path_to_your_file" SHA256
+                        ```
+
+                        On UNIX-based computers, the SHA-256 checksum can be calculated using
+
+                        ```console
+                        $ shasum -a 256 "path_to_your_file"
+                        ```
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[a-fA-F0-9]{64}"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

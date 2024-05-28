@@ -36,7 +36,11 @@ def test_invalid_filename_name(xml):
      ])
 def test_directory_value(xml, value):
     # not testing that the directory exists, this should be validated by each team
-    choice = f'<file><directory>{value}</directory><filename>data.dat</filename></file>'
+    choice = (f'<file>'
+              f'  <directory>{value}</directory>'
+              f'  <filename>data.dat</filename>'
+              f'  <sha256>8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728</sha256>'
+              f'</file>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
 
@@ -74,15 +78,41 @@ def test_invalid_filename_value(xml, value):
      ])
 def test_valid_filename_value(xml, value):
     # not testing that the file exists, this should be validated by each team
-    choice = f'<file><directory/><filename>{value}</filename></file>'
+    choice = (f'<file>'
+              f'  <directory/>'
+              f'  <filename>{value}</filename>'
+              f'  <sha256>8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728</sha256>'
+              f'</file>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
 
 
 def test_filename_attributes(xml):
-    choice = (f'<file>'
-              f'  <directory/>'
-              f'  <filename sheet="Sheet1" cell="A1:C20">data.xlsx</filename>'
-              f'</file>')
+    choice = ('<file>'
+              '  <directory/>'
+              '  <filename sheet="Sheet1" cell="A1:C20">data.xlsx</filename>'
+              '  <sha256>8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728</sha256>'
+              '</file>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'checksum',
+    ['8392e473a047',  # too short
+     'J392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728',  # contains J
+     ])
+def test_sha256_invalid(xml, checksum):
+    choice = (f'<file>'
+              f'  <directory/>'
+              f'  <filename>data.xlsx</filename>'
+              f'  <sha256>{checksum}</sha256>'
+              f'</file>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert not xml.is_valid()
+
+
+def test_sha256_missing(xml):
+    choice = '<file><directory/><filename>data.xlsx</filename></file>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r'Expected is .*sha256')

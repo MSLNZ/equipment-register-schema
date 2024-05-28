@@ -252,10 +252,13 @@ class XML:
             criteria = '<criteria/>'
 
         if choice is None:
-            choice = ('<file>\n'
-                      '              <directory/>\n'
-                      '              <filename>data.dat</filename>\n'
-                      '            </file>')
+            choice = (
+                '<file>\n'
+                '              <directory/>\n'
+                '              <filename>data.dat</filename>\n'
+                '              <sha256>8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728</sha256>\n'
+                '            </file>'
+            )
 
         return (f'{report}\n'
                 f'            <number>{number}</number>\n'

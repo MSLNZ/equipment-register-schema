@@ -32,6 +32,7 @@ class XML:
 
     DECLARATION: str = '<?xml version="1.0"?>'
     NAMESPACE: str = 'https://www.measurement.govt.nz/equipment-register'
+    SHA256: str = '8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728'
 
     def __init__(self) -> None:
         super().__init__()
@@ -252,13 +253,11 @@ class XML:
             criteria = '<criteria/>'
 
         if choice is None:
-            choice = (
-                '<file>\n'
-                '              <directory/>\n'
-                '              <filename>data.dat</filename>\n'
-                '              <sha256>8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728</sha256>\n'
-                '            </file>'
-            )
+            choice = (f'<file>\n'
+                      f'              <directory/>\n'
+                      f'              <filename>data.dat</filename>\n'
+                      f'              <sha256>{XML.SHA256}</sha256>\n'
+                      f'            </file>')
 
         return (f'{report}\n'
                 f'            <number>{number}</number>\n'

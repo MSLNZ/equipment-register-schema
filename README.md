@@ -14,27 +14,60 @@ The documentation for the Equipment-Register schema is available
 [here](https://mslnz.github.io/equipment-register-schema/).
 
 ## Contributing Guide
-Python is required to run the tests and to build the documentation.
+[Python](https://www.python.org/) and [Java](https://www.java.com/) are required
+to run the tests and to build the documentation. [Git](https://git-scm.com/) is
+required to clone the repository.
 
-To install the dependencies run
+### Prerequisites
+If you know how to install Java, Git, Python and Python packages (`pytest` and `lxml`
+are required) you can skip this section entirely (or only install what you do not have).
 
-```console
-> pip install pytest lxml
+Running the following commands will:
+1. Install Git
+2. Install Java
+3. Install Python
+4. Install the Python requirements (If you are familiar with
+[virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments),
+you should install the packages into one &ndash; otherwise ignore this _virtual environment_ stuff.)
+
+You could also manually install each program (links above) rather than running
+the following `winget` commands.
+
+Open a terminal (i.e., PowerShell or Command Prompt &ndash; _you may need to open
+an elevated terminal if you are using an ITS-managed computer_) and run each command sequentially
+to install Git, Java and Python
+
+```shell
+> winget install --exact --id Git.Git
+> winget install --exact --id Oracle.JDK.22
+> winget install --exact --id Python.Python.3.12
+```
+
+Next, install the Python requirement packages (`pytest` and `lxml`)
+```shell
+> py -m pip install pytest lxml
+```
+
+Finally, clone the repository and change directory, `cd`, into the root directory of the repository
+```shell
+> git clone https://github.com/MSLNZ/equipment-register-schema.git
+> cd equipment-register-schema
 ```
 
 ### Testing
 To run the tests, execute the following command from the root directory
 of the repository
 
-```console
+```shell
 > pytest
 ```
 
 ### Documentation
-To build the documentation, run
+To build the documentation, execute the following command from the root directory
+of the repository
 
-```console
-> python build_docs.py
+```shell
+> py build_docs.py
 ```
 
 See the [docs/README.rst](https://github.com/MSLNZ/equipment-register-schema/tree/main/docs#readme)

@@ -5,21 +5,21 @@ and available on the `PATH` environment variable of your operating system.
 To test if you have [Java] installed and configured properly, open a
 terminal and execute
 
-```console
+```shell
 > java -version
 ```
 
 You should see the following (however, your version of [Java] may be different)
 
 ```console
-java version "22" 2024-03-19
-Java(TM) SE Runtime Environment (build 22+36-2370)
-Java HotSpot(TM) 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)
+java version "22.0.1" 2024-04-16
+Java(TM) SE Runtime Environment (build 22.0.1+8-16)
+Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
 ```
 
 If [Java] is not installed, then, on Windows, you can install it by running
 
-```console
+```shell
 > winget install --exact --id Oracle.JDK.22
 ```
 and then open a new terminal. You could also [download][Java]
@@ -65,7 +65,7 @@ To change the SVG style (e.g., colours, fonts), you only need to edit
 To change the content of `diagram.svg`, you must modify the source
 code in the `bin/xsdvi` directory, rebuild `xsdvi.jar` using [ant](https://ant.apache.org/)
 
-```console
+```shell
 > cd bin/xsdvi
 > ant clean
 > ant

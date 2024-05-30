@@ -53,7 +53,7 @@ structure of the `equipment-register.xsd` file in a web browser. The
 `bin/xsdvi.jar` program creates the `diagram.svg` file.
 
 The original source code for *xsdvi* is available at
-[sourceforge](https://xml.fiforms.org/xs3p/) (the documentation is written
+[sourceforge](https://xsdvi.sourceforge.net/) (the documentation is written
 in Czech). It was [forked](https://github.com/metanorma/xsdvi) to fix some
 bugs and to add new features. The source code in `bin/xsdvi` is based on *some*
 of the changes that we made in the fork, but with further customizations.

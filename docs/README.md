@@ -56,7 +56,7 @@ The original source code for *xsdvi* is available at
 [sourceforge](https://xsdvi.sourceforge.net/) (the documentation is written
 in Czech). It was [forked](https://github.com/metanorma/xsdvi) to fix some
 bugs and to add new features. The source code in `bin/xsdvi` is based on *some*
-of the changes that we made in the fork, but with further customizations.
+of the changes that were made in the fork, but with further customizations.
 
 The stylesheet for the SVG diagram is located at `styles/svg.css`.
 To change the SVG style (e.g., colours, fonts), you only need to edit

@@ -1,6 +1,13 @@
-*.pyc
-check.*
+# Global directories
 __pycache__/
-.idea/
-.pytest_cache/
+
+# Global files
+*.py[codz]
+
+# Root directories
+/.venv/
+/venv/
+/.idea/
+/.vscode/
+/.pytest_cache/
 /docs/bin/xsdvi/build/

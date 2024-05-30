@@ -16,7 +16,7 @@ The documentation for the Equipment-Register schema is available
 ## Contributing Guide
 [Python](https://www.python.org/) and [Java](https://www.java.com/) are required
 to run the tests and to build the documentation. [Git](https://git-scm.com/) is
-required to clone the repository.
+required to interact with the repository.
 
 ### Prerequisites
 If you know how to install Java, Git, Python and Python packages (`pytest` and `lxml`

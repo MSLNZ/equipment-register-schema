@@ -43,6 +43,9 @@ to install Git, Java and Python
 > winget install --exact --id Python.Python.3.12
 ```
 
+You must now restart (close then re-open) your terminal so that the executable
+for these installed programs becomes available to use.
+
 Next, install the Python requirement packages (`pytest` and `lxml`)
 ```shell
 > py -m pip install pytest lxml

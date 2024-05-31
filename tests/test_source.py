@@ -1,6 +1,6 @@
 import pytest
 
-from conftest import XML
+from tests.conftest import XML
 
 
 @pytest.mark.parametrize(

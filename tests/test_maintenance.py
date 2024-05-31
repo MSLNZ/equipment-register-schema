@@ -1,6 +1,6 @@
 import pytest
 
-from conftest import INVALID_DATES
+from tests.conftest import INVALID_DATES
 
 
 def test_invalid_name(xml):

@@ -77,14 +77,17 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="General"/>
-            <xsd:enumeration value="Photometric Bench"/>
-            <xsd:enumeration value="Spectrophotometer"/>
-            <xsd:enumeration value="Detector Responsivity"/>
             <xsd:enumeration value="Cryogenic Radiometer"/>
-            <xsd:enumeration value="Goniospectrophotometer"/>
-            <xsd:enumeration value="Single Photon"/>
+            <xsd:enumeration value="Detector Responsivity"/>
             <xsd:enumeration value="Flexible Optics"/>
+            <xsd:enumeration value="Goniospectrophotometer"/>
+            <xsd:enumeration value="Kibble Balance"/>
+            <xsd:enumeration value="Long room"/>
+            <xsd:enumeration value="Mass Standards laboratories"/>
+            <xsd:enumeration value="Photometric Bench"/>
+            <xsd:enumeration value="Pressure Standards laboratories"/>
+            <xsd:enumeration value="Single Photon"/>
+            <xsd:enumeration value="Spectrophotometer"/>
         </xsd:restriction>
     </xsd:simpleType>
 

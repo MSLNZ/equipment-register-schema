@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.parametrize(
     'text',
-    ['General',
+    ['Long room',
      'Photometric Bench',
      'Spectrophotometer',
      'Detector Responsivity',

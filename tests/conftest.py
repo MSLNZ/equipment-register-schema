@@ -46,7 +46,7 @@ class XML:
         self._model: str = self.element('model', text='XY-12.3')
         self._serial: str = self.element('serial', text='0123A')
         self._description: str = self.element('description', text='Digital multimeter')
-        self._location: str = self.element('location', text='General')
+        self._location: str = self.element('location', text='Kibble Balance')
         self._status: str = self.element('status', text='Active')
         self._loggable: str = self.element('loggable', text='false')
         self._traceable: str = self.element('traceable', text='false')

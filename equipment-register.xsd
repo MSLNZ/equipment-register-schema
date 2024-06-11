@@ -758,16 +758,16 @@
                         `variables` attribute value to be empty (the `variables`
                         attribute must still be defined).
 
-                        Some calibration reports state the expanded uncertainty and
+                        A calibration report may state the expanded uncertainty and
                         the coverage factor. The parsed `uncertainty` equation must
-                        return the standard uncertainty, so if you want to specify
+                        return the standard uncertainty. If you want to specify
                         the expanded uncertainty and the coverage factor in your XML
                         document, you may define the `uncertainty` equation as
 
-                        `expanded_uncertainty_value / coverage_factor_value`
+                        `expanded_uncertainty / coverage_factor`
 
-                        where, you must replace `expanded_uncertainty_value` and
-                        `coverage_factor_value` with the actual numerical values.
+                        where, you must replace `expanded_uncertainty` and
+                        `coverage_factor` with the actual numerical value.
 
                         See the documentation of [equation](#type_equation) for
                         more details about the characters that may be used.

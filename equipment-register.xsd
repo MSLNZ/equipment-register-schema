@@ -458,7 +458,32 @@
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) ... software and firmware version
 
-                For equipment that support the _*IDN?_ query, the firmware version is
+                A distinction is made between _software_ and _firmware_ version.
+
+                **Software**: May be provided by the manufacturer of the equipment
+                and may be installed/updated by an end user on _any_ computer. The
+                manufacturer of the equipment may provide this software as, for
+                example, a graphical user interface (GUI) and/or as a software
+                development kit (SDK) to interface with the equipment. Software
+                could also refer to the version of the bespoke code that is written
+                by a metrologist to control the equipment. Both the manufacturer and
+                the bespoke software version are important to document, but it shall
+                not be specified in the equipment register. It shall be documented in a
+                different manner, e.g., as metadata in a file during data acquisition.
+
+                **Firmware**: Embedded within the equipment. May be updated by either
+                the manufacturer and/or the end user. If applicable, it shall be
+                specified in the equipment register.
+
+                The primary difference is that the _firmware_ version has a single
+                value of truth (it is independent of where the equipment
+                is physically located and independent of which computer is used to
+                interface with it) whereas the _software_ version depends on which
+                computer (perhaps even on which executable is run on the same computer)
+                is used to interface with the equipment and therefore there may not be
+                a single value of truth that can be defined in the equipment register.
+
+                For equipment that support the `*IDN?` query, the firmware version is
                 typically found as the fourth item in the reply: _manufacturer,model,serial,firmware_
             </xsd:documentation>
         </xsd:annotation>

@@ -358,14 +358,12 @@
                     <xsd:field xpath="@quantity"/>
                 </xsd:unique>
             </xsd:element>
-            <xsd:element name="documentation" type="msl:documentation">
+            <xsd:element name="maintenance" type="msl:maintenance">
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        f) documentation of reference materials, results, ..., relevant dates and the period of validity
-
-                        Also includes the _optional_ information that is specified in the
-                        MSL Quality Manual Section 4.3.6.
+                        g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment \
+                        h) details of any damage, malfunction, modification to, or repair of, the equipment
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -377,12 +375,22 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="maintenance" type="msl:maintenance">
+            <xsd:element name="acceptanceCriteria" type="msl:custom">
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment \
-                        h) details of any damage, malfunction, modification to, or repair of, the equipment
+                        f) documentation of ..., acceptance criteria, ...
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="documentation" type="msl:documentation">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        f) documentation of reference materials, results, ..., relevant dates and the period of validity
+
+                        Also includes the _optional_ information that is specified in the
+                        MSL Quality Manual Section 4.3.6.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

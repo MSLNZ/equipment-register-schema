@@ -9,7 +9,7 @@ def test_empty(xml):
 @pytest.mark.parametrize('occurances', [0, 2, 3, 10])
 def test_one_occurance(xml, occurances):
     xml.calibrations(occurances)
-    xml.raises('documentation')  # <documentation> must be after <calibrations>
+    xml.raises('maintenance')  # <maintenance> must be after <calibrations>
 
 
 def test_no_attributes(xml):

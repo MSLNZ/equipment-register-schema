@@ -51,9 +51,10 @@ class XML:
         self._loggable: str = self.element('loggable', text='false')
         self._traceable: str = self.element('traceable', text='false')
         self._calibrations: str = self.element('calibrations')
-        self._documentation: str = self.element('documentation')
-        self._firmware: str = self.element('firmware')
         self._maintenance: str = self.element('maintenance')
+        self._firmware: str = self.element('firmware')
+        self._acceptance: str = self.element('acceptanceCriteria')
+        self._documentation: str = self.element('documentation')
         self._custom: str = ''
 
     def __repr__(self) -> str:
@@ -84,12 +85,14 @@ class XML:
             elements.append(f'    {self._traceable}')
         if self._calibrations:
             elements.append(f'    {self._calibrations}')
-        if self._documentation:
-            elements.append(f'    {self._documentation}')
-        if self._firmware:
-            elements.append(f'    {self._firmware}')
         if self._maintenance:
             elements.append(f'    {self._maintenance}')
+        if self._firmware:
+            elements.append(f'    {self._firmware}')
+        if self._acceptance:
+            elements.append(f'    {self._acceptance}')
+        if self._documentation:
+            elements.append(f'    {self._documentation}')
         if self._custom:
             elements.append(f'    {self._custom}')
         elements.append(f'  {self._equipment_suffix}')
@@ -196,6 +199,9 @@ class XML:
 
     def firmware(self, string: str) -> None:
         self._firmware = string
+
+    def acceptance_criteria(self, string: str) -> None:
+        self._acceptance = string
 
     def calibrations(self, obj: str | int, **attribs) -> None:
         cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)

@@ -10,7 +10,7 @@ def test_invalid_name(xml):
 
 def test_repeated(xml):
     xml.maintenance('<maintenance/><maintenance/>')
-    xml.raises(r'Expected is .*custom')
+    xml.raises(r'Expected is .*firmware')
 
 
 def test_invalid_attribute(xml):

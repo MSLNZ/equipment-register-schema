@@ -669,8 +669,9 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2_1")' onmouseout='m
 <rect class='boxelement' x='0' y='0' width='315' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://www.measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>coverageFactor</text>
-<text class='element-type' x='5' y='41'>base: float</text>
+<text class='element-name' x='5' y='27'>degreeFreedom</text>
+<text class='element-type' x='5' y='41'>base: double</text>
+<text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>

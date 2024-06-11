@@ -720,7 +720,6 @@
                 &lt;equation&gt;
                   &lt;value variables="x"&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/value&gt;
                   &lt;uncertainty variables=""&gt;0.45&lt;/uncertainty&gt;
-                  &lt;coverageFactor&gt;1.0&lt;/coverageFactor&gt;
                 &lt;/equation&gt;
                 ```
             </xsd:documentation>
@@ -730,6 +729,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The equation to parse to calculate the corrected `value`.
+
                         If the `value` is a constant numerical value (i.e., an offset),
                         set the `variables` attribute value to be empty (the `variables`
                         attribute must still be defined).
@@ -752,10 +752,22 @@
             <xsd:element name="uncertainty">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The equation to parse to calculate the standard (or expanded)
-                        uncertainty of the corrected value. If the `uncertainty` is a
-                        constant numerical value, set the `variables` attribute value
-                        to be empty (the `variables` attribute must still be defined).
+                        The equation to parse to calculate the standard uncertainty.
+
+                        If the `uncertainty` is a constant numerical value, set the
+                        `variables` attribute value to be empty (the `variables`
+                        attribute must still be defined).
+
+                        Some calibration reports state the expanded uncertainty and
+                        the coverage factor. The parsed `uncertainty` equation must
+                        return the standard uncertainty, so if you want to specify
+                        the expanded uncertainty and the coverage factor in your XML
+                        document, you may define the `uncertainty` equation as
+
+                        `expanded_uncertainty_value / coverage_factor_value`
+
+                        where, you must replace `expanded_uncertainty_value` and
+                        `coverage_factor_value` with the actual numerical values.
 
                         See the documentation of [equation](#type_equation) for
                         more details about the characters that may be used.
@@ -772,17 +784,17 @@
                     </xsd:simpleContent>
                 </xsd:complexType>
             </xsd:element>
-			<xsd:element name="coverageFactor">
+			<xsd:element name="degreeFreedom" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>
-						The coverage factor required to convert the `uncertainty`
-                        to be the standard uncertainty.
+						The degrees of freedom. If not specified, the degrees of freedom
+                        shall be considered to be `+INF`.
 					</xsd:documentation>
 				</xsd:annotation>
 				<xsd:simpleType>
-					<xsd:restriction base="xsd:float">
-						<xsd:minInclusive value="1"/>
-						<xsd:maxInclusive value="12.70"/>
+					<xsd:restriction base="xsd:double">
+                        <xsd:minInclusive value="1"/>
+                        <xsd:maxInclusive value="INF"/>
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>

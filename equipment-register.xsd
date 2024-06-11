@@ -362,7 +362,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity
+                        f) documentation of reference materials, results, ..., relevant dates and the period of validity
 
                         Also includes the _optional_ information that is specified in the
                         MSL Quality Manual Section 4.3.6.
@@ -471,21 +471,23 @@
         <xsd:annotation>
             <xsd:documentation>
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity
+                f) documentation of reference materials, results, ..., relevant dates
+                   and the period of validity
 
                 Also includes the _optional_ information that is specified in Section 4.3.6
                 of the MSL Quality Manual.
             </xsd:documentation>
         </xsd:annotation>
-        <xsd:sequence minOccurs="0">
-            <xsd:element name="accessories" type="xsd:string"/>
-            <xsd:element name="manual" type="xsd:anyURI"/>
-            <xsd:element name="personnelRestrictions" type="xsd:string"/>
-            <xsd:element name="serviceAgent" type="xsd:string"/>
-            <xsd:element name="technicalProcedures" type="xsd:string"/>
-            <xsd:element name="warrantyExpirationDate" type="xsd:date"/>
-            <xsd:element name="yearPurchased" type="xsd:gYear"/>
-        </xsd:sequence>
+        <xsd:all minOccurs="0">
+            <xsd:element name="accessories" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="assetNumber" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
+            <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="serviceAgent" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="technicalProcedures" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="warrantyExpirationDate" type="xsd:date" minOccurs="0"/>
+            <xsd:element name="yearPurchased" type="xsd:gYear" minOccurs="0"/>
+        </xsd:all>
     </xsd:complexType>
 
     <xsd:complexType name="custom">

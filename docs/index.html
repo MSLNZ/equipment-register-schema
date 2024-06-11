@@ -869,19 +869,18 @@ pre {
                 Calibration data is expressed as a
                 [GTC Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive).
 
-                The content of the `gtcArchive` element must be created with the
-                [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
-                function, which may be loaded with the
+                Any keyword arguments that are required for the
                 [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                function. Any keyword arguments that are required for the
-                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                or
+                [loads_xml](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_xml)
                 function may be specified as attributes of the `gtcArchive` element.
 
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `gtcArchive` element has content that may be any string).
                 It does not attempt to validate that the content is a valid string that
-                [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                accepts. You must use GTC to validate the string._
+                can be used to create an
+                [Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive)
+                object. You must use GTC to validate the content._
 
                 **Example**
                 ```

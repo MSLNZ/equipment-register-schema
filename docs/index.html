@@ -1062,10 +1062,11 @@ pre {
                 Calibration data is expressed as a CSV table.
 
                 _Attention: This XSD document validates the content of an XML document
-                (e.g., that the `header` content matches the pattern). It does not attempt
-                to validate that the table is structurally correct (e.g., whether `header`,
-                `datatype` and `data` contain the same number of columns). You must use
-                another tool to validate the structure of the table._
+                (e.g., that the `header` element exists and that the content matches
+                the allowed pattern). It does not attempt to validate that the table
+                is structurally correct (e.g., whether `header`, `type` and `data`
+                contain the same number of columns). You must use another tool to
+                validate the structure of the table._
 
                 **Example**
                 ```

@@ -868,6 +868,43 @@
             <xsd:documentation>
                 Calibration data is stored in another file.
 
+                Specifying an absolute path in an equipment register should only be
+                performed if the location of the file will remain constant for an
+                extended period of time. This is not typically the case, as MSL has
+                had to migrate data multiple times (i.e., a network drive, then GDrive,
+                then OneDrive, ...).
+
+                One option is to think of file paths as a combination of three parts
+
+                ```
+                root \ &lt;directory&gt; \ &lt;filename&gt;
+                ```
+
+                where,
+                * root: This is not stored in an equipment register. Instead, it may be
+                        stored in a separate file (ideally in a single file) on a local
+                        hard drive. How and where this is stored is up to the individual.
+                * directory: This is the `&lt;directory&gt;` element in an equipment register.
+                * filename: This is the `&lt;filename&gt;` element in an equipment register.
+
+                For example, consider the following absolute path
+                ```
+                C:\Users\username\OneDrive - My Company Name\Length\Quality\Equipment\register.xml
+                ```
+                each part could be broken down as follows
+
+                * root = `C:\Users\username\OneDrive - My Company Name`
+                  - this value could be stored, for example, in a file in the users home directory
+                    or as a constant in the analysis software
+                * directory = `Length\Quality\Equipment`
+                  - the top directory in this value, `Length`, and all subdirectories are under
+                    the control of the corresponding MSL team
+                * filename = `register.xml`
+
+                Whenever someone needs to load the file, the `root` is read from a local
+                file, the `&lt;directory&gt;` and `&lt;filename&gt;` elements are read from
+                the equipment register, and, finally, the absolute path is constructed.
+
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `filename` element exists and the content is a
                 [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
@@ -879,11 +916,11 @@
 
                 **Examples**
 
-                The data is stored in an Excel file that is located in a _relative_ path.
+                The data is stored in an Excel file that is located at a _relative_ path.
 
                 ```xml
                 &lt;file&gt;
-                  &lt;directory&gt;a/relative/path&lt;/directory&gt;
+                  &lt;directory&gt;a\relative\path&lt;/directory&gt;
                   &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx&lt;/filename&gt;
                   &lt;sha256&gt;70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609&lt;/sha256&gt;
                 &lt;/file&gt;
@@ -912,7 +949,13 @@
 
                         The content of `directory` may be an _absolute_ path or a
                         _relative_ path, where the definition of _relative_ is up to
-                        each _team_ to standardize.
+                        each MSL team to standardise.
+
+                        Consider using the following structure that was discussed
+                        previously to construct an absolute path
+                        ```
+                        root \ &lt;directory&gt; \ &lt;filename&gt;
+                        ```
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -921,6 +964,12 @@
                     <xsd:documentation>
                         The name of the file (including the file extension).
                         May contain zero or more attributes.
+
+                        Consider using the following structure that was discussed
+                        previously to construct an absolute path
+                        ```
+                        root \ &lt;directory&gt; \ &lt;filename&gt;
+                        ```
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>

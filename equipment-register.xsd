@@ -1083,10 +1083,10 @@
                         function may be specified as attributes of the `gtcArchiveJSON` element.
 
                         _Attention: This XSD document validates the content of an XML document
-                        (e.g., that the `gtcArchiveJSON` element has content that may be any string).
-                        It does not attempt to validate that the content is a valid string that
-                        can be used to create an `Archive` object. You must use `GTC` to validate
-                        the content._
+                        (e.g., that the `gtcArchiveJSON` element has content that may be any
+                        non-empty string). It does not attempt to validate that the content is a
+                        valid string that can be used to create an `Archive` object. You must use
+                        `GTC` to validate the content._
 
                         **Example**
                         ```
@@ -1098,7 +1098,7 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:simpleContent>
-                        <xsd:extension base="xsd:string">
+                        <xsd:extension base="msl:nonEmptyString">
                             <xsd:anyAttribute processContents="skip"/>
                         </xsd:extension>
                     </xsd:simpleContent>

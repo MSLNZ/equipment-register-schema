@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_xml_format(xml):
     choice = ('<serialised>'
               '  <gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml">'
@@ -106,3 +109,21 @@ def test_json_format_anything(xml):
     choice = '<serialised><gtcArchiveJSON apple="red">does not matter!</gtcArchiveJSON></serialised>'
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'value',
+    ['',
+     '  ',
+     '\t',
+     '\n',
+     '\r',
+     '\n\r',
+     '\n\n\n\n',
+     '\t\t\t\t\t',
+     ' \t     \n                ',
+     ])
+def test_json_format_not_empty(xml, value):
+    choice = f'<serialised><gtcArchiveJSON>{value}</gtcArchiveJSON></serialised>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r'not accepted by the pattern')

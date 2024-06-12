@@ -804,7 +804,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")' onmouseout='mak
 <rect class='boxelement' x='0' y='0' width='315' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://www.measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>datatype</text>
+<text class='element-name' x='5' y='27'>type</text>
 <text class='element-type' x='5' y='41'>base: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>

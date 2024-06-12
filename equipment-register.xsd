@@ -972,16 +972,8 @@
             <xsd:documentation>
                 Calibration data is expressed as a CSV table.
 
-                If using Python to load the table, use
-                [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
-                with the _fname_ parameter equal to the `data` content wrapped within a
-                [StringIO](https://docs.python.org/3/library/io.html#io.StringIO) object,
-                the _delimiter_ parameter equal to `,` and, optionally, the _names_ parameter
-                equal to the `header` content and construct the _dtype_ parameter from the
-                `datatype` content.
-
                 _Attention: This XSD document validates the content of an XML document
-                (e.g., that the `header` element matches the pattern). It does not attempt
+                (e.g., that the `header` content matches the pattern). It does not attempt
                 to validate that the table is structurally correct (e.g., whether `header`,
                 `datatype` and `data` contain the same number of columns). You must use
                 another tool to validate the structure of the table._
@@ -989,8 +981,8 @@
                 **Example**
                 ```
                 &lt;table&gt;
-                  &lt;header&gt;Wavelength, Irradiance, Irradiance Std. Uncertainty&lt;/header&gt;
-                  &lt;datatype&gt;int, float, float&lt;/datatype&gt;
+                  &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
+                  &lt;type&gt;int, double, double&lt;/type&gt;
                   &lt;data&gt;
                     250, 0.018184693, 0.020338474
                     300, 0.184783924, 0.017558388
@@ -1011,8 +1003,8 @@
             <xsd:element name="header">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The label of each column in a `table`.
-                        Each label must be separated by a comma.
+                        The label of each column in the `table`.
+                        Each label shall be separated by a comma.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
@@ -1021,27 +1013,37 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="datatype">
+            <xsd:element name="type">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The datatype of each column in a `table`.
-                        Each datatype must be separated by a comma.
+                        The data type of each column in the `table`.
+                        Each data type shall be separated by a comma.
 
-                        Allowed datatypes are: **bool**, **int**, **float**, **str**
+                        Allowed data types are: **bool**, **int**, **double**, **string**
+
+                        ```
+                        |  Data  |  Size   |                   Description                        |
+                        |  Type  | (bytes) |                                                      |
+                        | ------ | ------- | ---------------------------------------------------- |
+                        | bool   |    1    | true (1) or false (0)                                |
+                        | int    |    4    | Values from -2147483648 to +2147483647 (inclusive)   |
+                        | double |    8    | Approx. 2E-308 to 2E+308 (15-16 digits of precision) |
+                        | string |         | Unicode character strings                            |
+                        ```
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="\s*(bool|int|float|str)\s*(,\s*(bool|int|float|str)\s*)*"/>
+                        <xsd:pattern value="\s*(bool|int|double|string)\s*(,\s*(bool|int|double|string)\s*)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
             <xsd:element name="data">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The data in a `table`.
-                        Each value in a row must be separated by a comma.
-                        The line-feed character (0x0A) represents a new row.
+                        The data in the `table`.
+                        Each row shall be separated by a line-feed character (0x0A).
+                        Each column in a row shall be separated by a comma.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>

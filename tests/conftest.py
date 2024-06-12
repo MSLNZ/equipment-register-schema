@@ -279,7 +279,7 @@ class XML:
               data: str = '1') -> str:
         return (f'<table>\n'
                 f'              <header>{header}</header>\n'
-                f'              <datatype>{datatype}</datatype>\n'
+                f'              <type>{datatype}</type>\n'
                 f'              <data>{data}</data>\n'
                 f'            </table>')
 

@@ -23,13 +23,13 @@ def test_invalid_datatype_element_name(xml):
          '  <invalid/>'
          '</table>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
-    xml.raises(r'Expected is .*datatype')
+    xml.raises(r'Expected is .*type')
 
 
 def test_invalid_data_element_name(xml):
     t = ('<table>'
          '  <header>a</header>'
-         '  <datatype>int</datatype>'
+         '  <type>int</type>'
          '  <invalid/>'
          '</table>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
@@ -39,7 +39,7 @@ def test_invalid_data_element_name(xml):
 def test_invalid_extra_element_name(xml):
     t = ('<table>'
          '  <header>a</header>'
-         '  <datatype>int</datatype>'
+         '  <type>int</type>'
          '  <data>1</data>'
          '  <header>a</header>'
          '</table>')
@@ -60,7 +60,7 @@ def test_invalid_extra_element_name(xml):
      'a,b,c,,d',
      ])
 def test_invalid_header(xml, header):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(header=header)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not accepted by the pattern')
@@ -89,9 +89,10 @@ def test_invalid_header(xml, header):
      ' a, ',
      'a, ,b',  # the space is the name of the middle column
      'a, \n,b',  # the space\n is the name of the middle column
+     'Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]',
      ])
 def test_valid_header(xml, header):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(header=header)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
@@ -106,16 +107,16 @@ def test_valid_header(xml, header):
      'int,',
      ' ,int',
      ' int, ',
-     'int,,float',
-     'int, ,float',
+     'int,,double',
+     'int, ,double',
      'integer',
      'any,thing',
-     'float,double,float',
-     'flo at',
-     'int,float,bool,',
+     'double,double,float',
+     'doub le',
+     'int,double,bool,',
      ])
 def test_invalid_datatype(xml, datatype):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(datatype=datatype)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not accepted by the pattern')
@@ -124,16 +125,16 @@ def test_invalid_datatype(xml, datatype):
 @pytest.mark.parametrize(
     'datatype',
     ['int',
-     '\nfloat',
+     '\ndouble',
      'bool\n',
-     '   str    ',
+     '   string    ',
      'int, int, int',
-     '    float,float,float,float,float,float,float,float,float,float',
-     '\nfloat,\n\n\nbool,                 str,int',
-     ' bool , int , float , str ',
+     '    double,double,double,double,double,double,double,double,double,double',
+     '\ndouble,\n\n\nbool,                 string,int',
+     ' bool , int , double , string ',
      ])
 def test_valid_datatype(xml, datatype):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(datatype=datatype)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
@@ -153,7 +154,7 @@ def test_valid_datatype(xml, datatype):
      '1,2,3\n4,5,6\n,',
      ])
 def test_invalid_data(xml, data):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(data=data)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r'not accepted by the pattern')
@@ -169,7 +170,7 @@ def test_invalid_data(xml, data):
      '12.3e-8,4.3e-8,50,false,text\n12.3e-8,4.3e-8,50,false,text\n12.3e-8,4.3e-8,50,false,text',
      ])
 def test_valid_data(xml, data):
-    # not validating that header, datatype and data contain the same number of columns
+    # not validating that header, data type and data contain the same number of columns
     choice = xml.table(data=data)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()

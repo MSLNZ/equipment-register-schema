@@ -3,10 +3,10 @@
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:gtc="https://measurement.govt.nz/gtc/xml"
-            xmlns:msl="https://www.measurement.govt.nz/equipment-register"
+            xmlns:msl="https://measurement.govt.nz/equipment-register"
             elementFormDefault="qualified"
             vc:minVersion="1.0"
-            targetNamespace="https://www.measurement.govt.nz/equipment-register">
+            targetNamespace="https://measurement.govt.nz/equipment-register">
 
     <xsd:import namespace="https://measurement.govt.nz/gtc/xml" schemaLocation="./external/gtc.xsd"/>
 

@@ -31,7 +31,7 @@ INVALID_DATES = [
 class XML:
 
     DECLARATION: str = '<?xml version="1.0"?>'
-    NAMESPACE: str = 'https://www.measurement.govt.nz/equipment-register'
+    NAMESPACE: str = 'https://measurement.govt.nz/equipment-register'
     SHA256: str = '8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728'
 
     def __init__(self) -> None:

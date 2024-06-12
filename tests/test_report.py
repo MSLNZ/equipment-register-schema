@@ -124,9 +124,9 @@ def test_no_choice(xml):
          '  <criteria/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is one of .*equation, .*file, .*gtcArchive, .*table')
+    xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')
 
 
 def test_invalid_choice(xml):
     xml.calibrations(xml.measurand(xml.component(xml.report(choice='<invalid/>'))))
-    xml.raises(r'Expected is one of .*equation, .*file, .*gtcArchive, .*table')
+    xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')

@@ -1,23 +1,8 @@
 import pytest
 
 
-def test_no_attribute(xml):
+def test_no_keywords_attribute(xml):
     xml.equipment('equipment')
-    assert xml.is_valid()
-
-
-@pytest.mark.parametrize(
-    'value',
-    ['DigitalMultiMeter',
-     'Resistor',
-     'GaugeBlock',
-     'Laser',
-     'Barometer',
-     'Hygrometer',
-     'Thermometer',
-     ])
-def test_valid_attribute_value(xml, value):
-    xml.equipment('equipment', category=value)
     assert xml.is_valid()
 
 
@@ -29,22 +14,35 @@ def test_valid_attribute_value(xml, value):
      '\t',
      '\r',
      '   \t \r  \n',
-     'thermometer',
-     ' Thermometer',
-     'Thermometer ',
-     'Thermometer\n',
      'DMM',
-     'Digital Multimeter',
+     '  PRT   ',
+     'GaugeBlock',
+     'Laser\n',
+     'Barometer\t',
+     'Hygrometer ',
+     '      Thermometer',
+     'Source  Voltage\t AC\nDC ',
      ])
-def test_invalid_attribute_value(xml, value):
-    xml.equipment('equipment', category=value)
+def test_valid_keywords_value(xml, value):
+    xml.equipment('equipment', keywords=value)
+    assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'value',
+    ['thermometer',  # case sensitive
+     'DigitalMultiMeter',
+     'P R T',
+     ])
+def test_invalid_keywords_value(xml, value):
+    xml.equipment('equipment', keywords=value)
     xml.raises("not an element of the set")
 
 
-@pytest.mark.parametrize('category', ['bad', 'invalid'])
-def test_invalid_attribute_name(xml, category):
-    xml.equipment('equipment', **{category: 'DMM'})
-    xml.raises(f'The attribute {category!r} is not allowed')
+@pytest.mark.parametrize('attrib_name', ['bad', 'invalid'])
+def test_invalid_attribute_name(xml, attrib_name):
+    xml.equipment('equipment', **{attrib_name: 'DigitalMultiMeter'})
+    xml.raises(f'The attribute {attrib_name!r} is not allowed')
 
 
 @pytest.mark.parametrize('name', ['bad', 'name'])

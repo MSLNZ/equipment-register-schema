@@ -1242,11 +1242,11 @@ onmouseover='makeVisible("_1_1_1_1_1_15")' onmouseout='makeHidden("_1_1_1_1_1_15
 </g>
 
 <g id='_1_1_1_1_2' class='box' transform='translate(953,3458)'>
-<rect class='shadow' x='3' y='3' width='201' height='46' rx='9'/>
-<rect class='boxattribute2' x='0' y='0' width='201' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='123' height='46' rx='9'/>
+<rect class='boxattribute2' x='0' y='0' width='123' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_2")'/>
-<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> category</text>
-<text class='visible' x='5' y='41'>type: categoryEnumerationString</text>
+<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> keywords</text>
+<text class='visible' x='5' y='41'>type: keywordsList</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
 <line class='connection' id='p_1_1_1_1_2' x1='-35' y1='-3385' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>

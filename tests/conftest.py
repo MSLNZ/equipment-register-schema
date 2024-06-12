@@ -39,7 +39,7 @@ class XML:
         self.source: str = ''
         self._root_prefix: str = f'<register team="Light" xmlns="{XML.NAMESPACE}">'
         self._root_suffix: str = '</register>'
-        self._equipment_prefix: str = '<equipment category="DigitalMultiMeter">'
+        self._equipment_prefix: str = '<equipment keywords="Laser">'
         self._equipment_suffix: str = '</equipment>'
         self._id: str = self.element('id', text='MSLE.L.000')
         self._manufacturer: str = self.element('manufacturer', text='Company, Inc.')

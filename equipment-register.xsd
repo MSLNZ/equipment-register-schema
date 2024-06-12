@@ -91,23 +91,41 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-    <xsd:simpleType name="categoryEnumerationString">
+    <xsd:simpleType name="keywordsList">
         <xsd:annotation>
             <xsd:documentation>
-                The category that the equipment belongs to.
+                Keywords that may be used to describe the equipment.
+
+                Each keyword is separated by whitespace.
+
+                **Example**
+                ```
+                keywords="Source Voltage AC DC"
+                ```
             </xsd:documentation>
         </xsd:annotation>
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Barometer"/>
-            <xsd:enumeration value="DigitalMultiMeter"/>
-            <xsd:enumeration value="GaugeBlock"/>
-            <xsd:enumeration value="Hygrometer"/>
-            <xsd:enumeration value="Laser"/>
-            <xsd:enumeration value="Monochromator"/>
-            <xsd:enumeration value="Oscilloscope"/>
-            <xsd:enumeration value="Resistor"/>
-            <xsd:enumeration value="Thermometer"/>
-        </xsd:restriction>
+        <xsd:list>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="AC"/>
+                    <xsd:enumeration value="Barometer"/>
+                    <xsd:enumeration value="Current"/>
+                    <xsd:enumeration value="DAQ"/>
+                    <xsd:enumeration value="DC"/>
+                    <xsd:enumeration value="DMM"/>
+                    <xsd:enumeration value="GaugeBlock"/>
+                    <xsd:enumeration value="Hygrometer"/>
+                    <xsd:enumeration value="Laser"/>
+                    <xsd:enumeration value="Monochromator"/>
+                    <xsd:enumeration value="Oscilloscope"/>
+                    <xsd:enumeration value="PRT"/>
+                    <xsd:enumeration value="Sense"/>
+                    <xsd:enumeration value="Source"/>
+                    <xsd:enumeration value="Thermometer"/>
+                    <xsd:enumeration value="Voltage"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:list>
     </xsd:simpleType>
 
     <xsd:simpleType name="statusEnumerationString">
@@ -402,10 +420,10 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="category" type="msl:categoryEnumerationString">
+        <xsd:attribute name="keywords" type="msl:keywordsList">
             <xsd:annotation>
                 <xsd:documentation>
-                    _Optional:_ The category that the equipment belongs to.
+                    _Optional:_ Keywords that describe the equipment.
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

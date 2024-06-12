@@ -76,5 +76,5 @@ of the repository
 > py build_docs.py
 ```
 
-See the [docs/README.rst](https://github.com/MSLNZ/equipment-register-schema/tree/main/docs#readme)
-file for information about the build process.
+See [docs/README](https://github.com/MSLNZ/equipment-register-schema/tree/main/docs#readme)
+for information about the build process.

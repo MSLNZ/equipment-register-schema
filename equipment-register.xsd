@@ -1028,28 +1028,34 @@
                         in XML format.
 
                         If you want to serialise an `Archive` into a _string_ that can be
-                        copied-pasted into an XML file, you may use the
+                        copied-pasted into an equipment-register file, you may use the
                         [dumps_xml](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_xml)
                         function with the following keyword arguments
 
                         ```
+                        from GTC.persistence import dumps_xml
+
+                        # create Archive object
+
                         print(dumps_xml(archive, encoding="unicode", xml_declaration=None))
                         ```
 
                         otherwise, you can create an
                         [Element](https://docs.python.org/3/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element)
-                        directly
+                        directly and add it to an
+                        [ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html#module-xml.etree.ElementTree)
 
                         ```
-                        from GTC import xml_format
+                        from GTC.xml_format import archive_to_xml
 
                         # create the Archive
 
-                        element = xml_format.archive_to_xml(archive)
+                        element = archive_to_xml(archive)
+
+                        # add the `element` to your XML element tree
                         ```
 
-                        `GTC` has an XML Schema Definition file to validate the
-                        serialised format of an `Archive`.
+                        `GTC` has an XML Schema Definition file to validate the serialised format of an `Archive`.
 
                         **Example**
                         ```

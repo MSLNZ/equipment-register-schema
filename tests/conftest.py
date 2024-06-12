@@ -55,7 +55,7 @@ class XML:
         self._firmware: str = self.element('firmware')
         self._acceptance: str = self.element('acceptanceCriteria')
         self._documentation: str = self.element('documentation')
-        self._custom: str = ''
+        self._extra: str = ''
 
     def __repr__(self) -> str:
         if self.source:
@@ -93,8 +93,8 @@ class XML:
             elements.append(f'    {self._acceptance}')
         if self._documentation:
             elements.append(f'    {self._documentation}')
-        if self._custom:
-            elements.append(f'    {self._custom}')
+        if self._extra:
+            elements.append(f'    {self._extra}')
         elements.append(f'  {self._equipment_suffix}')
         elements.append(f'{self._root_suffix}')
         return '\n'.join(elements)
@@ -191,8 +191,8 @@ class XML:
     def traceable(self, obj: str | int, **attribs) -> None:
         self._traceable = self._helper(self._traceable, 'traceable', obj, **attribs)
 
-    def custom(self, string: str) -> None:
-        self._custom = string
+    def extra(self, string: str) -> None:
+        self._extra = string
 
     def maintenance(self, string: str) -> None:
         self._maintenance = string

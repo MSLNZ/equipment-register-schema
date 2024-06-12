@@ -11,25 +11,25 @@ def test_missing_children(xml):
     xml.raises('Missing child element')
 
 
-def test_invalid_header_element_name(xml):
+def test_invalid_type_element_name(xml):
     t = '<table><invalid/></table>'
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
-    xml.raises(r'Expected is .*header')
-
-
-def test_invalid_datatype_element_name(xml):
-    t = ('<table>'
-         '  <header>a</header>'
-         '  <invalid/>'
-         '</table>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
     xml.raises(r'Expected is .*type')
 
 
+def test_invalid_header_element_name(xml):
+    t = ('<table>'
+         '  <type>int</type>'
+         '  <invalid/>'
+         '</table>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
+    xml.raises(r'Expected is .*header')
+
+
 def test_invalid_data_element_name(xml):
     t = ('<table>'
-         '  <header>a</header>'
          '  <type>int</type>'
+         '  <header>a</header>'
          '  <invalid/>'
          '</table>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=t))))
@@ -38,8 +38,8 @@ def test_invalid_data_element_name(xml):
 
 def test_invalid_extra_element_name(xml):
     t = ('<table>'
-         '  <header>a</header>'
          '  <type>int</type>'
+         '  <header>a</header>'
          '  <data>1</data>'
          '  <header>a</header>'
          '</table>')

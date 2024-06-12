@@ -1117,45 +1117,32 @@
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `header` element exists and that the content matches
                 the allowed pattern). It does not attempt to validate that the table
-                is structurally correct (e.g., whether `header`, `type` and `data`
+                is structurally correct (e.g., whether `type`, `header` and `data`
                 contain the same number of columns). You must use another tool to
                 validate the structure of the table._
 
                 **Example**
                 ```
                 &lt;table&gt;
-                  &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
                   &lt;type&gt;int, double, double&lt;/type&gt;
+                  &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
                   &lt;data&gt;
-                    250, 0.018184693, 0.020338474
-                    300, 0.184783924, 0.017558388
-                    350, 0.808454870, 0.016061036
-                    400, 2.213559358, 0.014050724
-                    450, 4.490045649, 0.012509585
-                    500, 7.451358772, 0.012003620
-                    550, 10.75754957, 0.011528671
-                    600, 14.03809504, 0.011028261
-                    650, 16.99469553, 0.011031749
-                    700, 19.44093973, 0.010771097
+                          250            ,  0.018184693      , 0.020338474
+                          300            ,  0.184783924      , 0.017558388
+                          350            ,  0.808454870      , 0.016061036
+                          400            ,  2.213559358      , 0.014050724
+                          450            ,  4.490045649      , 0.012509585
+                          500            ,  7.451358772      , 0.012003620
+                          550            , 10.75754957       , 0.011528671
+                          600            , 14.03809504       , 0.011028261
+                          650            , 16.99469553       , 0.011031749
+                          700            , 19.44093973       , 0.010771097
                   &lt;/data&gt;
                 &lt;/table&gt;
                 ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="header">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        The label of each column in the `table`.
-                        Each label shall be separated by a comma.
-                    </xsd:documentation>
-                </xsd:annotation>
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="[^,]+(,[^,]+)*"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
             <xsd:element name="type">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -1178,6 +1165,19 @@
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
                         <xsd:pattern value="\s*(bool|int|double|string)\s*(,\s*(bool|int|double|string)\s*)*"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="header">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The label of each column in the `table`.
+                        Each label shall be separated by a comma.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="[^,]+(,[^,]+)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>

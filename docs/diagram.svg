@@ -547,7 +547,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")' onmouseout='makeHidde
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>criteria</text>
-<text class='element-type' x='5' y='41'>type: custom</text>
+<text class='element-type' x='5' y='41'>type: any</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 <use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")'/>
 </g>
@@ -1840,7 +1840,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4")' onmouseout='makeHid
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>header</text>
+<text class='element-name' x='5' y='27'>type</text>
 <text class='element-type' x='5' y='41'>base: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -1850,7 +1850,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")' onmouseout='mak
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>type</text>
+<text class='element-name' x='5' y='27'>header</text>
 <text class='element-type' x='5' y='41'>base: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -2083,7 +2083,7 @@ onmouseover='makeVisible("_1_1_1_1_1_12_1_1_1")' onmouseout='makeHidden("_1_1_1_
 onmouseover='makeVisible("_1_1_1_1_1_13")' onmouseout='makeHidden("_1_1_1_1_1_13")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>acceptanceCriteria</text>
-<text class='element-type' x='5' y='41'>type: custom</text>
+<text class='element-type' x='5' y='41'>type: any</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 <use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_13' onclick='show("_1_1_1_1_1_13")'/>
 </g>
@@ -2242,8 +2242,8 @@ onmouseover='makeVisible("_1_1_1_1_1_14_1_8")' onmouseout='makeHidden("_1_1_1_1_
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_15")' onmouseout='makeHidden("_1_1_1_1_1_15")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>custom</text>
-<text class='element-type' x='5' y='41'>type: custom</text>
+<text class='element-name' x='5' y='27'>extra</text>
+<text class='element-type' x='5' y='41'>type: any</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_15' x1='-35' y1='-5799' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>

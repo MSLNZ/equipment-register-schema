@@ -1124,7 +1124,7 @@
                 **Example**
                 ```
                 &lt;table&gt;
-                  &lt;type&gt;int, double, double&lt;/type&gt;
+                  &lt;type&gt;  int            , double            , double&lt;/type&gt;
                   &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
                   &lt;data&gt;
                           250            ,  0.018184693      , 0.020338474
@@ -1147,7 +1147,8 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The data type of each column in the `table`.
-                        Each data type shall be separated by a comma.
+                        Each data type shall be separated by a comma (`,`).
+                        Whitespace may be used before or after each data type.
 
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
@@ -1172,7 +1173,8 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The label of each column in the `table`.
-                        Each label shall be separated by a comma.
+                        Each label shall be separated by a comma (`,`).
+                        Whitespace may be used.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
@@ -1186,7 +1188,11 @@
                     <xsd:documentation>
                         The data in the `table`.
                         Each row shall be separated by a line-feed character (0x0A).
-                        Each column in a row shall be separated by a comma.
+                        Each column in a row shall be separated by a comma (`,`).
+
+                        If splitting the content by a line-feed character results in
+                        an empty row or a row that contains only whitespace characters,
+                        that row shall be ignored.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>

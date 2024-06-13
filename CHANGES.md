@@ -2,6 +2,6 @@
 
 -------------
 
-## Version 0.0.1 (in development)
+## Version 0.1 (in development)
 
 * 

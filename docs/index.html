@@ -466,14 +466,14 @@ pre {
 
                         Use the
                         [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
-                        function to serialise an `Archive`. Any keyword arguments that are required for the
+                        function to serialise an `Archive` and the
                         [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                        function may be specified as attributes of the `gtcArchiveJSON` element.
+                        function to deserialise the `gtcArchiveJSON` content.
 
                         _Attention: This XSD document validates the content of an XML document
                         (e.g., that the `gtcArchiveJSON` element has content that may be any
-                        non-empty string). It does not attempt to validate that the content is a
-                        valid string that can be used to create an `Archive` object. You must use
+                        string). It does not attempt to validate that the content is a valid
+                        string that can be used to create an `Archive` object. You must use
                         `GTC` to validate the content._
 
                         **Example**
@@ -738,8 +738,8 @@ pre {
                   - tan
                   - atan
                   - exp
-                  - ln
-                  - log
+                  - ln (natural logarithm, base _e_)
+                  - log (common logarithm, base _10_)
 
                 Depending on the programming language that is used to parse an equation,
                 a search and replace may need to be performed. If the programming language
@@ -1217,7 +1217,7 @@ pre {
       <span class="nt">&lt;<a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:gtcArchiveJSON</span>
        <span class="cs">Allow any attributes from any namespace (skip validation).</span>
       <span class="nt">&gt;</span> <span class="cs">[1]</span>  <button title="Show documentation for gtcArchiveJSON" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id54-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
-          <span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "nonEmptyString" type definition.' href="#type_nonEmptyString">nonEmptyString</a></span>
+          <span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>
       <span class="nt">&lt;/<a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:gtcArchiveJSON&gt;</span>
    <span class="group">End Choice</span>
 <span class="nt">&lt;/...&gt;</span>
@@ -1227,7 +1227,7 @@ pre {
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"gtcArchiveJSON"</span><span class="nt">&gt;</span>
          <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType</span><span class="nt">&gt;</span>
             <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleContent</span><span class="nt">&gt;</span>
-               <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "nonEmptyString" type definition.' href="#type_nonEmptyString">nonEmptyString</a></span>"</span><span class="nt">&gt;</span>
+               <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:extension</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
                   <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:anyAttribute</span> <span class="na">processContents=</span><span class="s">"skip"</span><span class="nt">/&gt;</span>
                <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:extension&gt;</span>
             <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleContent&gt;</span>
@@ -1250,8 +1250,7 @@ pre {
                 &lt;table&gt;
                   &lt;type&gt;  int            , double            , double&lt;/type&gt;
                   &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
-                  &lt;data&gt;
-                          250            ,  0.018184693      , 0.020338474
+                  &lt;data&gt;  250            ,  0.018184693      , 0.020338474
                           300            ,  0.184783924      , 0.017558388
                           350            ,  0.808454870      , 0.016061036
                           400            ,  2.213559358      , 0.014050724

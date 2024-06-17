@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<register team="Mass" xmlns="https://measurement.govt.nz/equipment-register">
+    <equipment>
+        <id>MSLE.M.092</id>
+        <manufacturer>The Company Name</manufacturer>
+        <model>ABC</model>
+        <serial>123</serial>
+        <description>Monitors the ambient lab temperature and humidity</description>
+        <location>Mass Standards laboratories</location>
+        <status>Active</status>
+        <loggable>true</loggable>
+        <traceable>true</traceable>
+        <calibrations>
+            <measurand quantity="Humidity" unit="%rh" interval="5">
+                <component name="Probe 1">
+                    <report>
+                        <number>Humidity/2023/583</number>
+                        <startDate>2023-08-08</startDate>
+                        <stopDate>2023-08-14</stopDate>
+                        <criteria>
+                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
+                            <minCalibrationValue>30</minCalibrationValue>
+                            <maxCalibrationValue>80</maxCalibrationValue>
+                        </criteria>
+                        <equation>
+                            <value variables="R t">R - 7.131e-2 - 3.951e-2*R + 3.412e-4*pow(R,2) + 2.465e-3*t + 1.034e-3*R*t - 5.297e-6*pow(R,2)*t</value>
+                            <uncertainty variables="">0.355</uncertainty>
+                        </equation>
+                    </report>
+                </component>
+                <component name="Probe 2">
+                    <report>
+                        <number>Humidity/2023/584</number>
+                        <startDate>2023-08-08</startDate>
+                        <stopDate>2023-08-14</stopDate>
+                        <criteria>
+                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
+                            <minCalibrationValue>30</minCalibrationValue>
+                            <maxCalibrationValue>80</maxCalibrationValue>
+                        </criteria>
+                        <equation>
+                            <value variables="R">R - 10.25 +3.35e-2*R + 9.74e-4*pow(R,2)</value>
+                            <uncertainty variables="">0.55</uncertainty>
+                        </equation>
+                    </report>
+                </component>
+            </measurand>
+            <measurand quantity="Temperature" unit="°C" interval="5">
+                <component name="Probe 1">
+                    <report>
+                        <number>Humidity/2023/585</number>
+                        <startDate>2023-08-08</startDate>
+                        <stopDate>2023-08-14</stopDate>
+                        <criteria>
+                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
+                            <minCalibrationValue>15</minCalibrationValue>
+                            <maxCalibrationValue>25</maxCalibrationValue>
+                        </criteria>
+                        <equation>
+                            <value variables="T">T + 4.4e-2 - 5e-3*T</value>
+                            <uncertainty variables="">0.055</uncertainty>
+                        </equation>
+                    </report>
+                </component>
+                <component name="Probe 2">
+                    <report>
+                        <number>Humidity/2023/586</number>
+                        <startDate>2023-08-08</startDate>
+                        <stopDate>2023-08-14</stopDate>
+                        <criteria>
+                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
+                            <minCalibrationValue>15</minCalibrationValue>
+                            <maxCalibrationValue>25</maxCalibrationValue>
+                        </criteria>
+                        <equation>
+                            <value variables="T">T - 3.7e-1 + 1e-2*T</value>
+                            <uncertainty variables="">0.055</uncertainty>
+                        </equation>
+                    </report>
+                </component>
+            </measurand>
+        </calibrations>
+        <maintenance/>
+        <firmware>
+            <version date="2020-06-15">1.02</version>
+        </firmware>
+        <acceptanceCriteria>
+            <temperatureRange unit="°C">19, 21</temperatureRange>
+            <humidityRange unit="%rh">35, 65</humidityRange>
+        </acceptanceCriteria>
+        <documentation>
+            <yearPurchased>2020</yearPurchased>
+        </documentation>
+    </equipment>
+</register>

@@ -354,5 +354,5 @@ def test_equation_unknown_function(xml):
         validate.validate(StringIO(repr(xml)))
 
 
-# def test_recursive():
-#     assert validate.recursive_validate('examples') > 0
+def test_recursive():
+    assert validate.recursive_validate('./examples') > 0

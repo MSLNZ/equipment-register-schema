@@ -49,9 +49,9 @@ to install Git, Java and Python
 You must now restart (close then re-open) your terminal so that the executable
 for these installed programs becomes available to use.
 
-Next, install the Python requirement packages (`pytest` and `lxml`)
+Next, install the Python requirement packages (`pytest`,  `lxml` and `GTC`)
 ```shell
-> py -m pip install pytest lxml
+> py -m pip install pytest lxml GTC
 ```
 
 Finally, clone the repository and change directory, `cd`, into the root directory of the repository

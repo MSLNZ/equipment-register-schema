@@ -668,14 +668,14 @@
             <xsd:element name="startDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The date that the measurement started.
+                        The date that the calibration measurement started.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="stopDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The date that the measurement stopped.
+                        The date that the calibration measurement stopped.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

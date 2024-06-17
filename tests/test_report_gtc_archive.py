@@ -104,13 +104,6 @@ def test_json_format(xml):
     assert xml.is_valid()
 
 
-def test_json_format_anything(xml):
-    # The schema does not validate the JSON content, so can be any string with any attributes
-    choice = '<serialised><gtcArchiveJSON apple="red">does not matter!</gtcArchiveJSON></serialised>'
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    assert xml.is_valid()
-
-
 @pytest.mark.parametrize(
     'value',
     ['',
@@ -122,8 +115,11 @@ def test_json_format_anything(xml):
      '\n\n\n\n',
      '\t\t\t\t\t',
      ' \t     \n                ',
+     'does not matter!',
+     '\n\n{"CLASS": "Archive"}\n\n'
      ])
-def test_json_format_not_empty(xml, value):
-    choice = f'<serialised><gtcArchiveJSON>{value}</gtcArchiveJSON></serialised>'
+def test_json_format_anything(xml, value):
+    # The schema does not validate the JSON content, so can be any string with any attributes
+    choice = f'<serialised><gtcArchiveJSON apple="red">{value}</gtcArchiveJSON></serialised>'
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises(r'not accepted by the pattern')
+    assert xml.is_valid()

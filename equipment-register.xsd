@@ -1080,14 +1080,14 @@
 
                         Use the
                         [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
-                        function to serialise an `Archive`. Any keyword arguments that are required for the
+                        function to serialise an `Archive` and the
                         [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                        function may be specified as attributes of the `gtcArchiveJSON` element.
+                        function to deserialise the `gtcArchiveJSON` content.
 
                         _Attention: This XSD document validates the content of an XML document
                         (e.g., that the `gtcArchiveJSON` element has content that may be any
-                        non-empty string). It does not attempt to validate that the content is a
-                        valid string that can be used to create an `Archive` object. You must use
+                        string). It does not attempt to validate that the content is a valid
+                        string that can be used to create an `Archive` object. You must use
                         `GTC` to validate the content._
 
                         **Example**
@@ -1100,7 +1100,7 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:simpleContent>
-                        <xsd:extension base="msl:nonEmptyString">
+                        <xsd:extension base="xsd:string">
                             <xsd:anyAttribute processContents="skip"/>
                         </xsd:extension>
                     </xsd:simpleContent>

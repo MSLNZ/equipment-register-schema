@@ -759,8 +759,8 @@
                   - tan
                   - atan
                   - exp
-                  - ln
-                  - log
+                  - ln (natural logarithm, base _e_)
+                  - log (common logarithm, base _10_)
 
                 Depending on the programming language that is used to parse an equation,
                 a search and replace may need to be performed. If the programming language

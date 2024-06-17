@@ -21,21 +21,13 @@ if TYPE_CHECKING:
     from typing import TextIO, BinaryIO
     from lxml.etree import Element, ElementTree, XMLSchema
 
-
 __all__ = ('load_schema', 'recursive_validate', 'validate')
-
-logger = logging.getLogger('register')
-
-schema: XMLSchema | None = None
-
-booleans = ('true', 'True', '1', 'false', 'False', '0')
-namespace = 'https://measurement.govt.nz/equipment-register'
 
 
 def load_schema(path: str | Path = 'equipment-register.xsd') -> None:
-    """Load the Equipment-Register Schema.
+    """Load the Equipment-Register Schema file.
 
-    :param path: The path to the schema file.
+    :param path: The path to the Schema file.
     """
     global schema
     schema = etree.XMLSchema(etree.parse(path))
@@ -257,6 +249,14 @@ def _string(value: str) -> None:
     """No-op. A string in the table data is already a string."""
     str(value)
 
+
+logger = logging.getLogger('register')
+
+schema: XMLSchema | None = None
+
+booleans = ('true', 'True', '1', 'false', 'False', '0')
+
+namespace = 'https://measurement.govt.nz/equipment-register'
 
 dtype_value_check = {
     'bool': _bool,

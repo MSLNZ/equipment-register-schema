@@ -1126,8 +1126,7 @@
                 &lt;table&gt;
                   &lt;type&gt;  int            , double            , double&lt;/type&gt;
                   &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
-                  &lt;data&gt;
-                          250            ,  0.018184693      , 0.020338474
+                  &lt;data&gt;  250            ,  0.018184693      , 0.020338474
                           300            ,  0.184783924      , 0.017558388
                           350            ,  0.808454870      , 0.016061036
                           400            ,  2.213559358      , 0.014050724

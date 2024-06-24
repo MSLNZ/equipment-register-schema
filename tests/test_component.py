@@ -28,4 +28,4 @@ def test_report_invalid_element_name(xml):
 
 def test_report_no_content(xml):
     xml.calibrations(xml.measurand(xml.component('<report/>')))
-    xml.raises(r'Expected is .*number')
+    xml.raises(r'Expected is .*reportNumber')

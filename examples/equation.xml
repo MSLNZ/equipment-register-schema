@@ -14,9 +14,9 @@
             <measurand quantity="Humidity" unit="%rh" interval="5">
                 <component name="Probe 1">
                     <report>
-                        <number>Humidity/2023/583</number>
-                        <startDate>2023-08-08</startDate>
-                        <stopDate>2023-08-14</stopDate>
+                        <reportNumber>Humidity/2023/583</reportNumber>
+                        <measurementStartDate>2023-08-08</measurementStartDate>
+                        <measurementStopDate>2023-08-14</measurementStopDate>
                         <criteria>
                             <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>30</minCalibrationValue>
@@ -30,9 +30,9 @@
                 </component>
                 <component name="Probe 2">
                     <report>
-                        <number>Humidity/2023/584</number>
-                        <startDate>2023-08-08</startDate>
-                        <stopDate>2023-08-14</stopDate>
+                        <reportNumber>Humidity/2023/584</reportNumber>
+                        <measurementStartDate>2023-08-08</measurementStartDate>
+                        <measurementStopDate>2023-08-14</measurementStopDate>
                         <criteria>
                             <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>30</minCalibrationValue>
@@ -48,9 +48,9 @@
             <measurand quantity="Temperature" unit="°C" interval="5">
                 <component name="Probe 1">
                     <report>
-                        <number>Humidity/2023/585</number>
-                        <startDate>2023-08-08</startDate>
-                        <stopDate>2023-08-14</stopDate>
+                        <reportNumber>Humidity/2023/585</reportNumber>
+                        <measurementStartDate>2023-08-08</measurementStartDate>
+                        <measurementStopDate>2023-08-14</measurementStopDate>
                         <criteria>
                             <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>15</minCalibrationValue>
@@ -64,9 +64,9 @@
                 </component>
                 <component name="Probe 2">
                     <report>
-                        <number>Humidity/2023/586</number>
-                        <startDate>2023-08-08</startDate>
-                        <stopDate>2023-08-14</stopDate>
+                        <reportNumber>Humidity/2023/586</reportNumber>
+                        <measurementStartDate>2023-08-08</measurementStartDate>
+                        <measurementStopDate>2023-08-14</measurementStopDate>
                         <criteria>
                             <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>15</minCalibrationValue>

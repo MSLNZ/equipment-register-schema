@@ -664,24 +664,34 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="number" type="msl:nonEmptyString">
+            <xsd:element name="reportNumber" type="msl:nonEmptyString">
                 <xsd:annotation>
                     <xsd:documentation>
                         The report number.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        d) unique identification that all its components are recognized
+                           as a portion of a complete report and a clear identification of the end
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="startDate" type="xsd:date">
+            <xsd:element name="measurementStartDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement started.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        i) the dates(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="stopDate" type="xsd:date">
+            <xsd:element name="measurementStopDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement stopped.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        i) the dates(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

@@ -59,45 +59,45 @@ def test_valid_number_value(xml, value):
 @pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_start_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(start=value))))
-    xml.raises(f"startDate': '{value}' is not a valid value")
+    xml.raises(f"measurementStartDate': '{value}' is not a valid value")
 
 
 @pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_stop_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(stop=value))))
-    xml.raises(f"stopDate': '{value}' is not a valid value")
+    xml.raises(f"measurementStopDate': '{value}' is not a valid value")
 
 
 def test_no_number(xml):
     r = '<report><anything/></report>'
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is .*number')
+    xml.raises(r'Expected is .*reportNumber')
 
 
 def test_no_start_date(xml):
     r = ('<report>'
-         '  <number>any</number>'
+         '  <reportNumber>any</reportNumber>'
          '  <anything/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is .*startDate')
+    xml.raises(r'Expected is .*measurementStartDate')
 
 
 def test_no_stop_date(xml):
     r = ('<report>'
-         '  <number>any</number>'
-         '  <startDate>2000-01-01</startDate>'
+         '  <reportNumber>any</reportNumber>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <anything/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is .*stopDate')
+    xml.raises(r'Expected is .*measurementStopDate')
 
 
 def test_no_criteria(xml):
     r = ('<report>'
-         '  <number>any</number>'
-         '  <startDate>2000-01-01</startDate>'
-         '  <stopDate>2000-01-01</stopDate>'
+         '  <reportNumber>any</reportNumber>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
+         '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises(r'Expected is .*criteria')
@@ -118,9 +118,9 @@ def test_criteria(xml, text, attribs):
 
 def test_no_choice(xml):
     r = ('<report>'
-         '  <number>any</number>'
-         '  <startDate>2000-01-01</startDate>'
-         '  <stopDate>2000-01-01</stopDate>'
+         '  <reportNumber>any</reportNumber>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
+         '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '  <criteria/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))

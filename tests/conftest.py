@@ -266,9 +266,9 @@ class XML:
                       f'            </file>')
 
         return (f'{report}\n'
-                f'            <number>{number}</number>\n'
-                f'            <startDate>{start}</startDate>\n'
-                f'            <stopDate>{stop}</stopDate>\n'
+                f'            <reportNumber>{number}</reportNumber>\n'
+                f'            <measurementStartDate>{start}</measurementStartDate>\n'
+                f'            <measurementStopDate>{stop}</measurementStopDate>\n'
                 f'            {criteria}\n'
                 f'            {choice}\n'
                 f'          </report>')

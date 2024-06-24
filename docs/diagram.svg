@@ -516,7 +516,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1")' onmouseout='makeHidden("_
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>number</text>
+<text class='element-name' x='5' y='27'>reportNumber</text>
 <text class='element-type' x='5' y='41'>type: nonEmptyString</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -526,7 +526,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_1")' onmouseout='makeHidde
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>startDate</text>
+<text class='element-name' x='5' y='27'>measurementStartDate</text>
 <text class='element-type' x='5' y='41'>type: date</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -536,7 +536,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")' onmouseout='makeHidde
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>stopDate</text>
+<text class='element-name' x='5' y='27'>measurementStopDate</text>
 <text class='element-type' x='5' y='41'>type: date</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>

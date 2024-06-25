@@ -310,6 +310,20 @@ def test_equation_valid(xml):
         '  + 2*pi/z'
         '  </value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="y">'
+        '      <minimum>10</minimum>'
+        '      <maximum>20</maximum>'
+        '    </range>'
+        '    <range variable="z">'
+        '      <minimum>1e2</minimum>'
+        '      <maximum>2e2</maximum>'
+        '    </range>'
+        '  </ranges>'
         '</equation>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
@@ -321,6 +335,12 @@ def test_equation_variables_passed(xml):
         '<equation>'
         '  <value variables="x">ln(x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
         '</equation>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
@@ -335,6 +355,12 @@ def test_equation_missing_bracket(xml):
         '<equation>'
         '  <value variables="x">1.2 + 0.2*pow(x,3) - ((6+2/x)*sin(1.0) </value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
         '</equation>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
@@ -347,11 +373,128 @@ def test_equation_unknown_function(xml):
         '<equation>'
         '  <value variables="x">1.2 + 0.2*arccos(0.1*x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
         '</equation>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
     with pytest.raises(AssertionError, match=r'NameError'):
         validate.validate(StringIO(repr(xml)))
+
+
+def test_equation_range_variables_unique(xml):
+    equation = (
+        '<equation>'
+        '  <value variables="x">1.2 + 0.2*arccos(0.1*x)</value>'
+        '  <uncertainty variables="">1.0</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="y">'
+        '      <minimum>10</minimum>'
+        '      <maximum>20</maximum>'
+        '    </range>'
+        '    <range variable="x">'
+        '      <minimum>1e2</minimum>'
+        '      <maximum>2e2</maximum>'
+        '    </range>'
+        '  </ranges>'
+        '</equation>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
+    with pytest.raises(AssertionError, match=r'variable names: x, x, y'):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_equation_range_variable_missing(xml):
+    equation = (
+        '<equation>'
+        '  <value variables="x y">x+y</value>'
+        '  <uncertainty variables="v">0.1*v</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="y">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
+        '</equation>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
+    match = r"equation variables: v, x, y\nrange variables   : x, y"
+    with pytest.raises(AssertionError, match=match):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_equation_range_variable_extra(xml):
+    equation = (
+        '<equation>'
+        '  <value variables="x">x+1</value>'
+        '  <uncertainty variables="">0.1</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="y">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
+        '</equation>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
+    match = r"equation variables: x\nrange variables   : x, y"
+    with pytest.raises(AssertionError, match=match):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_equation_range_variable_name_wrong(xml):
+    equation = (
+        '<equation>'
+        '  <value variables="x y">x+y</value>'
+        '  <uncertainty variables="value">0.1*value</uncertainty>'
+        '  <ranges>'
+        '    <range variable="x">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="y">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '    <range variable="z">'
+        '      <minimum>1</minimum>'
+        '      <maximum>2</maximum>'
+        '    </range>'
+        '  </ranges>'
+        '</equation>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
+    match = r"equation variables: value, x, y\nrange variables   : x, y, z"
+    with pytest.raises(AssertionError, match=match):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_equation_no_variables(xml):
+    equation = (
+        '<equation>'
+        '  <value variables="">1</value>'
+        '  <uncertainty variables="">0.1</uncertainty>'
+        '  <ranges/>'
+        '</equation>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=equation))))
+    validate.validate(StringIO(repr(xml)))
 
 
 def test_recursive():

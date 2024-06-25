@@ -107,7 +107,7 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
         manufacturer, model, serial = equipment[1:4]  # schema forces order
         name = f'{manufacturer.text} {model.text} {serial.text}'
         for equation in equipment.xpath('.//reg:equation', namespaces=nsmap):
-            _equation(equation, debug_name=name, **variables)
+            _equation(equation, debug_name=name, nsmap=nsmap, **variables)
         for file in equipment.xpath('.//reg:file', namespaces=nsmap):
             _file(file, root=root_dir, debug_name=name)
         for serialised in equipment.xpath('.//reg:serialised', namespaces=nsmap):
@@ -116,7 +116,7 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
             _table(table, debug_name=name)
 
 
-def _equation(equation: Element, *, debug_name: str, **variables) -> None:
+def _equation(equation: Element, *, debug_name: str, nsmap: dict[str, str], **variables) -> None:
     """Validates that the equations are valid."""
     logger.debug('  [%s] Validating equations for %s ', debug_name)
 
@@ -124,9 +124,25 @@ def _equation(equation: Element, *, debug_name: str, **variables) -> None:
 
     names = value.attrib['variables'].split()
     names += uncertainty.attrib['variables'].split()
+    names = set(names)
     loc = {n: 1.0 for n in names}
     loc.update(eqn_map)
     loc.update(variables)
+
+    range_names = equation.xpath(".//reg:range/@variable", namespaces=nsmap)
+    range_name_set = set(range_names)
+    if len(range_names) != len(range_name_set):
+        raise AssertionError(
+            f'The names of the range variables are not unique for {debug_name!r}\n'
+            f'variable names: {", ".join(sorted(range_names))}'
+        )
+
+    if len(names) != len(range_names) or names.difference(range_name_set):
+        raise AssertionError(
+            f'The equation variables and the range variables are not the same for {debug_name!r}\n'
+            f'equation variables: {", ".join(sorted(names))}\n'
+            f'range variables   : {", ".join(sorted(range_names))}'
+        )
 
     try:
         eval(value.text, {'__builtins__': {}}, loc)

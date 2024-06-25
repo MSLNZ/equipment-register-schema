@@ -813,6 +813,12 @@
                 &lt;equation&gt;
                   &lt;value variables="x"&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/value&gt;
                   &lt;uncertainty variables=""&gt;0.45&lt;/uncertainty&gt;
+                  &lt;ranges&gt;
+                    &lt;range variable="x"&gt;
+                      &lt;minimum&gt;15&lt;/minimum&gt;
+                      &lt;maximum&gt;25&lt;/maximum&gt;
+                    &lt;/range&gt;
+                  &lt;/ranges&gt;
                 &lt;/equation&gt;
                 ```
             </xsd:documentation>
@@ -877,6 +883,13 @@
                     </xsd:simpleContent>
                 </xsd:complexType>
             </xsd:element>
+			<xsd:element name="ranges" type="msl:ranges">
+				<xsd:annotation>
+					<xsd:documentation>
+						The numeric range for each variable that an `equation` is valid for.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="degreeFreedom" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>
@@ -1228,6 +1241,55 @@
                         <xsd:pattern value="[^,]+(,[^,\n][^,]*)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ranges">
+        <xsd:annotation>
+            <xsd:documentation>
+                The numeric range for each variable that an `equation` is valid for.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="range">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The numeric range for each `variable` that the `equation` is valid for.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="minimum" type="xsd:double">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    The minimum value of the `variable` that the `equation` is valid for.
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="maximum" type="xsd:double">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    The maximum value of the `variable` that the `equation` is valid for.
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                    <xsd:attribute name="variable" type="msl:nonEmptyString" use="required">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                                The name of a variable in the `equation` that this `range` applies to.
+
+                                _Attention: This XSD document validates the content of an XML document
+                                (e.g., that the `variable` attribute exist and the content
+                                is a [nonEmptyString](#type_nonEmptyString)). It does not attempt to
+                                validate that the range for every `variable` is uniquely defined.
+                                You must use another tool to validate that every `variable` is
+                                uniquely defined._
+                            </xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                </xsd:complexType>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

@@ -250,6 +250,7 @@ class XML:
                method: str = '',
                criteria: str = None,
                choice: str = None,
+               extra: str = '',
                **attribs) -> str:
         if attribs:
             attributes = XML.attributes(**attribs)
@@ -275,6 +276,7 @@ class XML:
                 f'            <technicalProcedure>{method}</technicalProcedure>\n'
                 f'            {criteria}\n'
                 f'            {choice}\n'
+                f'            {extra}'
                 f'          </report>')
 
     @staticmethod

@@ -162,3 +162,21 @@ def test_no_choice(xml):
 def test_invalid_choice(xml):
     xml.calibrations(xml.measurand(xml.component(xml.report(choice='<invalid/>'))))
     xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')
+
+
+def test_extra_invalid_tag_name(xml):
+    xml.calibrations(xml.measurand(xml.component(xml.report(extra='<invalid/>'))))
+    xml.raises(r'Expected is .*extra')
+
+
+@pytest.mark.parametrize(
+    ('text', 'attribs'),
+    [('', {'hot': 'true'}),
+     ('<anything/>', {}),
+     ('<fruit colour="red" shape="round">apple</fruit>', {'x': '1', 'hello': 'world', 'stem': 'true'}),
+     ('<min>10</min><max>70</max><unit>C</unit>', {}),
+     ])
+def test_extra(xml, text, attribs):
+    extra = xml.element('extra', text=text, **attribs)
+    xml.calibrations(xml.measurand(xml.component(xml.report(extra=f'{extra}\n'))))
+    assert xml.is_valid()

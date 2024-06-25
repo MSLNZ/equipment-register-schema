@@ -23,8 +23,8 @@ def test_component_name_not_unique_same_measurand(xml, value):
 
 @pytest.mark.parametrize('value', ['', '   ', 'Ch1', '*^!@#)', 'any\thi\ng'])
 def test_component_name_not_unique_different_measurand(xml, value):
-    m1 = xml.measurand(xml.component(name=value), quantity='Humidity', unit='%rh', interval=5)
-    m2 = xml.measurand(xml.component(name=value), quantity='Temperature', unit='C', interval=5)
+    m1 = xml.measurand(xml.component(name=value), quantity='Humidity', interval=5)
+    m2 = xml.measurand(xml.component(name=value), quantity='Temperature', interval=5)
     xml.calibrations(f'{m1}  {m2}')
     assert xml.is_valid()
 

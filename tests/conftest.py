@@ -214,7 +214,7 @@ class XML:
     @staticmethod
     def measurand(components: str = '', **attribs) -> str:
         if not attribs:
-            attribs = {'quantity': 'Humidity', 'unit': '%rh',  'interval': '5'}
+            attribs = {'quantity': 'Humidity', 'interval': '5'}
 
         attributes = XML.attributes(**attribs)
         measurand = f'<measurand {attributes}'
@@ -278,11 +278,14 @@ class XML:
                 f'          </report>')
 
     @staticmethod
-    def table(header: str = 'a',
+    def table(*,
               datatype: str = 'int',
+              unit: str = 'm',
+              header: str = 'a',
               data: str = '1') -> str:
         return (f'<table>\n'
                 f'              <type>{datatype}</type>\n'
+                f'              <unit>{unit}</unit>\n'
                 f'              <header>{header}</header>\n'
                 f'              <data>{data}</data>\n'
                 f'            </table>')

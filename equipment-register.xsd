@@ -607,13 +607,6 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="unit" type="msl:nonEmptyString" use="required">
-            <xsd:annotation>
-                <xsd:documentation>
-                    The unit of the measured quantity.
-                </xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
         <xsd:attribute name="interval" type="msl:nonNegativeDecimal" use="required">
             <xsd:annotation>
                 <xsd:documentation>
@@ -810,10 +803,11 @@
                 polynomial and the `uncertainty` is a constant.
                 ```
                 &lt;equation&gt;
-                  &lt;value variables="x"&gt;x + (-10.66 + 1.58e-2*x + 1.212e-3*pow(x,2))&lt;/value&gt;
+                  &lt;value variables="T"&gt;T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2))&lt;/value&gt;
                   &lt;uncertainty variables=""&gt;0.45&lt;/uncertainty&gt;
+                  &lt;unit&gt;°C&lt;/unit&gt;
                   &lt;ranges&gt;
-                    &lt;range variable="x"&gt;
+                    &lt;range variable="T"&gt;
                       &lt;minimum&gt;15&lt;/minimum&gt;
                       &lt;maximum&gt;25&lt;/maximum&gt;
                     &lt;/range&gt;
@@ -881,6 +875,13 @@
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="unit" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The unit of the measured quantity.
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
 			<xsd:element name="ranges" type="msl:ranges">
 				<xsd:annotation>
@@ -1158,25 +1159,26 @@
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `header` element exists and that the content matches
                 the allowed pattern). It does not attempt to validate that the table
-                is structurally correct (e.g., whether `type`, `header` and `data`
-                contain the same number of columns). You must use another tool to
-                validate the structure of the table._
+                is structurally correct (e.g., whether `type`, `unit`, `header` and
+                `data` contain the same number of columns). You must use another tool
+                to validate the structure of the table._
 
                 **Example**
                 ```
                 &lt;table&gt;
-                  &lt;type&gt;  int            , double            , double&lt;/type&gt;
-                  &lt;header&gt;Wavelength [nm], Irradiance [W/m^2], Irradiance Std. Uncertainty [W/m^2]&lt;/header&gt;
-                  &lt;data&gt;  250            ,  0.018184693      , 0.020338474
-                          300            ,  0.184783924      , 0.017558388
-                          350            ,  0.808454870      , 0.016061036
-                          400            ,  2.213559358      , 0.014050724
-                          450            ,  4.490045649      , 0.012509585
-                          500            ,  7.451358772      , 0.012003620
-                          550            , 10.75754957       , 0.011528671
-                          600            , 14.03809504       , 0.011028261
-                          650            , 16.99469553       , 0.011031749
-                          700            , 19.44093973       , 0.010771097
+                  &lt;type&gt;  int       , double       , double&lt;/type&gt;
+                  &lt;unit&gt;  nm        , W/m^2        , W/m^2&lt;/unit&gt;
+                  &lt;header&gt;Wavelength, Irradiance   , Irradiance Std. Uncertainty&lt;/header&gt;
+                  &lt;data&gt;  250       ,  0.018184693 , 0.020338474
+                          300       ,  0.184783924 , 0.017558388
+                          350       ,  0.808454870 , 0.016061036
+                          400       ,  2.213559358 , 0.014050724
+                          450       ,  4.490045649 , 0.012509585
+                          500       ,  7.451358772 , 0.012003620
+                          550       , 10.75754957  , 0.011528671
+                          600       , 14.03809504  , 0.011028261
+                          650       , 16.99469553  , 0.011031749
+                          700       , 19.44093973  , 0.010771097
                   &lt;/data&gt;
                 &lt;/table&gt;
                 ```
@@ -1188,7 +1190,7 @@
                     <xsd:documentation>
                         The data type of each column in the `table`.
                         Each data type shall be separated by a comma (`,`).
-                        Whitespace may be used before or after each data type.
+                        Whitespace may be used.
 
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
@@ -1208,6 +1210,17 @@
                         <xsd:pattern value="\s*(bool|int|double|string)\s*(,\s*(bool|int|double|string)\s*)*"/>
                     </xsd:restriction>
                 </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="unit" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The unit of each column in the `table`.
+                        Each unit shall be separated by a comma (`,`).
+                        If a column does not have a unit (for example, a column is for comments),
+                        the unit for that column may be an empty string.
+                        Whitespace may be used.
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="header">
                 <xsd:annotation>

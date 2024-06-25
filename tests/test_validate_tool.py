@@ -188,6 +188,7 @@ def test_table_data_valid(xml):
     table = (
         '<table>'
         '  <type>  bool,  int,double,string</type>'
+        '  <unit>      ,   nm,   %rh,      </unit>'
         '  <header>col1, col2,  col3,  col4</header>'
         '  <data>\ntrue,  123,  5e-6, foobar\n\n\n'
         '             1,   -1,  -6e6, T °C\n</data>'
@@ -197,10 +198,25 @@ def test_table_data_valid(xml):
     validate.validate(StringIO(repr(xml)))
 
 
+def test_table_type_unit_length_unequal(xml):
+    table = (
+        '<table>'
+        '  <type>bool,int</type>'
+        '  <unit>nm</unit>'
+        '  <header>column</header>'
+        '  <data>true,2</data>'
+        '</table>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=table))))
+    with pytest.raises(AssertionError, match=r'"type" and "unit" have different lengths'):
+        validate.validate(StringIO(repr(xml)))
+
+
 def test_table_type_header_length_unequal(xml):
     table = (
         '<table>'
         '  <type>bool,int</type>'
+        '  <unit>    , nm</unit>'
         '  <header>column</header>'
         '  <data>true,2</data>'
         '</table>'
@@ -214,6 +230,7 @@ def test_table_type_data_length_unequal(xml):
     table = (
         '<table>'
         '  <type>  bool,int</type>'
+        '  <unit>      , nm</unit>'
         '  <header>col1,col</header>'
         '  <data>  true,  2, 6.7</data>'
         '</table>'
@@ -228,6 +245,7 @@ def test_table_bool_valid(xml, value):
     table = (
         f'<table>'
         f'  <type>bool,int</type>'
+        f'  <unit>    , nm</unit>'
         f'  <header>col1,col2</header>'
         f'  <data>{value},2</data>'
         f'</table>'
@@ -240,6 +258,7 @@ def test_table_bool_invalid(xml):
     table = (
         '<table>'
         '  <type>bool,int</type>'
+        '  <unit>    , nm</unit>'
         '  <header>col1,col2</header>'
         '  <data>INVALID,2</data>'
         '</table>'
@@ -254,6 +273,7 @@ def test_table_int_invalid_range(xml, value):
     table = (
         f'<table>'
         f'  <type>bool,int</type>'
+        f'  <unit>    , nm</unit>'
         f'  <header>col1,col2</header>'
         f'  <data>true,{value}</data>'
         f'</table>'
@@ -268,6 +288,7 @@ def test_table_int_invalid_value(xml, value):
     table = (
         f'<table>'
         f'  <type>bool,int</type>'
+        f'  <unit>    , nm</unit>'
         f'  <header>col1,col2</header>'
         f'  <data>true,{value}</data>'
         f'</table>'
@@ -282,6 +303,7 @@ def test_table_float_invalid_value(xml, value):
     table = (
         f'<table>'
         f'  <type>bool,double</type>'
+        f'  <unit>    , nm</unit>'
         f'  <header>col1,col2</header>'
         f'  <data>true,{value}</data>'
         f'</table>'
@@ -310,6 +332,7 @@ def test_equation_valid(xml):
         '  + 2*pi/z'
         '  </value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -335,6 +358,7 @@ def test_equation_variables_passed(xml):
         '<equation>'
         '  <value variables="x">ln(x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -355,6 +379,7 @@ def test_equation_missing_bracket(xml):
         '<equation>'
         '  <value variables="x">1.2 + 0.2*pow(x,3) - ((6+2/x)*sin(1.0) </value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -373,6 +398,7 @@ def test_equation_unknown_function(xml):
         '<equation>'
         '  <value variables="x">1.2 + 0.2*arccos(0.1*x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -391,6 +417,7 @@ def test_equation_range_variables_unique(xml):
         '<equation>'
         '  <value variables="x">1.2 + 0.2*arccos(0.1*x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -417,6 +444,7 @@ def test_equation_range_variable_missing(xml):
         '<equation>'
         '  <value variables="x y">x+y</value>'
         '  <uncertainty variables="v">0.1*v</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -440,6 +468,7 @@ def test_equation_range_variable_extra(xml):
         '<equation>'
         '  <value variables="x">x+1</value>'
         '  <uncertainty variables="">0.1</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -463,6 +492,7 @@ def test_equation_range_variable_name_wrong(xml):
         '<equation>'
         '  <value variables="x y">x+y</value>'
         '  <uncertainty variables="value">0.1*value</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges>'
         '    <range variable="x">'
         '      <minimum>1</minimum>'
@@ -490,6 +520,7 @@ def test_equation_no_variables(xml):
         '<equation>'
         '  <value variables="">1</value>'
         '  <uncertainty variables="">0.1</uncertainty>'
+        '  <unit>m</unit>'
         '  <ranges/>'
         '</equation>'
     )

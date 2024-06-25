@@ -74,10 +74,21 @@ def test_extra_uncertainty_attribute(xml):
     xml.raises(r'attribute \'save\'')
 
 
+def test_expect_unit_element(xml):
+    choice = ('<equation>'
+              '  <value variables="x">2*x</value>'
+              '  <uncertainty variables="">1.0</uncertainty>'
+              '  <invalid>3*x+1</invalid>'
+              '</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r'Expected is .*unit')
+
+
 def test_expect_ranges_element(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">1.0</uncertainty>'
+              '  <unit>m</unit>'
               '  <invalid>3*x+1</invalid>'
               '</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -88,6 +99,7 @@ def test_expect_degree_freedom_element(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">1.0</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges/>'
               '  <invalid>3*x+1</invalid>'
               '</equation>')
@@ -99,6 +111,7 @@ def test_extra_element(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">1.0</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges/>'
               '  <degreeFreedom>1</degreeFreedom>'
               '  <unknown/>'
@@ -126,6 +139,7 @@ def test_invalid_value_content(xml, value):
     choice = (f'<equation>'
               f'  <value variables="x">{value}</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'  <degreeFreedom>1</degreeFreedom>'
               f'</equation>')
@@ -148,6 +162,7 @@ def test_valid_value_content(xml, value):
     choice = (f'<equation>'
               f'  <value variables="x">{value}</value>'
               f'  <uncertainty variables="">1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -171,6 +186,7 @@ def test_invalid_value_variables(xml, variables):
     choice = (f'<equation>'
               f'  <value variables="{variables}">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -199,6 +215,7 @@ def test_valid_value_variables(xml, variables):
     choice = (f'<equation>'
               f'  <value variables="{variables}">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -224,6 +241,7 @@ def test_invalid_uncertainty_content(xml, uncertainty):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">{uncertainty}</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -246,6 +264,7 @@ def test_valid_uncertainty_content(xml, uncertainty):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">{uncertainty}</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -269,6 +288,7 @@ def test_invalid_uncertainty_variables(xml, variables):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="{variables}">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -297,16 +317,62 @@ def test_valid_uncertainty_variables(xml, variables):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="{variables}">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
 
 
+@pytest.mark.parametrize(
+    'unit',
+    ['m',
+     '\tm ',
+     '°C',
+     '\u00B0C',
+     '%rh',
+     'W/m^2',
+     'W*m^(-2)',
+     'W * m^{-2}',
+     'anything with no line-feed nor carriage return character',
+     ])
+def test_valid_unit_content(xml, unit):
+    choice = (f'<equation>'
+              f'  <value variables="x">2*x</value>'
+              f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>{unit}</unit>'
+              f'  <ranges/>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'unit',
+    ['',
+     '\t',
+     '\r',
+     '\n',
+     '\r\nm',
+     'm\n',
+     'contains a \newline character',
+     ])
+def test_invalid_unit_content(xml, unit):
+    choice = (f'<equation>'
+              f'  <value variables="x">2*x</value>'
+              f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>{unit}</unit>'
+              f'  <ranges/>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"not accepted by the pattern")
+
+
 def test_range_attribute_missing(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range>'
               '      <minimum>1</minimum>'
@@ -322,6 +388,7 @@ def test_range_minimum_expected(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range variable="x">'
               '      <maximum>1</maximum>'
@@ -336,6 +403,7 @@ def test_range_maximum_expected(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range variable="x">'
               '      <minimum>1</minimum>'
@@ -350,6 +418,7 @@ def test_range_maximum_twice(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range variable="x">'
               '      <minimum>1</minimum>'
@@ -366,6 +435,7 @@ def test_range_minimum_invalid(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range variable="x">'
               '      <minimum>1.1d0</minimum>'
@@ -381,6 +451,7 @@ def test_range_maximum_invalid(xml):
     choice = ('<equation>'
               '  <value variables="x">2*x</value>'
               '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
               '  <ranges>'
               '    <range variable="x">'
               '      <minimum>1.0</minimum>'
@@ -398,6 +469,7 @@ def test_range_minimum_maximum_valid(xml, value):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges>'
               f'    <range variable="x">'
               f'      <minimum>{value}</minimum>'
@@ -428,6 +500,7 @@ def test_invalid_degree_freedom_content(xml, df):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="x">0.1/x</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'  <degreeFreedom>{df}</degreeFreedom>'
               f'</equation>')
@@ -440,6 +513,7 @@ def test_invalid_degree_freedom_min_inclusive(xml, df):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'  <degreeFreedom>{df}</degreeFreedom>'
               f'</equation>')
@@ -451,6 +525,7 @@ def test_invalid_degree_freedom_nan(xml):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'  <degreeFreedom>NaN</degreeFreedom>'
               f'</equation>')
@@ -463,6 +538,7 @@ def test_valid_degree_freedom(xml, df):
     choice = (f'<equation>'
               f'  <value variables="x">2*x</value>'
               f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
               f'  <ranges/>'
               f'  <degreeFreedom>{df}</degreeFreedom>'
               f'</equation>')

@@ -207,9 +207,18 @@ def _table(table: Element, *, debug_name: str) -> None:
     """Validates that the data types, header and data are valid."""
     logger.debug('  [%s] Validating table', debug_name)
 
-    types, header, data = table[:3]  # schema forces order
+    types, unit, header, data = table[:4]  # schema forces order
     types = [t.strip() for t in types.text.split(',')]
+    units = [u.strip() for u in unit.text.split(',')]
     header = [h.strip() for h in header.text.split(',')]
+
+    if len(types) != len(units):
+        raise AssertionError(
+            f'The table "type" and "unit" have different lengths for {debug_name!r}\n'
+            f'type={types}\n'
+            f'unit={units}'
+        )
+
     if len(types) != len(header):
         raise AssertionError(
             f'The table "type" and "header" have different lengths for {debug_name!r}\n'

@@ -11,7 +11,7 @@
         <loggable>true</loggable>
         <traceable>true</traceable>
         <calibrations>
-            <measurand quantity="Humidity" unit="%rh" interval="5">
+            <measurand quantity="Humidity" interval="5">
                 <component name="Probe 1">
                     <report>
                         <reportNumber>Humidity/2023/583</reportNumber>
@@ -23,6 +23,7 @@
                         <equation>
                             <value variables="R t">R - 7.131e-2 - 3.951e-2*R + 3.412e-4*pow(R,2) + 2.465e-3*t + 1.034e-3*R*t - 5.297e-6*pow(R,2)*t</value>
                             <uncertainty variables="">0.355</uncertainty>
+                            <unit>%rh</unit>
                             <ranges>
                                 <range variable="R">
                                     <minimum>30</minimum>
@@ -47,6 +48,7 @@
                         <equation>
                             <value variables="R">R - 10.25 +3.35e-2*R + 9.74e-4*pow(R,2)</value>
                             <uncertainty variables="">0.55</uncertainty>
+                            <unit>%rh</unit>
                             <ranges>
                                 <range variable="R">
                                     <minimum>30</minimum>
@@ -57,7 +59,7 @@
                     </report>
                 </component>
             </measurand>
-            <measurand quantity="Temperature" unit="°C" interval="5">
+            <measurand quantity="Temperature" interval="5">
                 <component name="Probe 1">
                     <report>
                         <reportNumber>Humidity/2023/585</reportNumber>
@@ -69,6 +71,7 @@
                         <equation>
                             <value variables="T">T + 4.4e-2 - 5e-3*T</value>
                             <uncertainty variables="">0.055</uncertainty>
+                            <unit>°C</unit>
                             <ranges>
                                 <range variable="T">
                                     <minimum>15</minimum>
@@ -89,6 +92,7 @@
                         <equation>
                             <value variables="T">T - 3.7e-1 + 1e-2*T</value>
                             <uncertainty variables="">0.055</uncertainty>
+                            <unit>°C</unit>
                             <ranges>
                                 <range variable="T">
                                     <minimum>15</minimum>

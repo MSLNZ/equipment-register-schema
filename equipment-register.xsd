@@ -1193,13 +1193,13 @@
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
                         ```
-                        |  Data  |  Size   |                   Description                        |
-                        |  Type  | (bytes) |                                                      |
-                        | ------ | ------- | ---------------------------------------------------- |
-                        | bool   |    1    | true (1) or false (0)                                |
-                        | int    |    4    | Values from -2147483648 to +2147483647 (inclusive)   |
-                        | double |    8    | Approx. 2E-308 to 2E+308 (15-16 digits of precision) |
-                        | string |         | Unicode character strings                            |
+                        |  Data  |  Size   |                   Description                         |
+                        |  Type  | (bytes) |                                                       |
+                        | ------ | ------- | ----------------------------------------------------- |
+                        | bool   |    1    | Value is one of: true True TRUE 1 false False FALSE 0 |
+                        | int    |    4    | Values from -2147483648 to +2147483647 (inclusive)    |
+                        | double |    8    | Approx. 2E-308 to 2E+308 (15-16 digits of precision)  |
+                        | string |         | Unicode character strings                             |
                         ```
                     </xsd:documentation>
                 </xsd:annotation>

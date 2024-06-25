@@ -223,7 +223,7 @@ def test_table_type_data_length_unequal(xml):
         validate.validate(StringIO(repr(xml)))
 
 
-@pytest.mark.parametrize('value', ['true', 'True', '1', 'false', 'False', '0'])
+@pytest.mark.parametrize('value', ['true', 'True', 'TRUE', '1', 'false', 'False', 'FALSE', '0'])
 def test_table_bool_valid(xml, value):
     table = (
         f'<table>'
@@ -245,7 +245,7 @@ def test_table_bool_invalid(xml):
         '</table>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=table))))
-    with pytest.raises(AssertionError, match=r'one of: true, True, 1, false, False, 0'):
+    with pytest.raises(AssertionError, match=r'one of: true, True, TRUE, 1, false, False, FALSE, 0'):
         validate.validate(StringIO(repr(xml)))
 
 

@@ -270,7 +270,7 @@ logger = logging.getLogger('register')
 
 schema: XMLSchema | None = None
 
-booleans = ('true', 'True', '1', 'false', 'False', '0')
+booleans = ('true', 'True', 'TRUE', '1', 'false', 'False', 'FALSE', '0')
 
 namespace = 'https://measurement.govt.nz/equipment-register'
 

@@ -724,7 +724,6 @@
                         Some examples of user-defined elements that may be specified are
                         * the temperature of the equipment must be within a certain range
                         * the temperature and/or humidity of the lab must be within a certain range
-                        * the calibration equation is only valid within a certain range
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

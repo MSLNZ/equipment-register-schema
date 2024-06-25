@@ -19,7 +19,7 @@ The documentation for the Equipment-Register schema is available
 [Git](https://git-scm.com/) is required to interact with the repository.
 
 ### Prerequisites
-If you know how to install Java, Git, Python and Python packages (`pytest` and `lxml`
+If you know how to install Java, Git, Python and Python packages (`pytest`,  `lxml` and `GTC`
 are required) you can skip this section entirely (or only install what you do not have).
 
 The remainder of the _Contributing Guide_ assumes that you have executed every

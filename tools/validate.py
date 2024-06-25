@@ -301,6 +301,6 @@ eqn_map = {
     'tan': np.tan,
     'atan': np.atan,
     'exp': np.exp,
-    'ln': np.log,
-    'log': np.log10,
+    'log': np.log,
+    'log10': np.log10,
 }

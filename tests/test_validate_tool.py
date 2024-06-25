@@ -327,8 +327,8 @@ def test_equation_valid(xml):
         '  + tan(0.4)'
         '  - atan(0.1)'
         '  + exp(0.2)'
-        '  - ln(2.1)'
-        '  + log(1.1)'
+        '  - log(2.1)'
+        '  + log10(1.1)'
         '  + 2*pi/z'
         '  </value>'
         '  <uncertainty variables="">1.0</uncertainty>'
@@ -356,7 +356,7 @@ def test_equation_valid(xml):
 def test_equation_variables_passed(xml):
     equation = (
         '<equation>'
-        '  <value variables="x">ln(x)</value>'
+        '  <value variables="x">log(x)</value>'
         '  <uncertainty variables="">1.0</uncertainty>'
         '  <unit>m</unit>'
         '  <ranges>'

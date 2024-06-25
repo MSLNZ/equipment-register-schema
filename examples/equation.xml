@@ -18,8 +18,8 @@
                         <reportIssueDate>2023-08-18</reportIssueDate>
                         <measurementStartDate>2023-08-08</measurementStartDate>
                         <measurementStopDate>2023-08-14</measurementStopDate>
+                        <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                         <criteria>
-                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>30</minCalibrationValue>
                             <maxCalibrationValue>80</maxCalibrationValue>
                         </criteria>
@@ -35,8 +35,8 @@
                         <reportIssueDate>2023-08-18</reportIssueDate>
                         <measurementStartDate>2023-08-08</measurementStartDate>
                         <measurementStopDate>2023-08-14</measurementStopDate>
+                        <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                         <criteria>
-                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>30</minCalibrationValue>
                             <maxCalibrationValue>80</maxCalibrationValue>
                         </criteria>
@@ -54,8 +54,8 @@
                         <reportIssueDate>2023-08-18</reportIssueDate>
                         <measurementStartDate>2023-08-08</measurementStartDate>
                         <measurementStopDate>2023-08-14</measurementStopDate>
+                        <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                         <criteria>
-                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>15</minCalibrationValue>
                             <maxCalibrationValue>25</maxCalibrationValue>
                         </criteria>
@@ -71,8 +71,8 @@
                         <reportIssueDate>2023-08-18</reportIssueDate>
                         <measurementStartDate>2023-08-08</measurementStartDate>
                         <measurementStopDate>2023-08-14</measurementStopDate>
+                        <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                         <criteria>
-                            <technicalProcedure>MSLT.H.002.006</technicalProcedure>
                             <minCalibrationValue>15</minCalibrationValue>
                             <maxCalibrationValue>25</maxCalibrationValue>
                         </criteria>

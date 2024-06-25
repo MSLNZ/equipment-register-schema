@@ -247,6 +247,7 @@ class XML:
                issue: str = '2023-09-18',
                start: str = '2023-09-18',
                stop: str = '2023-09-18',
+               method: str = '',
                criteria: str = None,
                choice: str = None,
                **attribs) -> str:
@@ -271,6 +272,7 @@ class XML:
                 f'            <reportIssueDate>{issue}</reportIssueDate>\n'
                 f'            <measurementStartDate>{start}</measurementStartDate>\n'
                 f'            <measurementStopDate>{stop}</measurementStopDate>\n'
+                f'            <technicalProcedure>{method}</technicalProcedure>\n'
                 f'            {criteria}\n'
                 f'            {choice}\n'
                 f'          </report>')

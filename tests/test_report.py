@@ -99,7 +99,7 @@ def test_no_stop_date(xml):
     xml.raises(r'Expected is .*measurementStopDate')
 
 
-def test_no_criteria(xml):
+def test_no_technical_procedure(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
@@ -107,7 +107,30 @@ def test_no_criteria(xml):
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r'Expected is .*technicalProcedure')
+
+
+def test_no_criteria(xml):
+    r = ('<report>'
+         '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
+         '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <technicalProcedure/>'
+         '</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises(r'Expected is .*criteria')
+
+
+@pytest.mark.parametrize(
+    'method',
+    ['',
+     ' ',
+     'MSLT.H.022.483'
+     '\tanything \n numbers=1234567890 and \r\n\n symbols=~#$%^*(){}":_+-|?,./;[] \r\n'])
+def test_technical_procedure(xml, method):
+    xml.calibrations(xml.measurand(xml.component(xml.report(method=method))))
+    assert xml.is_valid()
 
 
 @pytest.mark.parametrize(
@@ -129,6 +152,7 @@ def test_no_choice(xml):
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <technicalProcedure/>'
          '  <criteria/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))

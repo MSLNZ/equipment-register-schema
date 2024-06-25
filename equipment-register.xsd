@@ -705,6 +705,17 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="technicalProcedure" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The technical procedure (method) that was followed to perform the calibration.
+
+                        Satisfies ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        f) identification of the method used \
+                        n) additions to, deviations, or exclusions from the method
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="criteria" type="msl:any">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -714,7 +725,6 @@
                         * the temperature of the equipment must be within a certain range
                         * the temperature and/or humidity of the lab must be within a certain range
                         * the calibration equation is only valid within a certain range
-                        * the technical procedure that was followed to acquire the measurement data
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

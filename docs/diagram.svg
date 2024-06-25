@@ -526,7 +526,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_1")' onmouseout='makeHidde
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>measurementStartDate</text>
+<text class='element-name' x='5' y='27'>reportIssueDate</text>
 <text class='element-type' x='5' y='41'>type: date</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -536,7 +536,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_2")' onmouseout='makeHidde
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
-<text class='element-name' x='5' y='27'>measurementStopDate</text>
+<text class='element-name' x='5' y='27'>measurementStartDate</text>
 <text class='element-type' x='5' y='41'>type: date</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -546,13 +546,23 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_3")' onmouseout='makeHidde
 <rect class='boxelement' x='0' y='0' width='291' height='46'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
+<text class='element-name' x='5' y='27'>measurementStopDate</text>
+<text class='element-type' x='5' y='41'>type: date</text>
+<line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
+</g>
+
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5' class='box' transform='translate(2774,973)'>
+<rect class='shadow' x='3' y='3' width='291' height='46'/>
+<rect class='boxelement' x='0' y='0' width='291' height='46'
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5")'/>
+<text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>criteria</text>
 <text class='element-type' x='5' y='41'>type: any</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_4_1' class='box' transform='translate(3110,902)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1' class='box' transform='translate(3110,973)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -563,10 +573,10 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")' onmouseout='makeHidde
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_4_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_4_1_1' class='box' transform='translate(3215,902)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1' class='box' transform='translate(3215,973)'>
 <rect class='shadow' x='3' y='3' width='60' height='46'/>
 <rect class='boxany' x='0' y='0' width='60' height='46'/>
 <rect class='lax' x='6' y='34' width='6' height='6'/>
@@ -577,7 +587,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")' onmouseout='makeHidde
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_4_2' class='box' transform='translate(3110,973)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2' class='box' transform='translate(3110,1044)'>
 <rect class='shadow' x='3' y='3' width='60' height='46' rx='9'/>
 <rect class='boxanyattribute' x='0' y='0' width='60' height='46' rx='9'/>
 <rect class='lax' x='6' y='34' width='6' height='6'/>
@@ -585,33 +595,33 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_4")' onmouseout='makeHidde
 <rect class='lax' x='26' y='34' width='6' height='6'/>
 <text x='5' y='13'>any NS</text>
 <text class='strong' x='5' y='27'>@</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_4_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5' class='box' transform='translate(2774,1044)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6' class='box' transform='translate(2774,1115)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle class='empty' cx='42' cy='23' r='2'/>
 <circle class='empty' cx='42' cy='32' r='2'/>
 <polyline points='26,23 34,23 34,14 40,14'/>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5' x1='-35' y1='-332' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6' x1='-35' y1='-403' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1' class='box' transform='translate(2879,1044)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1' class='box' transform='translate(2879,1115)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>equation</text>
 <text class='element-type' x='5' y='41'>type: equation</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1' class='box' transform='translate(3215,1044)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1' class='box' transform='translate(3215,1115)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -621,73 +631,73 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1")' onmouseout='makeHid
 <text class='small' x='30' y='35'>3</text>
 <line x1='42' y1='14' x2='42' y2='32'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1' class='box' transform='translate(3320,1044)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1' class='box' transform='translate(3320,1115)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>value</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1_1' class='box' transform='translate(3656,1044)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1_1' class='box' transform='translate(3656,1115)'>
 <rect class='shadow' x='3' y='3' width='105' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='105' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> variables</text>
 <text class='visible' x='5' y='41'>type: variables</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2' class='box' transform='translate(3320,1115)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2' class='box' transform='translate(3320,1186)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>uncertainty</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2_1' class='box' transform='translate(3656,1115)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2_1' class='box' transform='translate(3656,1186)'>
 <rect class='shadow' x='3' y='3' width='105' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='105' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_2_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_2_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> variables</text>
 <text class='visible' x='5' y='41'>type: variables</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3' class='box' transform='translate(3320,1186)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_3' class='box' transform='translate(3320,1257)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>degreeFreedom</text>
 <text class='element-type' x='5' y='41'>base: double</text>
 <text x='5' y='59'>0..1</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2' class='box' transform='translate(2879,1257)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2' class='box' transform='translate(2879,1328)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>file</text>
 <text class='element-type' x='5' y='41'>type: file</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1' class='box' transform='translate(3215,1257)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1' class='box' transform='translate(3215,1328)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -697,30 +707,30 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2")' onmouseout='makeHid
 <text class='small' x='30' y='35'>3</text>
 <line x1='42' y1='14' x2='42' y2='32'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_1' class='box' transform='translate(3320,1257)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_1' class='box' transform='translate(3320,1328)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>directory</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2' class='box' transform='translate(3320,1328)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2' class='box' transform='translate(3320,1399)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>filename</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2_1' class='box' transform='translate(3656,1328)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_2_1' class='box' transform='translate(3656,1399)'>
 <rect class='shadow' x='3' y='3' width='60' height='46' rx='9'/>
 <rect class='boxanyattribute' x='0' y='0' width='60' height='46' rx='9'/>
 <rect class='skip' x='6' y='34' width='6' height='6'/>
@@ -731,49 +741,49 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_2")' onmouseout='mak
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_3' class='box' transform='translate(3320,1399)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_3' class='box' transform='translate(3320,1470)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>sha256</text>
 <text class='element-type' x='5' y='41'>base: string</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_2_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_2_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3' class='box' transform='translate(2879,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3' class='box' transform='translate(2879,1541)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>serialised</text>
 <text class='element-type' x='5' y='41'>type: serialised</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1' class='box' transform='translate(3215,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1' class='box' transform='translate(3215,1541)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle class='empty' cx='42' cy='23' r='2'/>
 <circle class='empty' cx='42' cy='32' r='2'/>
 <polyline points='26,23 34,23 34,14 40,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1' class='box' transform='translate(3320,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1' class='box' transform='translate(3320,1541)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>gtcArchive</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1' class='box' transform='translate(3590,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1' class='box' transform='translate(3590,1541)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -781,21 +791,21 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1")' onmouseout='mak
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1' class='box' transform='translate(3695,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1' class='box' transform='translate(3695,1541)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>leafNodes</text>
 <text class='element-type' x='5' y='41'>type: leafNodes</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1' class='box' transform='translate(3965,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1' class='box' transform='translate(3965,1541)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -806,20 +816,20 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1")' onmouseout=
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>1..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1' class='box' transform='translate(4070,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1' class='box' transform='translate(4070,1541)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>leafNode</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1' class='box' transform='translate(4340,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1' class='box' transform='translate(4340,1541)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -827,61 +837,61 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1")' onmouse
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_1' class='box' transform='translate(4445,1470)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_1' class='box' transform='translate(4445,1541)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>u</text>
 <text class='element-type' x='5' y='41'>type: uncertainty</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_2' class='box' transform='translate(4445,1541)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_2' class='box' transform='translate(4445,1612)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>df</text>
 <text class='element-type' x='5' y='41'>type: degreesOfFreedom</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_3' class='box' transform='translate(4445,1612)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_3' class='box' transform='translate(4445,1683)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>label</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_4' class='box' transform='translate(4445,1683)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_4' class='box' transform='translate(4445,1754)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_4")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>independent</text>
 <text class='element-type' x='5' y='41'>type: boolean</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5' class='box' transform='translate(4445,1754)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5' class='box' transform='translate(4445,1825)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>complex</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1' class='box' transform='translate(4715,1754)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1' class='box' transform='translate(4715,1825)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -889,64 +899,64 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5")' onm
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1' class='box' transform='translate(4820,1754)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1' class='box' transform='translate(4820,1825)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>real</text>
 <text class='element-type' x='5' y='41'>type: emptyWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1_1' class='box' transform='translate(5090,1754)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1_1' class='box' transform='translate(5090,1825)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2' class='box' transform='translate(4820,1825)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2' class='box' transform='translate(4820,1896)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>imag</text>
 <text class='element-type' x='5' y='41'>type: emptyWithElementaryUID</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2_1' class='box' transform='translate(5090,1825)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2_1' class='box' transform='translate(5090,1896)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_5_1_2_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_5_1_2_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6' class='box' transform='translate(4445,1896)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6' class='box' transform='translate(4445,1967)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>correlations</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1' class='box' transform='translate(4715,1896)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1' class='box' transform='translate(4715,1967)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -957,43 +967,43 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6")' onm
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>1..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1' class='box' transform='translate(4820,1896)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1' class='box' transform='translate(4820,1967)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>correlation</text>
 <text class='element-type' x='5' y='41'>type: correlation</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1_1' class='box' transform='translate(5090,1896)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1_1' class='box' transform='translate(5090,1967)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_6_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_6_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7' class='box' transform='translate(4445,1967)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7' class='box' transform='translate(4445,2038)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>ensemble</text>
 <text x='5' y='59'>0..1</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7' x1='-35' y1='-474' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7' x1='-35' y1='-474' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1' class='box' transform='translate(4715,1967)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1' class='box' transform='translate(4715,2038)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1004,53 +1014,53 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7")' onm
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1' class='box' transform='translate(4820,1967)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1' class='box' transform='translate(4820,2038)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>node</text>
 <text class='element-type' x='5' y='41'>type: emptyWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1_1' class='box' transform='translate(5090,1967)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1_1' class='box' transform='translate(5090,2038)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_1_7_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_1_7_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_2' class='box' transform='translate(4340,2038)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_2' class='box' transform='translate(4340,2109)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_1_1_1_2' x1='-35' y1='-545' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_1_1_1_2' x1='-35' y1='-545' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2' class='box' transform='translate(3695,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2' class='box' transform='translate(3695,2180)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>taggedReals</text>
 <text class='element-type' x='5' y='41'>type: reals</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1' class='box' transform='translate(3965,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1' class='box' transform='translate(3965,2180)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1061,31 +1071,31 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2")' onmouseout=
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1' class='box' transform='translate(4070,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1' class='box' transform='translate(4070,2180)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle class='empty' cx='42' cy='23' r='2'/>
 <circle class='empty' cx='42' cy='32' r='2'/>
 <polyline points='26,23 34,23 34,14 40,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1' class='box' transform='translate(4175,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1' class='box' transform='translate(4175,2180)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>elementaryReal</text>
 <text class='element-type' x='5' y='41'>type: elementaryReal</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1' class='box' transform='translate(4445,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1' class='box' transform='translate(4445,2180)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1093,53 +1103,53 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1")' onmou
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1_1' class='box' transform='translate(4550,2109)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1_1' class='box' transform='translate(4550,2180)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>value</text>
 <text class='element-type' x='5' y='41'>type: double</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_2' class='box' transform='translate(4445,2180)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_2' class='box' transform='translate(4445,2251)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> tag</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_3' class='box' transform='translate(4445,2251)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_3' class='box' transform='translate(4445,2322)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_3")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2' class='box' transform='translate(4175,2322)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2' class='box' transform='translate(4175,2393)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>intermediateReal</text>
 <text class='element-type' x='5' y='41'>type: intermediateReal</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1' class='box' transform='translate(4445,2322)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1' class='box' transform='translate(4445,2393)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1147,41 +1157,41 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2")' onmou
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_1' class='box' transform='translate(4550,2322)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_1' class='box' transform='translate(4550,2393)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>value</text>
 <text class='element-type' x='5' y='41'>type: double</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_2' class='box' transform='translate(4550,2393)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_2' class='box' transform='translate(4550,2464)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>label</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3' class='box' transform='translate(4550,2464)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3' class='box' transform='translate(4550,2535)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>uComponents</text>
 <text class='element-type' x='5' y='41'>type: elementaryVector</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1' class='box' transform='translate(4820,2464)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1' class='box' transform='translate(4820,2535)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1192,42 +1202,42 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1' class='box' transform='translate(4925,2464)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1' class='box' transform='translate(4925,2535)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1_1' class='box' transform='translate(5195,2464)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1_1' class='box' transform='translate(5195,2535)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_3_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_3_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4' class='box' transform='translate(4550,2535)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4' class='box' transform='translate(4550,2606)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>dComponents</text>
 <text class='element-type' x='5' y='41'>type: elementaryVector</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1' class='box' transform='translate(4820,2535)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1' class='box' transform='translate(4820,2606)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1238,43 +1248,43 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1' class='box' transform='translate(4925,2535)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1' class='box' transform='translate(4925,2606)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1_1' class='box' transform='translate(5195,2535)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1_1' class='box' transform='translate(5195,2606)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_4_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_4_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5' class='box' transform='translate(4550,2606)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5' class='box' transform='translate(4550,2677)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>iComponents</text>
 <text class='element-type' x='5' y='41'>type: intermediateVector</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5' x1='-35' y1='-261' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5' x1='-35' y1='-261' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1' class='box' transform='translate(4820,2606)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1' class='box' transform='translate(4820,2677)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1285,63 +1295,63 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1' class='box' transform='translate(4925,2606)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1' class='box' transform='translate(4925,2677)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithIntermediateUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1_1' class='box' transform='translate(5195,2606)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1_1' class='box' transform='translate(5195,2677)'>
 <rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_1_5_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_1_5_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: intermediateUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_2' class='box' transform='translate(4445,2677)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_2' class='box' transform='translate(4445,2748)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> tag</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_3' class='box' transform='translate(4445,2748)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_3' class='box' transform='translate(4445,2819)'>
 <rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_3")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: intermediateUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_2_1_1_2_3' x1='-35' y1='-403' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_2_1_1_2_3' x1='-35' y1='-403' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3' class='box' transform='translate(3695,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3' class='box' transform='translate(3695,2890)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>untaggedReals</text>
 <text class='element-type' x='5' y='41'>type: reals</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1' class='box' transform='translate(3965,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1' class='box' transform='translate(3965,2890)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1352,31 +1362,31 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3")' onmouseout=
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1' class='box' transform='translate(4070,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1' class='box' transform='translate(4070,2890)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle class='empty' cx='42' cy='23' r='2'/>
 <circle class='empty' cx='42' cy='32' r='2'/>
 <polyline points='26,23 34,23 34,14 40,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1' class='box' transform='translate(4175,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1' class='box' transform='translate(4175,2890)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>elementaryReal</text>
 <text class='element-type' x='5' y='41'>type: elementaryReal</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1' class='box' transform='translate(4445,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1' class='box' transform='translate(4445,2890)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1384,53 +1394,53 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1")' onmou
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1_1' class='box' transform='translate(4550,2819)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1_1' class='box' transform='translate(4550,2890)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>value</text>
 <text class='element-type' x='5' y='41'>type: double</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_2' class='box' transform='translate(4445,2890)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_2' class='box' transform='translate(4445,2961)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> tag</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_3' class='box' transform='translate(4445,2961)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_3' class='box' transform='translate(4445,3032)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_3")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2' class='box' transform='translate(4175,3032)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2' class='box' transform='translate(4175,3103)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>intermediateReal</text>
 <text class='element-type' x='5' y='41'>type: intermediateReal</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1' class='box' transform='translate(4445,3032)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1' class='box' transform='translate(4445,3103)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1438,41 +1448,41 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2")' onmou
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_1' class='box' transform='translate(4550,3032)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_1' class='box' transform='translate(4550,3103)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>value</text>
 <text class='element-type' x='5' y='41'>type: double</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_2' class='box' transform='translate(4550,3103)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_2' class='box' transform='translate(4550,3174)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>label</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3' class='box' transform='translate(4550,3174)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3' class='box' transform='translate(4550,3245)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>uComponents</text>
 <text class='element-type' x='5' y='41'>type: elementaryVector</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1' class='box' transform='translate(4820,3174)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1' class='box' transform='translate(4820,3245)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1483,42 +1493,42 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1' class='box' transform='translate(4925,3174)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1' class='box' transform='translate(4925,3245)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1_1' class='box' transform='translate(5195,3174)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1_1' class='box' transform='translate(5195,3245)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_3_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_3_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4' class='box' transform='translate(4550,3245)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4' class='box' transform='translate(4550,3316)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>dComponents</text>
 <text class='element-type' x='5' y='41'>type: elementaryVector</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1' class='box' transform='translate(4820,3245)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1' class='box' transform='translate(4820,3316)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1529,43 +1539,43 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1' class='box' transform='translate(4925,3245)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1' class='box' transform='translate(4925,3316)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithElementaryUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1_1' class='box' transform='translate(5195,3245)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1_1' class='box' transform='translate(5195,3316)'>
 <rect class='shadow' x='3' y='3' width='129' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='129' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_4_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_4_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: elementaryUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5' class='box' transform='translate(4550,3316)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5' class='box' transform='translate(4550,3387)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>iComponents</text>
 <text class='element-type' x='5' y='41'>type: intermediateVector</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5' x1='-35' y1='-261' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5' x1='-35' y1='-261' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1' class='box' transform='translate(4820,3316)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1' class='box' transform='translate(4820,3387)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1576,63 +1586,63 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5")' o
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1' class='box' transform='translate(4925,3316)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1' class='box' transform='translate(4925,3387)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>component</text>
 <text class='element-type' x='5' y='41'>type: doubleWithIntermediateUID</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1_1' class='box' transform='translate(5195,3316)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1_1' class='box' transform='translate(5195,3387)'>
 <rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_1_5_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_1_5_1_1_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: intermediateUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_2' class='box' transform='translate(4445,3387)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_2' class='box' transform='translate(4445,3458)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> tag</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_3' class='box' transform='translate(4445,3458)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_3' class='box' transform='translate(4445,3529)'>
 <rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_3")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: intermediateUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_3_1_1_2_3' x1='-35' y1='-403' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_3_1_1_2_3' x1='-35' y1='-403' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4' class='box' transform='translate(3695,3529)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4' class='box' transform='translate(3695,3600)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>taggedComplexes</text>
 <text class='element-type' x='5' y='41'>type: taggedComplexes</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1' class='box' transform='translate(3965,3529)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1' class='box' transform='translate(3965,3600)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1643,20 +1653,20 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4")' onmouseout=
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1' class='box' transform='translate(4070,3529)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1' class='box' transform='translate(4070,3600)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>complex</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1' class='box' transform='translate(4340,3529)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1' class='box' transform='translate(4340,3600)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1664,43 +1674,43 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1")' onmouse
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1_1' class='box' transform='translate(4445,3529)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1_1' class='box' transform='translate(4445,3600)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>label</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_2' class='box' transform='translate(4340,3600)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_2' class='box' transform='translate(4340,3671)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> tag</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_4_1_1_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_4_1_1_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5' class='box' transform='translate(3695,3671)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5' class='box' transform='translate(3695,3742)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>intermediates</text>
 <text class='element-type' x='5' y='41'>type: intermediates</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5' x1='-35' y1='-2178' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5' x1='-35' y1='-2178' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1' class='box' transform='translate(3965,3671)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1' class='box' transform='translate(3965,3742)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1711,20 +1721,20 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5")' onmouseout=
 <line x1='42' y1='14' x2='42' y2='32'/>
 <text x='5' y='52'>0..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1' class='box' transform='translate(4070,3671)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1' class='box' transform='translate(4070,3742)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>intermediate</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1")'/>
+<use x='224' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1' class='box' transform='translate(4340,3671)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1' class='box' transform='translate(4340,3742)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1732,74 +1742,74 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1")' onmouse
 <line x1='26' y1='23' x2='42' y2='23'/>
 <polyline points='42,32 34,32 34,14 42,14'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_1' class='box' transform='translate(4445,3671)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_1' class='box' transform='translate(4445,3742)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>label</text>
 <text class='element-type' x='5' y='41'>type: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_2' class='box' transform='translate(4445,3742)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_2' class='box' transform='translate(4445,3813)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>u</text>
 <text class='element-type' x='5' y='41'>type: uncertainty</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_3' class='box' transform='translate(4445,3813)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_3' class='box' transform='translate(4445,3884)'>
 <rect class='shadow' x='3' y='3' width='225' height='46'/>
 <rect class='boxelement' x='0' y='0' width='225' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/gtc/xml</text>
 <text class='element-name' x='5' y='27'>df</text>
 <text class='element-type' x='5' y='41'>type: degreesOfFreedom</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_2' class='box' transform='translate(4340,3884)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_2' class='box' transform='translate(4340,3955)'>
 <rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> uid</text>
 <text class='visible' x='5' y='41'>type: intermediateUID</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_1_5_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_1_5_1_1_2' x1='-35' y1='-190' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_2' class='box' transform='translate(3590,3955)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_2' class='box' transform='translate(3590,4026)'>
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> version</text>
 <text class='visible' x='5' y='41'>type: string</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_1_2' x1='-35' y1='-2462' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_1_2' x1='-35' y1='-2462' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2' class='box' transform='translate(3320,4026)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2' class='box' transform='translate(3320,4097)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>gtcArchiveJSON</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2' x1='-35' y1='-2533' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2' x1='-35' y1='-2533' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2_1' class='box' transform='translate(3656,4026)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_3_1_2_1' class='box' transform='translate(3656,4097)'>
 <rect class='shadow' x='3' y='3' width='60' height='46' rx='9'/>
 <rect class='boxanyattribute' x='0' y='0' width='60' height='46' rx='9'/>
 <rect class='skip' x='6' y='34' width='6' height='6'/>
@@ -1810,19 +1820,19 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_3_1_2")' onmouseout='mak
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4' class='box' transform='translate(2879,4097)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4' class='box' transform='translate(2879,4168)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>table</text>
 <text class='element-type' x='5' y='41'>type: table</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4' x1='-35' y1='-3030' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4' x1='-35' y1='-3030' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4")'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1' class='box' transform='translate(3215,4097)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1' class='box' transform='translate(3215,4168)'>
 <rect class='boxcompositor' x='0' y='8' width='60' height='31' rx='9'/>
 <circle cx='42' cy='14' r='2'/>
 <circle cx='42' cy='23' r='2'/>
@@ -1832,48 +1842,37 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4")' onmouseout='makeHid
 <text class='small' x='30' y='35'>3</text>
 <line x1='42' y1='14' x2='42' y2='32'/>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
-<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1")'/>
+<use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1")'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1' class='box' transform='translate(3320,4097)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_1' class='box' transform='translate(3320,4168)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_1")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_1")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>type</text>
 <text class='element-type' x='5' y='41'>base: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2' class='box' transform='translate(3320,4168)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_2' class='box' transform='translate(3320,4239)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_2")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>header</text>
 <text class='element-type' x='5' y='41'>base: string</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_3' class='box' transform='translate(3320,4239)'>
+<g id='_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_3' class='box' transform='translate(3320,4310)'>
 <rect class='shadow' x='3' y='3' width='291' height='46'/>
 <rect class='boxelement' x='0' y='0' width='291' height='46'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_3")'/>
+onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>data</text>
 <text class='element-type' x='5' y='41'>base: string</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_5_4_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
-<path class='connection' d='M-35,-40 Q-35,15 0,23'/>
-</g>
-
-<g id='_1_1_1_1_1_10_1_1_1_1_1_1_2' class='box' transform='translate(2669,4310)'>
-<rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
-<rect class='boxattribute2' x='0' y='0' width='93' height='46' rx='9'
-onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_1_1_1_1_2")'/>
-<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> date</text>
-<text class='visible' x='5' y='41'>type: date</text>
-<text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
-<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_2' x1='-35' y1='-3598' x2='-35' y2='-40'/>
+<line class='connection' id='p_1_1_1_1_1_10_1_1_1_1_1_1_1_6_4_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
 </g>
 

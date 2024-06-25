@@ -675,13 +675,23 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="reportIssueDate" type="xsd:date">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The date that the report was issued.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        j) the date of issue of the report
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="measurementStartDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement started.
 
                         Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
-                        i) the dates(s) of performance of the laboratory activity
+                        i) the date(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -691,7 +701,7 @@
                         The date that the calibration measurement stopped.
 
                         Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
-                        i) the dates(s) of performance of the laboratory activity
+                        i) the date(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -743,13 +753,6 @@
                 </xsd:element>
             </xsd:choice>
         </xsd:sequence>
-        <xsd:attribute name="date" type="xsd:date">
-            <xsd:annotation>
-                <xsd:documentation>
-                    _Optional:_ The date that the report was issued.
-                </xsd:documentation>
-            </xsd:annotation>
-        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="equation">

@@ -3,20 +3,9 @@ import pytest
 from tests.conftest import INVALID_DATES
 
 
-@pytest.mark.parametrize(
-    'attribs',
-    [{'foo': '2023-01-01'},
-     {'date': '2023-01-01', 'foo': '2023-01-01'},
-     ])
-def test_invalid_attribute_name(xml, attribs):
-    xml.calibrations(xml.measurand(xml.component(xml.report(**attribs))))
-    xml.raises(r"report', attribute 'foo'")
-
-
-@pytest.mark.parametrize('value', INVALID_DATES)
-def test_invalid_attribute_value(xml, value):
-    xml.calibrations(xml.measurand(xml.component(xml.report(date=value))))
-    xml.raises(rf"report', attribute 'date': '{value}' is not a valid value")
+def test_no_attributes_allowed(xml):
+    xml.calibrations(xml.measurand(xml.component(xml.report(date='2023-01-01'))))
+    xml.raises(r"report', attribute 'date'")
 
 
 @pytest.mark.parametrize(
@@ -57,6 +46,12 @@ def test_valid_number_value(xml, value):
 
 
 @pytest.mark.parametrize('value', INVALID_DATES)
+def test_invalid_issue_date(xml, value):
+    xml.calibrations(xml.measurand(xml.component(xml.report(issue=value))))
+    xml.raises(f"reportIssueDate': '{value}' is not a valid value")
+
+
+@pytest.mark.parametrize('value', INVALID_DATES)
 def test_invalid_start_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(start=value))))
     xml.raises(f"measurementStartDate': '{value}' is not a valid value")
@@ -74,9 +69,19 @@ def test_no_number(xml):
     xml.raises(r'Expected is .*reportNumber')
 
 
+def test_no_issue_date(xml):
+    r = ('<report>'
+         '  <reportNumber>any</reportNumber>'
+         '  <anything/>'
+         '</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r'Expected is .*reportIssueDate')
+
+
 def test_no_start_date(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <anything/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
@@ -86,6 +91,7 @@ def test_no_start_date(xml):
 def test_no_stop_date(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <anything/>'
          '</report>')
@@ -96,6 +102,7 @@ def test_no_stop_date(xml):
 def test_no_criteria(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '</report>')
@@ -119,6 +126,7 @@ def test_criteria(xml, text, attribs):
 def test_no_choice(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '  <criteria/>'

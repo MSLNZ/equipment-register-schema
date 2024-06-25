@@ -244,6 +244,7 @@ class XML:
     @staticmethod
     def report(*,
                number: str = 'any',
+               issue: str = '2023-09-18',
                start: str = '2023-09-18',
                stop: str = '2023-09-18',
                criteria: str = None,
@@ -267,6 +268,7 @@ class XML:
 
         return (f'{report}\n'
                 f'            <reportNumber>{number}</reportNumber>\n'
+                f'            <reportIssueDate>{issue}</reportIssueDate>\n'
                 f'            <measurementStartDate>{start}</measurementStartDate>\n'
                 f'            <measurementStopDate>{stop}</measurementStopDate>\n'
                 f'            {criteria}\n'

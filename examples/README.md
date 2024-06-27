@@ -2,5 +2,5 @@ Example equipment-register files for the different ways of specifying a calibrat
 
 ### equation.xml
 The equipment contains two probes and each probe measures both temperature and humidity.
-The calibration report is specified as an equation. One equation depends on two variables,
+The calibration data is specified as an equation. One equation depends on two variables,
 `R` and `t`.

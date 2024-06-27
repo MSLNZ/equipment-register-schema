@@ -10,8 +10,7 @@ from tools import validate
 def test_file_path_invalid(xml):
     file = (
         f'<file>'
-        f'  <directory>my/path</directory>'
-        f'  <filename>file.txt</filename>'
+        f'  <url>file.txt</url>'
         f'  <sha256>{xml.SHA256}</sha256>'
         f'</file>'
     )
@@ -23,8 +22,7 @@ def test_file_path_invalid(xml):
 def test_file_root_specified(xml):
     file = (
         '<file>'
-        '  <directory/>'
-        '  <filename>do_not_modify_this_file.txt</filename>'
+        '  <url>do_not_modify_this_file.txt</url>'
         '  <sha256>699521aa6d52651ef35ee84232f657490eb870543119810f2af8bc68496d693c</sha256>'
         '</file>'
     )
@@ -32,12 +30,23 @@ def test_file_root_specified(xml):
     validate.validate(StringIO(repr(xml)), root_dir='tests')
 
 
+def test_file_unsupported_url_scheme(xml):
+    file = (
+        f'<file>'
+        f'  <url>ftp://msl/data.pdf</url>'
+        f'  <sha256>{xml.SHA256}</sha256>'
+        f'</file>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=file))))
+    with pytest.raises(ValueError, match=r"url scheme 'ftp'"):
+        validate.validate(StringIO(repr(xml)))
+
+
 def test_file_invalid_checksum(xml):
     here = Path(__file__)
     file = (
         f'<file>'
-        f'  <directory>{here.parent}</directory>'
-        f'  <filename>{here.name}</filename>'
+        f'  <url>file://{here.parent}/{here.name}</url>'
         f'  <sha256>{xml.SHA256}</sha256>'
         f'</file>'
     )
@@ -46,11 +55,33 @@ def test_file_invalid_checksum(xml):
         validate.validate(StringIO(repr(xml)))
 
 
-def test_file_valid_checksum(xml):
+@pytest.mark.parametrize(
+    'url',
+    [
+        Path(__file__).parent / 'do_not_modify_this_file.txt',
+        f'{Path(__file__).parent}/do_not_modify_this_file.txt',
+        f'{Path(__file__).parent}\\do_not_modify_this_file.txt',
+        rf'{Path(__file__).parent}\do_not_modify_this_file.txt',
+        f'file://{Path(__file__).parent}/do_not_modify_this_file.txt',
+        f'file://{Path(__file__).parent}\\do_not_modify_this_file.txt',
+        rf'file://{Path(__file__).parent}\do_not_modify_this_file.txt',
+        f'file:///{Path(__file__).parent}/do_not_modify_this_file.txt',
+        f'file:///{Path(__file__).parent}\\do_not_modify_this_file.txt',
+        rf'file:///{Path(__file__).parent}\do_not_modify_this_file.txt',
+        'tests/do_not_modify_this_file.txt',
+        'tests\\do_not_modify_this_file.txt',
+        r'tests\do_not_modify_this_file.txt',
+        'file:///tests/do_not_modify_this_file.txt',
+        'file:///tests\\do_not_modify_this_file.txt',
+        r'file:///tests\do_not_modify_this_file.txt',
+        'file:tests/do_not_modify_this_file.txt',
+        'file:tests\\do_not_modify_this_file.txt',
+        r'file:tests\do_not_modify_this_file.txt',
+    ])
+def test_file_valid(xml, url):
     file = (
         f'<file>'
-        f'  <directory>{Path(__file__).parent}</directory>'
-        f'  <filename>do_not_modify_this_file.txt</filename>'
+        f'  <url>{url}</url>'
         f'  <sha256>699521aa6d52651ef35ee84232f657490eb870543119810f2af8bc68496d693c</sha256>'
         f'</file>'
     )

@@ -263,8 +263,7 @@ class XML:
 
         if choice is None:
             choice = (f'<file>\n'
-                      f'              <directory/>\n'
-                      f'              <filename>data.dat</filename>\n'
+                      f'              <url>data.dat</url>\n'
                       f'              <sha256>{XML.SHA256}</sha256>\n'
                       f'            </file>')
 

@@ -11,6 +11,7 @@ import logging
 from hashlib import sha256
 from pathlib import Path
 from typing import TYPE_CHECKING
+from urllib.parse import urlparse
 
 import numpy as np
 from GTC.persistence import loads_json
@@ -156,12 +157,23 @@ def _equation(equation: Element, *, debug_name: str, nsmap: dict[str, str], **va
 
 def _file(file: Element, *, root: str | Path, debug_name: str) -> None:
     """Validates that the file exists and that the SHA-256 checksum is correct."""
-    directory, filename, checksum = file[:3]  # schema forces order
+    url, checksum = file[:3]  # schema forces order
+    u = urlparse(url.text)
+
+    # check len() > 1 to ignore a Windows drive letter being interpreted as a scheme
+    if len(u.scheme) > 1 and u.scheme != 'file':
+        raise ValueError(
+            f'The url scheme {u.scheme!r} is not yet implemented for {debug_name!r}\n'
+            f'url={url.text}'
+        )
 
     path = Path(root)
-    if directory.text:
-        path /= directory.text
-    path /= filename.text
+    if u.netloc:
+        if ':' in u.netloc:
+            path /= u.netloc
+        else:
+            path /= f'//{u.netloc}'
+    path /= u.path.lstrip('/')
 
     logger.debug('  [%s] Validating SHA-256 checksum for %s ', debug_name, path)
 
@@ -177,7 +189,7 @@ def _file(file: Element, *, root: str | Path, debug_name: str) -> None:
     expected = sha.hexdigest()
     if expected != specified:
         raise AssertionError(
-            f'The SHA-256 checksum for {path} does not match\n'
+            f'The SHA-256 checksum of {path} does not match for {debug_name!r}\n'
             f'expected={expected}\n'
             f'<sha256>={specified}'
         )

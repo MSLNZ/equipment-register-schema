@@ -926,18 +926,17 @@
                 had to migrate data multiple times (i.e., a network drive, then GDrive,
                 then OneDrive, ...).
 
-                One option is to think of file paths as a combination of three parts
+                One option is to think of the file-system path as a combination of two parts
 
                 ```
-                root \ &lt;directory&gt; \ &lt;filename&gt;
+                root \ &lt;url&gt;
                 ```
 
                 where,
                 * root: This is not stored in an equipment register. Instead, it may be
                         stored in a separate file (ideally in a single file) on a local
                         hard drive. How and where this is stored is up to the individual.
-                * directory: This is the `&lt;directory&gt;` element in an equipment register.
-                * filename: This is the `&lt;filename&gt;` element in an equipment register.
+                * url: This is the `&lt;url&gt;` element in an equipment register.
 
                 For example, consider the following absolute path
                 ```
@@ -945,22 +944,19 @@
                 ```
                 each part could be broken down as follows
 
-                * root = `C:\Users\username\OneDrive - My Company Name`
+                * root = `C:\Users\username\OneDrive - My Company Name\`
                   - this value could be stored, for example, in a file in the users home directory
                     or as a constant in the analysis software
-                * directory = `Length\Quality\Equipment`
-                  - the top directory in this value, `Length`, and all subdirectories are under
-                    the control of the corresponding MSL team
-                * filename = `register.xml`
+                * url = `Length\Quality\Equipment\register.xml`
 
                 Whenever someone needs to load the file, the `root` is read from a local
-                file, the `&lt;directory&gt;` and `&lt;filename&gt;` elements are read from
-                the equipment register, and, finally, the absolute path is constructed.
+                file and the `&lt;url&gt;` element is read from the equipment register and
+                the absolute path is constructed.
 
                 _Attention: This XSD document validates the content of an XML document
-                (e.g., that the `filename` element exists and the content is a
+                (e.g., that the `url` element exists and the content is a
                 [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
-                that the file exists nor if the checksum is correct for the file
+                that the file exists nor if the SHA-256 checksum is correct for the file
                 (although the general format of the checksum, i.e., has the proper length
                 and contains only allowed characters, is validated). You must use another
                 tool to validate the existence of the file and the validity of the
@@ -968,60 +964,60 @@
 
                 **Examples**
 
-                The data is stored in an Excel file that is located at a _relative_ path.
-
-                ```xml
+                The data is stored in an Excel file that is located at a _relative_ path
+                ```
                 &lt;file&gt;
-                  &lt;directory&gt;a\relative\path&lt;/directory&gt;
-                  &lt;filename sheet="2021-May" cell="B2:D25"&gt;data.xlsx&lt;/filename&gt;
+                  &lt;url sheet="2024-May" cell="B2:D25"&gt;relative\path\data.xlsx&lt;/url&gt;
                   &lt;sha256&gt;70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```
 
-                The data is stored in binary [HDF](https://www.hdfgroup.org/) format.
-                A value for the `directory` is not specified, but the element must exist.
-
-                ```xml
+                The data is stored in a digital calibration certificate on a network server
+                ```
                 &lt;file&gt;
-                  &lt;directory/&gt;
-                  &lt;filename&gt;data.h5&lt;/filename&gt;
+                  &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.xml&lt;/filename&gt;
                   &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
                 &lt;/file&gt;
                 ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="directory" type="xsd:string">
+            <xsd:element name="url">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The directory where the `filename` element is located.
-
-                        Including the `directory` element is required, but the
-                        content may be an empty string.
-
-                        The content of `directory` may be an _absolute_ path or a
-                        _relative_ path, where the definition of _relative_ is up to
-                        each MSL team to standardise.
-
-                        Consider using the following structure that was discussed
-                        previously to construct an absolute path
-                        ```
-                        root \ &lt;directory&gt; \ &lt;filename&gt;
-                        ```
-                    </xsd:documentation>
-                </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="filename">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        The name of the file (including the file extension).
+                        The location of the file.
                         May contain zero or more attributes.
 
-                        Consider using the following structure that was discussed
-                        previously to construct an absolute path
+                        The syntax of the Uniform Resource Locator (URL) follows
+                        [RFC 1738](https://www.rfc-editor.org/rfc/rfc1738)
                         ```
-                        root \ &lt;directory&gt; \ &lt;filename&gt;
+                        scheme:scheme-specific-part
                         ```
+                        except, if the `scheme:` is not specified, it is assumed to be `file:`,
+                        which corresponds to a file that is on the local file system of the computer
+                        (which may be a mapped network drive).
+
+                        Including the `scheme:` is required if a particular protocol must be used
+                        to access the file, for example, `ftp:` or `https:`.
+
+                        **Examples**
+
+                        The data is stored in a digital calibration report on a network server
+                        ```
+                        &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.pdf&lt;/url&gt;
+                        ```
+
+                        The data is stored in an Excel file that is located at a local _relative_ path
+                        ```
+                        &lt;url sheet="2024-May" cell="B2:D25"&gt;relative\path\data.xlsx&lt;/url&gt;
+                        ```
+                        where the _absolute_ path may be constructed using the _root_-directory
+                        concept (discussed in the [file](#type_file)-element documentation),
+                        for example, the _absolute_ path is constructed as
+                        ```
+                        root\relative\path\data.xlsx
+                        ```
+
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>

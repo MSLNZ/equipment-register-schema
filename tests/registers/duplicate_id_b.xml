@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<register team="Mass" xmlns="https://measurement.govt.nz/equipment-register">
+    <equipment>
+        <id>MSLE.M.004</id>
+        <manufacturer>Skynet</manufacturer>
+        <model>T-1000</model>
+        <serial>00000000004</serial>
+        <description>A mimetic poly-alloy (liquid metal)</description>
+        <location>Kibble Balance</location>
+        <status>Active</status>
+        <loggable>false</loggable>
+        <traceable>true</traceable>
+        <calibrations/>
+        <maintenance/>
+        <firmware/>
+        <acceptanceCriteria/>
+        <documentation/>
+    </equipment>
+    <equipment>
+        <id>MSLE.M.002</id>
+        <manufacturer>Skynet</manufacturer>
+        <model>T-1000</model>
+        <serial>00000000002</serial>
+        <description>A mimetic poly-alloy (liquid metal)</description>
+        <location>Kibble Balance</location>
+        <status>Active</status>
+        <loggable>false</loggable>
+        <traceable>true</traceable>
+        <calibrations/>
+        <maintenance/>
+        <firmware/>
+        <acceptanceCriteria/>
+        <documentation/>
+    </equipment>
+    <equipment>
+        <id>MSLE.M.005</id>
+        <manufacturer>Skynet</manufacturer>
+        <model>T-1000</model>
+        <serial>00000000005</serial>
+        <description>A mimetic poly-alloy (liquid metal)</description>
+        <location>Kibble Balance</location>
+        <status>Active</status>
+        <loggable>false</loggable>
+        <traceable>true</traceable>
+        <calibrations/>
+        <maintenance/>
+        <firmware/>
+        <acceptanceCriteria/>
+        <documentation/>
+    </equipment>
+</register>

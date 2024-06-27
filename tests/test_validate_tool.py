@@ -567,3 +567,9 @@ def test_equation_no_variables(xml):
 
 def test_recursive():
     assert validate.recursive_validate('./examples') > 0
+
+
+def test_duplicate_id():
+    match = r"Duplicate equipment ID, 'MSLE.M.002',"
+    with pytest.raises(AssertionError, match=match):
+        validate.recursive_validate('./tests/registers')

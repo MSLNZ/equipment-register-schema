@@ -63,11 +63,16 @@ def recursive_validate(
     :return: The number of files that were validated.
     """
     n = 0
+    all_ids: set[str] = set()
     for path in Path(start_dir).rglob(pattern):
         tree = etree.parse(path)
         if tree.getroot().tag == f'{{{namespace}}}register':
             logger.debug('Processing %s', path)
-            validate(tree, root_dir=root_dir, **variables)
+            ids = validate(tree, root_dir=root_dir, **variables)
+            for id_ in ids:
+                if id_ in all_ids:
+                    raise AssertionError(f'Duplicate equipment ID, {id_!r}, found in {path}')
+            all_ids.update(ids)
             n += 1
     return n
 
@@ -75,7 +80,7 @@ def recursive_validate(
 def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
              *,
              root_dir: str | Path = '',
-             **variables) -> None:
+             **variables) -> set[str]:
     """Validate an equipment register.
 
     :param register: The path to a file, a file-like object
@@ -92,6 +97,8 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
         the variable name is determined automatically from the `<value>`
         and `<uncertainty>` attributes and a value of 1.0 is assigned to
         all variables.
+
+    :return: A set of equipment ID's.
     """
     if schema is None:
         load_schema()
@@ -105,8 +112,10 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
     schema.assertValid(tree)
 
     nsmap = {'reg': namespace}
+    ids: set[str] = set()  # schema forces uniqueness within a single XML file
     for equipment in tree.xpath('//reg:equipment', namespaces=nsmap):
-        manufacturer, model, serial = equipment[1:4]  # schema forces order
+        id_, manufacturer, model, serial = equipment[:4]  # schema forces order
+        ids.add(id_.text)
         name = f'{manufacturer.text} {model.text} {serial.text}'
         for equation in equipment.xpath('.//reg:equation', namespaces=nsmap):
             _equation(equation, debug_name=name, nsmap=nsmap, **variables)
@@ -116,6 +125,7 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
             _serialised(serialised, debug_name=name)
         for table in equipment.xpath('.//reg:table', namespaces=nsmap):
             _table(table, debug_name=name)
+    return ids
 
 
 def _equation(equation: Element, *, debug_name: str, nsmap: dict[str, str], **variables) -> None:

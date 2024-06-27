@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <register team="Mass" xmlns="https://measurement.govt.nz/equipment-register">
-    <equipment>
+    <equipment keywords="Thermometer Hygrometer">
         <id>MSLE.M.092</id>
         <manufacturer>The Company Name</manufacturer>
         <model>ABC</model>

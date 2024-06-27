@@ -50,9 +50,8 @@ def recursive_validate(
 
     :param root_dir: The root directory to use when a calibration report is
         located in an external file. The `root_dir` value, i.e.,
-        `root_dir \\ <directory> \\ <filename>`, may be required to build
-        the absolute path to the file. The `<directory>` and `<filename>`
-        values are child elements of the `<file>` element.
+        `root_dir \\ <url>`, may be required to build the absolute path to
+        the file. The `<url>` element is a child of the `<file>` element.
 
     :param variables: A mapping between a variable name and its value
         if the calibration report is in the form of an equation. By default,
@@ -88,9 +87,8 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
 
     :param root_dir: The root directory to use when a calibration report is
         located in an external file. The `root_dir` value, i.e.,
-        `root_dir \\ <directory> \\ <filename>`, may be required to build
-        the absolute path to the file. The `<directory>` and `<filename>`
-        values are child elements of the `<file>` element.
+        `root_dir \\ <url>`, may be required to build the absolute path to
+        the file. The `<url>` element is a child of the `<file>` element.
 
     :param variables: A mapping between a variable name and its value
         if the calibration report is in the form of an equation. By default,

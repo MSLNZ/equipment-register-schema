@@ -219,6 +219,17 @@ pre {
             </div><div class="xs3p-doc" id="id12-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade id" id="id13-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id13-label">Element id</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id13-hidden"><div class="hidden" id="id13-hidden-doc-raw">
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         a) the identity of equipment ...
+
+                        The content must uniquely identify the equipment and must match
+                        the expected pattern.
+
+                        _Attention: This XSD document validates the content of an XML document
+                        (e.g., that the `id` element exists, the content matches the expected
+                        pattern and that the `id` is unique within a **single** equipment-register
+                        file. It does not validate that the `id` is universally unique, i.e., if
+                        multiple equipment-register files are used. You must use another tool to
+                        validate the universal uniqueness of the `id` if multiple equipment-register
+                        files are used._
                     </div><div class="xs3p-doc" id="id13-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade manufacturer" id="id14-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id14-label">Element manufacturer</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id14-hidden"><div class="hidden" id="id14-hidden-doc-raw">
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         b) the manufacturer's name ...
@@ -609,7 +620,12 @@ pre {
                         The team that is responsible for the equipment register.
                     </div><div class="xs3p-doc" id="id2-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show documentation for team" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id2-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
 <span class="nt">&gt;</span>
-   <span class="group">Start Sequence <span class="cs">[0..*]</span></span>
+   <span class="c">&lt;!--
+    Uniqueness Constraint - <strong><a id="key_uniqueID">uniqueID</a></strong>
+    Selector - <strong>.//msl:equipment/msl:id</strong>
+    Field(s) - <strong>.</strong>
+   --&gt;
+</span>   <span class="group">Start Sequence <span class="cs">[0..*]</span></span>
       <span class="nt">&lt;<a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:equipment&gt;</span> <span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "equipment" type definition.' href="#type_equipment">equipment</a></span> <span class="nt">&lt;/<a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:equipment&gt;</span> <span class="cs">[1]</span>
    <span class="group">End Sequence</span>
 <span class="nt">&lt;/<a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:register&gt;</span>
@@ -620,6 +636,10 @@ pre {
       <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:sequence&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:attribute</span> <span class="na">name=</span><span class="s">"team"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "teamEnumerationString" type definition.' href="#type_teamEnumerationString">teamEnumerationString</a></span>"</span> <span class="na">use=</span><span class="s">"required"</span><span class="nt">/&gt;</span>
    <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
+   <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:unique</span> <span class="na">name=</span><span class="s">"uniqueID"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:selector</span> <span class="na">xpath=</span><span class="s">".//msl:equipment/msl:id"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:field</span> <span class="na">xpath=</span><span class="s">"."</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:unique&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaDefinitions"><h2><a id="SchemaDefinitions">Global Definitions</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_any" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">any</a></h3><div class="panel-group" id="type_any-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_any-type-hierarchy-panel-group" href="#type_any-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_any-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_any-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_any-properties-table-panel-group" href="#type_any-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_any-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>any</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_any-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_any-doc-panel-panel-group" href="#type_any-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_any-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id66"><div class="hidden" id="id66-doc-raw">
                 Anything. May contain zero or more child elements and each child element

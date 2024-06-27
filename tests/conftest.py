@@ -57,6 +57,9 @@ class XML:
         self._documentation: str = self.element('documentation')
         self._extra: str = ''
 
+    def __call__(self):
+        return XML()
+
     def __repr__(self) -> str:
         if self.source:
             return f'{XML.DECLARATION}\n{self.source}'

@@ -56,3 +56,43 @@ def test_one_occurance(xml, occurances):
 def test_no_attributes(xml):
     xml.id('MSLE.L.000', foo='bar')
     xml.raises("id', attribute 'foo'")
+
+
+def test_unique(xml):
+    xml1 = xml()
+    xml1.id('MSLE.L.001')
+    xml2 = xml()
+    xml2.id('MSLE.L.002')
+    xml3 = xml()
+    xml3.id('MSLE.L.003')
+    xml4 = xml()
+    xml4.id('MSLE.L.004')
+
+    lines = repr(xml1).splitlines()[1:-1]  # skip XML declaration and </register>
+    lines.extend(repr(xml2).splitlines()[2:-1])  # select <equipment>...</equipment> only
+    lines.extend(repr(xml3).splitlines()[2:-1])  # select <equipment>...</equipment> only
+    lines.extend(repr(xml4).splitlines()[2:])  # skip XML declaration and <register>
+
+    combined = xml()
+    combined.source = '\n'.join(lines)
+    assert combined.is_valid()
+
+
+def test_not_unique(xml):
+    xml1 = xml()
+    xml1.id('MSLE.L.001')
+    xml2 = xml()
+    xml2.id('MSLE.L.002')
+    xml3 = xml()
+    xml3.id('MSLE.L.003')
+    xml4 = xml()
+    xml4.id('MSLE.L.002')
+
+    lines = repr(xml1).splitlines()[1:-1]  # skip XML declaration and </register>
+    lines.extend(repr(xml2).splitlines()[2:-1])  # select <equipment>...</equipment> only
+    lines.extend(repr(xml3).splitlines()[2:-1])  # select <equipment>...</equipment> only
+    lines.extend(repr(xml4).splitlines()[2:])  # skip XML declaration and <register>
+
+    combined = xml()
+    combined.source = '\n'.join(lines)
+    combined.raises(r"Duplicate key-sequence \['MSLE.L.002'\]")

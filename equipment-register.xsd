@@ -53,6 +53,10 @@
                 </xsd:annotation>
             </xsd:attribute>
         </xsd:complexType>
+        <xsd:unique name="uniqueID">
+            <xsd:selector xpath=".//msl:equipment/msl:id"/>
+            <xsd:field xpath="."/>
+        </xsd:unique>
     </xsd:element>
 
     <xsd:simpleType name="teamEnumerationString">
@@ -293,6 +297,17 @@
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         a) the identity of equipment ...
+
+                        The content must uniquely identify the equipment and must match
+                        the expected pattern.
+
+                        _Attention: This XSD document validates the content of an XML document
+                        (e.g., that the `id` element exists, the content matches the expected
+                        pattern and that the `id` is unique within a **single** equipment-register
+                        file. It does not validate that the `id` is universally unique, i.e., if
+                        multiple equipment-register files are used. You must use another tool to
+                        validate the universal uniqueness of the `id` if multiple equipment-register
+                        files are used._
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

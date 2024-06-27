@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import logging
+import sys
 from hashlib import sha256
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -168,12 +169,17 @@ def _file(file: Element, *, root: str | Path, debug_name: str) -> None:
         )
 
     path = Path(root)
+
     if u.netloc:
         if ':' in u.netloc:
             path /= u.netloc
         else:
             path /= f'//{u.netloc}'
-    path /= u.path.lstrip('/')
+
+    if sys.platform == 'win32':
+        path /= u.path.lstrip('/')
+    else:
+        path /= u.path
 
     logger.debug('  [%s] Validating SHA-256 checksum for %s ', debug_name, path)
 

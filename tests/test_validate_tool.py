@@ -14,7 +14,6 @@ file_paths = [
     f'file://{parent}/do_not_modify_this_file.txt',
     f'file:///{parent}/do_not_modify_this_file.txt',
     'tests/do_not_modify_this_file.txt',
-    'file:///tests/do_not_modify_this_file.txt',
     'file:tests/do_not_modify_this_file.txt',
 ]
 
@@ -28,6 +27,7 @@ if sys.platform == 'win32':
         rf'file:///{parent}\do_not_modify_this_file.txt',
         'tests\\do_not_modify_this_file.txt',
         r'tests\do_not_modify_this_file.txt',
+        'file:///tests/do_not_modify_this_file.txt',
         'file:///tests\\do_not_modify_this_file.txt',
         r'file:///tests\do_not_modify_this_file.txt',
         'file:tests\\do_not_modify_this_file.txt',

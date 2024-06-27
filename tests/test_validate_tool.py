@@ -1,3 +1,4 @@
+import sys
 from io import StringIO
 from pathlib import Path
 
@@ -5,6 +6,33 @@ import pytest
 from lxml.builder import E
 
 from tools import validate
+
+parent = Path(__file__).parent
+file_paths = [
+    parent / 'do_not_modify_this_file.txt',
+    f'{parent}/do_not_modify_this_file.txt',
+    f'file://{parent}/do_not_modify_this_file.txt',
+    f'file:///{parent}/do_not_modify_this_file.txt',
+    'tests/do_not_modify_this_file.txt',
+    'file:///tests/do_not_modify_this_file.txt',
+    'file:tests/do_not_modify_this_file.txt',
+]
+
+if sys.platform == 'win32':
+    file_paths.extend([
+        f'{parent}\\do_not_modify_this_file.txt',
+        rf'{parent}\do_not_modify_this_file.txt',
+        f'file://{parent}\\do_not_modify_this_file.txt',
+        rf'file://{parent}\do_not_modify_this_file.txt',
+        f'file:///{parent}\\do_not_modify_this_file.txt',
+        rf'file:///{parent}\do_not_modify_this_file.txt',
+        'tests\\do_not_modify_this_file.txt',
+        r'tests\do_not_modify_this_file.txt',
+        'file:///tests\\do_not_modify_this_file.txt',
+        r'file:///tests\do_not_modify_this_file.txt',
+        'file:tests\\do_not_modify_this_file.txt',
+        r'file:tests\do_not_modify_this_file.txt',
+    ])
 
 
 def test_file_path_invalid(xml):
@@ -55,29 +83,7 @@ def test_file_invalid_checksum(xml):
         validate.validate(StringIO(repr(xml)))
 
 
-@pytest.mark.parametrize(
-    'url',
-    [
-        Path(__file__).parent / 'do_not_modify_this_file.txt',
-        f'{Path(__file__).parent}/do_not_modify_this_file.txt',
-        f'{Path(__file__).parent}\\do_not_modify_this_file.txt',
-        rf'{Path(__file__).parent}\do_not_modify_this_file.txt',
-        f'file://{Path(__file__).parent}/do_not_modify_this_file.txt',
-        f'file://{Path(__file__).parent}\\do_not_modify_this_file.txt',
-        rf'file://{Path(__file__).parent}\do_not_modify_this_file.txt',
-        f'file:///{Path(__file__).parent}/do_not_modify_this_file.txt',
-        f'file:///{Path(__file__).parent}\\do_not_modify_this_file.txt',
-        rf'file:///{Path(__file__).parent}\do_not_modify_this_file.txt',
-        'tests/do_not_modify_this_file.txt',
-        'tests\\do_not_modify_this_file.txt',
-        r'tests\do_not_modify_this_file.txt',
-        'file:///tests/do_not_modify_this_file.txt',
-        'file:///tests\\do_not_modify_this_file.txt',
-        r'file:///tests\do_not_modify_this_file.txt',
-        'file:tests/do_not_modify_this_file.txt',
-        'file:tests\\do_not_modify_this_file.txt',
-        r'file:tests\do_not_modify_this_file.txt',
-    ])
+@pytest.mark.parametrize('url', file_paths)
 def test_file_valid(xml, url):
     file = (
         f'<file>'

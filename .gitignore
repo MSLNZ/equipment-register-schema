@@ -13,4 +13,5 @@ __pycache__/
 /docs/bin/xsdvi/build/
 
 # Root files
-/testing.xml
+/test*.xml
+/check*.xml

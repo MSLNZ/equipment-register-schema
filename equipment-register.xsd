@@ -1027,7 +1027,9 @@
                         (which may be a mapped network drive).
 
                         Including the `scheme:` is required if a particular protocol must be used
-                        to access the file, for example, `ftp:` or `https:`.
+                        to access the file, for example, `ftp:` or `https:`. Custom MSL-standardised
+                        schemes (which do not exist yet) may also be implemented, such as,
+                        `onedrive:` or `gdrive:`.
 
                         **Examples**
 

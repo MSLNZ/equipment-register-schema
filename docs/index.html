@@ -317,13 +317,27 @@ pre {
                     </div><div class="xs3p-doc" id="id35-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade name" id="id36-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id36-label">Attribute name</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id36-hidden"><div class="hidden" id="id36-hidden-doc-raw">
                     The name to associate with this `component`. The value must
                     be unique amongst the other `component` elements within
-                    the same `measurand` element. An empty string is permitted.
+                    the _same_ `measurand` element. An empty string is permitted.
 
-                    Examples
-                    --------
-                    * Multimeter: _Front_, _Rear terminal_
-                    * Data Acquisition: _AO1_, _Analog In 2_
-                    * Scanner: _Ch1_, _Channel 2_
+                    **Examples**
+
+                    A digital multimeter
+                    ```
+                    &lt;component name="Front"&gt;
+                    &lt;component name="Rear terminal"&gt;
+                    ```
+                    A data acquisition (DAQ) system
+                    ```
+                    &lt;component name="AO1"&gt;
+                    &lt;component name="Analog Out 1"&gt;
+                    &lt;component name="PFI2"&gt;
+                    &lt;component name="Counter 2"&gt;
+                    ```
+                    A scanner or multiplexer
+                    ```
+                    &lt;component name="Ch1"&gt;
+                    &lt;component name="Channel 1"&gt;
+                    ```
                 </div><div class="xs3p-doc" id="id36-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade reportNumber" id="id37-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id37-label">Element reportNumber</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id37-hidden"><div class="hidden" id="id37-hidden-doc-raw">
                         The report number.
 
@@ -739,13 +753,27 @@ pre {
  <span class="na">name=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span> <span class="cs">[1]</span><div class="modal fade name" id="id36-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id36-label">Attribute name</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id36-hidden"><div class="hidden" id="id36-hidden-doc-raw">
                     The name to associate with this `component`. The value must
                     be unique amongst the other `component` elements within
-                    the same `measurand` element. An empty string is permitted.
+                    the _same_ `measurand` element. An empty string is permitted.
 
-                    Examples
-                    --------
-                    * Multimeter: _Front_, _Rear terminal_
-                    * Data Acquisition: _AO1_, _Analog In 2_
-                    * Scanner: _Ch1_, _Channel 2_
+                    **Examples**
+
+                    A digital multimeter
+                    ```
+                    &lt;component name="Front"&gt;
+                    &lt;component name="Rear terminal"&gt;
+                    ```
+                    A data acquisition (DAQ) system
+                    ```
+                    &lt;component name="AO1"&gt;
+                    &lt;component name="Analog Out 1"&gt;
+                    &lt;component name="PFI2"&gt;
+                    &lt;component name="Counter 2"&gt;
+                    ```
+                    A scanner or multiplexer
+                    ```
+                    &lt;component name="Ch1"&gt;
+                    &lt;component name="Channel 1"&gt;
+                    ```
                 </div><div class="xs3p-doc" id="id36-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show documentation for name" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id36-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
 <span class="nt">&gt;</span>
    <span class="group">Start Sequence <span class="cs">[0..*]</span></span>

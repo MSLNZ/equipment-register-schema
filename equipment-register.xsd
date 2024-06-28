@@ -665,14 +665,14 @@
                     A data acquisition (DAQ) system
                     ```
                     &lt;component name="AO1"&gt;
-                    &lt;component name="Analog Out 1"&gt;
+                    &lt;component name="Analog In 1"&gt;
                     &lt;component name="PFI2"&gt;
-                    &lt;component name="Counter 2"&gt;
+                    &lt;component name="Counter 1"&gt;
                     ```
                     A scanner or multiplexer
                     ```
                     &lt;component name="Ch1"&gt;
-                    &lt;component name="Channel 1"&gt;
+                    &lt;component name="Channel 2"&gt;
                     ```
                 </xsd:documentation>
             </xsd:annotation>

@@ -11,6 +11,7 @@ parent = Path(__file__).parent
 file_paths = [
     parent / 'do_not_modify_this_file.txt',
     f'{parent}/do_not_modify_this_file.txt',
+    f'file:{parent}/do_not_modify_this_file.txt',  # rfc8089#appendix-E.2
     f'file://{parent}/do_not_modify_this_file.txt',
     f'file:///{parent}/do_not_modify_this_file.txt',
     'tests/do_not_modify_this_file.txt',
@@ -21,9 +22,11 @@ if sys.platform == 'win32':
     file_paths.extend([
         f'{parent}\\do_not_modify_this_file.txt',
         rf'{parent}\do_not_modify_this_file.txt',
+        f'file:{parent}\\do_not_modify_this_file.txt',  # rfc8089#appendix-E.2
+        rf'file:{parent}\do_not_modify_this_file.txt',  # rfc8089#appendix-E.2
         f'file://{parent}\\do_not_modify_this_file.txt',
         rf'file://{parent}\do_not_modify_this_file.txt',
-        f'file:///{parent}\\do_not_modify_this_file.txt',
+        f'file:///{parent}\\do_not_modify_this_file.txt',  # rfc8089#appendix-E.2
         rf'file:///{parent}\do_not_modify_this_file.txt',
         'tests\\do_not_modify_this_file.txt',
         r'tests\do_not_modify_this_file.txt',

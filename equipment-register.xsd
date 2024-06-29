@@ -54,7 +54,7 @@
             </xsd:attribute>
         </xsd:complexType>
         <xsd:unique name="uniqueID">
-            <xsd:selector xpath=".//msl:equipment/msl:id"/>
+            <xsd:selector xpath="msl:equipment/msl:id"/>
             <xsd:field xpath="."/>
         </xsd:unique>
     </xsd:element>

@@ -54,6 +54,7 @@ class XML:
         self._maintenance: str = self.element('maintenance')
         self._firmware: str = self.element('firmware')
         self._acceptance: str = self.element('acceptanceCriteria')
+        self._financial: str = self.element('financial')
         self._documentation: str = self.element('documentation')
         self._extra: str = ''
 
@@ -94,6 +95,8 @@ class XML:
             elements.append(f'    {self._firmware}')
         if self._acceptance:
             elements.append(f'    {self._acceptance}')
+        if self._financial:
+            elements.append(f'    {self._financial}')
         if self._documentation:
             elements.append(f'    {self._documentation}')
         if self._extra:
@@ -293,6 +296,24 @@ class XML:
                 f'              <header>{header}</header>\n'
                 f'              <data>{data}</data>\n'
                 f'            </table>')
+
+    def financial(self,
+                  *,
+                  asset_number: str = None,
+                  warranty_date: str = None,
+                  year_purchased: str = None,
+                  **kwargs: dict[str, str]) -> None:
+        element = ['<financial>']
+        if asset_number is not None:
+            element.append(f'<assetNumber>{asset_number}</assetNumber>')
+        if warranty_date is not None:
+            element.append(f'<warrantyExpirationDate>{warranty_date}</warrantyExpirationDate>')
+        if year_purchased is not None:
+            element.append(f'<yearPurchased>{year_purchased}</yearPurchased>')
+        for k, v in kwargs.items():
+            element.append(f'<{k}>{v}</{k}>')
+        element.append('</financial>')
+        self._financial = ''.join(element)
 
 
 @pytest.fixture(scope='function')

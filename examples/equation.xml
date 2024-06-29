@@ -112,8 +112,9 @@
             <temperatureRange unit="°C">19, 21</temperatureRange>
             <humidityRange unit="%rh">35, 65</humidityRange>
         </acceptanceCriteria>
-        <documentation>
+        <financial>
             <yearPurchased>2023</yearPurchased>
-        </documentation>
+        </financial>
+        <documentation/>
     </equipment>
 </register>

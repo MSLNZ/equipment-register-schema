@@ -8,7 +8,7 @@ def test_invalid_name(xml):
 
 def test_repeated(xml):
     xml.acceptance_criteria('<acceptanceCriteria/><acceptanceCriteria/>')
-    xml.raises(r'Expected is .*documentation')
+    xml.raises(r'Expected is .*financial')
 
 
 @pytest.mark.parametrize(

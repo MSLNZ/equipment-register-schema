@@ -14,6 +14,7 @@
         <maintenance/>
         <firmware/>
         <acceptanceCriteria/>
+        <financial/>
         <documentation/>
     </equipment>
     <equipment>
@@ -30,6 +31,7 @@
         <maintenance/>
         <firmware/>
         <acceptanceCriteria/>
+        <financial/>
         <documentation/>
     </equipment>
     <equipment>
@@ -46,6 +48,7 @@
         <maintenance/>
         <firmware/>
         <acceptanceCriteria/>
+        <financial/>
         <documentation/>
     </equipment>
 </register>

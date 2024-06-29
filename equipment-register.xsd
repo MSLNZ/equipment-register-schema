@@ -425,6 +425,14 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="financial" type="msl:financial">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Includes the _optional_ financial information about the equipment
+                        to satisfy Section 4.3.6 of the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="documentation" type="msl:documentation">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -543,6 +551,41 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <xsd:complexType name="financial">
+        <xsd:annotation>
+            <xsd:documentation>
+                Includes the _optional_ financial information about the equipment
+                to satisfy Section 4.3.6 of the MSL Quality Manual.
+
+                The child elements, if specified, may appear in any order and
+                are each optional.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:all>
+            <xsd:element name="assetNumber" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional_: The asset number in the financial system.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="warrantyExpirationDate" type="xsd:date" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional_: Approximate date (YYYY-MM-DD) that the warranty expires.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="yearPurchased" type="xsd:gYear" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional_: Approximate year (YYYY) that the equipment was purchased.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:all>
+    </xsd:complexType>
+
     <xsd:complexType name="documentation">
         <xsd:annotation>
             <xsd:documentation>
@@ -556,13 +599,10 @@
         </xsd:annotation>
         <xsd:all minOccurs="0">
             <xsd:element name="accessories" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="assetNumber" type="xsd:string" minOccurs="0"/>
             <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
             <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
             <xsd:element name="serviceAgent" type="xsd:string" minOccurs="0"/>
             <xsd:element name="technicalProcedures" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="warrantyExpirationDate" type="xsd:date" minOccurs="0"/>
-            <xsd:element name="yearPurchased" type="xsd:gYear" minOccurs="0"/>
         </xsd:all>
     </xsd:complexType>
 

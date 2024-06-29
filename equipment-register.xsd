@@ -601,6 +601,7 @@
             <xsd:element name="accessories" type="xsd:string" minOccurs="0"/>
             <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
             <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="referenceMaterials" type="xsd:string" minOccurs="0"/>
             <xsd:element name="serviceAgent" type="xsd:string" minOccurs="0"/>
             <xsd:element name="technicalProcedures" type="xsd:string" minOccurs="0"/>
         </xsd:all>

@@ -18,15 +18,26 @@ def test_invalid_attribute(xml):
     xml.raises("maintenance', attribute 'invalid'")
 
 
+def test_valid_attributes(xml):
+    xml.maintenance(f'<maintenance due="2023-05-24" serviceAgent="Company X"/>')
+    assert xml.is_valid()
+
+
 @pytest.mark.parametrize('value', INVALID_DATES)
-def test_invalid_attribute_value(xml, value):
+def test_invalid_due_date_value(xml, value):
     xml.maintenance(f'<maintenance due="{value}"/>')
     xml.raises('not a valid value of the atomic type')
 
 
 @pytest.mark.parametrize('value', ['2023-05-24', '2100-01-01'])
-def test_valid_attribute_value(xml, value):
+def test_valid_due_date_value(xml, value):
     xml.maintenance(f'<maintenance due="{value}"/>')
+    assert xml.is_valid()
+
+
+@pytest.mark.parametrize('value', ['', 'MSL-Electrical', 'External Company ABC Inc.'])
+def test_valid_service_agent(xml, value):
+    xml.maintenance(f'<maintenance serviceAgent="{value}"/>')
     assert xml.is_valid()
 
 

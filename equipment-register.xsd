@@ -509,6 +509,17 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="serviceAgent" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The person (or MSL team or external company) that can perform
+                    the maintenance (performance check).
+
+                    Satisfy the _optional_ information from Section 4.3.6 of the
+                    MSL Quality Manual.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="firmware">
@@ -602,7 +613,6 @@
             <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
             <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
             <xsd:element name="referenceMaterials" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="serviceAgent" type="xsd:string" minOccurs="0"/>
             <xsd:element name="technicalProcedures" type="xsd:string" minOccurs="0"/>
         </xsd:all>
     </xsd:complexType>

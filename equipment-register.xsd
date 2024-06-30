@@ -583,14 +583,18 @@
             <xsd:element name="warrantyExpirationDate" type="xsd:date" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
-                        _Optional_: Approximate date (YYYY-MM-DD) that the warranty expires.
+                        _Optional_: Approximate date that the warranty expires.
+                        The date must be in the YYYY-MM-DD format (see
+                        [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="yearPurchased" type="xsd:gYear" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
-                        _Optional_: Approximate year (YYYY) that the equipment was purchased.
+                        _Optional_: Approximate year that the equipment was purchased.
+                        The year must be in the YYYY format (see
+                        [xsd:gYear](https://www.w3.org/TR/xmlschema-2/#gYear) for details).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -752,6 +756,8 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the report was issued.
+                        The date must be in the YYYY-MM-DD format (see
+                        [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
 
                         Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
                         j) the date of issue of the report
@@ -762,6 +768,8 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement started.
+                        The date must be in the YYYY-MM-DD format (see
+                        [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
 
                         Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
                         i) the date(s) of performance of the laboratory activity
@@ -772,6 +780,8 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement stopped.
+                        The date must be in the YYYY-MM-DD format (see
+                        [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
 
                         Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
                         i) the date(s) of performance of the laboratory activity

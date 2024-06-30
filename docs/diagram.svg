@@ -2182,7 +2182,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1")' onmouseout='makeHidden("_1_1_1_
 <rect class='shadow' x='3' y='3' width='93' height='46' rx='9'/>
 <rect class='boxattribute2' x='0' y='0' width='93' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_11_2")' onmouseout='makeHidden("_1_1_1_1_1_11_2")'/>
-<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> due</text>
+<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> dueDate</text>
 <text class='visible' x='5' y='41'>type: date</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>

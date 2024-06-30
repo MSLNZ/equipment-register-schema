@@ -253,6 +253,7 @@ class XML:
                issue: str = '2023-09-18',
                start: str = '2023-09-18',
                stop: str = '2023-09-18',
+               lab: str = 'MSL',
                method: str = '',
                criteria: str = None,
                choice: str = None,
@@ -273,15 +274,21 @@ class XML:
                       f'              <sha256>{XML.SHA256}</sha256>\n'
                       f'            </file>')
 
+        if not lab.startswith('<'):
+            lab = f'            <issuingLaboratory>{lab}</issuingLaboratory>'
+        else:
+            lab = lab
+
         return (f'{report}\n'
                 f'            <reportNumber>{number}</reportNumber>\n'
                 f'            <reportIssueDate>{issue}</reportIssueDate>\n'
                 f'            <measurementStartDate>{start}</measurementStartDate>\n'
                 f'            <measurementStopDate>{stop}</measurementStopDate>\n'
+                f'            {lab}\n'
                 f'            <technicalProcedure>{method}</technicalProcedure>\n'
                 f'            {criteria}\n'
                 f'            {choice}\n'
-                f'            {extra}'
+                f'            {extra}\n'
                 f'          </report>')
 
     @staticmethod

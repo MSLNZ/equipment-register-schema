@@ -778,6 +778,41 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="issuingLaboratory">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The laboratory that issued the report.
+
+                        If the issuing laboratory is a National Metrology Institute,
+                        it is recommended to specify the laboratory acronym, such as,
+                        _MSL_ instead of _Measurement Standards Laboratory_.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        b) the name ... of the laboratory
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="msl:nonEmptyString">
+                            <xsd:attribute name="person" type="msl:nonEmptyString">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        _Optional:_ A person at the issuing laboratory that
+                                        authorised the report. The attribute does not need to be
+                                        specified, but, if it is specified, the value cannot be emtpy.
+
+                                        This may be useful as a means of identifying a contact person
+                                        at another laboratory if the report is not from MSL.
+
+                                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                                        o) identification of the person(s) authorizing the report
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
             <xsd:element name="technicalProcedure" type="xsd:string">
                 <xsd:annotation>
                     <xsd:documentation>

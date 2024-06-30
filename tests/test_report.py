@@ -63,6 +63,44 @@ def test_invalid_stop_value(xml, value):
     xml.raises(f"measurementStopDate': '{value}' is not a valid value")
 
 
+@pytest.mark.parametrize('value', ['', '  ', '\r\n', '\nMSL\n'])
+def test_invalid_issuing_lab(xml, value):
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=value))))
+    xml.raises(r'not accepted by the pattern')
+
+
+@pytest.mark.parametrize('value', ['MSL', 'NMI-A', 'PTB', 'NIST', 'KRISS'])
+def test_valid_issuing_lab(xml, value):
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=value))))
+    assert xml.is_valid()
+
+
+def test_invalid_issuing_lab_attribute_name(xml):
+    lab = '<issuingLaboratory contact="">MSL</issuingLaboratory>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=lab))))
+    xml.raises(r"attribute 'contact' is not allowed")
+
+
+def test_extra_issuing_lab_attribute_name(xml):
+    lab = '<issuingLaboratory person="Me" contact="">MSL</issuingLaboratory>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=lab))))
+    xml.raises(r"attribute 'contact' is not allowed")
+
+
+@pytest.mark.parametrize('value', ['', '  ', '\t', '\r\n'])
+def test_invalid_issuing_lab_attribute_value(xml, value):
+    lab = f'<issuingLaboratory person="{value}">MSL</issuingLaboratory>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=lab))))
+    xml.raises(r'not accepted by the pattern')
+
+
+@pytest.mark.parametrize('value', ['Name', 'First M. Last', 'name123@email.loc'])
+def test_valid_issuing_lab_attribute_value(xml, value):
+    lab = f'<issuingLaboratory person="{value}">MSL</issuingLaboratory>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(lab=lab))))
+    assert xml.is_valid()
+
+
 def test_no_number(xml):
     r = '<report><anything/></report>'
     xml.calibrations(xml.measurand(xml.component(r)))
@@ -99,12 +137,24 @@ def test_no_stop_date(xml):
     xml.raises(r'Expected is .*measurementStopDate')
 
 
+def test_no_issuing_lab(xml):
+    r = ('<report>'
+         '  <reportNumber>any</reportNumber>'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
+         '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r'Expected is .*issuingLaboratory')
+
+
 def test_no_technical_procedure(xml):
     r = ('<report>'
          '  <reportNumber>any</reportNumber>'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <issuingLaboratory>MSL</issuingLaboratory>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises(r'Expected is .*technicalProcedure')
@@ -116,6 +166,7 @@ def test_no_criteria(xml):
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <issuingLaboratory>MSL</issuingLaboratory>'
          '  <technicalProcedure/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
@@ -152,6 +203,7 @@ def test_no_choice(xml):
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <issuingLaboratory>MSL</issuingLaboratory>'
          '  <technicalProcedure/>'
          '  <criteria/>'
          '</report>')

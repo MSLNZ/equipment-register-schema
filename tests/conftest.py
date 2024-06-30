@@ -220,7 +220,7 @@ class XML:
     @staticmethod
     def measurand(components: str = '', **attribs) -> str:
         if not attribs:
-            attribs = {'quantity': 'Humidity', 'interval': '5'}
+            attribs = {'quantity': 'Humidity', 'calibrationInterval': '5'}
 
         attributes = XML.attributes(**attribs)
         measurand = f'<measurand {attributes}'

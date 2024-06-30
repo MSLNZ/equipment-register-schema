@@ -2070,7 +2070,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_2")' onmouseout='makeHidden("_1_1_1_
 <rect class='shadow' x='3' y='3' width='159' height='46' rx='9'/>
 <rect class='boxattribute1' x='0' y='0' width='159' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_10_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_10_1_1_3")'/>
-<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> interval</text>
+<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> calibrationInterval</text>
 <text class='visible' x='5' y='41'>type: nonNegativeDecimal</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>

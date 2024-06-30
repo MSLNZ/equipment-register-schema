@@ -11,7 +11,7 @@
         <loggable>true</loggable>
         <traceable>true</traceable>
         <calibrations>
-            <measurand quantity="Humidity" interval="5">
+            <measurand quantity="Humidity" calibrationInterval="5">
                 <component name="Probe 1">
                     <report>
                         <reportNumber>Humidity/2023/583</reportNumber>
@@ -61,7 +61,7 @@
                     </report>
                 </component>
             </measurand>
-            <measurand quantity="Temperature" interval="5">
+            <measurand quantity="Temperature" calibrationInterval="5">
                 <component name="Probe 1">
                     <report>
                         <reportNumber>Humidity/2023/585</reportNumber>

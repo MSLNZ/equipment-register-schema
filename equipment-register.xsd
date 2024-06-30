@@ -497,7 +497,7 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="due" type="xsd:date">
+        <xsd:attribute name="dueDate" type="xsd:date">
             <xsd:annotation>
                 <xsd:documentation>
                     Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \

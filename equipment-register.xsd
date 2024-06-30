@@ -1003,6 +1003,9 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The unit of the measured quantity.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        m) the results with, where appropriate, the units of measurement
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -1340,6 +1343,9 @@
                         If a column does not have a unit (for example, a column is for comments),
                         the unit for that column may be an empty string.
                         Whitespace may be used.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        m) the results with, where appropriate, the units of measurement
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

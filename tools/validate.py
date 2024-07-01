@@ -51,7 +51,8 @@ def recursive_validate(
     :param root_dir: The root directory to use when a calibration report is
         located in an external file. The `root_dir` value, i.e.,
         `root_dir \\ <url>`, may be required to build the absolute path to
-        the file. The `<url>` element is a child of the `<file>` element.
+        the file. The `<url>` element is a child of a `<file>` or a
+        `<digitalReport>` element.
 
     :param variables: A mapping between a variable name and its value
         if the calibration report is in the form of an equation. By default,
@@ -88,7 +89,8 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
     :param root_dir: The root directory to use when a calibration report is
         located in an external file. The `root_dir` value, i.e.,
         `root_dir \\ <url>`, may be required to build the absolute path to
-        the file. The `<url>` element is a child of the `<file>` element.
+        the file. The `<url>` element is a child of a `<file>` or a
+        `<digitalReport>` element.
 
     :param variables: A mapping between a variable name and its value
         if the calibration report is in the form of an equation. By default,
@@ -115,6 +117,8 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
         id_, manufacturer, model, serial = equipment[:4]  # schema forces order
         ids.add(id_.text)
         name = f'{manufacturer.text} {model.text} {serial.text}'
+        for digital_report in equipment.xpath('.//reg:digitalReport', namespaces=nsmap):
+            _file(digital_report, root=root_dir, debug_name=name)
         for equation in equipment.xpath('.//reg:equation', namespaces=nsmap):
             _equation(equation, debug_name=name, nsmap=nsmap, **variables)
         for file in equipment.xpath('.//reg:file', namespaces=nsmap):

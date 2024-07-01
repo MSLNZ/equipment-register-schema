@@ -98,6 +98,18 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="digitalFormatEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The format of a digital calibration report.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MSL PDF/A-3"/>
+            <xsd:enumeration value="PTB DCC"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="keywordsList">
         <xsd:annotation>
             <xsd:documentation>
@@ -692,16 +704,37 @@
         <xsd:annotation>
             <xsd:documentation>
                 A component of the equipment that measures the [quantity](#type_quantity).
+
+                Contains a sequence of reports (either digital and/or non-digital reports)
+                for the measured [quantity](#type_quantity).
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="report" type="msl:report">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        A calibration report for this `component`.
-                    </xsd:documentation>
-                </xsd:annotation>
-            </xsd:element>
+            <xsd:choice>
+                <xsd:element name="digitalReport" type="msl:digitalReport">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            A digital calibration report for this `component`.
+
+                            A digital calibration report contains embedded
+                            metadata and data that is required by ISO/IEC 17025:2017
+                            Clause 7.8.2.1 (and perhaps additional information).
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="report" type="msl:report">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            A (non-digital) calibration report for this `component`.
+
+                            Since the report is not digital (does not contain embedded
+                            metadata and data) _some_ of the information that is required
+                            by ISO/IEC 17025:2017 Clause 7.8.2.1 must be explicitly
+                            included in the equipment register.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
         </xsd:sequence>
         <xsd:attribute name="name" type="xsd:string" use="required">
             <xsd:annotation>
@@ -734,10 +767,32 @@
         </xsd:attribute>
     </xsd:complexType>
 
+    <xsd:complexType name="digitalReport">
+        <xsd:annotation>
+            <xsd:documentation>
+                A digital calibration report.
+
+                A digital calibration report contains embedded
+                metadata and data that is required by ISO/IEC 17025:2017
+                Clause 7.8.2.1 (and perhaps additional information).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="msl:file">
+                <xsd:attribute name="format" type="msl:digitalFormatEnumerationString" use="required"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
     <xsd:complexType name="report">
         <xsd:annotation>
             <xsd:documentation>
-                A calibration report.
+                A (non-digital) calibration report.
+
+                Since the report is not digital (does not contain embedded
+                metadata and data) _some_ of the information that is required
+                by ISO/IEC 17025:2017 Clause 7.8.2.1 must be explicitly
+                included in the equipment register.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>

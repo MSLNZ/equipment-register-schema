@@ -98,6 +98,50 @@ def test_file_valid(xml, url):
     validate.validate(StringIO(repr(xml)))
 
 
+def test_digital_report_path_invalid(xml):
+    report = xml.digital_report(url='file.txt')
+    xml.calibrations(xml.measurand(xml.component(report)))
+    with pytest.raises(FileNotFoundError):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_digital_report_root_specified(xml):
+    report = xml.digital_report(
+        url='do_not_modify_this_file.txt',
+        sha256='699521aa6d52651ef35ee84232f657490eb870543119810f2af8bc68496d693c',
+    )
+    xml.calibrations(xml.measurand(xml.component(report)))
+    validate.validate(StringIO(repr(xml)), root_dir='tests')
+
+
+def test_digital_report_unsupported_url_scheme(xml):
+    report = xml.digital_report(url='ftp://msl/data.pdf')
+    xml.calibrations(xml.measurand(xml.component(report)))
+    with pytest.raises(ValueError, match=r"url scheme 'ftp'"):
+        validate.validate(StringIO(repr(xml)))
+
+
+def test_digital_report_invalid_checksum(xml):
+    here = Path(__file__)
+    report = xml.digital_report(
+        url=f'file://{here.parent}/{here.name}',
+        sha256=xml.SHA256,
+    )
+    xml.calibrations(xml.measurand(xml.component(report)))
+    with pytest.raises(AssertionError, match=r'SHA-256 checksum'):
+        validate.validate(StringIO(repr(xml)))
+
+
+@pytest.mark.parametrize('url', file_paths)
+def test_digital_report_valid(xml, url):
+    report = xml.digital_report(
+        url=url,
+        sha256='699521aa6d52651ef35ee84232f657490eb870543119810f2af8bc68496d693c',
+    )
+    xml.calibrations(xml.measurand(xml.component(report)))
+    validate.validate(StringIO(repr(xml)))
+
+
 def test_serialized_ignored_format():
     validate._serialised(E.serialised(E.ignore('serialised text')), debug_name='whatever')
 

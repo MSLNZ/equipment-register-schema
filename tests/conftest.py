@@ -2,6 +2,7 @@
 Configure pytest.
 """
 from __future__ import annotations
+from pathlib import Path
 
 import pytest
 from lxml import etree
@@ -30,6 +31,7 @@ INVALID_DATES = [
 
 class XML:
 
+    FORMAT: str = 'MSL PDF/A-3'
     DECLARATION: str = '<?xml version="1.0"?>'
     NAMESPACE: str = 'https://measurement.govt.nz/equipment-register'
     SHA256: str = '8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728'
@@ -275,7 +277,7 @@ class XML:
                       f'            </file>')
 
         if not lab.startswith('<'):
-            lab = f'            <issuingLaboratory>{lab}</issuingLaboratory>'
+            lab = f'<issuingLaboratory>{lab}</issuingLaboratory>'
         else:
             lab = lab
 
@@ -290,6 +292,26 @@ class XML:
                 f'            {choice}\n'
                 f'            {extra}\n'
                 f'          </report>')
+
+    @staticmethod
+    def digital_report(*, url: str | Path = '', sha256: str = '', **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            report = f'<digitalReport {attributes}>'
+        else:
+            report = f'<digitalReport format="{XML.FORMAT}">'
+
+        if not url:
+            url = f'<url>calibration.pdf</url>'
+        elif isinstance(url, Path) or (isinstance(url, str) and not url.startswith('<')):
+            url = f'<url>{url}</url>'
+
+        if not sha256:
+            sha256 = f'<sha256>{XML.SHA256}</sha256>'
+        elif not sha256.startswith('<'):
+            sha256 = f'<sha256>{sha256}</sha256>'
+
+        return f'{report}{url}{sha256}</digitalReport>'
 
     @staticmethod
     def table(*,

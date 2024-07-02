@@ -620,7 +620,7 @@ def test_recursive():
 def test_duplicate_id():
     match = r"Duplicate equipment ID, 'MSLE.M.002',"
     with pytest.raises(AssertionError, match=match):
-        validate.recursive_validate('./tests')
+        validate.recursive_validate('./tests', pattern='duplicate*.xml')
 
 
 def test_next_id_no_named_capture_group():

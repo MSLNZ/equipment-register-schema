@@ -12,12 +12,14 @@ mechanisms for various programming languages.
 The `validate.py` module may be used to provide additional validation to the
 _content_ of an XML element.
 
-There are three functions available:
+There are four functions available:
 * _load_schema_: Load the XSD file. By default, it is assumed that the Schema file
   (equipment-register.xsd) is located in the current working directory.
-* _validate_: Validate an equipment-register (XML) file.
+* _next_id_: Recursively search all equipment-register files to automatically determine
+  the numeric value for the next equipment ID.
 * _recursive_validate_: Recursively validate all equipment-register files, starting 
   from a specified directory.
+* _validate_: Validate a single equipment-register (XML) file.
 
 If you want to see more information about what is happening during the validation
 process, enable `DEBUG` logging messages, for example,

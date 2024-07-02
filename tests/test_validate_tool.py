@@ -1,3 +1,4 @@
+import re
 import sys
 from io import StringIO
 from pathlib import Path
@@ -619,4 +620,30 @@ def test_recursive():
 def test_duplicate_id():
     match = r"Duplicate equipment ID, 'MSLE.M.002',"
     with pytest.raises(AssertionError, match=match):
-        validate.recursive_validate('./tests/registers')
+        validate.recursive_validate('./tests')
+
+
+def test_next_id_no_named_capture_group():
+    with pytest.raises(IndexError, match=r'no such group'):
+        validate.next_id('./tests', id_pattern=r'\d+')
+
+
+def test_next_id():
+    assert validate.next_id('./tests') == 1235
+
+
+def test_next_id_flags():
+    assert validate.next_id('./tests', id_pattern=r'sp(?P<digits>\d+)', flags=re.IGNORECASE) == 2
+
+
+@pytest.mark.parametrize(
+    ('pattern', 'expected'),
+    [(r'CR(?P<digits>\d+)', 1235),
+     (r'^MSLE\.M\.(?P<digits>\d+)$', 6),
+     (r'M\.00(?P<digits>2)', 3),
+     (r'O\.(?P<digits>\d+)', 0),
+     (r'O\.SP(?P<digits>\d+)', 2),
+     (r'XX(?P<digits>\d+)', 63),
+     ])
+def test_next_id_pattern(pattern, expected):
+    assert validate.next_id('./tests', id_pattern=pattern) == expected

@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import logging
+import re
 import sys
 from hashlib import sha256
 from pathlib import Path
@@ -23,7 +24,52 @@ if TYPE_CHECKING:
     from typing import TextIO, BinaryIO
     from lxml.etree import Element, ElementTree, XMLSchema
 
-__all__ = ('load_schema', 'recursive_validate', 'validate')
+__all__ = ('load_schema', 'next_id', 'recursive_validate', 'validate')
+
+
+def next_id(
+        start_dir: str | Path,
+        *,
+        id_pattern: str = r'(?P<digits>\d+)',
+        file_pattern: str = '*.xml',
+        flags: int = 0) -> int:
+    r"""Recursively search all equipment-register files to automatically determine
+    the numeric value for the next equipment ID.
+
+    :param start_dir: The starting directory to recursively find all
+        equipment-register files.
+
+    :param id_pattern: A regex (regular expression) pattern to filter equipment IDs.
+        For example, if the format of the equipment ID that you are interested in
+        is ``MSLE.O.CR####``, you could set `pattern` to be ``r'CR(?P<digits>\d+)'``
+        to only consider ID's that have ``CR`` before the numeric part. The `pattern`
+        must contain a `digits` named capture group, ``(?P<digits>\d+)``,
+        that only contains the digits 0-9.
+
+    :param file_pattern: A glob pattern to use to find equipment-register files.
+
+    :param flags: Regex flags to pass to :func:`re.compile`.
+
+    :return: The numeric value for the next equipment ID that is available
+        (increments the captured `digits` value by 1).
+    """
+    latest = -1
+    nsmap = {'reg': namespace}
+    regex = re.compile(id_pattern, flags=flags)
+
+    for path in Path(start_dir).rglob(file_pattern):
+        tree = etree.parse(path)
+        if tree.getroot().tag != f'{{{namespace}}}register':
+            continue
+
+        logger.debug('Processing %s', path)
+        for text in tree.xpath('./reg:equipment/reg:id/text()', namespaces=nsmap):
+            match = regex.search(text)
+            if match is not None:
+                logger.debug('  Found match %r', text)
+                latest = max(latest, int(match['digits']))
+
+    return latest + 1
 
 
 def load_schema(path: str | Path = 'equipment-register.xsd') -> None:

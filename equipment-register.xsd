@@ -89,10 +89,14 @@
             <xsd:enumeration value="Flexible Optics"/>
             <xsd:enumeration value="Goniospectrophotometer"/>
             <xsd:enumeration value="Kibble Balance"/>
-            <xsd:enumeration value="Long room"/>
-            <xsd:enumeration value="Mass Standards laboratories"/>
+            <xsd:enumeration value="Long Room"/>
+            <xsd:enumeration value="Laser Lab"/>
+            <xsd:enumeration value="Hilger Lab"/>
+            <xsd:enumeration value="CMM Lab"/>
+            <xsd:enumeration value="Underground Tape Tunnel"/>
+            <xsd:enumeration value="Mass Standards Laboratories"/>
             <xsd:enumeration value="Photometric Bench"/>
-            <xsd:enumeration value="Pressure Standards laboratories"/>
+            <xsd:enumeration value="Pressure Standards Laboratories"/>
             <xsd:enumeration value="Single Photon"/>
             <xsd:enumeration value="Spectrophotometer"/>
         </xsd:restriction>

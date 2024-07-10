@@ -14,7 +14,7 @@ The documentation for the Equipment-Register schema is available
 [here](https://mslnz.github.io/equipment-register-schema/).
 
 ## Contributing Guide
-[Python](https://www.python.org/) is required to run the tests and to build the documentation. 
+[Python](https://www.python.org/) is required to run the tests and to build the documentation.
 [Java](https://www.java.com/) is also required to build the documentation.
 [Git](https://git-scm.com/) is required to interact with the repository.
 

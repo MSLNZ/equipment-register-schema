@@ -17,7 +17,7 @@ There are four functions available:
   (equipment-register.xsd) is located in the current working directory.
 * _next_id_: Recursively search all equipment-register files to automatically determine
   the numeric value for the next equipment ID.
-* _recursive_validate_: Recursively validate all equipment-register files, starting 
+* _recursive_validate_: Recursively validate all equipment-register files, starting
   from a specified directory.
 * _validate_: Validate a single equipment-register (XML) file.
 
@@ -32,5 +32,5 @@ As a practical example, suppose you wanted to recursively validate all equipment
 registers in a directory and print some messages about what is happening
 
 ```
-py validate.py path\to\registers --verbose  
+py validate.py path\to\registers --verbose
 ```

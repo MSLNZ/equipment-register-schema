@@ -1,8 +1,8 @@
 The XML Schema Definition for an Equipment Register does not validate _everything_.
 For example, it validates that the `sha256` checksum value of a file has the correct
 checksum length and that the checksum only contains the allowed alphanumeric characters,
-but the Schema does not validate that the checksum value is correct for the file.
-For these additional-validation steps, another tool must be used.
+but, the Schema does not validate that the checksum value is correct for the file.
+For these additional validation steps, another tool must be used.
 
 The files in this `tools` directory may be used to provide additional validation
 mechanisms for various programming languages.

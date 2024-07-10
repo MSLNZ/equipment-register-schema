@@ -26,11 +26,13 @@ if TYPE_CHECKING:
 
 __all__ = ('load_schema', 'next_id', 'recursive_validate', 'validate')
 
+ID_PATTERN = r'(?P<digits>\d+)'
+
 
 def next_id(
         start_dir: str | Path,
         *,
-        id_pattern: str = r'(?P<digits>\d+)',
+        id_pattern: str = ID_PATTERN,
         file_pattern: str = '*.xml',
         flags: int = 0) -> int:
     r"""Recursively search all equipment-register files to automatically determine
@@ -46,7 +48,7 @@ def next_id(
         must contain a `digits` named capture group, ``(?P<digits>\d+)``,
         that only contains the digits 0-9.
 
-    :param file_pattern: A glob pattern to use to find equipment-register files.
+    :param file_pattern: A glob pattern to use to help filter equipment-register files.
 
     :param flags: Regex flags to pass to :func:`re.compile`.
 
@@ -92,7 +94,7 @@ def recursive_validate(
     :param start_dir: The starting directory to recursively find and validate
         all equipment-register files.
 
-    :param pattern: The glob pattern to use to find equipment-register files.
+    :param pattern: The glob pattern to use to help filter equipment-register files.
 
     :param root_dir: The root directory to use when a calibration report is
         located in an external file. The `root_dir` value, i.e.,
@@ -385,29 +387,42 @@ eqn_map = {
 def cli(*args):
     """Command line interface to validate equipment registers.
 
-    :param args: Command-line arguments
+    :param args: Command-line arguments.
     """
     import argparse
 
-    parser = argparse.ArgumentParser(description='Validate Equipment Registers.')
+    parser = argparse.ArgumentParser(
+        description='Validate Equipment Registers.',
+        formatter_class=argparse.RawTextHelpFormatter
+    )
     parser.add_argument(
         'register',
         help='an equipment-register file or a directory containing equipment-register files'
     )
     parser.add_argument(
         '-s', '--schema',
-        default='equipment-register.xsd',
-        help='path to the equipment-register schema file (default is in the current-working directory)'
+        default=r'.\equipment-register.xsd',
+        help='path to the equipment-register schema file [default: ".\\equipment-register.xsd"]'
     )
     parser.add_argument(
         '-p', '--pattern',
         default='*.xml',
-        help='glob pattern to use to find equipment-register files (default is "*.xml")'
+        help='glob pattern to use to help filter equipment-register files [default: "*.xml"]'
     )
     parser.add_argument(
         '-r', '--root-dir',
         default='',
-        help='root directory to use when a calibration report is located in an external file'
+        help='root directory to use when a calibration report is located in an external file [default: ""]'
+    )
+    parser.add_argument(
+        '-n', '--next-id',
+        action='store_true',
+        help='whether to show the next equipment ID, rather than validating the register'
+    )
+    parser.add_argument(
+        '-i', '--id-pattern',
+        default=ID_PATTERN,
+        help=f'regex pattern to filter equipment IDs [default: {ID_PATTERN}]'
     )
     parser.add_argument(
         '-v', '--verbose',
@@ -427,8 +442,14 @@ def cli(*args):
     if not p.exists():
         print(f'Error! Cannot find "{p}"')
     elif p.is_dir():
+        if args.next_id:
+            print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
+            return
         recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
     else:
+        if args.next_id:
+            print('Cannot use --next-id when the register specified is a file')
+            return -1
         validate(p, root_dir=args.root_dir)
 
 

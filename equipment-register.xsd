@@ -146,6 +146,7 @@
                     <xsd:enumeration value="Source"/>
                     <xsd:enumeration value="Thermometer"/>
                     <xsd:enumeration value="Voltage"/>
+                    <xsd:enumeration value="ResistanceBridge"/>
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:list>
@@ -190,9 +191,28 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Humidity"/>
             <xsd:enumeration value="Temperature"/>
+            <xsd:enumeration value="Pressure"/>
+            <xsd:enumeration value="Resistance"/>
+            <xsd:enumeration value="Voltage"/>
+            <xsd:enumeration value="Current"/>
+            <xsd:enumeration value="Wavelength"/>
+            <xsd:enumeration value="Frequency"/>
+            <xsd:enumeration value="Length"/>
+            <xsd:enumeration value="Deviation in Length"/>
+            <xsd:enumeration value="Variation in Length"/>
+            <xsd:enumeration value="Flatness"/>
+            <xsd:enumeration value="Parallelism"/>
+            <xsd:enumeration value="Perpendicularity"/>
+            <xsd:enumeration value="Straightness"/>
+            <xsd:enumeration value="Cylindricity"/>
+            <xsd:enumeration value="Roundness"/>
+            <xsd:enumeration value="Angularity"/>
+            <xsd:enumeration value="Angle"/>
+            <xsd:enumeration value="Sphericity"/>
+            <xsd:enumeration value="Runout"/>
+            <xsd:enumeration value="Total Runout"/>   
         </xsd:restriction>
     </xsd:simpleType>
-
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>

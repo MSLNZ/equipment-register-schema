@@ -410,7 +410,7 @@ def cli(*args):
         help='root directory to use when a calibration report is located in an external file'
     )
     parser.add_argument(
-        '-d', '--debug',
+        '-v', '--verbose',
         action='store_true',
         help='whether to show DEBUG logging messages'
     )
@@ -419,7 +419,7 @@ def cli(*args):
         args = ['--help']
     args = parser.parse_args(args)
 
-    if args.debug:
+    if args.verbose:
         import logging
         logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 

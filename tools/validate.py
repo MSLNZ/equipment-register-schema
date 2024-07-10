@@ -178,7 +178,7 @@ def validate(register: str | Path | TextIO | BinaryIO | ElementTree,
 
 def _equation(equation: Element, *, debug_name: str, nsmap: dict[str, str], **variables) -> None:
     """Validates that the equations are valid."""
-    logger.debug('  [%s] Validating equations for %s ', debug_name)
+    logger.debug('  [%s] Validating equation element', debug_name)
 
     value, uncertainty = equation[:2]  # schema forces order
 
@@ -380,3 +380,57 @@ eqn_map = {
     'log': np.log,
     'log10': np.log10,
 }
+
+
+def cli(*args):
+    """Command line interface to validate equipment registers.
+
+    :param args: Command-line arguments
+    """
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Validate Equipment Registers.')
+    parser.add_argument(
+        'register',
+        help='an equipment-register file or a directory containing equipment-register files'
+    )
+    parser.add_argument(
+        '-s', '--schema',
+        default='equipment-register.xsd',
+        help='path to the equipment-register schema file (default is in the current-working directory)'
+    )
+    parser.add_argument(
+        '-p', '--pattern',
+        default='*.xml',
+        help='glob pattern to use to find equipment-register files (default is "*.xml")'
+    )
+    parser.add_argument(
+        '-r', '--root-dir',
+        default='',
+        help='root directory to use when a calibration report is located in an external file'
+    )
+    parser.add_argument(
+        '-d', '--debug',
+        action='store_true',
+        help='whether to show DEBUG logging messages'
+    )
+
+    if not args:
+        args = ['--help']
+    args = parser.parse_args(args)
+
+    if args.debug:
+        import logging
+        logging.basicConfig(level=logging.DEBUG, format='%(message)s')
+
+    p = Path(args.register)
+    if not p.exists():
+        print(f'Error! Cannot find "{p}"')
+    elif p.is_dir():
+        recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
+    else:
+        validate(p, root_dir=args.root_dir)
+
+
+if __name__ == '__main__':
+    sys.exit(cli(*sys.argv[1:]))

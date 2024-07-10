@@ -21,12 +21,16 @@ There are four functions available:
   from a specified directory.
 * _validate_: Validate a single equipment-register (XML) file.
 
-If you want to see more information about what is happening during the validation
-process, enable `DEBUG` logging messages, for example,
-```python
-import logging
-from validate import validate
+The `validate.py` script also provides a command-line interface. Running the script
+without specifying any arguments will show the help for the command-line tool
 
-logging.basicConfig(level=logging.DEBUG)
-validate('register.xml')
+```
+py validate.py
+```
+
+As a practical example, suppose you wanted to recursively validate all equipment
+registers in a directory and print some messages about what is happening
+
+```
+py validate.py path\to\registers --verbose  
 ```

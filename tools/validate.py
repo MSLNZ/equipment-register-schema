@@ -424,14 +424,15 @@ def cli(*args):
         help='root directory to use when a calibration report is located in an external file [default: ""]'
     )
     parser.add_argument(
+        '-i', '--id-pattern',
+        default=ID_PATTERN,
+        help=f'regex pattern to filter equipment IDs [default: {ID_PATTERN}]\n'
+             f'(only used if --next-id is specified)'
+    )
+    parser.add_argument(
         '-n', '--next-id',
         action='store_true',
         help='whether to show the next equipment ID, rather than validating the register'
-    )
-    parser.add_argument(
-        '-i', '--id-pattern',
-        default=ID_PATTERN,
-        help=f'regex pattern to filter equipment IDs [default: {ID_PATTERN}]'
     )
     parser.add_argument(
         '-v', '--verbose',
@@ -450,16 +451,12 @@ def cli(*args):
     p = Path(args.register)
     if not p.exists():
         print(f'Error! Cannot find "{p}"')
+    elif args.next_id:
+        print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
     elif p.is_dir():
-        if args.next_id:
-            print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
-        else:
-            recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
+        recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
     else:
-        if args.next_id:
-            print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
-        else:
-            validate(p, root_dir=args.root_dir)
+        validate(p, root_dir=args.root_dir)
 
 
 if __name__ == '__main__':

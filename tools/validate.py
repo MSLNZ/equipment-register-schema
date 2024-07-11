@@ -56,10 +56,10 @@ def next_id(
         (increments the captured `digits` value by 1). If no equipment IDs
         were found, the returned value is 0.
     """
-    def process_file(file, digits) -> int | None:
+    def process_file(file, digits) -> int:
         tree = etree.parse(file)
         if tree.getroot().tag != f'{{{namespace}}}register':
-            return
+            return digits
 
         logger.debug('Processing %s', file)
         for text in tree.xpath('./reg:equipment/reg:id/text()', namespaces=nsmap):
@@ -75,14 +75,10 @@ def next_id(
 
     df = Path(dir_or_file)
     if df.is_file():
-        maximum = process_file(df, latest)
-        if maximum is not None:
-            latest = maximum
+        latest = process_file(df, latest)
     else:
         for path in df.rglob(file_pattern):
-            maximum = process_file(path, latest)
-            if maximum is not None:
-                latest = maximum
+            latest = process_file(path, latest)
 
     return latest + 1
 

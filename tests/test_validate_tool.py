@@ -636,6 +636,10 @@ def test_next_id_flags():
     assert validate.next_id('./tests', id_pattern=r'sp(?P<digits>\d+)', flags=re.IGNORECASE) == 2
 
 
+def test_next_id_file():
+    assert validate.next_id('./tests/registers/duplicate_id_a.xml') == 4
+
+
 @pytest.mark.parametrize(
     ('pattern', 'expected'),
     [(r'CR(?P<digits>\d+)', 1235),

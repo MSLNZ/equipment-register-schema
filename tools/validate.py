@@ -30,16 +30,16 @@ ID_PATTERN = r'(?P<digits>\d+)'
 
 
 def next_id(
-        start_dir: str | Path,
+        dir_or_file: str | Path,
         *,
         id_pattern: str = ID_PATTERN,
         file_pattern: str = '*.xml',
         flags: int = 0) -> int:
-    r"""Recursively search all equipment-register files to automatically determine
-    the numeric value for the next equipment ID.
+    r"""Recursively search all equipment-register files in a directory or within a
+    single file to determine the numerical value for the next equipment ID.
 
-    :param start_dir: The starting directory to recursively find all
-        equipment-register files.
+    :param dir_or_file: The starting directory to recursively find all
+        equipment-register files or a specific file.
 
     :param id_pattern: A regex (regular expression) pattern to filter equipment IDs.
         For example, if the format of the equipment ID that you are interested in
@@ -53,23 +53,36 @@ def next_id(
     :param flags: Regex flags to pass to :func:`re.compile`.
 
     :return: The numeric value for the next equipment ID that is available
-        (increments the captured `digits` value by 1).
+        (increments the captured `digits` value by 1). If no equipment IDs
+        were found, the returned value is 0.
     """
-    latest = -1
-    nsmap = {'reg': namespace}
-    regex = re.compile(id_pattern, flags=flags)
-
-    for path in Path(start_dir).rglob(file_pattern):
-        tree = etree.parse(path)
+    def process_file(file, digits) -> int | None:
+        tree = etree.parse(file)
         if tree.getroot().tag != f'{{{namespace}}}register':
-            continue
+            return
 
-        logger.debug('Processing %s', path)
+        logger.debug('Processing %s', file)
         for text in tree.xpath('./reg:equipment/reg:id/text()', namespaces=nsmap):
             match = regex.search(text)
             if match is not None:
                 logger.debug('  Found match %r', text)
-                latest = max(latest, int(match['digits']))
+                digits = max(digits, int(match['digits']))
+        return digits
+
+    latest = -1
+    nsmap = {'reg': namespace}
+    regex = re.compile(id_pattern, flags=flags)
+
+    df = Path(dir_or_file)
+    if df.is_file():
+        maximum = process_file(df, latest)
+        if maximum is not None:
+            latest = maximum
+    else:
+        for path in df.rglob(file_pattern):
+            maximum = process_file(path, latest)
+            if maximum is not None:
+                latest = maximum
 
     return latest + 1
 
@@ -444,13 +457,13 @@ def cli(*args):
     elif p.is_dir():
         if args.next_id:
             print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
-            return
-        recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
+        else:
+            recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
     else:
         if args.next_id:
-            print('Cannot use --next-id when the register specified is a file')
-            return -1
-        validate(p, root_dir=args.root_dir)
+            print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
+        else:
+            validate(p, root_dir=args.root_dir)
 
 
 if __name__ == '__main__':

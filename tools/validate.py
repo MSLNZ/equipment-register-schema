@@ -439,6 +439,12 @@ def cli(*args):
         action='store_true',
         help='whether to show DEBUG logging messages'
     )
+    parser.add_argument(
+        '-V', '--version',
+        action='version',
+        version='0.1.0',
+        help='show version number and exit'
+    )
 
     if not args:
         args = ['--help']

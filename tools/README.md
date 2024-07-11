@@ -15,8 +15,8 @@ _content_ of an XML element.
 There are four functions available:
 * _load_schema_: Load the XSD file. By default, it is assumed that the Schema file
   (equipment-register.xsd) is located in the current working directory.
-* _next_id_: Recursively search all equipment-register files to automatically determine
-  the numeric value for the next equipment ID.
+* _next_id_: Recursively search all equipment-register files within a directory or
+  within a single file to determine the numerical value for the next equipment ID.
 * _recursive_validate_: Recursively validate all equipment-register files, starting
   from a specified directory.
 * _validate_: Validate a single equipment-register (XML) file.

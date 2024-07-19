@@ -428,6 +428,35 @@ def cli(*args):
     """
     import argparse
 
+    class _VersionAction(argparse.Action):
+
+        def __init__(self, **kwargs):
+            self.version = kwargs.pop('version')
+            super().__init__(**kwargs)
+
+        def __call__(self, arg_parser, name_space, values, option_string=None):
+            # The command order matters,
+            # so
+            #   py validate.py -V -s schema.xsd  (schema.xsd is NOT updated in name_space)
+            # and
+            #   py validate.py -s schema.xsd -V  (schema.xsd IS updated in name_space)
+            # do not produce the same name_space.
+            # Therefore, do custom command line parsing.
+            if '-s' in args:
+                path = args[args.index('-s') + 1]
+            elif '--schema' in sys.argv:
+                path = args[args.index('--schema') + 1]
+            else:
+                path = name_space.schema
+
+            try:
+                xsd_version = _parse(path).getroot().attrib['version']
+            except (OSError, KeyError, etree.XMLSyntaxError):
+                xsd_version = 'UNKNOWN'
+
+            print(f'validate {self.version} / schema {xsd_version}')
+            arg_parser.exit(0)
+
     parser = argparse.ArgumentParser(
         description='Validate Equipment Registers.',
         formatter_class=argparse.RawTextHelpFormatter
@@ -469,9 +498,10 @@ def cli(*args):
     )
     parser.add_argument(
         '-V', '--version',
-        action='version',
+        action=_VersionAction,
         version='0.1.0',
-        help='show version number and exit'
+        nargs=0,
+        help='show version numbers and exit'
     )
 
     if not args:

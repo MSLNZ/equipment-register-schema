@@ -92,7 +92,7 @@ def load_schema(path: str | Path = 'equipment-register.xsd') -> None:
     :param path: The path to the Schema file.
     """
     global schema
-    schema = etree.XMLSchema(etree.parse(path))
+    schema = etree.XMLSchema(etree=_parse(path))
 
 
 def recursive_validate(
@@ -375,6 +375,21 @@ def _string(value: str) -> None:
     str(value)
 
 
+def _parse(source: str | Path | TextIO | BinaryIO) -> ElementTree:
+    """Parse an XML file into an ElementTree.
+
+    If this script is frozen, automatically handles where to look
+    for the equipment-register.xsd file.
+    """
+    try:
+        return etree.parse(source)
+    except (OSError, etree.XMLSyntaxError):
+        if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+            path = Path(sys._MEIPASS) / 'equipment-register.xsd'
+            return etree.parse(path)
+        raise
+
+
 logger = logging.getLogger('register')
 
 schema: XMLSchema | None = None
@@ -467,6 +482,8 @@ def cli(*args):
         import logging
         logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 
+    load_schema(args.schema)
+
     p = Path(args.register)
     if not p.exists():
         print(f'Error! Cannot find "{p}"')
@@ -479,4 +496,8 @@ def cli(*args):
 
 
 if __name__ == '__main__':
-    sys.exit(cli(*sys.argv[1:]))
+    try:
+        sys.exit(cli(*sys.argv[1:]))
+    except Exception as e:
+        print(f'{e.__class__.__name__}: {e}')
+        sys.exit(-1)

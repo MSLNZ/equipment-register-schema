@@ -122,15 +122,25 @@ def recursive_validate(
     n = 0
     all_ids: set[str] = set()
     for path in Path(start_dir).rglob(pattern):
-        tree = etree.parse(path)
-        if tree.getroot().tag == f'{{{namespace}}}register':
-            logger.debug('Processing %s', path)
-            ids = validate(tree, root_dir=root_dir, **variables)
-            for id_ in ids:
-                if id_ in all_ids:
-                    raise AssertionError(f'Duplicate equipment ID, {id_!r}, found in {path}')
-            all_ids.update(ids)
-            n += 1
+        logger.debug('Processing %s', path)
+        try:
+            tree = etree.parse(path)
+        except etree.XMLSyntaxError as e:
+            logger.debug('  XMLSyntaxWarning! %s', e)
+            continue
+
+        tag = tree.getroot().tag
+        if tag != f'{{{namespace}}}register':
+            logger.debug('  XMLNamespaceWarning! Not a valid equipment-register namespace %r', tag)
+            continue
+
+        ids = validate(tree, root_dir=root_dir, **variables)
+        for id_ in ids:
+            if id_ in all_ids:
+                raise AssertionError(f'Duplicate equipment ID ({id_}) found in {path}')
+        all_ids.update(ids)
+        n += 1
+
     return n
 
 

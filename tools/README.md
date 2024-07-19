@@ -34,3 +34,7 @@ registers in a directory and print some messages about what is happening
 ```
 py validate.py path\to\registers --verbose
 ```
+
+The `validate.py` script may also be built into a portable executable so that you
+do not need to install Python and all dependencies. This can be provided as a zip
+file to anyone interested.

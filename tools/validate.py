@@ -5,6 +5,9 @@
 #   "GTC",
 # ]
 # ///
+#
+# You can use PyInstaller to build into a portable executable
+# ..\tools> py -m PyInstaller validate.py --add-data ..\equipment-register.xsd:..
 from __future__ import annotations
 
 import logging

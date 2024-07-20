@@ -533,6 +533,8 @@ def cli(*args) -> int:
 if __name__ == '__main__':
     try:
         sys.exit(cli(*sys.argv[1:]))
+    except KeyboardInterrupt:
+        pass
     except Exception as e:
         print(f'{e.__class__.__name__}: {e}')
         sys.exit(-1)

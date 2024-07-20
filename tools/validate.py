@@ -421,10 +421,12 @@ eqn_map = {
 }
 
 
-def cli(*args):
+def cli(*args) -> int:
     """Command line interface to validate equipment registers.
 
     :param args: Command-line arguments.
+
+    :returns: Exit code.
     """
     import argparse
 
@@ -517,12 +519,15 @@ def cli(*args):
     p = Path(args.register)
     if not p.exists():
         print(f'Error! Cannot find "{p}"')
+        return 2  # errno.ENOENT
     elif args.next_id:
         print(next_id(p, id_pattern=args.id_pattern, file_pattern=args.pattern))
     elif p.is_dir():
         recursive_validate(p, pattern=args.pattern, root_dir=args.root_dir)
     else:
         validate(p, root_dir=args.root_dir)
+
+    return 0
 
 
 if __name__ == '__main__':

@@ -537,4 +537,4 @@ if __name__ == '__main__':
         pass
     except Exception as e:
         print(f'{e.__class__.__name__}: {e}')
-        sys.exit(-1)
+        sys.exit(1)

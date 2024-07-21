@@ -40,40 +40,46 @@ Open a terminal (i.e., PowerShell or Command Prompt &ndash; _you may need to ope
 an elevated terminal if you are using an ITS-managed computer_) and run each command sequentially
 to install Git, Java and Python
 
-```shell
-> winget install --exact --id Git.Git
-> winget install --exact --id Oracle.JDK.22
-> winget install --exact --id Python.Python.3.12
+```console
+winget install Git.Git
+```
+```console
+winget install Oracle.JDK.22
+```
+```console
+winget install Python.Python.3.12
 ```
 
 You must now restart (close then re-open) your terminal so that the executable
 for these installed programs becomes available to use.
 
 Next, install the Python requirement packages (`pytest`,  `lxml` and `GTC`)
-```shell
-> py -m pip install pytest lxml GTC
+```console
+py -m pip install pytest lxml GTC
 ```
 
 Finally, clone the repository and change directory, `cd`, into the root directory of the repository
-```shell
-> git clone https://github.com/MSLNZ/equipment-register-schema.git
-> cd equipment-register-schema
+```console
+git clone https://github.com/MSLNZ/equipment-register-schema.git
+```
+```console
+cd equipment-register-schema
 ```
 
 ### Testing
 To run the tests, execute the following command from the root directory
 of the repository
 
-```shell
-> pytest
+```console
+pytest
 ```
 
 ### Documentation
 To build the documentation, execute the following command from the root directory
 of the repository
 
-```shell
-> py build_docs.py
+```console
+py build_docs.py
 ```
 
 See [docs/README](https://github.com/MSLNZ/equipment-register-schema/tree/main/docs#readme)

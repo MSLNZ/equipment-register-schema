@@ -171,13 +171,13 @@
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
-			</xsd:documentation>
+            </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Active"/>
             <xsd:enumeration value="Damaged"/>
             <xsd:enumeration value="Dormant"/>
-			<xsd:enumeration value="Lost"/>
+            <xsd:enumeration value="Lost"/>
             <xsd:enumeration value="Retired"/>
         </xsd:restriction>
     </xsd:simpleType>
@@ -1098,27 +1098,27 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-			<xsd:element name="ranges" type="msl:ranges">
-				<xsd:annotation>
-					<xsd:documentation>
-						The numeric range for each variable that an `equation` is valid for.
-					</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="degreeFreedom" minOccurs="0">
-				<xsd:annotation>
-					<xsd:documentation>
-						The degrees of freedom. If not specified, the degrees of freedom
+            <xsd:element name="ranges" type="msl:ranges">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The numeric range for each variable that an `equation` is valid for.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="degreeFreedom" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The degrees of freedom. If not specified, the degrees of freedom
                         shall be considered to be `+INF`.
-					</xsd:documentation>
-				</xsd:annotation>
-				<xsd:simpleType>
-					<xsd:restriction base="xsd:double">
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:double">
                         <xsd:minInclusive value="1"/>
                         <xsd:maxInclusive value="INF"/>
-					</xsd:restriction>
-				</xsd:simpleType>
-			</xsd:element>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 

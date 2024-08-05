@@ -84,21 +84,21 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CMM Lab"/>
             <xsd:enumeration value="Cryogenic Radiometer"/>
             <xsd:enumeration value="Detector Responsivity"/>
             <xsd:enumeration value="Flexible Optics"/>
             <xsd:enumeration value="Goniospectrophotometer"/>
-            <xsd:enumeration value="Kibble Balance"/>
-            <xsd:enumeration value="Long Room"/>
-            <xsd:enumeration value="Laser Lab"/>
             <xsd:enumeration value="Hilger Lab"/>
-            <xsd:enumeration value="CMM Lab"/>
-            <xsd:enumeration value="Underground Tape Tunnel"/>
+            <xsd:enumeration value="Kibble Balance"/>
+            <xsd:enumeration value="Laser Lab"/>
+            <xsd:enumeration value="Long Room"/>
             <xsd:enumeration value="Mass Standards Laboratories"/>
             <xsd:enumeration value="Photometric Bench"/>
             <xsd:enumeration value="Pressure Standards Laboratories"/>
             <xsd:enumeration value="Single Photon"/>
             <xsd:enumeration value="Spectrophotometer"/>
+            <xsd:enumeration value="Underground Tape Tunnel"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -142,11 +142,11 @@
                     <xsd:enumeration value="Monochromator"/>
                     <xsd:enumeration value="Oscilloscope"/>
                     <xsd:enumeration value="PRT"/>
+                    <xsd:enumeration value="ResistanceBridge"/>
                     <xsd:enumeration value="Sense"/>
                     <xsd:enumeration value="Source"/>
                     <xsd:enumeration value="Thermometer"/>
                     <xsd:enumeration value="Voltage"/>
-                    <xsd:enumeration value="ResistanceBridge"/>
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:list>
@@ -168,17 +168,17 @@
                 * **Damaged**: The equipment is damaged and is no longer usable
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
                   (e.g., the equipment was replaced with a newer/different model, and it is kept as a backup)
+                * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
-                * **Lost**: The equipment is lost, but if found may be put back into service.
 			</xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Active"/>
             <xsd:enumeration value="Damaged"/>
             <xsd:enumeration value="Dormant"/>
-            <xsd:enumeration value="Retired"/>
 			<xsd:enumeration value="Lost"/>
+            <xsd:enumeration value="Retired"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -189,28 +189,28 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="Humidity"/>
-            <xsd:enumeration value="Temperature"/>
-            <xsd:enumeration value="Pressure"/>
-            <xsd:enumeration value="Resistance"/>
-            <xsd:enumeration value="Voltage"/>
+            <xsd:enumeration value="Angle"/>
+            <xsd:enumeration value="Angularity"/>
             <xsd:enumeration value="Current"/>
-            <xsd:enumeration value="Wavelength"/>
-            <xsd:enumeration value="Frequency"/>
-            <xsd:enumeration value="Length"/>
+            <xsd:enumeration value="Cylindricity"/>
             <xsd:enumeration value="Deviation in Length"/>
-            <xsd:enumeration value="Variation in Length"/>
             <xsd:enumeration value="Flatness"/>
+            <xsd:enumeration value="Frequency"/>
+            <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Length"/>
             <xsd:enumeration value="Parallelism"/>
             <xsd:enumeration value="Perpendicularity"/>
-            <xsd:enumeration value="Straightness"/>
-            <xsd:enumeration value="Cylindricity"/>
+            <xsd:enumeration value="Pressure"/>
+            <xsd:enumeration value="Resistance"/>
             <xsd:enumeration value="Roundness"/>
-            <xsd:enumeration value="Angularity"/>
-            <xsd:enumeration value="Angle"/>
-            <xsd:enumeration value="Sphericity"/>
             <xsd:enumeration value="Runout"/>
-            <xsd:enumeration value="Total Runout"/>   
+            <xsd:enumeration value="Sphericity"/>
+            <xsd:enumeration value="Straightness"/>
+            <xsd:enumeration value="Temperature"/>
+            <xsd:enumeration value="Total Runout"/>
+            <xsd:enumeration value="Variation in Length"/>
+            <xsd:enumeration value="Voltage"/>
+            <xsd:enumeration value="Wavelength"/>
         </xsd:restriction>
     </xsd:simpleType>
     <xsd:simpleType name="idPatternString">

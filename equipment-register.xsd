@@ -131,6 +131,7 @@
             <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
                     <xsd:enumeration value="AC"/>
+                    <xsd:enumeration value="Balance"/>
                     <xsd:enumeration value="Barometer"/>
                     <xsd:enumeration value="Current"/>
                     <xsd:enumeration value="DAQ"/>
@@ -198,6 +199,7 @@
             <xsd:enumeration value="Frequency"/>
             <xsd:enumeration value="Humidity"/>
             <xsd:enumeration value="Length"/>
+            <xsd:enumeration value="Mass"/>
             <xsd:enumeration value="Parallelism"/>
             <xsd:enumeration value="Perpendicularity"/>
             <xsd:enumeration value="Pressure"/>

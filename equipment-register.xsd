@@ -491,6 +491,13 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="alias" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ An alternative name to associate with the equipment.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute name="keywords" type="msl:keywordsList">
             <xsd:annotation>
                 <xsd:documentation>

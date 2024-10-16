@@ -1,8 +1,21 @@
 import pytest
 
 
-def test_no_keywords_attribute(xml):
+def test_no_attributes(xml):
     xml.equipment('equipment')
+    assert xml.is_valid()
+
+
+@pytest.mark.parametrize(
+    'value',
+    ['',
+     '        ',
+     '   \t \r  \n',
+     'Motor',
+     'An alias to associate with the equipment!',
+     ])
+def test_alias(xml, value):
+    xml.equipment('equipment', alias=value)
     assert xml.is_valid()
 
 
@@ -39,7 +52,7 @@ def test_invalid_keywords_value(xml, value):
     xml.raises("not an element of the set")
 
 
-@pytest.mark.parametrize('attrib_name', ['bad', 'invalid'])
+@pytest.mark.parametrize('attrib_name', ['bad', 'invalid', 'aliases', 'keyword'])
 def test_invalid_attribute_name(xml, attrib_name):
     xml.equipment('equipment', **{attrib_name: 'DigitalMultiMeter'})
     xml.raises(f'The attribute {attrib_name!r} is not allowed')

@@ -12,15 +12,15 @@ terminal and execute
 You should see the following (however, your version of [Java] may be different)
 
 ```console
-java version "22.0.1" 2024-04-16
-Java(TM) SE Runtime Environment (build 22.0.1+8-16)
-Java HotSpot(TM) 64-Bit Server VM (build 22.0.1+8-16, mixed mode, sharing)
+java version "23.0.1" 2024-10-15
+Java(TM) SE Runtime Environment (build 23.0.1+11-39)
+Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
 ```
 
 If [Java] is not installed, then, on Windows, you can install it by running
 
 ```shell
-> winget install --exact --id Oracle.JDK.22
+> winget install Oracle.JDK.23
 ```
 and then open a new terminal. You could also [download][Java]
 it and manually install it.

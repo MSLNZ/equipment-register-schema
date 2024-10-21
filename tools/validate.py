@@ -228,14 +228,16 @@ def _equation(equation: Element, *, debug_name: str, nsmap: dict[str, str], **va
             f'range variables   : {", ".join(sorted(range_names))}'
         )
 
+    builtins = {'__builtins__': {'__import__': __import__}}
+
     try:
-        eval(value.text, {'__builtins__': {}}, loc)
-        eval(uncertainty.text, {'__builtins__': {}}, loc)
-    except Exception as e:
+        eval(value.text, builtins, loc)
+        eval(uncertainty.text, builtins, loc)
+    except Exception as error:
         raise AssertionError(
             f'Invalid equation syntax for {debug_name!r}\n'
-            f'{e.__class__.__name__}: {e}'
-        ) from e
+            f'{error.__class__.__name__}: {error}'
+        ) from error
 
 
 def _file(file: Element, *, root: str | Path, debug_name: str) -> None:

@@ -12,21 +12,15 @@ def test_no_attributes_allowed(xml):
     'value',
     ['',
      ' ',
-     'i\n',
      '     ',
      '\t',
      '\n',
      '\r',
      '\n\r',
      '\n\n\n\n',
+     '\n \n \n  \n ',
      '\t\t\t\t\t',
      ' \t\n',
-     '\nIdentity',
-     'Identity\n',
-     '\rIdentity',
-     'Identity\r',
-     'Iden\ntity',
-     'I\rde\nti\ty',
      ])
 def test_invalid_number_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.report(number=value))))
@@ -104,12 +98,11 @@ def test_valid_issuing_lab_attribute_value(xml, value):
 def test_no_number(xml):
     r = '<report><anything/></report>'
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is .*reportNumber')
+    xml.raises("The attribute 'id' is required but missing")
 
 
 def test_no_issue_date(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <anything/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
@@ -117,8 +110,7 @@ def test_no_issue_date(xml):
 
 
 def test_no_start_date(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <anything/>'
          '</report>')
@@ -127,8 +119,7 @@ def test_no_start_date(xml):
 
 
 def test_no_stop_date(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <anything/>'
@@ -138,8 +129,7 @@ def test_no_stop_date(xml):
 
 
 def test_no_issuing_lab(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -149,8 +139,7 @@ def test_no_issuing_lab(xml):
 
 
 def test_no_technical_procedure(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -161,8 +150,7 @@ def test_no_technical_procedure(xml):
 
 
 def test_no_criteria(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -198,8 +186,7 @@ def test_criteria(xml, text, attribs):
 
 
 def test_no_choice(xml):
-    r = ('<report>'
-         '  <reportNumber>any</reportNumber>'
+    r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'

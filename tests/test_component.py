@@ -27,5 +27,29 @@ def test_report_invalid_element_name(xml):
 
 
 def test_report_no_content(xml):
+    xml.calibrations(xml.measurand(xml.component('<report id="anything"/>')))
+    xml.raises(r'Expected is .*reportIssueDate')
+
+
+def test_report_no_id(xml):
     xml.calibrations(xml.measurand(xml.component('<report/>')))
-    xml.raises(r'Expected is .*reportNumber')
+    xml.raises("The attribute 'id' is required but missing")
+
+
+@pytest.mark.parametrize(
+    'identity',
+    ['',
+     ' ',
+     '     ',
+     '\t',
+     '\n',
+     '\r',
+     '\n\r',
+     '\n\n\n\n',
+     '\n \n \n  \n ',
+     '\t\t\t\t\t',
+     ' \t\n',
+     ])
+def test_report_invalid_id(xml, identity):
+    xml.calibrations(xml.measurand(xml.component(f'<report id="{identity}"/>')))
+    xml.raises('not accepted by the pattern')

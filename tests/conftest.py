@@ -265,7 +265,7 @@ class XML:
             attributes = XML.attributes(**attribs)
             report = f'<report {attributes}>'
         else:
-            report = '<report>'
+            report = f'<report id="{number}">'
 
         if criteria is None:
             criteria = '<criteria/>'
@@ -282,7 +282,6 @@ class XML:
             lab = lab
 
         return (f'{report}\n'
-                f'            <reportNumber>{number}</reportNumber>\n'
                 f'            <reportIssueDate>{issue}</reportIssueDate>\n'
                 f'            <measurementStartDate>{start}</measurementStartDate>\n'
                 f'            <measurementStopDate>{stop}</measurementStopDate>\n'
@@ -294,12 +293,12 @@ class XML:
                 f'          </report>')
 
     @staticmethod
-    def digital_report(*, url: str | Path = '', sha256: str = '', **attribs) -> str:
+    def digital_report(*, url: str | Path = '', sha256: str = '', number: str = 'any', **attribs) -> str:
         if attribs:
             attributes = XML.attributes(**attribs)
             report = f'<digitalReport {attributes}>'
         else:
-            report = f'<digitalReport format="{XML.FORMAT}">'
+            report = f'<digitalReport id="{number}" format="{XML.FORMAT}">'
 
         if not url:
             url = f'<url>calibration.pdf</url>'

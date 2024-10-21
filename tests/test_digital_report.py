@@ -13,7 +13,7 @@ def test_multiple_attributes(xml):
 
 @pytest.mark.parametrize('fmt', ['MSL PDF/A-3', 'PTB DCC'])
 def test_valid_attribute_value(xml, fmt):
-    xml.calibrations(xml.measurand(xml.component(xml.digital_report(format=fmt))))
+    xml.calibrations(xml.measurand(xml.component(xml.digital_report(format=fmt, id='any'))))
     assert xml.is_valid()
 
 
@@ -42,7 +42,7 @@ def test_invalid_sha256_element(xml):
 
 
 def test_extra_url_element(xml):
-    e = (f'<digitalReport format="MSL PDF/A-3">'
+    e = (f'<digitalReport format="MSL PDF/A-3" id="any">'
          f'  <url>file.pdf</url>'
          f'  <sha256>{xml.SHA256}</sha256>'
          f'  <url>file2.pdf</url>'
@@ -52,7 +52,7 @@ def test_extra_url_element(xml):
 
 
 def test_extra_sha256_element(xml):
-    e = (f'<digitalReport format="MSL PDF/A-3">'
+    e = (f'<digitalReport format="MSL PDF/A-3" id="any">'
          f'  <url>file.pdf</url>'
          f'  <sha256>{xml.SHA256}</sha256>'
          f'  <sha256>{xml.SHA256}</sha256>'
@@ -88,3 +88,22 @@ def test_sha256_with_attrib(xml):
     sha256 = xml.element('sha256', foo='bar')
     xml.calibrations(xml.measurand(xml.component(xml.digital_report(sha256=sha256))))
     xml.raises(r"sha256', attribute 'foo'")
+
+
+@pytest.mark.parametrize(
+    'value',
+    ['',
+     ' ',
+     '     ',
+     '\t',
+     '\n',
+     '\r',
+     '\n\r',
+     '\n\n\n\n',
+     '\n \n \n  \n ',
+     '\t\t\t\t\t',
+     ' \t\n',
+     ])
+def test_invalid_number_value(xml, value):
+    xml.calibrations(xml.measurand(xml.component(xml.digital_report(number=value))))
+    xml.raises('not accepted by the pattern')

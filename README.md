@@ -44,10 +44,10 @@ to install Git, Java and Python
 winget install Git.Git
 ```
 ```console
-winget install Oracle.JDK.22
+winget install Oracle.JDK.23
 ```
 ```console
-winget install Python.Python.3.12
+winget install Python.Python.3.13
 ```
 
 You must now restart (close then re-open) your terminal so that the executable

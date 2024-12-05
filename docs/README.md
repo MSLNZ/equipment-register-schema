@@ -6,7 +6,7 @@ To test if you have [Java] installed and configured properly, open a
 terminal and execute
 
 ```shell
-> java -version
+java -version
 ```
 
 You should see the following (however, your version of [Java] may be different)
@@ -20,7 +20,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
 If [Java] is not installed, then, on Windows, you can install it by running
 
 ```shell
-> winget install Oracle.JDK.23
+winget install Oracle.JDK.23
 ```
 and then open a new terminal. You could also [download][Java]
 it and manually install it.
@@ -66,9 +66,9 @@ To change the content of `diagram.svg`, you must modify the source
 code in the `bin/xsdvi` directory, rebuild `xsdvi.jar` using [ant](https://ant.apache.org/)
 
 ```shell
-> cd bin/xsdvi
-> ant clean
-> ant
+cd bin/xsdvi
+ant clean
+ant
 ```
 
 and then re-run the `build_docs.py` script.

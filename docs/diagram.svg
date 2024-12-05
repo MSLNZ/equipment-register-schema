@@ -713,6 +713,7 @@ onmouseover='makeVisible("_1_1_1_1_1_10_1_1_1_1_1_1_2_1_6")' onmouseout='makeHid
 <circle class='empty' cx='42' cy='23' r='2'/>
 <circle class='empty' cx='42' cy='32' r='2'/>
 <polyline points='26,23 34,23 34,14 40,14'/>
+<text x='5' y='52'>1..∞</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 <use x='59' y='17' xlink:href='#minus' id='s_1_1_1_1_1_10_1_1_1_1_1_1_2_1_7' onclick='show("_1_1_1_1_1_10_1_1_1_1_1_1_2_1_7")'/>
 </g>

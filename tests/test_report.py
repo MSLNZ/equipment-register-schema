@@ -219,3 +219,116 @@ def test_extra(xml, text, attribs):
     extra = xml.element('extra', text=text, **attribs)
     xml.calibrations(xml.measurand(xml.component(xml.report(extra=f'{extra}\n'))))
     assert xml.is_valid()
+
+
+def test_multiple_choices_valid(xml):
+    table = xml.table()
+
+    serialised = ('<serialised>'
+                  '  <gtcArchiveJSON>{}</gtcArchiveJSON>'
+                  '</serialised>')
+
+    file = (f'<file>'
+            f'  <url>file.txt</url>'
+            f'  <sha256>{xml.SHA256}</sha256>'
+            f'</file>')
+
+    equation = ('<equation>'
+                '  <value variables="x">2*x</value>'
+                '  <uncertainty variables="">1.0</uncertainty>'
+                '  <unit>m</unit>'
+                '  <ranges/>'
+                '</equation>')
+
+    r = (f'<report id="any">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <criteria/>'
+         f'  {file}'
+         f'  {table}'
+         f'  {equation}'
+         f'  {equation}'
+         f'  {serialised}'
+         f'  {table}'
+         f'  {file}'
+         f'  {equation}'
+         f'  {file}'
+         f'  {serialised}'
+         f'  {serialised}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    assert xml.is_valid()
+
+
+def test_multiple_choices_one_invalid(xml):
+    table = xml.table()
+
+    serialised = ('<serialised>'
+                  '  <gtcArchiveJSON>{}</gtcArchiveJSON>'
+                  '</serialised>')
+
+    file = (f'<file>'
+            f'  <url>file.txt</url>'
+            f'  <sha256>{xml.SHA256}</sha256>'
+            f'</file>')
+
+    equation = ('<equation>'
+                '  <value variables="x">2*x</value>'
+                '  <uncertainty variables="">1.0</uncertainty>'
+                '  <unit>m</unit>'
+                '  <ranges/>'
+                '</equation>')
+
+    r = (f'<report id="any">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <criteria/>'
+         f'  {file}'
+         f'  {table}'
+         f'  {serialised}'
+         f'  <apple>red</apple>'
+         f'  {equation}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r"apple': This element is not expected")
+
+
+def test_multiple_choices_extra_element_interleaved(xml):
+    table = xml.table()
+    r = (f'<report id="any">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <criteria/>'
+         f'  {table}'
+         f'  <extra><name>value</name></extra>'
+         f'  {table}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r"table': This element is not expected")
+
+
+def test_multiple_choices_with_extra_element(xml):
+    table = xml.table()
+    r = (f'<report id="any">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <criteria/>'
+         f'  {table}'
+         f'  {table}'
+         f'  {table}'
+         f'  <extra><name>value</name></extra>'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    assert xml.is_valid()

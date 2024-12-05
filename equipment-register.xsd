@@ -939,7 +939,7 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:choice>
+            <xsd:choice maxOccurs="unbounded">
                 <xsd:element name="equation" type="msl:equation">
                     <xsd:annotation>
                         <xsd:documentation>

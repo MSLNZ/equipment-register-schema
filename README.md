@@ -29,7 +29,7 @@ Running the following commands will:
 1. Install Git
 2. Install Java
 3. Install Python
-4. Install the Python requirements (If you are familiar with
+4. Install the Python dependencies (If you are familiar with
 [virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments),
 you should install the packages into one &ndash; otherwise ignore this _virtual environment_ stuff.)
 
@@ -53,15 +53,16 @@ winget install Python.Python.3.13
 You must now restart (close then re-open) your terminal so that the executable
 for these installed programs becomes available to use.
 
-Next, install the Python requirement packages (`pytest`,  `lxml` and `GTC`)
+Next, install the Python dependencies _(perhaps you first need to activate your [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)?)_
 ```console
-py -m pip install pytest lxml GTC
+pip install pytest lxml GTC
 ```
 
-Finally, clone the repository and change directory, `cd`, into the root directory of the repository
+Finally, clone the repository
 ```console
 git clone https://github.com/MSLNZ/equipment-register-schema.git
 ```
+and change directory, `cd`, into the root directory of the repository
 ```console
 cd equipment-register-schema
 ```
@@ -79,7 +80,7 @@ To build the documentation, execute the following command from the root director
 of the repository
 
 ```console
-py build_docs.py
+python build_docs.py
 ```
 
 See [docs/README](https://github.com/MSLNZ/equipment-register-schema/tree/main/docs#readme)

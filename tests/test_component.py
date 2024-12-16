@@ -53,3 +53,11 @@ def test_report_no_id(xml):
 def test_report_invalid_id(xml, identity):
     xml.calibrations(xml.measurand(xml.component(f'<report id="{identity}"/>')))
     xml.raises('not accepted by the pattern')
+
+
+def test_multiple_choices(xml):
+    a = '<adjustment date="2024-10-17">Cleaned the filter</adjustment>'
+    r = xml.report()
+    d = xml.digital_report()
+    xml.calibrations(xml.measurand(xml.component(f'{a}{r}{a}{d}{d}{d}{r}{r}{r}{r}{a}{a}{d}')))
+    assert xml.is_valid()

@@ -895,11 +895,23 @@
                 A component of the equipment that measures the [quantity](#type_quantity).
 
                 Contains a sequence of reports (either digital and/or non-digital reports)
-                for the measured [quantity](#type_quantity).
+                and adjustments for the measured [quantity](#type_quantity).
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
             <xsd:choice>
+                <xsd:element name="adjustment" type="msl:comment">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                            e) calibration ... adjustments ...
+
+                            An example of an _adjustment_ is cleaning the equipment
+                            (e.g., a spectral filter) and then performing another calibration
+                            measurement.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
                 <xsd:element name="digitalReport" type="msl:digitalReport">
                     <xsd:annotation>
                         <xsd:documentation>

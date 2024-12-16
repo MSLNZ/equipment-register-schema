@@ -622,7 +622,9 @@
                 <xsd:attribute name="dateDue" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
-                            The date (YYYY-MM-DD) that the planned maintenance task is due to be completed.
+                            The date that the planned maintenance task is due to be completed.
+                            The date must be in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
@@ -648,14 +650,18 @@
                 <xsd:attribute name="dateDue" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
-                            The date (YYYY-MM-DD) that the planned maintenance task was due to be completed.
+                            The date that the planned maintenance task was due to be completed.
+                            The date must be in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
                 <xsd:attribute name="dateCompleted" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
-                            The date (YYYY-MM-DD) that the planned maintenance task was completed.
+                            The date that the planned maintenance task was completed.
+                            The date must be in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
@@ -708,7 +714,9 @@
                 <xsd:attribute name="date" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
-                            The date (YYYY-MM-DD) that the alteration was performed.
+                            The date that the alteration was performed.
+                            The date must be in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>

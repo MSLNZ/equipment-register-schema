@@ -230,22 +230,9 @@ def test_invalid_choice(xml):
     xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')
 
 
-def test_extra_invalid_tag_name(xml):
-    xml.calibrations(xml.measurand(xml.component(xml.report(extra='<invalid/>'))))
-    xml.raises(r'Expected is .*extra')
-
-
-@pytest.mark.parametrize(
-    ('text', 'attribs'),
-    [('', {'hot': 'true'}),
-     ('<anything/>', {}),
-     ('<fruit colour="red" shape="round">apple</fruit>', {'x': '1', 'hello': 'world', 'stem': 'true'}),
-     ('<min>10</min><max>70</max><unit>C</unit>', {}),
-     ])
-def test_extra(xml, text, attribs):
-    extra = xml.element('extra', text=text, **attribs)
-    xml.calibrations(xml.measurand(xml.component(xml.report(extra=f'{extra}\n'))))
-    assert xml.is_valid()
+def test_unexpected_element(xml):
+    xml.calibrations(xml.measurand(xml.component(xml.report(extra='<extra/>'))))
+    xml.raises(r"extra': This element is not expected")
 
 
 def test_multiple_choices_valid(xml):
@@ -328,7 +315,7 @@ def test_multiple_choices_one_invalid(xml):
     xml.raises(r"apple': This element is not expected")
 
 
-def test_multiple_choices_extra_element_interleaved(xml):
+def test_multiple_choices_unexpected_element_interleaved(xml):
     table = xml.table()
     r = (f'<report id="any">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
@@ -343,23 +330,4 @@ def test_multiple_choices_extra_element_interleaved(xml):
          f'  {table}'
          f'</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r"table': This element is not expected")
-
-
-def test_multiple_choices_with_extra_element(xml):
-    table = xml.table()
-    r = (f'<report id="any">'
-         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
-         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
-         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
-         f'  <issuingLaboratory>MSL</issuingLaboratory>'
-         f'  <technicalProcedure/>'
-         f'  <conditions/>'
-         f'  <acceptanceCriteria/>'
-         f'  {table}'
-         f'  {table}'
-         f'  {table}'
-         f'  <extra><name>value</name></extra>'
-         f'</report>')
-    xml.calibrations(xml.measurand(xml.component(r)))
-    assert xml.is_valid()
+    xml.raises(r"extra': This element is not expected")

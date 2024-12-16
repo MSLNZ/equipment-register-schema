@@ -41,7 +41,7 @@ def test_empty(xml):
 
 def test_repeated(xml):
     xml.maintenance('<maintenance/><maintenance/>')
-    xml.raises(r'Expected is .*firmware')
+    xml.raises(r'Expected is .*alterations')
 
 
 def test_no_top_level_attribute_allowed(xml):

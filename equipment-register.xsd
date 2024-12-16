@@ -444,7 +444,14 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment \
+                        g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="alterations" type="msl:alterations">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         h) details of any damage, malfunction, modification to, or repair of, the equipment
                     </xsd:documentation>
                 </xsd:annotation>
@@ -656,6 +663,58 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             The person or company that performed the planned maintenance task.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="alterations">
+        <xsd:annotation>
+            <xsd:documentation>
+                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                h) details of any damage, malfunction, modification to, or repair of, the equipment
+
+                **Examples**
+
+                No alterations have been performed
+                ```
+                &lt;alterations/&gt;
+                ```
+                Some alterations have been performed
+                ```
+                &lt;alterations&gt;
+                  &lt;alteration date="2024-10-16" performedBy="Chris, MSL"&gt;Replace blown op-amp with Texas Instruments LMP7721&lt;/alteration&gt;
+                  &lt;alteration date="2022-06-23" performedBy="Chris, MSL"&gt;Attach heatsink to voltage regulator&lt;/alteration&gt;
+                &lt;/alterations&gt;
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="alteration" type="msl:alteration"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="alteration">
+        <xsd:annotation>
+            <xsd:documentation>
+                The details of the alteration.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="msl:nonEmptyString">
+                <xsd:attribute name="date" type="xsd:date" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The date (YYYY-MM-DD) that the alteration was performed.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="performedBy" type="msl:nonEmptyString" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The person or company that performed the alteration.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>

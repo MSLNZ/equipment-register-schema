@@ -12,6 +12,7 @@
         <traceable>true</traceable>
         <calibrations/>
         <maintenance/>
+        <alterations/>
         <firmware/>
         <acceptanceCriteria/>
         <financial/>
@@ -29,6 +30,7 @@
         <traceable>true</traceable>
         <calibrations/>
         <maintenance/>
+        <alterations/>
         <firmware/>
         <acceptanceCriteria/>
         <financial/>
@@ -46,6 +48,7 @@
         <traceable>true</traceable>
         <calibrations/>
         <maintenance/>
+        <alterations/>
         <firmware/>
         <acceptanceCriteria/>
         <financial/>

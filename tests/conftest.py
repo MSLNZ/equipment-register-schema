@@ -54,6 +54,7 @@ class XML:
         self._traceable: str = self.element('traceable', text='false')
         self._calibrations: str = self.element('calibrations')
         self._maintenance: str = self.element('maintenance')
+        self._alterations: str = self.element('alterations')
         self._firmware: str = self.element('firmware')
         self._acceptance: str = self.element('acceptanceCriteria')
         self._financial: str = self.element('financial')
@@ -93,6 +94,8 @@ class XML:
             elements.append(f'    {self._calibrations}')
         if self._maintenance:
             elements.append(f'    {self._maintenance}')
+        if self._alterations:
+            elements.append(f'    {self._alterations}')
         if self._firmware:
             elements.append(f'    {self._firmware}')
         if self._acceptance:
@@ -204,6 +207,9 @@ class XML:
 
     def maintenance(self, string: str) -> None:
         self._maintenance = string
+
+    def alterations(self, string: str) -> None:
+        self._alterations = string
 
     def firmware(self, string: str) -> None:
         self._firmware = string

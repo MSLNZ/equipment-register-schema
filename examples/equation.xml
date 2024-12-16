@@ -105,6 +105,7 @@
             </measurand>
         </calibrations>
         <maintenance/>
+        <alterations/>
         <firmware>
             <version date="2023-06-15">1.02</version>
         </firmware>

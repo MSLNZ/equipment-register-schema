@@ -384,6 +384,7 @@
             <xsd:element name="description" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
+                        Satisfy a _shall_ item in Section 4.3.6 of the MSL Quality Manual. \
                         A short description about the equipment.
                     </xsd:documentation>
                 </xsd:annotation>

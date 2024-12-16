@@ -432,7 +432,6 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        c) evidence of verification that equipment conforms with specified requirements \
                         e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
                     </xsd:documentation>
                 </xsd:annotation>

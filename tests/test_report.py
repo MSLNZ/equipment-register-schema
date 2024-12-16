@@ -161,6 +161,32 @@ def test_no_conditions(xml):
     xml.raises(r'Expected is .*conditions')
 
 
+def test_no_acceptance_criteria(xml):
+    r = ('<report id="any">'
+         '  <reportIssueDate>2024-06-25</reportIssueDate>'
+         '  <measurementStartDate>2000-01-01</measurementStartDate>'
+         '  <measurementStopDate>2000-01-01</measurementStopDate>'
+         '  <issuingLaboratory>MSL</issuingLaboratory>'
+         '  <technicalProcedure/>'
+         '  <conditions/>'
+         '</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises(r'Expected is .*acceptanceCriteria')
+
+
+@pytest.mark.parametrize(
+    ('text', 'attribs'),
+    [('', {'hot': 'true'}),
+     ('<anything/>', {}),
+     ('<fruit colour="red" shape="round">apple</fruit>', {'x': '1', 'hello': 'world', 'stem': 'true'}),
+     ('<min>10</min><max>70</max><unit>C</unit>', {}),
+     ])
+def test_acceptance_criteria(xml, text, attribs):
+    ac = xml.element('acceptanceCriteria', text=text, **attribs)
+    xml.calibrations(xml.measurand(xml.component(xml.report(acceptance_criteria=f'{ac}\n'))))
+    assert xml.is_valid()
+
+
 @pytest.mark.parametrize(
     'method',
     ['',
@@ -193,6 +219,7 @@ def test_no_choice(xml):
          '  <issuingLaboratory>MSL</issuingLaboratory>'
          '  <technicalProcedure/>'
          '  <conditions/>'
+         '  <acceptanceCriteria/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')
@@ -247,6 +274,7 @@ def test_multiple_choices_valid(xml):
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
          f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
          f'  {file}'
          f'  {table}'
          f'  {equation}'
@@ -289,6 +317,7 @@ def test_multiple_choices_one_invalid(xml):
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
          f'  <conditions/>'
+         f'  <acceptanceCriteria/>'         
          f'  {file}'
          f'  {table}'
          f'  {serialised}'
@@ -308,6 +337,7 @@ def test_multiple_choices_extra_element_interleaved(xml):
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
          f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
          f'  {table}'
          f'  <extra><name>value</name></extra>'
          f'  {table}'
@@ -325,6 +355,7 @@ def test_multiple_choices_with_extra_element(xml):
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
          f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
          f'  {table}'
          f'  {table}'
          f'  {table}'

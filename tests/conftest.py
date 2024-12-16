@@ -264,6 +264,7 @@ class XML:
                lab: str = 'MSL',
                method: str = '',
                conditions: str = None,
+               acceptance_criteria: str = None,
                choice: str = None,
                extra: str = '',
                **attribs) -> str:
@@ -275,6 +276,9 @@ class XML:
 
         if conditions is None:
             conditions = '<conditions/>'
+
+        if acceptance_criteria is None:
+            acceptance_criteria = '<acceptanceCriteria/>'
 
         if choice is None:
             choice = (f'<file>\n'
@@ -294,6 +298,7 @@ class XML:
                 f'            {lab}\n'
                 f'            <technicalProcedure>{method}</technicalProcedure>\n'
                 f'            {conditions}\n'
+                f'            {acceptance_criteria}\n'                
                 f'            {choice}\n'
                 f'            {extra}\n'
                 f'          </report>')

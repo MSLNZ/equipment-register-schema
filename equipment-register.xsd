@@ -1102,6 +1102,14 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="acceptanceCriteria" type="msl:any">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        e) calibration ... acceptance criteria ...
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:choice maxOccurs="unbounded">
                 <xsd:element name="equation" type="msl:equation">
                     <xsd:annotation>

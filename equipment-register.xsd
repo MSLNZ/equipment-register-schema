@@ -464,17 +464,11 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="acceptanceCriteria" type="msl:any">
+            <xsd:element name="specifiedRequirements" type="msl:any">
                 <xsd:annotation>
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        f) documentation of ..., acceptance criteria, ...
-
-                        The criteria under which the equipment may be used for a calibration job.
-
-                        Some examples of user-defined elements that may be specified are
-                        * the temperature of the equipment must be within a certain range
-                        * the temperature and/or humidity of the lab must be within a certain range
+                        c) evidence of verification that equipment conforms with specified requirements
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

@@ -14,7 +14,7 @@
         <maintenance/>
         <alterations/>
         <firmware/>
-        <acceptanceCriteria/>
+        <specifiedRequirements/>
         <financial/>
         <documentation/>
     </equipment>
@@ -32,7 +32,7 @@
         <maintenance/>
         <alterations/>
         <firmware/>
-        <acceptanceCriteria/>
+        <specifiedRequirements/>
         <financial/>
         <documentation/>
     </equipment>
@@ -50,7 +50,7 @@
         <maintenance/>
         <alterations/>
         <firmware/>
-        <acceptanceCriteria/>
+        <specifiedRequirements/>
         <financial/>
         <documentation/>
     </equipment>

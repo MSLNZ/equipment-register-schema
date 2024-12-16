@@ -56,7 +56,7 @@ class XML:
         self._maintenance: str = self.element('maintenance')
         self._alterations: str = self.element('alterations')
         self._firmware: str = self.element('firmware')
-        self._acceptance: str = self.element('acceptanceCriteria')
+        self._specified_requirements: str = self.element('specifiedRequirements')
         self._financial: str = self.element('financial')
         self._documentation: str = self.element('documentation')
         self._extra: str = ''
@@ -98,8 +98,8 @@ class XML:
             elements.append(f'    {self._alterations}')
         if self._firmware:
             elements.append(f'    {self._firmware}')
-        if self._acceptance:
-            elements.append(f'    {self._acceptance}')
+        if self._specified_requirements:
+            elements.append(f'    {self._specified_requirements}')
         if self._financial:
             elements.append(f'    {self._financial}')
         if self._documentation:
@@ -214,8 +214,8 @@ class XML:
     def firmware(self, string: str) -> None:
         self._firmware = string
 
-    def acceptance_criteria(self, string: str) -> None:
-        self._acceptance = string
+    def specified_requirements(self, string: str) -> None:
+        self._specified_requirements = string
 
     def calibrations(self, obj: str | int, **attribs) -> None:
         cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)

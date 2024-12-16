@@ -472,6 +472,14 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="referenceMaterials" type="msl:any">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
+                        f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="financial" type="msl:financial">
                 <xsd:annotation>
                     <xsd:documentation>

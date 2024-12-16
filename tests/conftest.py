@@ -57,6 +57,7 @@ class XML:
         self._alterations: str = self.element('alterations')
         self._firmware: str = self.element('firmware')
         self._specified_requirements: str = self.element('specifiedRequirements')
+        self._reference_materials: str = self.element('referenceMaterials')
         self._financial: str = self.element('financial')
         self._documentation: str = self.element('documentation')
         self._extra: str = ''
@@ -100,6 +101,8 @@ class XML:
             elements.append(f'    {self._firmware}')
         if self._specified_requirements:
             elements.append(f'    {self._specified_requirements}')
+        if self._reference_materials:
+            elements.append(f'    {self._reference_materials}')
         if self._financial:
             elements.append(f'    {self._financial}')
         if self._documentation:
@@ -216,6 +219,9 @@ class XML:
 
     def specified_requirements(self, string: str) -> None:
         self._specified_requirements = string
+
+    def reference_materials(self, string: str) -> None:
+        self._reference_materials = string
 
     def calibrations(self, obj: str | int, **attribs) -> None:
         cal = self._helper(self._calibrations, 'calibrations', obj, **attribs)

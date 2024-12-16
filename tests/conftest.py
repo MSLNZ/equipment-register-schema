@@ -263,7 +263,7 @@ class XML:
                stop: str = '2023-09-18',
                lab: str = 'MSL',
                method: str = '',
-               criteria: str = None,
+               conditions: str = None,
                choice: str = None,
                extra: str = '',
                **attribs) -> str:
@@ -273,8 +273,8 @@ class XML:
         else:
             report = f'<report id="{number}">'
 
-        if criteria is None:
-            criteria = '<criteria/>'
+        if conditions is None:
+            conditions = '<conditions/>'
 
         if choice is None:
             choice = (f'<file>\n'
@@ -293,7 +293,7 @@ class XML:
                 f'            <measurementStopDate>{stop}</measurementStopDate>\n'
                 f'            {lab}\n'
                 f'            <technicalProcedure>{method}</technicalProcedure>\n'
-                f'            {criteria}\n'
+                f'            {conditions}\n'
                 f'            {choice}\n'
                 f'            {extra}\n'
                 f'          </report>')

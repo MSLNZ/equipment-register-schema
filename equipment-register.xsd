@@ -1090,10 +1090,10 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="criteria" type="msl:any">
+            <xsd:element name="conditions" type="msl:any">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The criteria under which the calibration report is valid.
+                        The conditions under which the calibration report is valid.
 
                         Some examples of user-defined elements that may be specified are
                         * the temperature of the equipment must be within a certain range

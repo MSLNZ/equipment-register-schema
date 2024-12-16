@@ -149,7 +149,7 @@ def test_no_technical_procedure(xml):
     xml.raises(r'Expected is .*technicalProcedure')
 
 
-def test_no_criteria(xml):
+def test_no_conditions(xml):
     r = ('<report id="any">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
@@ -158,7 +158,7 @@ def test_no_criteria(xml):
          '  <technicalProcedure/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
-    xml.raises(r'Expected is .*criteria')
+    xml.raises(r'Expected is .*conditions')
 
 
 @pytest.mark.parametrize(
@@ -179,9 +179,9 @@ def test_technical_procedure(xml, method):
      ('<fruit colour="red" shape="round">apple</fruit>', {'x': '1', 'hello': 'world', 'stem': 'true'}),
      ('<min>10</min><max>70</max><unit>C</unit>', {}),
      ])
-def test_criteria(xml, text, attribs):
-    criteria = xml.element('criteria', text=text, **attribs)
-    xml.calibrations(xml.measurand(xml.component(xml.report(criteria=criteria))))
+def test_conditions(xml, text, attribs):
+    conditions = xml.element('conditions', text=text, **attribs)
+    xml.calibrations(xml.measurand(xml.component(xml.report(conditions=conditions))))
     assert xml.is_valid()
 
 
@@ -192,7 +192,7 @@ def test_no_choice(xml):
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
          '  <issuingLaboratory>MSL</issuingLaboratory>'
          '  <technicalProcedure/>'
-         '  <criteria/>'
+         '  <conditions/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises(r'Expected is one of .*equation, .*file, .*serialised, .*table')
@@ -246,7 +246,7 @@ def test_multiple_choices_valid(xml):
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
-         f'  <criteria/>'
+         f'  <conditions/>'
          f'  {file}'
          f'  {table}'
          f'  {equation}'
@@ -288,7 +288,7 @@ def test_multiple_choices_one_invalid(xml):
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
-         f'  <criteria/>'
+         f'  <conditions/>'
          f'  {file}'
          f'  {table}'
          f'  {serialised}'
@@ -307,7 +307,7 @@ def test_multiple_choices_extra_element_interleaved(xml):
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
-         f'  <criteria/>'
+         f'  <conditions/>'
          f'  {table}'
          f'  <extra><name>value</name></extra>'
          f'  {table}'
@@ -324,7 +324,7 @@ def test_multiple_choices_with_extra_element(xml):
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
-         f'  <criteria/>'
+         f'  <conditions/>'
          f'  {table}'
          f'  {table}'
          f'  {table}'

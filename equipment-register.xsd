@@ -700,7 +700,8 @@
     <xsd:complexType name="alteration">
         <xsd:annotation>
             <xsd:documentation>
-                The details of the alteration.
+                The details of the alteration. Such as any damage, malfunction,
+                modification to, or repair of, the equipment.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>

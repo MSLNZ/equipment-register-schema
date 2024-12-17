@@ -16,7 +16,7 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <documentation/>
+        <qualityManual/>
     </equipment>
     <equipment>
         <id>MSLE.M.002</id>
@@ -34,7 +34,7 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <documentation/>
+        <qualityManual/>
     </equipment>
     <equipment>
         <id>MSLE.M.005</id>
@@ -52,6 +52,6 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <documentation/>
+        <qualityManual/>
     </equipment>
 </register>

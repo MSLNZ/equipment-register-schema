@@ -58,7 +58,7 @@ class XML:
         self._firmware: str = self.element('firmware')
         self._specified_requirements: str = self.element('specifiedRequirements')
         self._reference_materials: str = self.element('referenceMaterials')
-        self._documentation: str = self.element('documentation')
+        self._quality_manual: str = self.element('qualityManual')
         self._extra: str = ''
 
     def __call__(self):
@@ -102,8 +102,8 @@ class XML:
             elements.append(f'    {self._specified_requirements}')
         if self._reference_materials:
             elements.append(f'    {self._reference_materials}')
-        if self._documentation:
-            elements.append(f'    {self._documentation}')
+        if self._quality_manual:
+            elements.append(f'    {self._quality_manual}')
         if self._extra:
             elements.append(f'    {self._extra}')
         elements.append(f'  {self._equipment_suffix}')
@@ -357,15 +357,15 @@ class XML:
         element.append('</financial>')
         return ''.join(element)
 
-    def documentation(self, body: str | None = '', **attribs) -> None:
+    def quality_manual(self, body: str | None = '', **attribs) -> None:
         if body is None:
-            self._documentation = ''
+            self._quality_manual = ''
         else:
             if attribs:
                 attributes = XML.attributes(**attribs)
-                self._documentation = f'<documentation {attributes}>{body}</documentation>'
+                self._quality_manual = f'<qualityManual {attributes}>{body}</qualityManual>'
             else:
-                self._documentation = f'<documentation>{body}</documentation>'
+                self._quality_manual = f'<qualityManual>{body}</qualityManual>'
 
 
 @pytest.fixture(scope='function')

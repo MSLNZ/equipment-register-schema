@@ -480,14 +480,11 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="documentation" type="msl:documentation">
+            <xsd:element name="qualityManual" type="msl:qualityManual">
                 <xsd:annotation>
                     <xsd:documentation>
-                        Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                        f) documentation of reference materials, results, ..., relevant dates and the period of validity
-
-                        Also includes the _optional_ information that is specified in the
-                        MSL Quality Manual Section 4.3.6.
+                        The _optional_ information that is specified in Section 4.3.6
+                        of the MSL Quality Manual, plus additional elements.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -813,15 +810,11 @@
         </xsd:all>
     </xsd:complexType>
 
-    <xsd:complexType name="documentation">
+    <xsd:complexType name="qualityManual">
         <xsd:annotation>
             <xsd:documentation>
-                Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
-                f) documentation of reference materials, results, ..., relevant dates
-                   and the period of validity
-
-                Also includes the _optional_ information that is specified in Section 4.3.6
-                of the MSL Quality Manual.
+                The _optional_ information that is specified in Section 4.3.6
+                of the MSL Quality Manual, plus additional information.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:all minOccurs="0">

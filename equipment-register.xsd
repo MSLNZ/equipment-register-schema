@@ -1296,12 +1296,13 @@
 
                 **Example**
 
-                The correction to apply for the `value` is expressed as a second-order
-                polynomial and the `uncertainty` is a constant.
+                The correction to apply for a temperature `value` is expressed as a
+                second-order polynomial and the _expanded_ `uncertainty` is specified to be
+                0.45 °C with a coverage factor of 2.
                 ```
                 &lt;equation&gt;
                   &lt;value variables="T"&gt;T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2))&lt;/value&gt;
-                  &lt;uncertainty variables=""&gt;0.45&lt;/uncertainty&gt;
+                  &lt;uncertainty variables=""&gt;0.45/2&lt;/uncertainty&gt;
                   &lt;unit&gt;°C&lt;/unit&gt;
                   &lt;ranges&gt;
                     &lt;range variable="T"&gt;

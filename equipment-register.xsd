@@ -223,6 +223,7 @@
             <xsd:enumeration value="Wavelength"/>
         </xsd:restriction>
     </xsd:simpleType>
+
     <xsd:simpleType name="idPatternString">
         <xsd:annotation>
             <xsd:documentation>
@@ -247,6 +248,31 @@
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="MSLE\.[EFHLMOPT]\.[A-Z0-9]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="technicalProcedurePatternString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The pattern for an MSL technical procedure shall consist of
+                * the upper-case letters **MSLT**
+                * followed by one period **.** (0x2E)
+                * followed by one of the following letters
+                    * **E**: Electrical
+                    * **F**: Frequency (Time)
+                    * **H**: Humidity
+                    * **L**: Length
+                    * **M**: Mass
+                    * **O**: Optics (Light)
+                    * **P**: Pressure
+                    * **T**: Temperature
+                * followed by one period **.** (0x2E)
+                * followed by one or more digits [0-9]
+                * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="MSLT\.[EFHLMOPT]\.[0-9]+(\.[0-9]+)?"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -484,7 +510,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The _optional_ information that is specified in Section 4.3.6
-                        of the MSL Quality Manual, plus additional elements.
+                        of the MSL Quality Manual, plus additional _optional_ elements.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -810,15 +836,55 @@
         </xsd:all>
     </xsd:complexType>
 
+    <xsd:complexType name="technicalProcedures">
+        <xsd:annotation>
+            <xsd:documentation>
+                _Optional:_ The MSL technical procedure(s) that depend on this equipment.
+
+                The motivation for specifying the technical procedure(s) is to be able to
+                identify where there are risks due to a single equipment failing that results
+                in calibration service(s) shutting down until a suitable replacement equipment
+                is acquired.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="id" type="msl:technicalProcedurePatternString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The ID of an MSL technical procedure that depends on the equipment
+                        for a calibration service to be available.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
     <xsd:complexType name="qualityManual">
         <xsd:annotation>
             <xsd:documentation>
                 The _optional_ information that is specified in Section 4.3.6
-                of the MSL Quality Manual, plus additional information.
+                of the MSL Quality Manual, plus additional _optional_ information.
+
+                The child elements, if specified, may appear in any order and are each optional.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:all minOccurs="0">
-            <xsd:element name="accessories" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="accessories" type="msl:any" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ Additional accessories that may be required to use the
+                        equipment, as specified in Section 4.3.6 of the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="documentation" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ Information (such as URLs) about the manuals, datasheets, etc.
+                        for the equipment, as specified in Section 4.3.6 of the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="financial" type="msl:financial" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -827,10 +893,36 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
-            <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="referenceMaterials" type="xsd:string" minOccurs="0"/>
-            <xsd:element name="technicalProcedures" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ Information about the people (or team) who are
+                        qualified to use the equipment, as specified in Section 4.3.6 of
+                        the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="serviceAgent" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ Information about the people or company that are
+                        qualified to perform alterations and/or maintenance to the equipment,
+                        as specified in Section 4.3.6 of the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="technicalProcedures" type="msl:technicalProcedures" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ The MSL technical procedure(s) that depend on this equipment.
+
+                        The motivation for specifying the technical procedure(s) is to be able to
+                        identify where there are risks due to a single equipment failing that results
+                        in calibration service(s) shutting down until a suitable replacement equipment
+                        is acquired.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:all>
     </xsd:complexType>
 

@@ -3,6 +3,16 @@ import pytest
 from .conftest import INVALID_DATES
 
 
+def test_empty(xml):
+    xml.quality_manual('<financial/>')
+    assert xml.is_valid()
+
+
+def test_multiple(xml):
+    xml.quality_manual('<financial/><financial/>')
+    xml.raises(r"financial': This element is not expected")
+
+
 @pytest.mark.parametrize(
     'asset', [' ', '01234', 'ABC123', ':any-\n@thing '])
 def test_asset_number_only(xml, asset):

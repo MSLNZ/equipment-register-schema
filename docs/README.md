@@ -40,7 +40,7 @@ file by applying the `styles/xs3p-msl.xsl` style.
 The `xs3p-msl.xsl` file has a long history of development. The original
 `xs3p.xsl` file was developed by 
 [DSTC Pty Ltd](https://en.wikipedia.org/wiki/Distributed_Systems_Technology_Centre),
-and it is currently hosted by [FiForms](https://xml.fiforms.org/xs3p/).
+and it was hosted by [FiForms](https://xml.fiforms.org/xs3p/) (link may be broken).
 The file was [modernized](https://github.com/bitfehler/xs3p) and the 
 *MSL* version is based off the more-modern version.
 

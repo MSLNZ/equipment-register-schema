@@ -230,7 +230,7 @@
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) the identity of equipment ...
 
-                The id pattern shall consist of
+                The identity pattern shall consist of
                 * the upper-case letters **MSLE**
                 * followed by one period **.** (0x2E)
                 * followed by one of the following letters
@@ -843,7 +843,7 @@
             <xsd:element name="id" type="msl:technicalProcedurePatternString">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The ID of an MSL technical procedure that depends on the equipment
+                        The identity of an MSL technical procedure that depends on the equipment
                         for a calibration service to be available.
                     </xsd:documentation>
                 </xsd:annotation>

@@ -1191,9 +1191,10 @@
                     <xsd:documentation>
                         The conditions under which the calibration report is valid.
 
-                        Some examples of user-defined elements that may be specified are
+                        Some examples of user-defined child elements that may be specified are
                         * the temperature of the equipment must be within a certain range
                         * the temperature and/or humidity of the lab must be within a certain range
+                        * the minimum warm-up time required for the equipment to reach steady state
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

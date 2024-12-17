@@ -16,7 +16,6 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <financial/>
         <documentation/>
     </equipment>
     <equipment>
@@ -35,7 +34,6 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <financial/>
         <documentation/>
     </equipment>
     <equipment>
@@ -54,7 +52,6 @@
         <firmware/>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <financial/>
         <documentation/>
     </equipment>
 </register>

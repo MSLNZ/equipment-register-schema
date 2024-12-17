@@ -8,7 +8,7 @@ def test_invalid_name(xml):
 
 def test_repeated(xml):
     xml.reference_materials('<referenceMaterials/><referenceMaterials/>')
-    xml.raises(r'Expected is .*financial')
+    xml.raises(r'Expected is .*documentation')
 
 
 @pytest.mark.parametrize(

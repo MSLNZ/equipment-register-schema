@@ -117,9 +117,10 @@
         </firmware>
         <specifiedRequirements/>
         <referenceMaterials/>
-        <financial>
-            <yearPurchased>2023</yearPurchased>
-        </financial>
-        <documentation/>
+        <documentation>
+            <financial>
+                <yearPurchased>2023</yearPurchased>
+            </financial>
+        </documentation>
     </equipment>
 </register>

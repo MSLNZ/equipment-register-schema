@@ -58,7 +58,6 @@ class XML:
         self._firmware: str = self.element('firmware')
         self._specified_requirements: str = self.element('specifiedRequirements')
         self._reference_materials: str = self.element('referenceMaterials')
-        self._financial: str = self.element('financial')
         self._documentation: str = self.element('documentation')
         self._extra: str = ''
 
@@ -103,8 +102,6 @@ class XML:
             elements.append(f'    {self._specified_requirements}')
         if self._reference_materials:
             elements.append(f'    {self._reference_materials}')
-        if self._financial:
-            elements.append(f'    {self._financial}')
         if self._documentation:
             elements.append(f'    {self._documentation}')
         if self._extra:
@@ -342,12 +339,12 @@ class XML:
                 f'              <data>{data}</data>\n'
                 f'            </table>')
 
-    def financial(self,
-                  *,
+    @staticmethod
+    def financial(*,
                   asset_number: str = None,
                   warranty_date: str = None,
                   year_purchased: str = None,
-                  **kwargs: dict[str, str]) -> None:
+                  **kwargs: dict[str, str]) -> str:
         element = ['<financial>']
         if asset_number is not None:
             element.append(f'<assetNumber>{asset_number}</assetNumber>')
@@ -358,7 +355,17 @@ class XML:
         for k, v in kwargs.items():
             element.append(f'<{k}>{v}</{k}>')
         element.append('</financial>')
-        self._financial = ''.join(element)
+        return ''.join(element)
+
+    def documentation(self, body: str | None = '', **attribs) -> None:
+        if body is None:
+            self._documentation = ''
+        else:
+            if attribs:
+                attributes = XML.attributes(**attribs)
+                self._documentation = f'<documentation {attributes}>{body}</documentation>'
+            else:
+                self._documentation = f'<documentation>{body}</documentation>'
 
 
 @pytest.fixture(scope='function')

@@ -480,14 +480,6 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="financial" type="msl:financial">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        Includes the _optional_ financial information about the equipment
-                        to satisfy Section 4.3.6 of the MSL Quality Manual.
-                    </xsd:documentation>
-                </xsd:annotation>
-            </xsd:element>
             <xsd:element name="documentation" type="msl:documentation">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -834,6 +826,14 @@
         </xsd:annotation>
         <xsd:all minOccurs="0">
             <xsd:element name="accessories" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="financial" type="msl:financial" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional:_ Financial information about the equipment,
+                        as specified in Section 4.3.6 of the MSL Quality Manual.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="manual" type="xsd:anyURI" minOccurs="0"/>
             <xsd:element name="personnelRestrictions" type="xsd:string" minOccurs="0"/>
             <xsd:element name="referenceMaterials" type="xsd:string" minOccurs="0"/>

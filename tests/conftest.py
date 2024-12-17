@@ -59,7 +59,6 @@ class XML:
         self._specified_requirements: str = self.element('specifiedRequirements')
         self._reference_materials: str = self.element('referenceMaterials')
         self._quality_manual: str = self.element('qualityManual')
-        self._extra: str = ''
 
     def __call__(self):
         return XML()
@@ -104,8 +103,6 @@ class XML:
             elements.append(f'    {self._reference_materials}')
         if self._quality_manual:
             elements.append(f'    {self._quality_manual}')
-        if self._extra:
-            elements.append(f'    {self._extra}')
         elements.append(f'  {self._equipment_suffix}')
         elements.append(f'{self._root_suffix}')
         return '\n'.join(elements)
@@ -201,9 +198,6 @@ class XML:
 
     def traceable(self, obj: str | int, **attribs) -> None:
         self._traceable = self._helper(self._traceable, 'traceable', obj, **attribs)
-
-    def extra(self, string: str) -> None:
-        self._extra = string
 
     def maintenance(self, string: str) -> None:
         self._maintenance = string

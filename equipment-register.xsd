@@ -514,14 +514,6 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="extra" type="msl:any" minOccurs="0">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        Extra metadata to add to the equipment register that does not
-                        belong to one of the pre-defined elements in the schema.
-                    </xsd:documentation>
-                </xsd:annotation>
-            </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="alias" type="xsd:string">
             <xsd:annotation>

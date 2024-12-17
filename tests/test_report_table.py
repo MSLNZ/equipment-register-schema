@@ -205,3 +205,26 @@ def test_valid_data(xml, data):
     choice = xml.table(data=data)
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
+def test_attribute_comment(xml, c):
+    choice = (f'<table comment="{c}">'
+              f'  <type>int</type>'
+              f'  <unit>m</unit>'
+              f'  <header>a</header>'
+              f'  <data>1</data>'
+              f'</table>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+def test_attribute_unexpected(xml):
+    choice = ('<table apple="red">'
+              '  <type>int</type>'
+              '  <unit>m</unit>'
+              '  <header>a</header>'
+              '  <data>1</data>'
+              '</table>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"attribute 'apple' is not allowed")

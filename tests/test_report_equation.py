@@ -544,3 +544,26 @@ def test_valid_degree_freedom(xml, df):
               f'</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
+def test_attribute_comment(xml, c):
+    choice = (f'<equation comment="{c}">'
+              f'  <value variables="x">2*x</value>'
+              f'  <uncertainty variables="">0.1</uncertainty>'
+              f'  <unit>m</unit>'
+              f'  <ranges/>'
+              f'</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+def test_attribute_unexpected(xml):
+    choice = ('<equation apple="red">'
+              '  <value variables="x">2*x</value>'
+              '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
+              '  <ranges/>'
+              '</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"attribute 'apple' is not allowed")

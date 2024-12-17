@@ -123,3 +123,16 @@ def test_json_format_anything(xml, value):
     choice = f'<serialised><gtcArchiveJSON apple="red">{value}</gtcArchiveJSON></serialised>'
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
+def test_attribute_comment(xml, c):
+    choice = f'<serialised comment="{c}"><gtcArchiveJSON>data</gtcArchiveJSON></serialised>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+def test_attribute_unexpected(xml):
+    choice = '<serialised apple="red"><gtcArchiveJSON>data</gtcArchiveJSON></serialised>'
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"attribute 'apple' is not allowed")

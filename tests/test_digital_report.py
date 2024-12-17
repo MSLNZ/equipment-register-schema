@@ -107,3 +107,10 @@ def test_sha256_with_attrib(xml):
 def test_invalid_number_value(xml, value):
     xml.calibrations(xml.measurand(xml.component(xml.digital_report(number=value))))
     xml.raises('not accepted by the pattern')
+
+
+@pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
+def test_attribute_comment(xml, c):
+    attribs = {'id': 'a', 'comment': c, 'format': xml.FORMAT}
+    xml.calibrations(xml.measurand(xml.component(xml.digital_report(**attribs))))
+    assert xml.is_valid()

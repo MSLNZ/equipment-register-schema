@@ -1406,6 +1406,13 @@
                 </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="comment" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ A comment to associate with the `equation`.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="file">
@@ -1549,6 +1556,13 @@
                 </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="comment" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ A comment to associate with the `file`.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="serialised">
@@ -1648,6 +1662,13 @@
                 </xsd:complexType>
             </xsd:element>
         </xsd:choice>
+        <xsd:attribute name="comment" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ A comment to associate with the `serialised` data.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="table">
@@ -1757,6 +1778,13 @@
                 </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="comment" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ A comment to associate with the `table`.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
     </xsd:complexType>
 
     <xsd:complexType name="ranges">

@@ -111,3 +111,22 @@ def test_sha256_invalid(xml, checksum):
               f'</file>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert not xml.is_valid()
+
+
+@pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
+def test_attribute_comment(xml, c):
+    choice = (f'<file comment="{c}">'
+              f'  <url>data.xlsx</url>'
+              f'  <sha256>{xml.SHA256}</sha256>'
+              f'</file>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()
+
+
+def test_attribute_unexpected(xml):
+    choice = (f'<file apple="red">'
+              f'  <url>data.xlsx</url>'
+              f'  <sha256>{xml.SHA256}</sha256>'
+              f'</file>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"attribute 'apple' is not allowed")

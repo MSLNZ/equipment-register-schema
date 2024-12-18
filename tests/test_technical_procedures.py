@@ -1,5 +1,10 @@
 import pytest
 
+from tests.conftest import (
+    VALID_TECHNICAL_PROCEDURES,
+    INVALID_TECHNICAL_PROCEDURES
+)
+
 
 def test_empty(xml):
     xml.quality_manual('<technicalProcedures/>')
@@ -39,49 +44,13 @@ def test_child_no_attributes(xml):
     xml.raises(r"attribute 'x' is not allowed")
 
 
-@pytest.mark.parametrize(
-    'value',
-    ['MSLT.L.0',
-     'MSLT.L.000000000000000000001',
-     'MSLT.L.9876543210',
-     'MSLT.L.0.0',
-     'MSLT.L.000000001.1234567890',
-     ])
+@pytest.mark.parametrize('value', VALID_TECHNICAL_PROCEDURES)
 def test_valid_id(xml, value):
     xml.quality_manual(f'<technicalProcedures><id>{value}</id></technicalProcedures>')
     assert xml.is_valid()
 
 
-@pytest.mark.parametrize(
-    'value',
-    [' MSLT.L.0',
-     ' MSLT.L.0.0',
-     'MSLT.L.0 ',
-     'MSLT.L.',
-     'MSLT.L.0.0 ',
-     'MSLX.L.0',
-     'MsLT.L.0',
-     'MSLT.Z.0',
-     'MSLT0.0',
-     'MSLT.0.0',
-     'MSLT.0',
-     'MSLT.L.a',
-     'MSLT.L.0.a',
-     'MSLT.L.08161f51419',
-     'MSLT.L.0.08161f51419',
-     'MSLT.L.0.',
-     'MSLT.L.0. ',
-     'nope',
-     '123.4',
-     '\nMSLT.L.001.048',
-     'MSLT.L.001.048\n',
-     'MSLT..L.001.048',
-     'MSLT.L..001.048',
-     'MSLT.L.001..048',
-     'MSLT.L.001,048',
-     'MSLT,L,001,048',
-     'MSLT.L-001.048',
-     ])
+@pytest.mark.parametrize('value', INVALID_TECHNICAL_PROCEDURES)
 def test_invalid_id(xml, value):
     xml.quality_manual(f'<technicalProcedures><id>{value}</id></technicalProcedures>')
     xml.raises(r"not accepted by the pattern")

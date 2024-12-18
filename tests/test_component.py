@@ -59,5 +59,7 @@ def test_multiple_choices(xml):
     a = '<adjustment date="2024-10-17">Cleaned the filter</adjustment>'
     r = xml.report()
     d = xml.digital_report()
-    xml.calibrations(xml.measurand(xml.component(f'{a}{r}{a}{d}{d}{d}{r}{r}{r}{r}{a}{a}{d}')))
+    p = xml.performance_check()
+    final = f'{a}{r}{a}{d}{d}{p}{r}{p}{r}{r}{r}{a}{a}{d}{p}{p}'
+    xml.calibrations(xml.measurand(xml.component(final)))
     assert xml.is_valid()

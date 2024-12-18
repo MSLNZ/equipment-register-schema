@@ -28,6 +28,43 @@ INVALID_DATES = [
     '20230304',
 ]
 
+VALID_TECHNICAL_PROCEDURES = [
+    'MSLT.L.0',
+    'MSLT.L.000000000000000000001',
+    'MSLT.L.9876543210',
+    'MSLT.L.0.0',
+    'MSLT.L.000000001.1234567890',
+]
+
+INVALID_TECHNICAL_PROCEDURES = [
+    ' MSLT.L.0',
+    ' MSLT.L.0.0',
+    'MSLT.L.0 ',
+    'MSLT.L.',
+    'MSLT.L.0.0 ',
+    'MSLX.L.0',
+    'MsLT.L.0',
+    'MSLT.Z.0',
+    'MSLT0.0',
+    'MSLT.0.0',
+    'MSLT.0',
+    'MSLT.L.a',
+    'MSLT.L.0.a',
+    'MSLT.L.08161f51419',
+    'MSLT.L.0.08161f51419',
+    'MSLT.L.0.',
+    'MSLT.L.0. ',
+    'nope',
+    '123.4',
+    '\nMSLT.L.001.048',
+    'MSLT.L.001.048\n',
+    'MSLT..L.001.048',
+    'MSLT.L..001.048',
+    'MSLT.L.001..048',
+    'MSLT.L.001,048',
+    'MSLT,L,001,048',
+    'MSLT.L-001.048',
+]
 
 class XML:
 
@@ -299,6 +336,50 @@ class XML:
                 f'            {choice}\n'
                 f'            {extra}\n'
                 f'          </report>')
+
+    @staticmethod
+    def performance_check(*,
+                          date: str = '2023-09-18',
+                          worker: str = 'MSL',
+                          checker: str = 'MSL',
+                          technical_procedure: str = 'MSLT.E.0',
+                          competency: str | None = '',
+                          conditions: str | None = '',
+                          choice: str = 'file',
+                          extra: str = '',
+                          **attribs) -> str:
+        if attribs:
+            attributes = XML.attributes(**attribs)
+            check = f'<performanceCheck {attributes}>'
+        else:
+            check = f'<performanceCheck completedDate="{date}">'
+
+        if conditions is None:
+            conditions = ''
+        elif len(conditions) == 0:
+            conditions = '<conditions/>'
+
+        if choice == 'file':
+            choice = (f'<file>\n'
+                      f'              <url>data.dat</url>\n'
+                      f'              <sha256>{XML.SHA256}</sha256>\n'
+                      f'            </file>')
+
+        if competency is None:
+            competency = ''
+        elif len(competency) == 0:
+            competency = (f'<competency>'
+                          f'  <worker>{worker}</worker>'
+                          f'  <checker>{checker}</checker>'
+                          f'  <technicalProcedure>{technical_procedure}</technicalProcedure>'
+                          f'</competency>')
+
+        return (f'{check}\n'
+                f'  {competency}\n'
+                f'  {conditions}\n'
+                f'  {choice}\n'
+                f'  {extra}\n'
+                f'</performanceCheck>')
 
     @staticmethod
     def digital_report(*, url: str | Path = '', sha256: str = '', number: str = 'any', **attribs) -> str:

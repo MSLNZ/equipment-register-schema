@@ -33,10 +33,10 @@ def test_invalid_pattern(xml, text):
     xml.raises('not accepted by the pattern')
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.description(occurances)
-    xml.raises('location')  # <location> must be after <description>
+@pytest.mark.parametrize("occurrence", [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrence):
+    xml.description(occurrence)
+    xml.raises('specifications')  # <specifications> must be after <description>
 
 
 def test_no_attributes(xml):

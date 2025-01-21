@@ -6,6 +6,7 @@
         <model>T-1000</model>
         <serial>00000000004</serial>
         <description>A mimetic poly-alloy (liquid metal)</description>
+        <specifications/>
         <location>Kibble Balance</location>
         <status>Active</status>
         <loggable>false</loggable>
@@ -24,6 +25,7 @@
         <model>T-1000</model>
         <serial>00000000002</serial>
         <description>A mimetic poly-alloy (liquid metal)</description>
+        <specifications/>
         <location>Kibble Balance</location>
         <status>Active</status>
         <loggable>false</loggable>
@@ -42,6 +44,7 @@
         <model>T-1000</model>
         <serial>00000000005</serial>
         <description>A mimetic poly-alloy (liquid metal)</description>
+        <specifications/>
         <location>Kibble Balance</location>
         <status>Active</status>
         <loggable>false</loggable>

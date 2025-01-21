@@ -6,6 +6,7 @@
         <model>ABC</model>
         <serial>123</serial>
         <description>Monitors the ambient lab temperature and humidity</description>
+        <specifications/>
         <location>Mass Standards Laboratories</location>
         <status>Active</status>
         <loggable>true</loggable>

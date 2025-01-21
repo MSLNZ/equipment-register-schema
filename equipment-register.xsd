@@ -1022,7 +1022,10 @@
                 <xsd:element name="performanceCheck" type="msl:performanceCheck">
                     <xsd:annotation>
                         <xsd:documentation>
-                            A performance check.
+                            Satisfy ISO/IEC 17025:2017 Clause 6.4.10 \
+                            When intermediate checks are necessary to maintain
+                            confidence in the performance of the equipment, these
+                            checks shall be carried out according to a procedure.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>
@@ -1102,7 +1105,10 @@
     <xsd:complexType name="performanceCheck">
         <xsd:annotation>
             <xsd:documentation>
-                A performance check.
+                Satisfy ISO/IEC 17025:2017 Clause 6.4.10 \
+                When intermediate checks are necessary to maintain
+                confidence in the performance of the equipment, these
+                checks shall be carried out according to a procedure.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>

@@ -12,26 +12,11 @@
 
     <xsd:annotation>
         <xsd:documentation>
-            Copyright (c) 2024, Measurement Standards Laboratory of New Zealand.
+            Copyright (c) 2025, Measurement Standards Laboratory of New Zealand.
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
-            An Equipment Register contains information to satisfy ISO/IEC 17025:2017 Clause 6.4.13:
-
-            ```
-            Records shall be retained for equipment which can influence laboratory activities.
-            The records shall include the following where applicable:
-
-            a) the identity of equipment, including software and firmware versions;
-            b) the manufacturer's name, type identification, and serial number or other unique identification;
-            c) evidence of verification that equipment conforms with specified requirements;
-            d) the current location;
-            e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval;
-            f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity;
-            g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment;
-            h) details of any damage, malfunction, modification to, or repair of, the equipment.
-            ```
-
+            An Equipment Register contains information to satisfy Section 6.4 of ISO/IEC 17025:2017
             as well as Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
     </xsd:annotation>
@@ -415,6 +400,26 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="specifications" type="msl:any">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Specifications provided by the manufacturer of the equipment.
+
+                        Typically, the specifications are specified on the website,
+                        datasheet and/or technical notes that a manufacturer provides.
+
+                        **Example**
+
+                        Specify the current range for a diode laser
+                        ```
+                        &lt;specifications&gt;
+                          &lt;lasingCurrent unit="mA"&gt;15&lt;/lasingCurrent&gt;
+                          &lt;maximumCurrent unit="mA"&gt;120&lt;/maximumCurrent&gt;
+                        &lt;/specifications&gt;
+                        ```
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="location" type="msl:labEnumerationString">
                 <xsd:annotation>
                     <xsd:documentation>
@@ -495,6 +500,12 @@
                     <xsd:documentation>
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         c) evidence of verification that equipment conforms with specified requirements
+
+                        and/or
+
+                        Clause 6.4.4 \
+                        The laboratory shall verify that equipment conforms to specified requirements
+                        before being placed or returned into service.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

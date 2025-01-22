@@ -16,22 +16,7 @@
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
-            An Equipment Register contains information to satisfy ISO/IEC 17025:2017 Clause 6.4.13:
-
-            ```
-            Records shall be retained for equipment which can influence laboratory activities.
-            The records shall include the following where applicable:
-
-            a) the identity of equipment, including software and firmware versions;
-            b) the manufacturer's name, type identification, and serial number or other unique identification;
-            c) evidence of verification that equipment conforms with specified requirements;
-            d) the current location;
-            e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval;
-            f) documentation of reference materials, results, acceptance criteria, relevant dates and the period of validity;
-            g) the maintenance plan and maintenance carried out to date, where relevant to the performance of the equipment;
-            h) details of any damage, malfunction, modification to, or repair of, the equipment.
-            ```
-
+            An Equipment Register contains information to satisfy Section 6.4 of ISO/IEC 17025:2017
             as well as Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
     </xsd:annotation>

@@ -988,9 +988,9 @@
         <xsd:attribute name="calibrationInterval" type="msl:nonNegativeDecimal" use="required">
             <xsd:annotation>
                 <xsd:documentation>
-                    The number of years that may pass between calibrations.
-                    For equipment that do not have a required calibration
-                    interval but are calibrated _on demand_, use the value 0.
+                    The number of years that may pass between a calibration or a performance
+                    check. For equipment that do not have a required and periodic interval, but
+                    are calibrated _on demand_, use the value 0.
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
@@ -1027,6 +1027,16 @@
                             A digital calibration report contains embedded
                             metadata and data that is required by ISO/IEC 17025:2017
                             Clause 7.8.2.1 (and perhaps additional information).
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="performanceCheck" type="msl:performanceCheck">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Satisfy ISO/IEC 17025:2017 Clause 6.4.10 \
+                            When intermediate checks are necessary to maintain
+                            confidence in the performance of the equipment, these
+                            checks shall be carried out according to a procedure.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>
@@ -1101,6 +1111,116 @@
                 </xsd:attribute>
             </xsd:extension>
         </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="performanceCheck">
+        <xsd:annotation>
+            <xsd:documentation>
+                Satisfy ISO/IEC 17025:2017 Clause 6.4.10 \
+                When intermediate checks are necessary to maintain
+                confidence in the performance of the equipment, these
+                checks shall be carried out according to a procedure.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="competency" type="msl:competency">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The competent people who accomplished the performance check
+                        and the technical procedure that was executed.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="conditions" type="msl:any">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The conditions under which the performance check is valid.
+
+                        Some examples of user-defined child elements that may be specified are
+                        * the temperature of the equipment must be within a certain range
+                        * the temperature and/or humidity of the lab must be within a certain range
+                        * the minimum warm-up time required for the equipment to reach steady state
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:choice maxOccurs="unbounded">
+                <xsd:element name="equation" type="msl:equation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Performance-check data is expressed as an equation.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="file" type="msl:file">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Performance-check data is stored in another file.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="serialised" type="msl:serialised">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Performance-check data is stored in a serialised format.
+
+                            Serialisation (also known as marshalling) is the process of
+                            translating a data structure or object state into a format
+                            that can be stored and reconstructed later.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="table" type="msl:table">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Performance-check data is expressed as a CSV table.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="completedDate" type="xsd:date" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The date that the performance check was completed. \
+                    The date must be in the YYYY-MM-DD format (see
+                    [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="competency">
+        <xsd:annotation>
+            <xsd:documentation>
+                The competent people who accomplished the performance check
+                and the technical procedure that was executed.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="worker" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The competent person who executed the technical
+                        procedure to accomplish the performance check.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="checker" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The competent person who reviewed the work done by the `worker`.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="technicalProcedure" type="msl:technicalProcedurePatternString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The technical procedure that was executed to accomplish
+                        the performance check.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="report">

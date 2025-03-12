@@ -81,6 +81,7 @@
             <xsd:enumeration value="Laser Lab"/>
             <xsd:enumeration value="Long Room"/>
             <xsd:enumeration value="Mass Standards Laboratories"/>
+            <xsd:enumeration value="Not at MSL"/>
             <xsd:enumeration value="Photometric Bench"/>
             <xsd:enumeration value="Pressure Standards Laboratories"/>
             <xsd:enumeration value="Single Photon"/>

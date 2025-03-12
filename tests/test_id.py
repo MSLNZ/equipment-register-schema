@@ -47,9 +47,9 @@ def test_invalid_pattern(xml, text):
     xml.raises('not accepted by the pattern')
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.id(occurances)
+@pytest.mark.parametrize('occurrences', [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrences):
+    xml.id(occurrences)
     xml.raises('manufacturer')  # <manufacturer> must be after <id>
 
 

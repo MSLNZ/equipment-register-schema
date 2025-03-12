@@ -37,9 +37,9 @@ def test_invalid_enum(xml, lab):
     xml.raises("not an element of the set")
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.location(occurances)
+@pytest.mark.parametrize('occurrences', [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrences):
+    xml.location(occurrences)
     xml.raises('status')  # <status> must be after <location>
 
 

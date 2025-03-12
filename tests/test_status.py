@@ -32,9 +32,9 @@ def test_invalid_enum(xml, text):
     xml.raises("not an element of the set")
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.status(occurances)
+@pytest.mark.parametrize('occurrences', [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrences):
+    xml.status(occurrences)
     xml.raises('loggable')  # <loggable> must be after <status>
 
 

@@ -6,9 +6,9 @@ def test_empty(xml):
     assert xml.is_valid()
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.calibrations(occurances)
+@pytest.mark.parametrize('occurrences', [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrences):
+    xml.calibrations(occurrences)
     xml.raises('maintenance')  # <maintenance> must be after <calibrations>
 
 

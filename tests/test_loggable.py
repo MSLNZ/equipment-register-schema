@@ -13,9 +13,9 @@ def test_invalid_value(xml, text):
     xml.raises(r"atomic type 'xs:boolean'")
 
 
-@pytest.mark.parametrize('occurances', [0, 2, 3, 10])
-def test_one_occurance(xml, occurances):
-    xml.loggable(occurances)
+@pytest.mark.parametrize('occurrences', [0, 2, 3, 10])
+def test_one_occurrence(xml, occurrences):
+    xml.loggable(occurrences)
     xml.raises('traceable')  # <traceable> must be after <loggable>
 
 

@@ -67,26 +67,36 @@
     <xsd:simpleType name="labEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                The laboratory that the equipment is usually located in.
+                The name of the laboratory that the equipment is usually located in.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="CMM Lab"/>
+            <xsd:enumeration value="Contact thermometry lab"/>
             <xsd:enumeration value="Cryogenic Radiometer"/>
             <xsd:enumeration value="Detector Responsivity"/>
+            <xsd:enumeration value="Fixed point lab"/>
             <xsd:enumeration value="Flexible Optics"/>
+            <xsd:enumeration value="Furnace assembly room"/>
             <xsd:enumeration value="Goniospectrophotometer"/>
             <xsd:enumeration value="Hilger Lab"/>
             <xsd:enumeration value="Kibble Balance"/>
             <xsd:enumeration value="Laser Lab"/>
             <xsd:enumeration value="Long Room"/>
             <xsd:enumeration value="Mass Standards Laboratories"/>
+            <xsd:enumeration value="MI bridge resistance bath"/>
+            <xsd:enumeration value="MicroK 1 resistance bath"/>
+            <xsd:enumeration value="MicroK 2 resistance bath"/>
             <xsd:enumeration value="Not at MSL"/>
             <xsd:enumeration value="Photometric Bench"/>
             <xsd:enumeration value="Pressure Standards Laboratories"/>
+            <xsd:enumeration value="Radiation thermometry calibration lab"/>
+            <xsd:enumeration value="Radiation thermometry research lab"/>
             <xsd:enumeration value="Single Photon"/>
             <xsd:enumeration value="Spectrophotometer"/>
+            <xsd:enumeration value="Thermocouple lab"/>
             <xsd:enumeration value="Underground Tape Tunnel"/>
+            <xsd:enumeration value="Water lab"/>
         </xsd:restriction>
     </xsd:simpleType>
 
@@ -131,9 +141,12 @@
                     <xsd:enumeration value="Monochromator"/>
                     <xsd:enumeration value="Oscilloscope"/>
                     <xsd:enumeration value="PRT"/>
+                    <xsd:enumeration value="Radiation"/>
                     <xsd:enumeration value="ResistanceBridge"/>
                     <xsd:enumeration value="Sense"/>
                     <xsd:enumeration value="Source"/>
+                    <xsd:enumeration value="SPRT"/>
+                    <xsd:enumeration value="Thermocouple"/>
                     <xsd:enumeration value="Thermometer"/>
                     <xsd:enumeration value="Voltage"/>
                 </xsd:restriction>

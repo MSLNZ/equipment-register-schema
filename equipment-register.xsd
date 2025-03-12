@@ -178,6 +178,12 @@
         <xsd:annotation>
             <xsd:documentation>
                 The quantity intended to be measured.
+
+                _NOTE: Consider adopting the
+                [measurand taxonomy](https://github.com/NCSLI-MII/measurand-taxonomy)
+                proposed by [NCSLI](https://ncsli.org/) and [MII](http://miiknowledge.wikidot.com/)
+                (see the [approved taxons](https://measurand-taxonomy.readthedocs.io/en/latest/approved.html)
+                for examples)._
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -186,29 +192,40 @@
             <xsd:enumeration value="BRDF"/>
             <xsd:enumeration value="BTDF"/>
             <xsd:enumeration value="Colour"/>
-            <xsd:enumeration value="Current"/>
+            <xsd:enumeration value="Current AC"/>
+            <xsd:enumeration value="Current DC"/>
             <xsd:enumeration value="Cylindricity"/>
             <xsd:enumeration value="Deviation in Length"/>
             <xsd:enumeration value="Flatness"/>
             <xsd:enumeration value="Frequency"/>
+            <xsd:enumeration value="Gloss"/>
             <xsd:enumeration value="Haze"/>
             <xsd:enumeration value="Humidity"/>
+            <xsd:enumeration value="Illuminance"/>
+            <xsd:enumeration value="Illuminance Responsivity"/>
             <xsd:enumeration value="Length"/>
+            <xsd:enumeration value="Luminance"/>
+            <xsd:enumeration value="Luminance Responsivity"/>
+            <xsd:enumeration value="Luminous Intensity"/>
             <xsd:enumeration value="Mass"/>
             <xsd:enumeration value="Parallelism"/>
             <xsd:enumeration value="Perpendicularity"/>
             <xsd:enumeration value="Pressure"/>
             <xsd:enumeration value="Reflectance"/>
-            <xsd:enumeration value="Resistance"/>
+            <xsd:enumeration value="Resistance AC"/>
+            <xsd:enumeration value="Resistance DC"/>
             <xsd:enumeration value="Roundness"/>
             <xsd:enumeration value="Runout"/>
+            <xsd:enumeration value="Spectral Irradiance"/>
+            <xsd:enumeration value="Spectral Irradiance Responsivity"/>
             <xsd:enumeration value="Sphericity"/>
             <xsd:enumeration value="Straightness"/>
             <xsd:enumeration value="Temperature"/>
             <xsd:enumeration value="Total Runout"/>
             <xsd:enumeration value="Transmittance"/>
             <xsd:enumeration value="Variation in Length"/>
-            <xsd:enumeration value="Voltage"/>
+            <xsd:enumeration value="Voltage AC"/>
+            <xsd:enumeration value="Voltage DC"/>
             <xsd:enumeration value="Wavelength"/>
         </xsd:restriction>
     </xsd:simpleType>

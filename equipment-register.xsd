@@ -154,8 +154,10 @@
                 provide more context as to the reason why it is _inactive_:
 
                 * **Damaged**: The equipment is damaged and is no longer usable
+                * **Disposed**: The equipment has been disposed of and is no longer at MSL
+                  (e.g. the equipment was sent to the landfill or to be recycled)
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
-                  (e.g., the equipment was replaced with a newer/different model, and it is kept as a backup)
+                  (e.g., the equipment was replaced with a newer model, and it is kept as a backup)
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
@@ -164,6 +166,7 @@
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Active"/>
             <xsd:enumeration value="Damaged"/>
+            <xsd:enumeration value="Disposed"/>
             <xsd:enumeration value="Dormant"/>
             <xsd:enumeration value="Lost"/>
             <xsd:enumeration value="Retired"/>

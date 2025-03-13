@@ -507,6 +507,20 @@
 
                         If the equipment is part of a traceability chain, the equipment
                         must have [calibrations](#type_calibrations) specified.
+
+                        **Examples**
+
+                        Equipment that _is not_ traceable
+                        ```
+                        &lt;traceable&gt;0&lt;/traceable&gt;
+                        &lt;traceable&gt;false&lt;/traceable&gt;
+                        ```
+
+                        Equipment that _is_ traceable
+                        ```
+                        &lt;traceable&gt;1&lt;/traceable&gt;
+                        &lt;traceable&gt;true&lt;/traceable&gt;
+                        ```
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

@@ -297,11 +297,42 @@ pre {
 
                         Equipment that monitor (for example) pressure, temperature
                         or humidity of a laboratory environment are considered as loggable.
+
+                        The default value is `false`.
+
+                        **Examples**
+
+                        Equipment that _is not_ loggable
+                        ```
+                        &lt;loggable/&gt;
+                        &lt;loggable&gt;0&lt;/loggable&gt;
+                        &lt;loggable&gt;false&lt;/loggable&gt;
+                        ```
+
+                        Equipment that _is_ loggable
+                        ```
+                        &lt;loggable&gt;1&lt;/loggable&gt;
+                        &lt;loggable&gt;true&lt;/loggable&gt;
+                        ```
                     </div><div class="xs3p-doc" id="id23-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade traceable" id="id24-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id24-label">Element traceable</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id24-hidden"><div class="hidden" id="id24-hidden-doc-raw">
                         Whether the equipment is used for a traceable measurement.
 
                         If the equipment is part of a traceability chain, the equipment
                         must have [calibrations](#type_calibrations) specified.
+
+                        **Examples**
+
+                        Equipment that _is not_ traceable
+                        ```
+                        &lt;traceable&gt;0&lt;/traceable&gt;
+                        &lt;traceable&gt;false&lt;/traceable&gt;
+                        ```
+
+                        Equipment that _is_ traceable
+                        ```
+                        &lt;traceable&gt;1&lt;/traceable&gt;
+                        &lt;traceable&gt;true&lt;/traceable&gt;
+                        ```
                     </div><div class="xs3p-doc" id="id24-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade calibrations" id="id25-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id25-label">Element calibrations</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id25-hidden"><div class="hidden" id="id25-hidden-doc-raw">
                         Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                         e) calibration dates, results of calibrations, adjustments, acceptance criteria, and the due date of the next calibration or the calibration interval
@@ -1328,7 +1359,7 @@ pre {
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"specifications"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "any" type definition.' href="#type_any">any</a></span>"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"location"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "labEnumerationString" type definition.' href="#type_labEnumerationString">labEnumerationString</a></span>"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"status"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "statusEnumerationString" type definition.' href="#type_statusEnumerationString">statusEnumerationString</a></span>"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"loggable"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:boolean</span>"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"loggable"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:boolean</span>"</span> <span class="na">default=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"traceable"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:boolean</span>"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:element</span> <span class="na">name=</span><span class="s">"calibrations"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Find out namespace of 'msl' prefix">msl</a>:<a title='Jump to "calibrations" type definition.' href="#type_calibrations">calibrations</a></span>"</span><span class="nt">&gt;</span>
          <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:unique</span> <span class="na">name=</span><span class="s">"uniqueMeasurandQuantity"</span><span class="nt">&gt;</span>

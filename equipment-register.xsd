@@ -481,7 +481,7 @@
                         Equipment that monitor (for example) pressure, temperature
                         or humidity of a laboratory environment are considered as loggable.
 
-                        The default value is `false`.
+                        The default value is `false`, but the XML element must be defined.
 
                         **Examples**
 

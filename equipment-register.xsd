@@ -149,6 +149,8 @@
                     <xsd:enumeration value="Thermocouple"/>
                     <xsd:enumeration value="Thermometer"/>
                     <xsd:enumeration value="Voltage"/>
+                    <xsd:enumeration value="Weight"/>
+                    <xsd:enumeration value="WeightSet"/>
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:list>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema version="0.1"
+<xsd:schema version="0.1.0"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
             xmlns:gtc="https://measurement.govt.nz/gtc/xml"
@@ -26,6 +26,15 @@
         <xsd:annotation>
             <xsd:documentation>
                 Root element that contains zero or more [equipment](#type_equipment) elements.
+
+                **Example**
+                ```
+                &lt;register team="Length" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
@@ -49,7 +58,15 @@
     <xsd:simpleType name="teamEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                The team that is responsible for the equipment register.
+                The team that is responsible for the equipment register
+                (an attribute of the [register](#element_register) element).
+
+                **Example**
+                ```
+                &lt;register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -68,6 +85,23 @@
         <xsd:annotation>
             <xsd:documentation>
                 The name of the laboratory that the equipment is usually located in.
+
+                **Examples**
+
+                A lab of the Photometry &amp; Radiometry team
+                ```
+                &lt;location&gt;Cryogenic Radiometer&lt;/location&gt;
+                ```
+                A lab of the Temperature team
+                ```
+                &lt;location&gt;MicroK 2 resistance bath&lt;/location&gt;
+                ```
+                If the equipment is not at MSL (e.g., at another institute,
+                at the landfill, ...) then there is only one option available
+                `Not at MSL`
+                ```
+                &lt;location&gt;Not at MSL&lt;/location&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -103,7 +137,14 @@
     <xsd:simpleType name="digitalFormatEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                The format of a digital calibration report.
+                The format of a [digitalReport](#type_digitalReport).
+
+                **Examples**
+
+                ```
+                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;...&lt;/digitalReport&gt;
+                &lt;digitalReport format="PTB DCC" id="PTB 4434/18"&gt;...&lt;/digitalReport&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -177,6 +218,14 @@
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+
+                **Examples**
+                ```
+                &lt;status&gt;Active&lt;/status&gt;
+                ```
+                ```
+                &lt;status&gt;Damaged&lt;/status&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -192,13 +241,18 @@
     <xsd:simpleType name="quantityEnumerationString">
         <xsd:annotation>
             <xsd:documentation>
-                The quantity intended to be measured.
+                The quantity intended to be measured (for the [measurand](#type_measurand) element).
 
                 _NOTE: Consider adopting the
                 [measurand taxonomy](https://github.com/NCSLI-MII/measurand-taxonomy)
                 proposed by [NCSLI](https://ncsli.org/) and [MII](http://miiknowledge.wikidot.com/)
                 (see the [approved taxons](https://measurand-taxonomy.readthedocs.io/en/latest/approved.html)
                 for examples)._
+
+                **Examples**
+                ```
+                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;...&lt;/measurand&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -265,6 +319,15 @@
                     * **T**: Temperature
                 * followed by one period **.** (0x2E)
                 * followed by one or more upper-case letters and/or digits
+
+                **Examples**
+
+                ```
+                MSLE.P.024
+                ```
+                ```
+                MSLE.F.061
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -290,6 +353,14 @@
                 * followed by one period **.** (0x2E)
                 * followed by one or more digits [0-9]
                 * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
+
+                **Examples**
+                ```
+                MSLT.O.009
+                ```
+                ```
+                MSLT.E.028.017
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -335,7 +406,7 @@
     <xsd:simpleType name="variables">
         <xsd:annotation>
             <xsd:documentation>
-                A list of variable name(s) in an equation.
+                A list of variable name(s) in an [equation](#type_equation).
 
                 Each variable name must begin with a letter and may be
                 followed by zero or more letter, digit or underscore
@@ -343,15 +414,36 @@
 
                 Whitespace shall be used to separate each variable name.
 
-                If no variables are used in the equation (i.e., the
-                equation is a constant numerical value), the `variables`
-                attribute must still exist, but the value may be empty.
+                If no variables are used in the [equation](#type_equation)
+                (i.e., the equation is a constant numerical value), the `variables`
+                attribute must still exist, but the value is empty.
 
                 **Examples**
-                * variables=""
-                * variables="x"
-                * variables="t rh"
-                * variables="x1 x2 x3"
+
+                If the [equation](#type_equation) does not require variables, then
+                the `variables` attribute must be set to an empty string
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="">0.52&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires one variable `x`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="x">0.52 + 7.3*x&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires two variables `t` and `rh`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="t rh">4.21*t + 0.2/rh&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:list>
@@ -382,6 +474,15 @@
             <xsd:documentation>
                 Contains information about the equipment to satisfy ISO/IEC 17025:2017
                 Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
+
+                **Examples**
+
+                ```
+                &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;equipment alias="bench-top probe"&gt;...&lt;/equipment&gt;
+                &lt;equipment keywords="Thermometer Hygrometer"&gt;...&lt;/equipment&gt;
+                &lt;equipment alias="main" keywords="Source Voltage AC DC"&gt;...&lt;/equipment&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
@@ -616,6 +717,12 @@
                 nor carriage return (0x0D) characters and shall have a date
                 as an attribute. The date must be in the YYYY-MM-DD format (see
                 [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+
+                **Examples**
+
+                ```
+                &lt;comment date="2024-12-19"&gt;Replaced the gas tube of the Ar+ laser&lt;/comment&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -702,6 +809,18 @@
         <xsd:annotation>
             <xsd:documentation>
                 A planned maintenance task to be performed.
+
+                **Examples**
+
+                The `performedBy` attribute may be omitted if the value is not known
+                ```
+                &lt;plannedTask dueDate="2025-06-15"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```
+
+                or if it is known who will perform the task
+                ```
+                &lt;plannedTask dueDate="2025-06-15" performedBy="Tom"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -730,6 +849,12 @@
         <xsd:annotation>
             <xsd:documentation>
                 A planned maintenance task that was completed.
+
+                **Examples**
+
+                ```
+                &lt;completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"&gt;Clean fan&lt;/completedTask&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -794,6 +919,12 @@
             <xsd:documentation>
                 The details of the alteration. Such as any damage, malfunction,
                 modification to, or repair of, the equipment.
+
+                **Examples**
+
+                ```
+                &lt;alteration date="2024-10-16" performedBy="Chris, MSL"&gt;Replace blown op-amp with Texas Instruments LMP7721&lt;/alteration&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -875,6 +1006,31 @@
 
                 The child elements, if specified, may appear in any order and
                 are each optional.
+
+                **Examples**
+
+                Specify only the asset number
+                ```
+                &lt;financial&gt;
+                  &lt;assetNumber&gt;002297&lt;/assetNumber&gt;
+                &lt;/financial&gt;
+                ```
+
+                Specify only the year that the equipment was purchased
+                ```
+                &lt;financial&gt;
+                    &lt;yearPurchased&gt;2010&lt;/yearPurchased&gt;
+                &lt;/financial&gt;
+                ```
+
+                Specify all financial information
+                ```
+                &lt;financial&gt;
+                    &lt;assetNumber&gt;7265817&lt;/assetNumber&gt;
+                    &lt;warrantyExpirationDate&gt;2026-08-01&lt;/warrantyExpirationDate&gt;
+                    &lt;yearPurchased&gt;2025&lt;/yearPurchased&gt;
+                &lt;/financial&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:all>
@@ -915,6 +1071,16 @@
                 identify where there are risks due to a single equipment failing that results
                 in calibration service(s) shutting down until a suitable replacement equipment
                 is acquired.
+
+                **Examples**
+
+                ```
+                &lt;technicalProcedures&gt;
+                  &lt;id&gt;MSLT.O.032&lt;/id&gt;
+                  &lt;id&gt;MSLT.O.025&lt;/id&gt;
+                  &lt;id&gt;MSLT.O.006&lt;/id&gt;
+                &lt;/technicalProcedures&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -936,6 +1102,15 @@
                 of the MSL Quality Manual, plus additional _optional_ information.
 
                 The child elements, if specified, may appear in any order and are each optional.
+
+                **Examples**
+
+                ```
+                &lt;qualityManual&gt;
+                  &lt;documentation&gt;https://www.keysight.com/us/en/product/34401A/digital-multimeter-6-digit.html&lt;/documentation&gt;
+                  &lt;serviceAgent&gt;Keysight&lt;/serviceAgent&gt;
+                &lt;/qualityManual&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:all minOccurs="0">
@@ -1013,6 +1188,21 @@
         <xsd:annotation>
             <xsd:documentation>
                 Contains zero or more [measurand](#type_measurand) elements.
+
+                **Examples**
+
+                No calibrations have been performed
+                ```
+                &lt;calibrations/&gt;
+                ```
+
+                Calibrations for both humidity and temperature
+                ```
+                &lt;calibrations&gt;
+                  &lt;measurand quantity="Humidity" calibrationInterval="5"&gt;...&lt;/measurand&gt;
+                  &lt;measurand quantity="Temperature" calibrationInterval="5"&gt;...&lt;/measurand&gt;
+                &lt;/calibrations&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -1034,6 +1224,15 @@
         <xsd:annotation>
             <xsd:documentation>
                 The quantity intended to be measured.
+
+                **Examples**
+
+                ```
+                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;
+                  &lt;component name="Grating1"&gt;...&lt;/component&gt;
+                  &lt;component name="Grating2"&gt;...&lt;/component&gt;
+                &lt;/measurand&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -1068,8 +1267,29 @@
             <xsd:documentation>
                 A component of the equipment that measures the [quantity](#type_quantity).
 
-                Contains a sequence of reports (either digital and/or non-digital reports)
-                and adjustments for the measured [quantity](#type_quantity).
+                Contains a sequence of reports (either digital and/or non-digital reports),
+                adjustments and performance checks for the measured [quantity](#type_quantity).
+
+                **Examples**
+
+                The `name` attribute must be defined, but it may be an empty string
+                ```
+                &lt;component name=""&gt;
+                  &lt;report id="Electrical/2024/618"&gt;...&lt;/report&gt;
+                &lt;/component&gt;
+                ```
+
+                The sequence of child elements can be in any order, but it may make sense to
+                order the elements chronologically (latest first)
+                ```
+                &lt;component name="Probe 1"&gt;
+                  &lt;adjustment date="2024-10-17"&gt;Cleaned the filter&lt;/adjustment&gt;
+                  &lt;report id="Humidity/2023/583"&gt;...&lt;/report&gt;
+                  &lt;performanceCheck completedDate="2021-11-20"&gt;...&lt;/performanceCheck&gt;
+                  &lt;report id="Humidity/2019/421"&gt;...&lt;/report&gt;
+                  &lt;report id="Humidity/2015/183"&gt;...&lt;/report&gt;
+                &lt;/component&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -1160,6 +1380,15 @@
                 A digital calibration report contains embedded
                 metadata and data that is required by ISO/IEC 17025:2017
                 Clause 7.8.2.1 (and perhaps additional information).
+
+                **Examples**
+
+                ```
+                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;
+                  &lt;url&gt;reports/2025/job092.pdf&lt;/url&gt;
+                  &lt;sha256&gt;76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54&lt;/sha256&gt;
+                &lt;/digitalReport&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:complexContent>
@@ -1187,6 +1416,16 @@
                 When intermediate checks are necessary to maintain
                 confidence in the performance of the equipment, these
                 checks shall be carried out according to a procedure.
+
+                **Examples**
+
+                ```
+                &lt;performanceCheck completedDate="2023-04-02"&gt;
+                  &lt;competency&gt;...&lt;/competency&gt;
+                  &lt;conditions/&gt;
+                  &lt;equation&gt;...&lt;/equation&gt;
+                &lt;/performanceCheck&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
@@ -1261,6 +1500,16 @@
             <xsd:documentation>
                 The competent people who accomplished the performance check
                 and the technical procedure that was executed.
+
+                **Examples**
+
+                ```
+                &lt;competency&gt;
+                  &lt;worker&gt;Tim&lt;/worker&gt;
+                  &lt;checker&gt;Laurie&lt;/checker&gt;
+                  &lt;technicalProcedure&gt;MSLT.E.048.005&lt;/technicalProcedure&gt;
+                &lt;/competency&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
@@ -1299,6 +1548,12 @@
                 metadata and data) _some_ of the information that is required
                 by ISO/IEC 17025:2017 Clause 7.8.2.1 must be explicitly
                 included in the equipment register.
+
+                **Examples**
+
+                ```
+                &lt;report id="Light/2024/231"&gt;...&lt;/report&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
@@ -1621,8 +1876,8 @@
                 Specifying an absolute path in an equipment register should only be
                 performed if the location of the file will remain constant for an
                 extended period of time. This is not typically the case, as MSL has
-                had to migrate data multiple times (i.e., a network drive, then GDrive,
-                then OneDrive, ...).
+                had to migrate data multiple times (i.e., a network drive, then Google Drive,
+                then Sharepoint, then back to a network drive).
 
                 One option is to think of the file-system path as a combination of two parts
 
@@ -1672,7 +1927,7 @@
 
                 The data is stored in a digital calibration certificate on a network server
                 ```
-                &lt;file&gt;
+                &lt;file comment="calibration of second grating"&gt;
                   &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.xml&lt;/filename&gt;
                   &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
                 &lt;/file&gt;
@@ -1717,7 +1972,6 @@
                         ```
                         root\relative\path\data.xlsx
                         ```
-
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>
@@ -1771,6 +2025,24 @@
                 Serialisation (also known as marshalling) is the process of
                 translating a data structure or object state into a format
                 that can be stored and reconstructed later.
+
+                **Examples**
+
+                A `GTC` archive in XML format
+                ```
+                &lt;gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"&gt;
+                  &lt;leafNodes&gt;...&lt;/leafNodes&gt;
+                  &lt;taggedReals&gt;...&lt;/taggedReals&gt;
+                  &lt;untaggedReals&gt;...&lt;/untaggedReals&gt;
+                  &lt;taggedComplexes&gt;...&lt;/taggedComplexes&gt;
+                  &lt;intermediates&gt;...&lt;/intermediates&gt;
+                &lt;/gtcArchive&gt;
+                ```
+
+                A `GTC` archive in JSON format
+                ```
+                &lt;gtcArchiveJSON&gt;{"CLASS": "Archive", ...}&lt;/gtcArchiveJSON&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:choice>
@@ -1988,7 +2260,39 @@
     <xsd:complexType name="ranges">
         <xsd:annotation>
             <xsd:documentation>
-                The numeric range for each variable that an `equation` is valid for.
+                The numeric range for each variable that an [equation](#type_equation)
+                is valid for.
+
+                **Examples**
+
+                If the [equation](#type_equation) does not depend on any variables
+                ```
+                &lt;ranges/&gt;
+                ```
+
+                If the [equation](#type_equation) depends on one variable `t`
+                ```
+                &lt;ranges&gt;
+                  &lt;range variable="t"&gt;
+                    &lt;minimum&gt;15&lt;/minimum&gt;
+                    &lt;maximum&gt;25&lt;/maximum&gt;
+                  &lt;/range&gt;
+                &lt;/ranges&gt;
+                ```
+
+                If the [equation](#type_equation) depends on two variables `R` and `t`
+                ```
+                &lt;ranges&gt;
+                  &lt;range variable="R"&gt;
+                    &lt;minimum&gt;30&lt;/minimum&gt;
+                    &lt;maximum&gt;80&lt;/maximum&gt;
+                  &lt;/range&gt;
+                  &lt;range variable="t"&gt;
+                    &lt;minimum&gt;15&lt;/minimum&gt;
+                    &lt;maximum&gt;25&lt;/maximum&gt;
+                  &lt;/range&gt;
+                &lt;/ranges&gt;
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">

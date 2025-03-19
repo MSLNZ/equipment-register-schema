@@ -124,14 +124,55 @@ pre {
 }
 </style><script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.2/markdown-it.min.js" type="text/javascript" charset="UTF-8"></script></head><body data-spy="scroll" data-target=".xs3p-sidebar" data-offset="65"><div class="navbar navbar-fixed-top navbar-inverse" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"> </span><span class="icon-bar"> </span><span class="icon-bar"> </span></button><a class="navbar-brand xs3p-navbar-title">XML Schema Definition (XSD) for an Equipment Register</a></div></div></div><div class="container-fluid"><div class="row"><div class="col-md-3" id="menu-cols"><div class="xs3p-sidebar hidden-print" role="complementary"><ul class="nav nav-list xs3p-sidenav"><li><a href="#SchemaProperties">Schema Document Properties</a></li><li><a href="diagram.svg" target="_blank" rel="noopener noreferrer">Interactive Diagram</a></li><li><a href="#SchemaDeclarations">Global Declarations</a></li><li class="nav-sub-item"><a href="#element_register">Element: <strong>register</strong></a></li><li><a href="#SchemaDefinitions">Global Definitions</a></li><li class="nav-sub-item"><a href="#type_alteration">Complex Type: <strong>alteration</strong></a></li><li class="nav-sub-item"><a href="#type_alterations">Complex Type: <strong>alterations</strong></a></li><li class="nav-sub-item"><a href="#type_any">Complex Type: <strong>any</strong></a></li><li class="nav-sub-item"><a href="#type_calibrations">Complex Type: <strong>calibrations</strong></a></li><li class="nav-sub-item"><a href="#type_comment">Complex Type: <strong>comment</strong></a></li><li class="nav-sub-item"><a href="#type_competency">Complex Type: <strong>competency</strong></a></li><li class="nav-sub-item"><a href="#type_completedTask">Complex Type: <strong>completedTask</strong></a></li><li class="nav-sub-item"><a href="#type_component">Complex Type: <strong>component</strong></a></li><li class="nav-sub-item"><a href="#type_digitalReport">Complex Type: <strong>digitalReport</strong></a></li><li class="nav-sub-item"><a href="#type_equation">Complex Type: <strong>equation</strong></a></li><li class="nav-sub-item"><a href="#type_equipment">Complex Type: <strong>equipment</strong></a></li><li class="nav-sub-item"><a href="#type_file">Complex Type: <strong>file</strong></a></li><li class="nav-sub-item"><a href="#type_financial">Complex Type: <strong>financial</strong></a></li><li class="nav-sub-item"><a href="#type_firmware">Complex Type: <strong>firmware</strong></a></li><li class="nav-sub-item"><a href="#type_maintenance">Complex Type: <strong>maintenance</strong></a></li><li class="nav-sub-item"><a href="#type_measurand">Complex Type: <strong>measurand</strong></a></li><li class="nav-sub-item"><a href="#type_performanceCheck">Complex Type: <strong>performanceCheck</strong></a></li><li class="nav-sub-item"><a href="#type_plannedTask">Complex Type: <strong>plannedTask</strong></a></li><li class="nav-sub-item"><a href="#type_qualityManual">Complex Type: <strong>qualityManual</strong></a></li><li class="nav-sub-item"><a href="#type_ranges">Complex Type: <strong>ranges</strong></a></li><li class="nav-sub-item"><a href="#type_report">Complex Type: <strong>report</strong></a></li><li class="nav-sub-item"><a href="#type_serialised">Complex Type: <strong>serialised</strong></a></li><li class="nav-sub-item"><a href="#type_table">Complex Type: <strong>table</strong></a></li><li class="nav-sub-item"><a href="#type_technicalProcedures">Complex Type: <strong>technicalProcedures</strong></a></li><li class="nav-sub-item"><a href="#type_digitalFormatEnumerationString">Simple Type: <strong>digitalFormatEnumerationString</strong></a></li><li class="nav-sub-item"><a href="#type_idPatternString">Simple Type: <strong>idPatternString</strong></a></li><li class="nav-sub-item"><a href="#type_keywordsList">Simple Type: <strong>keywordsList</strong></a></li><li class="nav-sub-item"><a href="#type_labEnumerationString">Simple Type: <strong>labEnumerationString</strong></a></li><li class="nav-sub-item"><a href="#type_nonEmptyString">Simple Type: <strong>nonEmptyString</strong></a></li><li class="nav-sub-item"><a href="#type_nonNegativeDecimal">Simple Type: <strong>nonNegativeDecimal</strong></a></li><li class="nav-sub-item"><a href="#type_quantityEnumerationString">Simple Type: <strong>quantityEnumerationString</strong></a></li><li class="nav-sub-item"><a href="#type_statusEnumerationString">Simple Type: <strong>statusEnumerationString</strong></a></li><li class="nav-sub-item"><a href="#type_teamEnumerationString">Simple Type: <strong>teamEnumerationString</strong></a></li><li class="nav-sub-item"><a href="#type_technicalProcedurePatternString">Simple Type: <strong>technicalProcedurePatternString</strong></a></li><li class="nav-sub-item"><a href="#type_tokenizedString">Simple Type: <strong>tokenizedString</strong></a></li><li class="nav-sub-item"><a href="#type_variables">Simple Type: <strong>variables</strong></a></li></ul></div></div><div class="col-md-9 content" role="main" id="xs3p-content"><div class="modal fade register" id="id1-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id1-label">Element register</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id1-hidden"><div class="hidden" id="id1-hidden-doc-raw">
                 Root element that contains zero or more [equipment](#type_equipment) elements.
+
+                **Example**
+                ```
+                &lt;register team="Length" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </div><div class="xs3p-doc" id="id1-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade team" id="id2-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id2-label">Attribute team</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id2-hidden"><div class="hidden" id="id2-hidden-doc-raw">
                         The team that is responsible for the equipment register.
                     </div><div class="xs3p-doc" id="id2-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade teamEnumerationString" id="id3-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id3-label">Simple Type teamEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id3-hidden"><div class="hidden" id="id3-hidden-doc-raw">
-                The team that is responsible for the equipment register.
+                The team that is responsible for the equipment register
+                (an attribute of the [register](#element_register) element).
+
+                **Example**
+                ```
+                &lt;register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </div><div class="xs3p-doc" id="id3-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade labEnumerationString" id="id4-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id4-label">Simple Type labEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id4-hidden"><div class="hidden" id="id4-hidden-doc-raw">
                 The name of the laboratory that the equipment is usually located in.
+
+                **Examples**
+
+                A lab of the Photometry &amp; Radiometry team
+                ```
+                &lt;location&gt;Cryogenic Radiometer&lt;/location&gt;
+                ```
+                A lab of the Temperature team
+                ```
+                &lt;location&gt;MicroK 2 resistance bath&lt;/location&gt;
+                ```
+                If the equipment is not at MSL (e.g., at another institute,
+                at the landfill, ...) then there is only one option available
+                `Not at MSL`
+                ```
+                &lt;location&gt;Not at MSL&lt;/location&gt;
+                ```
             </div><div class="xs3p-doc" id="id4-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade digitalFormatEnumerationString" id="id5-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id5-label">Simple Type digitalFormatEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id5-hidden"><div class="hidden" id="id5-hidden-doc-raw">
-                The format of a digital calibration report.
+                The format of a [digitalReport](#type_digitalReport).
+
+                **Examples**
+
+                ```
+                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;...&lt;/digitalReport&gt;
+                &lt;digitalReport format="PTB DCC" id="PTB 4434/18"&gt;...&lt;/digitalReport&gt;
+                ```
             </div><div class="xs3p-doc" id="id5-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade keywordsList" id="id6-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id6-label">Simple Type keywordsList</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id6-hidden"><div class="hidden" id="id6-hidden-doc-raw">
                 Keywords that may be used to describe the equipment.
 
@@ -160,14 +201,27 @@ pre {
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+
+                **Examples**
+                ```
+                &lt;status&gt;Active&lt;/status&gt;
+                ```
+                ```
+                &lt;status&gt;Damaged&lt;/status&gt;
+                ```
             </div><div class="xs3p-doc" id="id7-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade quantityEnumerationString" id="id8-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id8-label">Simple Type quantityEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id8-hidden"><div class="hidden" id="id8-hidden-doc-raw">
-                The quantity intended to be measured.
+                The quantity intended to be measured (for the [measurand](#type_measurand) element).
 
                 _NOTE: Consider adopting the
                 [measurand taxonomy](https://github.com/NCSLI-MII/measurand-taxonomy)
                 proposed by [NCSLI](https://ncsli.org/) and [MII](http://miiknowledge.wikidot.com/)
                 (see the [approved taxons](https://measurand-taxonomy.readthedocs.io/en/latest/approved.html)
                 for examples)._
+
+                **Examples**
+                ```
+                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;...&lt;/measurand&gt;
+                ```
             </div><div class="xs3p-doc" id="id8-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade idPatternString" id="id9-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id9-label">Simple Type idPatternString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id9-hidden"><div class="hidden" id="id9-hidden-doc-raw">
                 Satisfy ISO/IEC 17025:2017 Clause 6.4.13 \
                 a) the identity of equipment ...
@@ -186,6 +240,15 @@ pre {
                     * **T**: Temperature
                 * followed by one period **.** (0x2E)
                 * followed by one or more upper-case letters and/or digits
+
+                **Examples**
+
+                ```
+                MSLE.P.024
+                ```
+                ```
+                MSLE.F.061
+                ```
             </div><div class="xs3p-doc" id="id9-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade technicalProcedurePatternString" id="id10-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id10-label">Simple Type technicalProcedurePatternString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id10-hidden"><div class="hidden" id="id10-hidden-doc-raw">
                 The pattern for an MSL technical procedure shall consist of
                 * the upper-case letters **MSLT**
@@ -202,6 +265,14 @@ pre {
                 * followed by one period **.** (0x2E)
                 * followed by one or more digits [0-9]
                 * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
+
+                **Examples**
+                ```
+                MSLT.O.009
+                ```
+                ```
+                MSLT.E.028.017
+                ```
             </div><div class="xs3p-doc" id="id10-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade nonEmptyString" id="id11-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id11-label">Simple Type nonEmptyString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id11-hidden"><div class="hidden" id="id11-hidden-doc-raw">
                 A non-empty string that shall not contain the line feed (0x0A)
                 nor carriage return (0x0D) characters.
@@ -220,7 +291,7 @@ pre {
                 is not what is in the raw XML document, it is what you get after applying
                 _pre-lexical_ normalisations.
             </div><div class="xs3p-doc" id="id12-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade variables" id="id13-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id13-label">Simple Type variables</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id13-hidden"><div class="hidden" id="id13-hidden-doc-raw">
-                A list of variable name(s) in an equation.
+                A list of variable name(s) in an [equation](#type_equation).
 
                 Each variable name must begin with a letter and may be
                 followed by zero or more letter, digit or underscore
@@ -228,15 +299,36 @@ pre {
 
                 Whitespace shall be used to separate each variable name.
 
-                If no variables are used in the equation (i.e., the
-                equation is a constant numerical value), the `variables`
-                attribute must still exist, but the value may be empty.
+                If no variables are used in the [equation](#type_equation)
+                (i.e., the equation is a constant numerical value), the `variables`
+                attribute must still exist, but the value is empty.
 
                 **Examples**
-                * variables=""
-                * variables="x"
-                * variables="t rh"
-                * variables="x1 x2 x3"
+
+                If the [equation](#type_equation) does not require variables, then
+                the `variables` attribute must be set to an empty string
+                ```
+                &lt;equation&gt;
+                  &lt;value variables=""&gt;0.52&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires one variable `x`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="x"&gt;0.52 + 7.3*x&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires two variables `t` and `rh`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="t rh"&gt;4.21*t + 0.2/rh&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
             </div><div class="xs3p-doc" id="id13-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade nonNegativeDecimal" id="id14-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id14-label">Simple Type nonNegativeDecimal</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id14-hidden"><div class="hidden" id="id14-hidden-doc-raw">
                 A decimal number that is ≥ 0.
 
@@ -682,7 +774,6 @@ pre {
                         ```
                         root\relative\path\data.xlsx
                         ```
-
                     </div><div class="xs3p-doc" id="id92-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade sha256" id="id93-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id93-label">Element sha256</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id93-hidden"><div class="hidden" id="id93-hidden-doc-raw">
                         The SHA-256 checksum of the file.
 
@@ -824,19 +915,28 @@ pre {
                                 validate that the range for every `variable` is uniquely defined.
                                 You must use another tool to validate that every `variable` is
                                 uniquely defined._
-                            </div><div class="xs3p-doc" id="id106-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><h1><a id="top">XML Schema Definition (XSD) for an Equipment Register</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><div class="panel-group" id="schema-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-properties-table-panel-group" href="#schema-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Target Namespace</th><td><span class="targetNS">https://measurement.govt.nz/equipment-register</span></td></tr><tr><th>Version</th><td>0.1</td></tr><tr><th>Element and Attribute Namespaces</th><td><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></td></tr><tr><th>Schema Composition</th><td><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>https://measurement.govt.nz/gtc/xml</em> (at ./external/gtc.xsd)</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="schema-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-doc-panel-panel-group" href="#schema-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id107"><div class="hidden" id="id107-doc-raw">
+                            </div><div class="xs3p-doc" id="id106-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><h1><a id="top">XML Schema Definition (XSD) for an Equipment Register</a></h1><section id="SectionSchemaProperties"><h2><a id="SchemaProperties">Schema Document Properties</a></h2><div class="panel-group" id="schema-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-properties-table-panel-group" href="#schema-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Target Namespace</th><td><span class="targetNS">https://measurement.govt.nz/equipment-register</span></td></tr><tr><th>Version</th><td>0.1.0</td></tr><tr><th>Element and Attribute Namespaces</th><td><ul><li>Global element and attribute declarations belong to this schema's target namespace.</li><li>By default, local element declarations belong to this schema's target namespace.</li><li>By default, local attribute declarations have no namespace.</li></ul></td></tr><tr><th>Schema Composition</th><td><ul><li>This schema imports schema(s) from the following namespace(s):<ul><li><em>https://measurement.govt.nz/gtc/xml</em> (at ./external/gtc.xsd)</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="schema-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-doc-panel-panel-group" href="#schema-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id107"><div class="hidden" id="id107-doc-raw">
             Copyright (c) 2025, Measurement Standards Laboratory of New Zealand.
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
             An Equipment Register contains information to satisfy Section 6.4 of ISO/IEC 17025:2017
             as well as Section 4.3.6 of the MSL Quality Manual.
-        </div><div class="xs3p-doc" id="id107-doc"> </div></div></div></div></div></div><div class="panel-group" id="schema-declared-namespaces-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-declared-namespaces-panel-group" href="#schema-declared-namespaces-collapse">Declared Namespaces</a></h4></div><div id="schema-declared-namespaces-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><thead><tr><th>Prefix</th><th>Namespace</th></tr></thead><tbody><tr><td><a id="ns_xml">xml</a></td><td>http://www.w3.org/XML/1998/namespace</td></tr><tr><td><a id="ns_msl">msl</a></td><td><span class="targetNS">https://measurement.govt.nz/equipment-register</span></td></tr><tr><td><a id="ns_gtc">gtc</a></td><td>https://measurement.govt.nz/gtc/xml</td></tr><tr><td><a id="ns_vc">vc</a></td><td>http://www.w3.org/2007/XMLSchema-versioning</td></tr><tr><td><a id="ns_xsd">xsd</a></td><td>http://www.w3.org/2001/XMLSchema</td></tr></tbody></table></div></div></div><div class="panel-group" id="schema-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#schema-schemaComponent-panel-group" href="#schema-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:schema</span> <span class="na">version=</span><span class="s">"0.1"</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">minVersion=</span><span class="s">"1.0"</span> <span class="na">targetNamespace=</span><span class="s">"https://measurement.govt.nz/equipment-register"</span><span class="nt">&gt;</span>
+        </div><div class="xs3p-doc" id="id107-doc"> </div></div></div></div></div></div><div class="panel-group" id="schema-declared-namespaces-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-declared-namespaces-panel-group" href="#schema-declared-namespaces-collapse">Declared Namespaces</a></h4></div><div id="schema-declared-namespaces-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><thead><tr><th>Prefix</th><th>Namespace</th></tr></thead><tbody><tr><td><a id="ns_xml">xml</a></td><td>http://www.w3.org/XML/1998/namespace</td></tr><tr><td><a id="ns_msl">msl</a></td><td><span class="targetNS">https://measurement.govt.nz/equipment-register</span></td></tr><tr><td><a id="ns_gtc">gtc</a></td><td>https://measurement.govt.nz/gtc/xml</td></tr><tr><td><a id="ns_vc">vc</a></td><td>http://www.w3.org/2007/XMLSchema-versioning</td></tr><tr><td><a id="ns_xsd">xsd</a></td><td>http://www.w3.org/2001/XMLSchema</td></tr></tbody></table></div></div></div><div class="panel-group" id="schema-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#schema-schemaComponent-panel-group" href="#schema-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="schema-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:schema</span> <span class="na">version=</span><span class="s">"0.1.0"</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">minVersion=</span><span class="s">"1.0"</span> <span class="na">targetNamespace=</span><span class="s">"https://measurement.govt.nz/equipment-register"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:import</span> <span class="na">namespace=</span><span class="s">"https://measurement.govt.nz/gtc/xml"</span> <span class="na">schemaLocation=</span><span class="s">"./external/gtc.xsd"</span><span class="nt">/&gt;</span>
 <span class="scContent">...</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:schema&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaDeclarations"><h2><a id="SchemaDeclarations">Global Declarations</a></h2><h3 class="xs3p-subsection-heading">Element: <a id="element_register" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">register</a></h3><div class="panel-group" id="element_register-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#element_register-properties-table-panel-group" href="#element_register-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="element_register-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>register</td></tr><tr><th>Type</th><td>Locally-defined complex type</td></tr><tr><th>Nillable</th><td>no</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="element_register-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#element_register-doc-panel-panel-group" href="#element_register-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="element_register-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id1"><div class="hidden" id="id1-doc-raw">
                 Root element that contains zero or more [equipment](#type_equipment) elements.
+
+                **Example**
+                ```
+                &lt;register team="Length" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </div><div class="xs3p-doc" id="id1-doc"> </div></div></div></div></div></div><div class="panel-group" id="element_register-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#element_register-instance-table-panel-group" href="#element_register-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -875,6 +975,12 @@ pre {
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr></section><section id="SectionSchemaDefinitions"><h2><a id="SchemaDefinitions">Global Definitions</a></h2><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_alteration" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">alteration</a></h3><div class="panel-group" id="type_alteration-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_alteration-type-hierarchy-panel-group" href="#type_alteration-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_alteration-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <span class="type"><a title='Jump to "nonEmptyString" type definition.' href="#type_nonEmptyString">nonEmptyString</a></span> (by restriction) &lt; <strong>alteration</strong> (by extension)</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_alteration-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_alteration-properties-table-panel-group" href="#type_alteration-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_alteration-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>alteration</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_alteration-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_alteration-doc-panel-panel-group" href="#type_alteration-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_alteration-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id108"><div class="hidden" id="id108-doc-raw">
                 The details of the alteration. Such as any damage, malfunction,
                 modification to, or repair of, the equipment.
+
+                **Examples**
+
+                ```
+                &lt;alteration date="2024-10-16" performedBy="Chris, MSL"&gt;Replace blown op-amp with Texas Instruments LMP7721&lt;/alteration&gt;
+                ```
             </div><div class="xs3p-doc" id="id108-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_alteration-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_alteration-instance-table-panel-group" href="#type_alteration-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -967,6 +1073,21 @@ pre {
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_calibrations" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">calibrations</a></h3><div class="panel-group" id="type_calibrations-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_calibrations-type-hierarchy-panel-group" href="#type_calibrations-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_calibrations-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_calibrations-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_calibrations-properties-table-panel-group" href="#type_calibrations-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_calibrations-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>calibrations</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_calibrations-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_calibrations-doc-panel-panel-group" href="#type_calibrations-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_calibrations-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id111"><div class="hidden" id="id111-doc-raw">
                 Contains zero or more [measurand](#type_measurand) elements.
+
+                **Examples**
+
+                No calibrations have been performed
+                ```
+                &lt;calibrations/&gt;
+                ```
+
+                Calibrations for both humidity and temperature
+                ```
+                &lt;calibrations&gt;
+                  &lt;measurand quantity="Humidity" calibrationInterval="5"&gt;...&lt;/measurand&gt;
+                  &lt;measurand quantity="Temperature" calibrationInterval="5"&gt;...&lt;/measurand&gt;
+                &lt;/calibrations&gt;
+                ```
             </div><div class="xs3p-doc" id="id111-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_calibrations-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_calibrations-instance-table-panel-group" href="#type_calibrations-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1002,6 +1123,12 @@ pre {
                 nor carriage return (0x0D) characters and shall have a date
                 as an attribute. The date must be in the YYYY-MM-DD format (see
                 [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+
+                **Examples**
+
+                ```
+                &lt;comment date="2024-12-19"&gt;Replaced the gas tube of the Ar+ laser&lt;/comment&gt;
+                ```
             </div><div class="xs3p-doc" id="id112-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_comment-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_comment-instance-table-panel-group" href="#type_comment-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1026,6 +1153,16 @@ pre {
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_competency" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">competency</a></h3><div class="panel-group" id="type_competency-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_competency-type-hierarchy-panel-group" href="#type_competency-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_competency-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_competency-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_competency-properties-table-panel-group" href="#type_competency-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_competency-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>competency</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_competency-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_competency-doc-panel-panel-group" href="#type_competency-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_competency-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id113"><div class="hidden" id="id113-doc-raw">
                 The competent people who accomplished the performance check
                 and the technical procedure that was executed.
+
+                **Examples**
+
+                ```
+                &lt;competency&gt;
+                  &lt;worker&gt;Tim&lt;/worker&gt;
+                  &lt;checker&gt;Laurie&lt;/checker&gt;
+                  &lt;technicalProcedure&gt;MSLT.E.048.005&lt;/technicalProcedure&gt;
+                &lt;/competency&gt;
+                ```
             </div><div class="xs3p-doc" id="id113-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_competency-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_competency-instance-table-panel-group" href="#type_competency-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1049,6 +1186,12 @@ pre {
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_completedTask" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">completedTask</a></h3><div class="panel-group" id="type_completedTask-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_completedTask-type-hierarchy-panel-group" href="#type_completedTask-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_completedTask-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <span class="type"><a title='Jump to "nonEmptyString" type definition.' href="#type_nonEmptyString">nonEmptyString</a></span> (by restriction) &lt; <strong>completedTask</strong> (by extension)</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_completedTask-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_completedTask-properties-table-panel-group" href="#type_completedTask-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_completedTask-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>completedTask</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_completedTask-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_completedTask-doc-panel-panel-group" href="#type_completedTask-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_completedTask-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id114"><div class="hidden" id="id114-doc-raw">
                 A planned maintenance task that was completed.
+
+                **Examples**
+
+                ```
+                &lt;completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"&gt;Clean fan&lt;/completedTask&gt;
+                ```
             </div><div class="xs3p-doc" id="id114-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_completedTask-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_completedTask-instance-table-panel-group" href="#type_completedTask-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1087,8 +1230,29 @@ pre {
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_component" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">component</a></h3><div class="panel-group" id="type_component-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_component-type-hierarchy-panel-group" href="#type_component-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_component-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_component-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_component-properties-table-panel-group" href="#type_component-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_component-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>component</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_component-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_component-doc-panel-panel-group" href="#type_component-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_component-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id115"><div class="hidden" id="id115-doc-raw">
                 A component of the equipment that measures the [quantity](#type_quantity).
 
-                Contains a sequence of reports (either digital and/or non-digital reports)
-                and adjustments for the measured [quantity](#type_quantity).
+                Contains a sequence of reports (either digital and/or non-digital reports),
+                adjustments and performance checks for the measured [quantity](#type_quantity).
+
+                **Examples**
+
+                The `name` attribute must be defined, but it may be an empty string
+                ```
+                &lt;component name=""&gt;
+                  &lt;report id="Electrical/2024/618"&gt;...&lt;/report&gt;
+                &lt;/component&gt;
+                ```
+
+                The sequence of child elements can be in any order, but it may make sense to
+                order the elements chronologically (latest first)
+                ```
+                &lt;component name="Probe 1"&gt;
+                  &lt;adjustment date="2024-10-17"&gt;Cleaned the filter&lt;/adjustment&gt;
+                  &lt;report id="Humidity/2023/583"&gt;...&lt;/report&gt;
+                  &lt;performanceCheck completedDate="2021-11-20"&gt;...&lt;/performanceCheck&gt;
+                  &lt;report id="Humidity/2019/421"&gt;...&lt;/report&gt;
+                  &lt;report id="Humidity/2015/183"&gt;...&lt;/report&gt;
+                &lt;/component&gt;
+                ```
             </div><div class="xs3p-doc" id="id115-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_component-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_component-instance-table-panel-group" href="#type_component-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1151,6 +1315,15 @@ pre {
                 A digital calibration report contains embedded
                 metadata and data that is required by ISO/IEC 17025:2017
                 Clause 7.8.2.1 (and perhaps additional information).
+
+                **Examples**
+
+                ```
+                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;
+                  &lt;url&gt;reports/2025/job092.pdf&lt;/url&gt;
+                  &lt;sha256&gt;76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54&lt;/sha256&gt;
+                &lt;/digitalReport&gt;
+                ```
             </div><div class="xs3p-doc" id="id116-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_digitalReport-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_digitalReport-instance-table-panel-group" href="#type_digitalReport-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1308,6 +1481,15 @@ pre {
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_equipment" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">equipment</a></h3><div class="panel-group" id="type_equipment-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_equipment-type-hierarchy-panel-group" href="#type_equipment-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_equipment-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_equipment-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_equipment-properties-table-panel-group" href="#type_equipment-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_equipment-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>equipment</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_equipment-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_equipment-doc-panel-panel-group" href="#type_equipment-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_equipment-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id118"><div class="hidden" id="id118-doc-raw">
                 Contains information about the equipment to satisfy ISO/IEC 17025:2017
                 Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
+
+                **Examples**
+
+                ```
+                &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;equipment alias="bench-top probe"&gt;...&lt;/equipment&gt;
+                &lt;equipment keywords="Thermometer Hygrometer"&gt;...&lt;/equipment&gt;
+                &lt;equipment alias="main" keywords="Source Voltage AC DC"&gt;...&lt;/equipment&gt;
+                ```
             </div><div class="xs3p-doc" id="id118-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_equipment-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_equipment-instance-table-panel-group" href="#type_equipment-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1383,8 +1565,8 @@ pre {
                 Specifying an absolute path in an equipment register should only be
                 performed if the location of the file will remain constant for an
                 extended period of time. This is not typically the case, as MSL has
-                had to migrate data multiple times (i.e., a network drive, then GDrive,
-                then OneDrive, ...).
+                had to migrate data multiple times (i.e., a network drive, then Google Drive,
+                then Sharepoint, then back to a network drive).
 
                 One option is to think of the file-system path as a combination of two parts
 
@@ -1434,7 +1616,7 @@ pre {
 
                 The data is stored in a digital calibration certificate on a network server
                 ```
-                &lt;file&gt;
+                &lt;file comment="calibration of second grating"&gt;
                   &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.xml&lt;/filename&gt;
                   &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
                 &lt;/file&gt;
@@ -1487,6 +1669,31 @@ pre {
 
                 The child elements, if specified, may appear in any order and
                 are each optional.
+
+                **Examples**
+
+                Specify only the asset number
+                ```
+                &lt;financial&gt;
+                  &lt;assetNumber&gt;002297&lt;/assetNumber&gt;
+                &lt;/financial&gt;
+                ```
+
+                Specify only the year that the equipment was purchased
+                ```
+                &lt;financial&gt;
+                    &lt;yearPurchased&gt;2010&lt;/yearPurchased&gt;
+                &lt;/financial&gt;
+                ```
+
+                Specify all financial information
+                ```
+                &lt;financial&gt;
+                    &lt;assetNumber&gt;7265817&lt;/assetNumber&gt;
+                    &lt;warrantyExpirationDate&gt;2026-08-01&lt;/warrantyExpirationDate&gt;
+                    &lt;yearPurchased&gt;2025&lt;/yearPurchased&gt;
+                &lt;/financial&gt;
+                ```
             </div><div class="xs3p-doc" id="id120-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_financial-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_financial-instance-table-panel-group" href="#type_financial-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1651,6 +1858,15 @@ pre {
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_measurand" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">measurand</a></h3><div class="panel-group" id="type_measurand-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_measurand-type-hierarchy-panel-group" href="#type_measurand-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_measurand-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_measurand-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_measurand-properties-table-panel-group" href="#type_measurand-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_measurand-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>measurand</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_measurand-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_measurand-doc-panel-panel-group" href="#type_measurand-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_measurand-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id123"><div class="hidden" id="id123-doc-raw">
                 The quantity intended to be measured.
+
+                **Examples**
+
+                ```
+                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;
+                  &lt;component name="Grating1"&gt;...&lt;/component&gt;
+                  &lt;component name="Grating2"&gt;...&lt;/component&gt;
+                &lt;/measurand&gt;
+                ```
             </div><div class="xs3p-doc" id="id123-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_measurand-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_measurand-instance-table-panel-group" href="#type_measurand-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1686,6 +1902,16 @@ pre {
                 When intermediate checks are necessary to maintain
                 confidence in the performance of the equipment, these
                 checks shall be carried out according to a procedure.
+
+                **Examples**
+
+                ```
+                &lt;performanceCheck completedDate="2023-04-02"&gt;
+                  &lt;competency&gt;...&lt;/competency&gt;
+                  &lt;conditions/&gt;
+                  &lt;equation&gt;...&lt;/equation&gt;
+                &lt;/performanceCheck&gt;
+                ```
             </div><div class="xs3p-doc" id="id124-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_performanceCheck-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_performanceCheck-instance-table-panel-group" href="#type_performanceCheck-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1726,6 +1952,18 @@ pre {
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_plannedTask" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">plannedTask</a></h3><div class="panel-group" id="type_plannedTask-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_plannedTask-type-hierarchy-panel-group" href="#type_plannedTask-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_plannedTask-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <span class="type"><a title='Jump to "nonEmptyString" type definition.' href="#type_nonEmptyString">nonEmptyString</a></span> (by restriction) &lt; <strong>plannedTask</strong> (by extension)</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_plannedTask-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_plannedTask-properties-table-panel-group" href="#type_plannedTask-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_plannedTask-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>plannedTask</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_plannedTask-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_plannedTask-doc-panel-panel-group" href="#type_plannedTask-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_plannedTask-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id125"><div class="hidden" id="id125-doc-raw">
                 A planned maintenance task to be performed.
+
+                **Examples**
+
+                The `performedBy` attribute may be omitted if the value is not known
+                ```
+                &lt;plannedTask dueDate="2025-06-15"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```
+
+                or if it is known who will perform the task
+                ```
+                &lt;plannedTask dueDate="2025-06-15" performedBy="Tom"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```
             </div><div class="xs3p-doc" id="id125-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_plannedTask-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_plannedTask-instance-table-panel-group" href="#type_plannedTask-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1760,6 +1998,15 @@ pre {
                 of the MSL Quality Manual, plus additional _optional_ information.
 
                 The child elements, if specified, may appear in any order and are each optional.
+
+                **Examples**
+
+                ```
+                &lt;qualityManual&gt;
+                  &lt;documentation&gt;https://www.keysight.com/us/en/product/34401A/digital-multimeter-6-digit.html&lt;/documentation&gt;
+                  &lt;serviceAgent&gt;Keysight&lt;/serviceAgent&gt;
+                &lt;/qualityManual&gt;
+                ```
             </div><div class="xs3p-doc" id="id126-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_qualityManual-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_qualityManual-instance-table-panel-group" href="#type_qualityManual-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1788,7 +2035,39 @@ pre {
    <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:all&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Complex Type: <a id="type_ranges" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">ranges</a></h3><div class="panel-group" id="type_ranges-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_ranges-type-hierarchy-panel-group" href="#type_ranges-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_ranges-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_ranges-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_ranges-properties-table-panel-group" href="#type_ranges-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_ranges-properties-table-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>ranges</td></tr><tr><th>Abstract</th><td>no</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_ranges-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_ranges-doc-panel-panel-group" href="#type_ranges-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_ranges-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id127"><div class="hidden" id="id127-doc-raw">
-                The numeric range for each variable that an `equation` is valid for.
+                The numeric range for each variable that an [equation](#type_equation)
+                is valid for.
+
+                **Examples**
+
+                If the [equation](#type_equation) does not depend on any variables
+                ```
+                &lt;ranges/&gt;
+                ```
+
+                If the [equation](#type_equation) depends on one variable `t`
+                ```
+                &lt;ranges&gt;
+                  &lt;range variable="t"&gt;
+                    &lt;minimum&gt;15&lt;/minimum&gt;
+                    &lt;maximum&gt;25&lt;/maximum&gt;
+                  &lt;/range&gt;
+                &lt;/ranges&gt;
+                ```
+
+                If the [equation](#type_equation) depends on two variables `R` and `t`
+                ```
+                &lt;ranges&gt;
+                  &lt;range variable="R"&gt;
+                    &lt;minimum&gt;30&lt;/minimum&gt;
+                    &lt;maximum&gt;80&lt;/maximum&gt;
+                  &lt;/range&gt;
+                  &lt;range variable="t"&gt;
+                    &lt;minimum&gt;15&lt;/minimum&gt;
+                    &lt;maximum&gt;25&lt;/maximum&gt;
+                  &lt;/range&gt;
+                &lt;/ranges&gt;
+                ```
             </div><div class="xs3p-doc" id="id127-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_ranges-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_ranges-instance-table-panel-group" href="#type_ranges-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1837,6 +2116,12 @@ pre {
                 metadata and data) _some_ of the information that is required
                 by ISO/IEC 17025:2017 Clause 7.8.2.1 must be explicitly
                 included in the equipment register.
+
+                **Examples**
+
+                ```
+                &lt;report id="Light/2024/231"&gt;...&lt;/report&gt;
+                ```
             </div><div class="xs3p-doc" id="id128-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_report-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_report-instance-table-panel-group" href="#type_report-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -1915,6 +2200,24 @@ pre {
                 Serialisation (also known as marshalling) is the process of
                 translating a data structure or object state into a format
                 that can be stored and reconstructed later.
+
+                **Examples**
+
+                A `GTC` archive in XML format
+                ```
+                &lt;gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"&gt;
+                  &lt;leafNodes&gt;...&lt;/leafNodes&gt;
+                  &lt;taggedReals&gt;...&lt;/taggedReals&gt;
+                  &lt;untaggedReals&gt;...&lt;/untaggedReals&gt;
+                  &lt;taggedComplexes&gt;...&lt;/taggedComplexes&gt;
+                  &lt;intermediates&gt;...&lt;/intermediates&gt;
+                &lt;/gtcArchive&gt;
+                ```
+
+                A `GTC` archive in JSON format
+                ```
+                &lt;gtcArchiveJSON&gt;{"CLASS": "Archive", ...}&lt;/gtcArchiveJSON&gt;
+                ```
             </div><div class="xs3p-doc" id="id129-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_serialised-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_serialised-instance-table-panel-group" href="#type_serialised-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -2079,6 +2382,16 @@ pre {
                 identify where there are risks due to a single equipment failing that results
                 in calibration service(s) shutting down until a suitable replacement equipment
                 is acquired.
+
+                **Examples**
+
+                ```
+                &lt;technicalProcedures&gt;
+                  &lt;id&gt;MSLT.O.032&lt;/id&gt;
+                  &lt;id&gt;MSLT.O.025&lt;/id&gt;
+                  &lt;id&gt;MSLT.O.006&lt;/id&gt;
+                &lt;/technicalProcedures&gt;
+                ```
             </div><div class="xs3p-doc" id="id131-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_technicalProcedures-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_technicalProcedures-instance-table-panel-group" href="#type_technicalProcedures-instance-table-collapse">XML Instance Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The XML Instance Representation table shows the schema component's content as an XML instance.
          &lt;ul&gt;
          &lt;li&gt;The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].&lt;/li&gt;
@@ -2099,7 +2412,14 @@ pre {
    <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:sequence&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Simple Type: <a id="type_digitalFormatEnumerationString" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">digitalFormatEnumerationString</a></h3><div class="panel-group" id="type_digitalFormatEnumerationString-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_digitalFormatEnumerationString-type-hierarchy-panel-group" href="#type_digitalFormatEnumerationString-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_digitalFormatEnumerationString-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td><span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span> &lt; <strong>digitalFormatEnumerationString</strong> (by restriction)</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_digitalFormatEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_digitalFormatEnumerationString-properties-table-panel-group" href="#type_digitalFormatEnumerationString-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_digitalFormatEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>digitalFormatEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> comes from list: {'MSL PDF/A-3'|'PTB DCC'}</li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_digitalFormatEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_digitalFormatEnumerationString-doc-panel-panel-group" href="#type_digitalFormatEnumerationString-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_digitalFormatEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id5"><div class="hidden" id="id5-doc-raw">
-                The format of a digital calibration report.
+                The format of a [digitalReport](#type_digitalReport).
+
+                **Examples**
+
+                ```
+                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;...&lt;/digitalReport&gt;
+                &lt;digitalReport format="PTB DCC" id="PTB 4434/18"&gt;...&lt;/digitalReport&gt;
+                ```
             </div><div class="xs3p-doc" id="id5-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_digitalFormatEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_digitalFormatEnumerationString-schemaComponent-panel-group" href="#type_digitalFormatEnumerationString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_digitalFormatEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"digitalFormatEnumerationString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"MSL PDF/A-3"</span><span class="nt">/&gt;</span>
@@ -2124,6 +2444,15 @@ pre {
                     * **T**: Temperature
                 * followed by one period **.** (0x2E)
                 * followed by one or more upper-case letters and/or digits
+
+                **Examples**
+
+                ```
+                MSLE.P.024
+                ```
+                ```
+                MSLE.F.061
+                ```
             </div><div class="xs3p-doc" id="id9-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_idPatternString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_idPatternString-schemaComponent-panel-group" href="#type_idPatternString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_idPatternString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"idPatternString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:pattern</span> <span class="na">value=</span><span class="s">"MSLE\.[EFHLMOPT]\.[A-Z0-9]+"</span><span class="nt">/&gt;</span>
@@ -2220,6 +2549,23 @@ pre {
     'Underground Tape Tunnel'|
     'Water lab'}</li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_labEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_labEnumerationString-doc-panel-panel-group" href="#type_labEnumerationString-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_labEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id4"><div class="hidden" id="id4-doc-raw">
                 The name of the laboratory that the equipment is usually located in.
+
+                **Examples**
+
+                A lab of the Photometry &amp; Radiometry team
+                ```
+                &lt;location&gt;Cryogenic Radiometer&lt;/location&gt;
+                ```
+                A lab of the Temperature team
+                ```
+                &lt;location&gt;MicroK 2 resistance bath&lt;/location&gt;
+                ```
+                If the equipment is not at MSL (e.g., at another institute,
+                at the landfill, ...) then there is only one option available
+                `Not at MSL`
+                ```
+                &lt;location&gt;Not at MSL&lt;/location&gt;
+                ```
             </div><div class="xs3p-doc" id="id4-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_labEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_labEnumerationString-schemaComponent-panel-group" href="#type_labEnumerationString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_labEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"labEnumerationString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"CMM Lab"</span><span class="nt">/&gt;</span>
@@ -2309,13 +2655,18 @@ pre {
     'Voltage AC'|
     'Voltage DC'|
     'Wavelength'}</li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_quantityEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_quantityEnumerationString-doc-panel-panel-group" href="#type_quantityEnumerationString-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_quantityEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id8"><div class="hidden" id="id8-doc-raw">
-                The quantity intended to be measured.
+                The quantity intended to be measured (for the [measurand](#type_measurand) element).
 
                 _NOTE: Consider adopting the
                 [measurand taxonomy](https://github.com/NCSLI-MII/measurand-taxonomy)
                 proposed by [NCSLI](https://ncsli.org/) and [MII](http://miiknowledge.wikidot.com/)
                 (see the [approved taxons](https://measurand-taxonomy.readthedocs.io/en/latest/approved.html)
                 for examples)._
+
+                **Examples**
+                ```
+                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;...&lt;/measurand&gt;
+                ```
             </div><div class="xs3p-doc" id="id8-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_quantityEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_quantityEnumerationString-schemaComponent-panel-group" href="#type_quantityEnumerationString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_quantityEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"quantityEnumerationString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Angle"</span><span class="nt">/&gt;</span>
@@ -2385,6 +2736,14 @@ pre {
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+
+                **Examples**
+                ```
+                &lt;status&gt;Active&lt;/status&gt;
+                ```
+                ```
+                &lt;status&gt;Damaged&lt;/status&gt;
+                ```
             </div><div class="xs3p-doc" id="id7-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_statusEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_statusEnumerationString-schemaComponent-panel-group" href="#type_statusEnumerationString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_statusEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"statusEnumerationString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Active"</span><span class="nt">/&gt;</span>
@@ -2404,7 +2763,15 @@ pre {
     'Pressure'|
     'Temperature'|
     'Time'}</li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_teamEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_teamEnumerationString-doc-panel-panel-group" href="#type_teamEnumerationString-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_teamEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id3"><div class="hidden" id="id3-doc-raw">
-                The team that is responsible for the equipment register.
+                The team that is responsible for the equipment register
+                (an attribute of the [register](#element_register) element).
+
+                **Example**
+                ```
+                &lt;register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"&gt;
+                   &lt;equipment&gt;...&lt;/equipment&gt;
+                &lt;/register&gt;
+                ```
             </div><div class="xs3p-doc" id="id3-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_teamEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_teamEnumerationString-schemaComponent-panel-group" href="#type_teamEnumerationString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_teamEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"teamEnumerationString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Electrical"</span><span class="nt">/&gt;</span>
@@ -2433,6 +2800,14 @@ pre {
                 * followed by one period **.** (0x2E)
                 * followed by one or more digits [0-9]
                 * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
+
+                **Examples**
+                ```
+                MSLT.O.009
+                ```
+                ```
+                MSLT.E.028.017
+                ```
             </div><div class="xs3p-doc" id="id10-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_technicalProcedurePatternString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_technicalProcedurePatternString-schemaComponent-panel-group" href="#type_technicalProcedurePatternString-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_technicalProcedurePatternString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"technicalProcedurePatternString"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:pattern</span> <span class="na">value=</span><span class="s">"MSLT\.[EFHLMOPT]\.[0-9]+(\.[0-9]+)?"</span><span class="nt">/&gt;</span>
@@ -2458,7 +2833,7 @@ pre {
    <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:restriction&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType&gt;</span>
 </pre></div></div></div></div><div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"> </span></a></div><hr></hr><h3 class="xs3p-subsection-heading">Simple Type: <a id="type_variables" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">variables</a></h3><div class="panel-group" id="type_variables-type-hierarchy-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_variables-type-hierarchy-panel-group" href="#type_variables-type-hierarchy-collapse">Type hierarchy</a></h4></div><div id="type_variables-type-hierarchy-collapse" class="panel-collapse collapse"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Super-types:</th><td>None</td></tr><tr><th>Sub-types:</th><td>None</td></tr></tbody></table></div></div></div><div class="panel-group" id="type_variables-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_variables-properties-table-panel-group" href="#type_variables-properties-table-collapse">Properties</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This table displays the properties of the schema component."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_variables-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>variables</td></tr><tr><th>Content</th><td><ul><li>List of: <ul><li>Locally defined type:<ul><li>Base XSD Type: string</li></ul><ul><li><em>pattern</em> = [a-zA-Z][a-zA-Z0-9_]*</li></ul></li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_variables-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_variables-doc-panel-panel-group" href="#type_variables-doc-panel-collapse">Documentation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="This panel contains the schema components documentation."><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_variables-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id13"><div class="hidden" id="id13-doc-raw">
-                A list of variable name(s) in an equation.
+                A list of variable name(s) in an [equation](#type_equation).
 
                 Each variable name must begin with a letter and may be
                 followed by zero or more letter, digit or underscore
@@ -2466,15 +2841,36 @@ pre {
 
                 Whitespace shall be used to separate each variable name.
 
-                If no variables are used in the equation (i.e., the
-                equation is a constant numerical value), the `variables`
-                attribute must still exist, but the value may be empty.
+                If no variables are used in the [equation](#type_equation)
+                (i.e., the equation is a constant numerical value), the `variables`
+                attribute must still exist, but the value is empty.
 
                 **Examples**
-                * variables=""
-                * variables="x"
-                * variables="t rh"
-                * variables="x1 x2 x3"
+
+                If the [equation](#type_equation) does not require variables, then
+                the `variables` attribute must be set to an empty string
+                ```
+                &lt;equation&gt;
+                  &lt;value variables=""&gt;0.52&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires one variable `x`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="x"&gt;0.52 + 7.3*x&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
+
+                The [equation](#type_equation) requires two variables `t` and `rh`
+                ```
+                &lt;equation&gt;
+                  &lt;value variables="t rh"&gt;4.21*t + 0.2/rh&lt;/value&gt;
+                  ...
+                &lt;/equation&gt;
+                ```
             </div><div class="xs3p-doc" id="id13-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_variables-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_variables-schemaComponent-panel-group" href="#type_variables-schemaComponent-collapse">Schema Component Representation</a><span class="pull-right xs3p-panel-help"><button type="button" class="btn btn-doc" data-container="body" data-toggle="popover" data-placement="left" data-html="true" data-content="The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)"><span class="glyphicon glyphicon-question-sign"> </span></button></span></h4></div><div id="type_variables-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"variables"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:list</span><span class="nt">&gt;</span>
       <span class="nt">&lt;<a href="#ns_xsd" title="Find out namespace of 'xsd' prefix">xsd</a>:simpleType</span><span class="nt">&gt;</span>

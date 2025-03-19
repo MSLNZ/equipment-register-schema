@@ -97,8 +97,9 @@
                 &lt;location&gt;MicroK 2 resistance bath&lt;/location&gt;
                 ```
                 If the equipment is not at MSL (e.g., at another institute,
-                at the landfill, ...) then there is only one option available
-                `Not at MSL`
+                at the landfill, ...) then there is only one option available,
+                `Not at MSL`, and you should document the actual location
+                somewhere else in the equipment register.
                 ```
                 &lt;location&gt;Not at MSL&lt;/location&gt;
                 ```

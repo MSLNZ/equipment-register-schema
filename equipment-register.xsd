@@ -491,6 +491,31 @@
 
                 **Examples**
 
+                An `equipment` element showing the minimal child elements that must
+                contain values so that the equipment register remains valid
+                ```xml
+                {equipment}
+                    {id}MSLE.L.001{/id}
+                    {manufacturer}MSL{/manufacturer}
+                    {model}ABC{/model}
+                    {serial}123{/serial}
+                    {description}A short description about the equipment{/description}
+                    {specifications/}
+                    {location}CMM Lab{/location}
+                    {status}Active{/status}
+                    {loggable/}
+                    {traceable}false{/traceable}
+                    {calibrations/}
+                    {maintenance/}
+                    {alterations/}
+                    {firmware/}
+                    {specifiedRequirements/}
+                    {referenceMaterials/}
+                    {qualityManual/}
+                {/equipment}
+                ```
+
+                The following shows different ways that attributes may be specified
                 ```xml
                 {equipment}...{/equipment}
                 {equipment alias="bench-top probe"}...{/equipment}

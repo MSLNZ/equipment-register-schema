@@ -1202,7 +1202,6 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
 
    <!--
      Prints out Hierarchy table for complex type definitions.
-     -->
    <xsl:template match="xsd:complexType" mode="hierarchy">
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">
@@ -1216,7 +1215,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="contents">
             <table class="table table-striped xs3p-in-panel-table">
                <tbody>
-                  <!-- Print super types -->
+                  <!- Print super types ->
                   <tr>
                      <th>
                         <xsl:choose>
@@ -1241,7 +1240,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         </xsl:choose>
                      </td>
                   </tr>
-                  <!-- Print sub types -->
+                  <!- Print sub types ->
                   <tr>
                      <th>
                         <xsl:choose>
@@ -1266,10 +1265,10 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
    </xsl:template>
+   -->
 
    <!--
      Prints out Hierarchy table for simple type definitions.
-     -->
    <xsl:template match="xsd:simpleType" mode="hierarchy">
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">
@@ -1283,7 +1282,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="contents">
             <table class="table table-striped xs3p-in-panel-table">
                <tbody>
-                  <!-- Print super types -->
+                  <!- Print super types ->
                   <tr>
                      <th>
                         <xsl:choose>
@@ -1308,7 +1307,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         </xsl:choose>
                      </td>
                   </tr>
-                  <!-- Print sub types -->
+                  <!- Print sub types ->
                   <tr>
                      <th>
                         <xsl:choose>
@@ -1333,6 +1332,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
    </xsl:template>
+   -->
 
    <!--
      Unmatched template for 'hierarchy' mode

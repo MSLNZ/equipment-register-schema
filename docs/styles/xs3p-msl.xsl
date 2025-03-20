@@ -315,7 +315,9 @@
                   </xsl:otherwise>
                </xsl:choose>
             </style>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.3.2/markdown-it.min.js" type="text/javascript" charset="UTF-8"/>
+            <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>-->
+            <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"/>
+            <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js" type="text/javascript" charset="UTF-8"/>
          </head>
          <body data-spy="scroll" data-target=".xs3p-sidebar" data-offset="65">
 
@@ -427,39 +429,48 @@
             <script src="{$jQueryURL}" type="text/javascript" charset="UTF-8"/>
             <script src="{$bootstrapURL}/js/bootstrap.min.js" type="text/javascript" charset="UTF-8"/>
             <script>
-               <xsl:text disable-output-escaping="yes">
+               <![CDATA[
+                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  $(function () { $("[data-toggle='popover']").popover(); });
 
-               $(function () { $("[data-toggle='tooltip']").tooltip(); });
-               $(function () { $("[data-toggle='popover']").popover(); });
+                  var md = window.markdownit({
+                     highlight: function (str, lang) {
+                        if (lang && hljs.getLanguage(lang)) {
+                           var text = str.replace(new RegExp("{", "gm"), "<").replace(new RegExp("}", "gm"), ">")
+                           return '<pre><code class="hljs">' +
+                                  hljs.highlight(text, { language: lang }).value +
+                                  '</code></pre>'
+                         }
+                         console.log(str)
 
-               var c = window.markdownit();
-               $('.xs3p-doc').each(function(i, obj) {
-                  var rawDocID = '#' + $(this).attr('id') + '-raw';
-                  var indent = $(rawDocID).html().match("^\\n[\\t ]*");
-                  if (!(indent === null)) {
-                     normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
-                  } else {
-                     normalized = $(rawDocID).html();
-                  }
-                  $(this).html(c.render(normalized));
-                  $(this).find('code,pre').each(function(i, block) {
-                     $(this).html($(this).text());
+                         return ''; // use external default escaping
+                       }
                   });
-               });
+                  $('.xs3p-doc').each(function(i, obj) {
+                     var rawDocID = '#' + $(this).attr('id') + '-raw';
+                     var indent = $(rawDocID).html().match("^\\n[\\t ]*");
+                     if (!(indent === null)) {
+                        normalized = $(rawDocID).html().replace(new RegExp(indent[0], "gm"), "\n");
+                     } else {
+                        normalized = $(rawDocID).html();
+                     }
+                     $(this).html(md.render(normalized));
+                  });
 
-               $(window).scroll(function() {
-                  if ($(".xs3p-sidebar").css("position") == "fixed" &amp;&amp; $(window).height() &lt; $(".xs3p-sidebar").height()) {
-                     var perc = $(window).scrollTop() / $("#xs3p-content").height();
-                     var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
-                     $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
-                  }
-               });
-               $(window).resize(function() {
-                  if ($(".xs3p-sidebar").css("position") == "fixed") {
-                     $(".xs3p-sidebar").css("top", "65px");
-                  }
-               });
-               </xsl:text>
+                  $(window).scroll(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
+                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
+                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
+                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
+                     }
+                  });
+
+                  $(window).resize(function() {
+                     if ($(".xs3p-sidebar").css("position") == "fixed") {
+                        $(".xs3p-sidebar").css("top", "65px");
+                     }
+                  });
+               ]]>
             </script>
          </body>
       </html>
@@ -738,7 +749,8 @@ body {
 }
 
 code {
-    color: #333;
+    color: #32356B;
+    background-color: #E9E9E9;
 }
 
 .container-fluid {
@@ -764,6 +776,7 @@ section, #top {
 
 pre {
     padding: 5px;
+    background-color: #E9E9E9;
 }
 
 .xs3p-sidenav {
@@ -831,12 +844,23 @@ pre {
 .codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
 .codehilite .c   {color: #999;}
 .codehilite .cs  {color: #999; font-style: italic;}
-.codehilite .nt  {color: #2F6F9F;}
-.codehilite .nn  {color: #39B3D7;}
-.codehilite .na  {color: #47A447;}
-.codehilite .s   {color: #D2322D;}
+.codehilite .nt  {color: #32356B} <!-- make same as .hljs-name -->
+.codehilite .na  {color: #69875B} <!-- make same as .hljs-attr -->
+.codehilite .s   {color: #96372F} <!-- make same as .hljs-string -->
+.codehilite .nn  {color: #FF0000} <!-- don't think it is used, red should be very visible -->
 .codehilite a       {color: inherit !important; text-decoration: underline !important;}
 .codehilite a:hover {opacity: 0.7 !important;}
+
+<!-- highlight.js syntax highlighting in document tags -->
+pre code.hljs {display:block; overflow-x:auto; padding: 5px}
+.hljs-tag  {color: #32356BAA}   <!-- XML -->
+.hljs-name {color: #32356B}     <!-- XML -->
+.hljs-attr {color: #69875B}     <!-- XML -->
+.hljs-string {color: #96372F}   <!-- XML and Python -->
+.hljs-keyword {color: #cf222e}  <!-- Python -->
+.hljs-comment {color: #999999}  <!-- Python -->
+.hljs-built_in {color: #69875B} <!-- Python -->
+.hljs-literal {color: #cf222e}  <!-- Python -->
 
 @media (min-width: 992px) {
     .xs3p-sidebar {

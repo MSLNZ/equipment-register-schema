@@ -25,15 +25,16 @@
     <xsd:element name="register">
         <xsd:annotation>
             <xsd:documentation>
-                Root element that contains zero or more [equipment](#type_equipment) elements.
+                Root `element` that contains zero or more [equipment](#type_equipment) elements.
 
-                **Example**
-                ```
-                &lt;register team="Length" xmlns="https://measurement.govt.nz/equipment-register"&gt;
-                   &lt;equipment&gt;...&lt;/equipment&gt;
-                   &lt;equipment&gt;...&lt;/equipment&gt;
-                   &lt;equipment&gt;...&lt;/equipment&gt;
-                &lt;/register&gt;
+                **Examples**
+
+                ```xml
+                {register team="Length" xmlns="https://measurement.govt.nz/equipment-register"}
+                   {equipment}...{/equipment}
+                   {equipment}...{/equipment}
+                   {equipment}...{/equipment}
+                {/register}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -61,11 +62,12 @@
                 The team that is responsible for the equipment register
                 (an attribute of the [register](#element_register) element).
 
-                **Example**
-                ```
-                &lt;register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"&gt;
-                   &lt;equipment&gt;...&lt;/equipment&gt;
-                &lt;/register&gt;
+                **Examples**
+
+                ```xml
+                {register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"}
+                   {equipment}...{/equipment}
+                {/register}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -89,19 +91,21 @@
                 **Examples**
 
                 A lab of the Photometry &amp; Radiometry team
+                ```xml
+                {location}Cryogenic Radiometer{/location}
                 ```
-                &lt;location&gt;Cryogenic Radiometer&lt;/location&gt;
-                ```
+                
                 A lab of the Temperature team
+                ```xml
+                {location}MicroK 2 resistance bath{/location}
                 ```
-                &lt;location&gt;MicroK 2 resistance bath&lt;/location&gt;
-                ```
+                
                 If the equipment is not at MSL (e.g., at another institute,
                 at the landfill, ...) then there is only one option available,
                 `Not at MSL`, and you should document the actual location
                 somewhere else in the equipment register.
-                ```
-                &lt;location&gt;Not at MSL&lt;/location&gt;
+                ```xml
+                {location}Not at MSL{/location}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -142,9 +146,9 @@
 
                 **Examples**
 
-                ```
-                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;...&lt;/digitalReport&gt;
-                &lt;digitalReport format="PTB DCC" id="PTB 4434/18"&gt;...&lt;/digitalReport&gt;
+                ```xml
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}...{/digitalReport}
+                {digitalReport format="PTB DCC" id="PTB 4434/18"}...{/digitalReport}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -157,13 +161,14 @@
     <xsd:simpleType name="keywordsList">
         <xsd:annotation>
             <xsd:documentation>
-                Keywords that may be used to describe the equipment.
+                Keywords that may be used to describe the [equipment](#type_equipment).
 
                 Each keyword is separated by whitespace.
 
-                **Example**
-                ```
-                keywords="Source Voltage AC DC"
+                **Examples**
+
+                ```xml
+                {equipment keywords="Source Voltage AC DC"}...{/equipment"}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -221,11 +226,13 @@
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
 
                 **Examples**
+
+                ```xml
+                {status}Active{/status}
                 ```
-                &lt;status&gt;Active&lt;/status&gt;
-                ```
-                ```
-                &lt;status&gt;Damaged&lt;/status&gt;
+
+                ```xml
+                {status}Damaged{/status}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -251,8 +258,9 @@
                 for examples)._
 
                 **Examples**
-                ```
-                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;...&lt;/measurand&gt;
+
+                ```xml
+                {measurand quantity="Wavelength" calibrationInterval="1"}...{/measurand}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -323,10 +331,11 @@
 
                 **Examples**
 
-                ```
+                ```xml
                 MSLE.P.024
                 ```
-                ```
+                
+                ```xml
                 MSLE.F.061
                 ```
             </xsd:documentation>
@@ -356,10 +365,12 @@
                 * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
 
                 **Examples**
-                ```
+
+                ```xml
                 MSLT.O.009
                 ```
-                ```
+
+                ```xml
                 MSLT.E.028.017
                 ```
             </xsd:documentation>
@@ -423,27 +434,27 @@
 
                 If the [equation](#type_equation) does not require variables, then
                 the `variables` attribute must be set to an empty string
-                ```
-                &lt;equation&gt;
-                  &lt;value variables="">0.52&lt;/value&gt;
+                ```xml
+                {equation}
+                  {value variables="">0.52{/value}
                   ...
-                &lt;/equation&gt;
+                {/equation}
                 ```
 
                 The [equation](#type_equation) requires one variable `x`
-                ```
-                &lt;equation&gt;
-                  &lt;value variables="x">0.52 + 7.3*x&lt;/value&gt;
+                ```xml
+                {equation}
+                  {value variables="x">0.52 + 7.3*x{/value}
                   ...
-                &lt;/equation&gt;
+                {/equation}
                 ```
 
                 The [equation](#type_equation) requires two variables `t` and `rh`
-                ```
-                &lt;equation&gt;
-                  &lt;value variables="t rh">4.21*t + 0.2/rh&lt;/value&gt;
+                ```xml
+                {equation}
+                  {value variables="t rh">4.21*t + 0.2/rh{/value}
                   ...
-                &lt;/equation&gt;
+                {/equation}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -478,11 +489,11 @@
 
                 **Examples**
 
-                ```
-                &lt;equipment&gt;...&lt;/equipment&gt;
-                &lt;equipment alias="bench-top probe"&gt;...&lt;/equipment&gt;
-                &lt;equipment keywords="Thermometer Hygrometer"&gt;...&lt;/equipment&gt;
-                &lt;equipment alias="main" keywords="Source Voltage AC DC"&gt;...&lt;/equipment&gt;
+                ```xml
+                {equipment}...{/equipment}
+                {equipment alias="bench-top probe"}...{/equipment}
+                {equipment keywords="Thermometer Hygrometer"}...{/equipment}
+                {equipment alias="main" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -546,14 +557,14 @@
                         Typically, the specifications are specified on the website,
                         datasheet and/or technical notes that a manufacturer provides.
 
-                        **Example**
+                        **Examples**
 
                         Specify the current range for a diode laser
-                        ```
-                        &lt;specifications&gt;
-                          &lt;lasingCurrent unit="mA"&gt;15&lt;/lasingCurrent&gt;
-                          &lt;maximumCurrent unit="mA"&gt;120&lt;/maximumCurrent&gt;
-                        &lt;/specifications&gt;
+                        ```xml
+                        {specifications}
+                          {lasingCurrent unit="mA"}15{/lasingCurrent}
+                          {maximumCurrent unit="mA"}120{/maximumCurrent}
+                        {/specifications}
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -590,16 +601,16 @@
                         **Examples**
 
                         Equipment that _is not_ loggable
-                        ```
-                        &lt;loggable/&gt;
-                        &lt;loggable&gt;0&lt;/loggable&gt;
-                        &lt;loggable&gt;false&lt;/loggable&gt;
+                        ```xml
+                        {loggable/}
+                        {loggable}0{/loggable}
+                        {loggable}false{/loggable}
                         ```
 
                         Equipment that _is_ loggable
-                        ```
-                        &lt;loggable&gt;1&lt;/loggable&gt;
-                        &lt;loggable&gt;true&lt;/loggable&gt;
+                        ```xml
+                        {loggable}1{/loggable}
+                        {loggable}true{/loggable}
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -615,15 +626,15 @@
                         **Examples**
 
                         Equipment that _is not_ traceable
-                        ```
-                        &lt;traceable&gt;0&lt;/traceable&gt;
-                        &lt;traceable&gt;false&lt;/traceable&gt;
+                        ```xml
+                        {traceable}0{/traceable}
+                        {traceable}false{/traceable}
                         ```
 
                         Equipment that _is_ traceable
-                        ```
-                        &lt;traceable&gt;1&lt;/traceable&gt;
-                        &lt;traceable&gt;true&lt;/traceable&gt;
+                        ```xml
+                        {traceable}1{/traceable}
+                        {traceable}true{/traceable}
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -721,8 +732,8 @@
 
                 **Examples**
 
-                ```
-                &lt;comment date="2024-12-19"&gt;Replaced the gas tube of the Ar+ laser&lt;/comment&gt;
+                ```xml
+                {comment date="2024-12-19"}Replaced the gas tube of the Ar+ laser{/comment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -742,39 +753,42 @@
                 **Examples**
 
                 No maintenance plan is required
+                ```xml
+                {maintenance/}
                 ```
-                &lt;maintenance/&gt;
-                ```
+                
                 Some maintenance tasks are planned but none have been completed
+                ```xml
+                {maintenance}
+                  {planned}
+                    {task dueDate="2024-12-01"}Refill helium gas{/task}
+                    {task dueDate="2025-05-15" performedBy="Company X"}Service laser{/task}
+                  {/planned}
+                  {completed/}
+                {/maintenance}
                 ```
-                &lt;maintenance&gt;
-                  &lt;planned&gt;
-                    &lt;task dueDate="2024-12-01"&gt;Refill helium gas&lt;/task&gt;
-                    &lt;task dueDate="2025-05-15" performedBy="Company X"&gt;Service laser&lt;/task&gt;
-                  &lt;/planned&gt;
-                  &lt;completed/&gt;
-                &lt;/maintenance&gt;
-                ```
+                
                 Some maintenance tasks are planned and some have been completed
+                ```xml
+                {maintenance}
+                  {planned}
+                    {task dueDate="2025-05-15" performedBy="Company X"}Service laser{/task}
+                  {/planned}
+                  {completed}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                  {/completed}
+                {/maintenance}
                 ```
-                &lt;maintenance&gt;
-                  &lt;planned&gt;
-                    &lt;task dueDate="2025-05-15" performedBy="Company X"&gt;Service laser&lt;/task&gt;
-                  &lt;/planned&gt;
-                  &lt;completed&gt;
-                    &lt;task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"&gt;Refill helium gas&lt;/task&gt;
-                  &lt;/completed&gt;
-                &lt;/maintenance&gt;
-                ```
+                
                 No maintenance tasks are planned and some have been completed
-                ```
-                &lt;maintenance&gt;
-                  &lt;planned/&gt;
-                  &lt;completed&gt;
-                    &lt;task dueDate="2025-05-15" completedDate="2025-05-15" performedBy="Company X"&gt;Service laser&lt;/task&gt;
-                    &lt;task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"&gt;Refill helium gas&lt;/task&gt;
-                  &lt;/completed&gt;
-                &lt;/maintenance&gt;
+                ```xml
+                {maintenance}
+                  {planned/}
+                  {completed}
+                    {task dueDate="2025-05-15" completedDate="2025-05-15" performedBy="Company X"}Service laser{/task}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                  {/completed}
+                {/maintenance}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -814,13 +828,13 @@
                 **Examples**
 
                 The `performedBy` attribute may be omitted if the value is not known
-                ```
-                &lt;plannedTask dueDate="2025-06-15"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```xml
+                {plannedTask dueDate="2025-06-15"}Buy replacement air filter{/plannedTask}
                 ```
 
                 or if it is known who will perform the task
-                ```
-                &lt;plannedTask dueDate="2025-06-15" performedBy="Tom"&gt;Buy replacement air filter&lt;/plannedTask&gt;
+                ```xml
+                {plannedTask dueDate="2025-06-15" performedBy="Tom"}Buy replacement air filter{/plannedTask}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -853,8 +867,8 @@
 
                 **Examples**
 
-                ```
-                &lt;completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"&gt;Clean fan&lt;/completedTask&gt;
+                ```xml
+                {completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"}Clean fan{/completedTask}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -898,15 +912,16 @@
                 **Examples**
 
                 No alterations have been performed
+                ```xml
+                {alterations/}
                 ```
-                &lt;alterations/&gt;
-                ```
+                
                 Some alterations have been performed
-                ```
-                &lt;alterations&gt;
-                  &lt;alteration date="2024-10-16" performedBy="Chris, MSL"&gt;Replace blown op-amp with Texas Instruments LMP7721&lt;/alteration&gt;
-                  &lt;alteration date="2022-06-23" performedBy="Chris, MSL"&gt;Attach heatsink to voltage regulator&lt;/alteration&gt;
-                &lt;/alterations&gt;
+                ```xml
+                {alterations}
+                  {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with Texas Instruments LMP7721{/alteration}
+                  {alteration date="2022-06-23" performedBy="Chris, MSL"}Attach heatsink to voltage regulator{/alteration}
+                {/alterations}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -923,8 +938,8 @@
 
                 **Examples**
 
-                ```
-                &lt;alteration date="2024-10-16" performedBy="Chris, MSL"&gt;Replace blown op-amp with Texas Instruments LMP7721&lt;/alteration&gt;
+                ```xml
+                {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with Texas Instruments LMP7721{/alteration}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -984,13 +999,13 @@
                 For equipment that support the `*IDN?` query, the firmware version is
                 typically found as the fourth item in the reply: _manufacturer,model,serial,firmware_
 
-                **Example**
+                **Examples**
 
-                ```
-                &lt;firmware&gt;
-                  &lt;version date="2025-01-14"&gt;1.4.0&lt;/version&gt;
-                  &lt;version date="2023-06-14"&gt;1.3.2&lt;/version&gt;
-                &lt;/firmware&gt;
+                ```xml
+                {firmware}
+                  {version date="2025-01-14"}1.4.0{/version}
+                  {version date="2023-06-14"}1.3.2{/version}
+                {/firmware}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1011,26 +1026,26 @@
                 **Examples**
 
                 Specify only the asset number
-                ```
-                &lt;financial&gt;
-                  &lt;assetNumber&gt;002297&lt;/assetNumber&gt;
-                &lt;/financial&gt;
+                ```xml
+                {financial}
+                  {assetNumber}002297{/assetNumber}
+                {/financial}
                 ```
 
                 Specify only the year that the equipment was purchased
-                ```
-                &lt;financial&gt;
-                    &lt;yearPurchased&gt;2010&lt;/yearPurchased&gt;
-                &lt;/financial&gt;
+                ```xml
+                {financial}
+                    {yearPurchased}2010{/yearPurchased}
+                {/financial}
                 ```
 
                 Specify all financial information
-                ```
-                &lt;financial&gt;
-                    &lt;assetNumber&gt;7265817&lt;/assetNumber&gt;
-                    &lt;warrantyExpirationDate&gt;2026-08-01&lt;/warrantyExpirationDate&gt;
-                    &lt;yearPurchased&gt;2025&lt;/yearPurchased&gt;
-                &lt;/financial&gt;
+                ```xml
+                {financial}
+                    {assetNumber}7265817{/assetNumber}
+                    {warrantyExpirationDate}2026-08-01{/warrantyExpirationDate}
+                    {yearPurchased}2025{/yearPurchased}
+                {/financial}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1075,12 +1090,12 @@
 
                 **Examples**
 
-                ```
-                &lt;technicalProcedures&gt;
-                  &lt;id&gt;MSLT.O.032&lt;/id&gt;
-                  &lt;id&gt;MSLT.O.025&lt;/id&gt;
-                  &lt;id&gt;MSLT.O.006&lt;/id&gt;
-                &lt;/technicalProcedures&gt;
+                ```xml
+                {technicalProcedures}
+                  {id}MSLT.O.032{/id}
+                  {id}MSLT.O.025{/id}
+                  {id}MSLT.O.006{/id}
+                {/technicalProcedures}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1106,11 +1121,11 @@
 
                 **Examples**
 
-                ```
-                &lt;qualityManual&gt;
-                  &lt;documentation&gt;https://www.keysight.com/us/en/product/34401A/digital-multimeter-6-digit.html&lt;/documentation&gt;
-                  &lt;serviceAgent&gt;Keysight&lt;/serviceAgent&gt;
-                &lt;/qualityManual&gt;
+                ```xml
+                {qualityManual}
+                  {documentation}https://www.keysight.com/us/en/product/34401A/digital-multimeter-6-digit.html{/documentation}
+                  {serviceAgent}Keysight{/serviceAgent}
+                {/qualityManual}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1193,16 +1208,16 @@
                 **Examples**
 
                 No calibrations have been performed
-                ```
-                &lt;calibrations/&gt;
+                ```xml
+                {calibrations/}
                 ```
 
                 Calibrations for both humidity and temperature
-                ```
-                &lt;calibrations&gt;
-                  &lt;measurand quantity="Humidity" calibrationInterval="5"&gt;...&lt;/measurand&gt;
-                  &lt;measurand quantity="Temperature" calibrationInterval="5"&gt;...&lt;/measurand&gt;
-                &lt;/calibrations&gt;
+                ```xml
+                {calibrations}
+                  {measurand quantity="Humidity" calibrationInterval="5"}...{/measurand}
+                  {measurand quantity="Temperature" calibrationInterval="5"}...{/measurand}
+                {/calibrations}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1228,11 +1243,11 @@
 
                 **Examples**
 
-                ```
-                &lt;measurand quantity="Wavelength" calibrationInterval="1"&gt;
-                  &lt;component name="Grating1"&gt;...&lt;/component&gt;
-                  &lt;component name="Grating2"&gt;...&lt;/component&gt;
-                &lt;/measurand&gt;
+                ```xml
+                {measurand quantity="Wavelength" calibrationInterval="1"}
+                  {component name="Grating1"}...{/component}
+                  {component name="Grating2"}...{/component}
+                {/measurand}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1274,22 +1289,22 @@
                 **Examples**
 
                 The `name` attribute must be defined, but it may be an empty string
-                ```
-                &lt;component name=""&gt;
-                  &lt;report id="Electrical/2024/618"&gt;...&lt;/report&gt;
-                &lt;/component&gt;
+                ```xml
+                {component name=""}
+                  {report id="Electrical/2024/618"}...{/report}
+                {/component}
                 ```
 
                 The sequence of child elements can be in any order, but it may make sense to
                 order the elements chronologically (latest first)
-                ```
-                &lt;component name="Probe 1"&gt;
-                  &lt;adjustment date="2024-10-17"&gt;Cleaned the filter&lt;/adjustment&gt;
-                  &lt;report id="Humidity/2023/583"&gt;...&lt;/report&gt;
-                  &lt;performanceCheck completedDate="2021-11-20"&gt;...&lt;/performanceCheck&gt;
-                  &lt;report id="Humidity/2019/421"&gt;...&lt;/report&gt;
-                  &lt;report id="Humidity/2015/183"&gt;...&lt;/report&gt;
-                &lt;/component&gt;
+                ```xml
+                {component name="Probe 1"}
+                  {adjustment date="2024-10-17"}Cleaned the filter{/adjustment}
+                  {report id="Humidity/2023/583"}...{/report}
+                  {performanceCheck completedDate="2021-11-20"}...{/performanceCheck}
+                  {report id="Humidity/2019/421"}...{/report}
+                  {report id="Humidity/2015/183"}...{/report}
+                {/component}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1352,21 +1367,23 @@
                     **Examples**
 
                     A digital multimeter
+                    ```xml
+                    {component name="Front"}
+                    {component name="Rear terminal"}
                     ```
-                    &lt;component name="Front"&gt;
-                    &lt;component name="Rear terminal"&gt;
-                    ```
+                    
                     A data acquisition (DAQ) system
+                    ```xml
+                    {component name="AO1"}
+                    {component name="Analog In 1"}
+                    {component name="PFI2"}
+                    {component name="Counter 1"}
                     ```
-                    &lt;component name="AO1"&gt;
-                    &lt;component name="Analog In 1"&gt;
-                    &lt;component name="PFI2"&gt;
-                    &lt;component name="Counter 1"&gt;
-                    ```
+                    
                     A scanner or multiplexer
-                    ```
-                    &lt;component name="Ch1"&gt;
-                    &lt;component name="Channel 2"&gt;
+                    ```xml
+                    {component name="Ch1"}
+                    {component name="Channel 2"}
                     ```
                 </xsd:documentation>
             </xsd:annotation>
@@ -1384,11 +1401,11 @@
 
                 **Examples**
 
-                ```
-                &lt;digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"&gt;
-                  &lt;url&gt;reports/2025/job092.pdf&lt;/url&gt;
-                  &lt;sha256&gt;76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54&lt;/sha256&gt;
-                &lt;/digitalReport&gt;
+                ```xml
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}
+                  {url}reports/2025/job092.pdf{/url}
+                  {sha256}76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54{/sha256}
+                {/digitalReport}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1420,12 +1437,12 @@
 
                 **Examples**
 
-                ```
-                &lt;performanceCheck completedDate="2023-04-02"&gt;
-                  &lt;competency&gt;...&lt;/competency&gt;
-                  &lt;conditions/&gt;
-                  &lt;equation&gt;...&lt;/equation&gt;
-                &lt;/performanceCheck&gt;
+                ```xml
+                {performanceCheck completedDate="2023-04-02"}
+                  {competency}...{/competency}
+                  {conditions/}
+                  {equation}...{/equation}
+                {/performanceCheck}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1504,12 +1521,12 @@
 
                 **Examples**
 
-                ```
-                &lt;competency&gt;
-                  &lt;worker&gt;Tim&lt;/worker&gt;
-                  &lt;checker&gt;Laurie&lt;/checker&gt;
-                  &lt;technicalProcedure&gt;MSLT.E.048.005&lt;/technicalProcedure&gt;
-                &lt;/competency&gt;
+                ```xml
+                {competency}
+                  {worker}Tim{/worker}
+                  {checker}Laurie{/checker}
+                  {technicalProcedure}MSLT.E.048.005{/technicalProcedure}
+                {/competency}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1552,8 +1569,8 @@
 
                 **Examples**
 
-                ```
-                &lt;report id="Light/2024/231"&gt;...&lt;/report&gt;
+                ```xml
+                {report id="Light/2024/231"}...{/report}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1738,7 +1755,7 @@
                 a search and replace may need to be performed. If the programming language
                 does not support the `pow(x,y)` function to raise `x` to the power of `y`,
                 you may use the following regular expression (which uses a named capture
-                group for the `x` and `y` text) `pow\((?&lt;x&gt;[^,]+),(?&lt;y&gt;[^,]+)\)`
+                group for the `x` and `y` text) `pow\((?{x}[^,]+),(?{y}[^,]+)\)`
                 to perform a search and replace.
 
                 _Attention: This XSD document validates the content of an XML document
@@ -1748,23 +1765,23 @@
                 is missing a closing bracket). You must use another tool to validate the
                 mathematical correctness of the equation._
 
-                **Example**
+                **Examples**
 
                 The correction to apply for a temperature `value` is expressed as a
                 second-order polynomial and the _expanded_ `uncertainty` is specified to be
                 0.45 °C with a coverage factor of 2.
-                ```
-                &lt;equation&gt;
-                  &lt;value variables="T"&gt;T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2))&lt;/value&gt;
-                  &lt;uncertainty variables=""&gt;0.45/2&lt;/uncertainty&gt;
-                  &lt;unit&gt;°C&lt;/unit&gt;
-                  &lt;ranges&gt;
-                    &lt;range variable="T"&gt;
-                      &lt;minimum&gt;15&lt;/minimum&gt;
-                      &lt;maximum&gt;25&lt;/maximum&gt;
-                    &lt;/range&gt;
-                  &lt;/ranges&gt;
-                &lt;/equation&gt;
+                ```xml
+                {equation}
+                  {value variables="T"}T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2)){/value}
+                  {uncertainty variables=""}0.45/2{/uncertainty}
+                  {unit}°C{/unit}
+                  {ranges}
+                    {range variable="T"}
+                      {minimum}15{/minimum}
+                      {maximum}25{/maximum}
+                    {/range}
+                  {/ranges}
+                {/equation}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1883,14 +1900,14 @@
                 One option is to think of the file-system path as a combination of two parts
 
                 ```
-                root \ &lt;url&gt;
+                root \ {url}
                 ```
 
                 where,
                 * root: This is not stored in an equipment register. Instead, it may be
                         stored in a separate file (ideally in a single file) on a local
                         hard drive. How and where this is stored is up to the individual.
-                * url: This is the `&lt;url&gt;` element in an equipment register.
+                * url: This is the `{url}` element in an equipment register.
 
                 For example, consider the following absolute path
                 ```
@@ -1904,7 +1921,7 @@
                 * url = `Length\Quality\Equipment\register.xml`
 
                 Whenever someone needs to load the file, the `root` is read from a local
-                file and the `&lt;url&gt;` element is read from the equipment register and
+                file and the `{url}` element is read from the equipment register and
                 the absolute path is constructed.
 
                 _Attention: This XSD document validates the content of an XML document
@@ -1919,19 +1936,19 @@
                 **Examples**
 
                 The data is stored in an Excel file that is located at a _relative_ path
-                ```
-                &lt;file&gt;
-                  &lt;url sheet="2024-May" cell="B2:D25"&gt;relative\path\data.xlsx&lt;/url&gt;
-                  &lt;sha256&gt;70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609&lt;/sha256&gt;
-                &lt;/file&gt;
+                ```xml
+                {file}
+                  {url sheet="2024-May" cell="B2:D25"}relative\path\data.xlsx{/url}
+                  {sha256}70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609{/sha256}
+                {/file}
                 ```
 
                 The data is stored in a digital calibration certificate on a network server
-                ```
-                &lt;file comment="calibration of second grating"&gt;
-                  &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.xml&lt;/filename&gt;
-                  &lt;sha256&gt;8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728&lt;/sha256&gt;
-                &lt;/file&gt;
+                ```xml
+                {file comment="calibration of second grating"}
+                  {url}file://msl-nas/Photometry/Calibrations/job123456.xml{/filename}
+                  {sha256}8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728{/sha256}
+                {/file}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1959,13 +1976,13 @@
                         **Examples**
 
                         The data is stored in a digital calibration report on a network server
-                        ```
-                        &lt;url&gt;file://msl-nas/Photometry/Calibrations/job123456.pdf&lt;/url&gt;
+                        ```xml
+                        {url}file://msl-nas/Photometry/Calibrations/job123456.pdf{/url}
                         ```
 
                         The data is stored in an Excel file that is located at a local _relative_ path
-                        ```
-                        &lt;url sheet="2024-May" cell="B2:D25"&gt;relative\path\data.xlsx&lt;/url&gt;
+                        ```xml
+                        {url sheet="2024-May" cell="B2:D25"}relative\path\data.xlsx{/url}
                         ```
                         where the _absolute_ path may be constructed using the _root_-directory
                         concept (discussed in the [file](#type_file)-element documentation),
@@ -2030,19 +2047,19 @@
                 **Examples**
 
                 A `GTC` archive in XML format
-                ```
-                &lt;gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"&gt;
-                  &lt;leafNodes&gt;...&lt;/leafNodes&gt;
-                  &lt;taggedReals&gt;...&lt;/taggedReals&gt;
-                  &lt;untaggedReals&gt;...&lt;/untaggedReals&gt;
-                  &lt;taggedComplexes&gt;...&lt;/taggedComplexes&gt;
-                  &lt;intermediates&gt;...&lt;/intermediates&gt;
-                &lt;/gtcArchive&gt;
+                ```xml
+                {gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"}
+                  {leafNodes}...{/leafNodes}
+                  {taggedReals}...{/taggedReals}
+                  {untaggedReals}...{/untaggedReals}
+                  {taggedComplexes}...{/taggedComplexes}
+                  {intermediates}...{/intermediates}
+                {/gtcArchive}
                 ```
 
                 A `GTC` archive in JSON format
-                ```
-                &lt;gtcArchiveJSON&gt;{"CLASS": "Archive", ...}&lt;/gtcArchiveJSON&gt;
+                ```xml
+                {gtcArchiveJSON}{"CLASS": "Archive", ...}{/gtcArchiveJSON}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -2060,7 +2077,7 @@
                         [dumps_xml](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_xml)
                         function with the following keyword arguments
 
-                        ```
+                        ```python
                         from GTC.persistence import dumps_xml
 
                         # create Archive object
@@ -2073,7 +2090,7 @@
                         directly and add it to an
                         [ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html#module-xml.etree.ElementTree)
 
-                        ```
+                        ```python
                         from GTC.xml_format import archive_to_xml
 
                         # create the Archive
@@ -2085,13 +2102,14 @@
 
                         `GTC` has an XML Schema Definition file to validate the serialised format of an `Archive`.
 
-                        **Example**
-                        ```
-                        &lt;serialised&gt;
-                          &lt;gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"&gt;
+                        **Examples**
+
+                        ```xml
+                        {serialised}
+                          {gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"}
                             ...
-                          &lt;/gtcArchive&gt;
-                        &lt;/serialised&gt;
+                          {/gtcArchive}
+                        {/serialised}
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2116,11 +2134,12 @@
                         string that can be used to create an `Archive` object. You must use
                         `GTC` to validate the content._
 
-                        **Example**
-                        ```
-                        &lt;serialised&gt;
-                          &lt;gtcArchiveJSON&gt;{"CLASS": "Archive", ...}&lt;/gtcArchiveJSON&gt;
-                        &lt;/serialised&gt;
+                        **Examples**
+
+                        ```xml
+                        {serialised}
+                          {gtcArchiveJSON}{"CLASS": "Archive", ...}{/gtcArchiveJSON}
+                        {/serialised}
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2154,13 +2173,14 @@
                 `data` contain the same number of columns). You must use another tool
                 to validate the structure of the table._
 
-                **Example**
-                ```
-                &lt;table&gt;
-                  &lt;type&gt;  int       , double       , double&lt;/type&gt;
-                  &lt;unit&gt;  nm        , W/m^2        , W/m^2&lt;/unit&gt;
-                  &lt;header&gt;Wavelength, Irradiance   , Irradiance Std. Uncertainty&lt;/header&gt;
-                  &lt;data&gt;  250       ,  0.018184693 , 0.020338474
+                **Examples**
+
+                ```xml
+                {table}
+                  {type}  int       , double       , double{/type}
+                  {unit}  nm        , W/m^2        , W/m^2{/unit}
+                  {header}Wavelength, Irradiance   , Irradiance Std. Uncertainty{/header}
+                  {data}  250       ,  0.018184693 , 0.020338474
                           300       ,  0.184783924 , 0.017558388
                           350       ,  0.808454870 , 0.016061036
                           400       ,  2.213559358 , 0.014050724
@@ -2170,8 +2190,8 @@
                           600       , 14.03809504  , 0.011028261
                           650       , 16.99469553  , 0.011031749
                           700       , 19.44093973  , 0.010771097
-                  &lt;/data&gt;
-                &lt;/table&gt;
+                  {/data}
+                {/table}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -2267,32 +2287,32 @@
                 **Examples**
 
                 If the [equation](#type_equation) does not depend on any variables
-                ```
-                &lt;ranges/&gt;
+                ```xml
+                {ranges/}
                 ```
 
                 If the [equation](#type_equation) depends on one variable `t`
-                ```
-                &lt;ranges&gt;
-                  &lt;range variable="t"&gt;
-                    &lt;minimum&gt;15&lt;/minimum&gt;
-                    &lt;maximum&gt;25&lt;/maximum&gt;
-                  &lt;/range&gt;
-                &lt;/ranges&gt;
+                ```xml
+                {ranges}
+                  {range variable="t"}
+                    {minimum}15{/minimum}
+                    {maximum}25{/maximum}
+                  {/range}
+                {/ranges}
                 ```
 
                 If the [equation](#type_equation) depends on two variables `R` and `t`
-                ```
-                &lt;ranges&gt;
-                  &lt;range variable="R"&gt;
-                    &lt;minimum&gt;30&lt;/minimum&gt;
-                    &lt;maximum&gt;80&lt;/maximum&gt;
-                  &lt;/range&gt;
-                  &lt;range variable="t"&gt;
-                    &lt;minimum&gt;15&lt;/minimum&gt;
-                    &lt;maximum&gt;25&lt;/maximum&gt;
-                  &lt;/range&gt;
-                &lt;/ranges&gt;
+                ```xml
+                {ranges}
+                  {range variable="R"}
+                    {minimum}30{/minimum}
+                    {maximum}80{/maximum}
+                  {/range}
+                  {range variable="t"}
+                    {minimum}15{/minimum}
+                    {maximum}25{/maximum}
+                  {/range}
+                {/ranges}
                 ```
             </xsd:documentation>
         </xsd:annotation>

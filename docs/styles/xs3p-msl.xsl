@@ -441,8 +441,6 @@
                                   hljs.highlight(text, { language: lang }).value +
                                   '</code></pre>'
                          }
-                         console.log(str)
-
                          return ''; // use external default escaping
                        }
                   });
@@ -719,8 +717,8 @@
      Prints out footer for top-level sections.
      -->
    <xsl:template name="SectionFooter">
-      <!-- Link to top of page-->
-      <div style="text-align: right; clear: both;"><a href="#top" title="Go to top of page"><span class="glyphicon glyphicon-chevron-up"><xsl:text> </xsl:text></span></a></div>
+      <!-- Link to equipment element -->
+      <div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to the &lt;equipment&gt; element"><span class="glyphicon glyphicon-chevron-up"><xsl:text> </xsl:text></span></a></div>
       <hr/>
    </xsl:template>
 

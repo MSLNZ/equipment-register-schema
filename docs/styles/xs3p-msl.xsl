@@ -858,8 +858,9 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
 .hljs-string {color: #96372F}   <!-- XML and Python -->
 .hljs-keyword {color: #cf222e}  <!-- Python -->
 .hljs-comment {color: #999999}  <!-- Python -->
-.hljs-built_in {color: #69875B} <!-- Python -->
+.hljs-built_in {color: #128A2A} <!-- Python -->
 .hljs-literal {color: #cf222e}  <!-- Python -->
+.hljs-number {color: #030A8C}   <!-- Python -->
 
 @media (min-width: 992px) {
     .xs3p-sidebar {

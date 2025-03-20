@@ -1572,7 +1572,7 @@
                 **Examples**
 
                 ```xml
-                {report id="Light/2024/231"}...{/report}
+                {report id="Radiometry/2024/615"}...{/report}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -2077,29 +2077,23 @@
                         If you want to serialise an `Archive` into a _string_ that can be
                         copied-pasted into an equipment-register file, you may use the
                         [dumps_xml](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_xml)
-                        function with the following keyword arguments
+                        function
 
                         ```python
-                        from GTC.persistence import dumps_xml
+                        from GTC import ureal, pr
 
-                        # create Archive object
+                        # create an Archive and add items to it
+                        archive = pr.Archive()
+                        archive.add(x=ureal(1, 0.1))
+                        archive.add(y=ureal(2, 0.2))
 
-                        print(dumps_xml(archive, encoding="unicode", xml_declaration=None))
-                        ```
-
-                        otherwise, you can create an
-                        [Element](https://docs.python.org/3/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element)
-                        directly and add it to an
-                        [ElementTree](https://docs.python.org/3/library/xml.etree.elementtree.html#module-xml.etree.ElementTree)
-
-                        ```python
-                        from GTC.xml_format import archive_to_xml
-
-                        # create the Archive
-
-                        element = archive_to_xml(archive)
-
-                        # add the `element` to your XML element tree
+                        # print the archive to be able to copy-paste the output
+                        print(pr.dumps_xml(
+                            archive,
+                            indent=4,
+                            encoding="unicode",
+                            xml_declaration=None
+                        ))
                         ```
 
                         `GTC` has an XML Schema Definition file to validate the serialised format of an `Archive`.
@@ -2124,11 +2118,22 @@
                         [Archive](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.Archive)
                         in JSON format.
 
-                        Use the
+                        If you want to serialise an `Archive` into a _string_ that can be
+                        copied-pasted into an equipment-register file, you may use the
                         [dumps_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.dumps_json)
-                        function to serialise an `Archive` and the
-                        [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                        function to deserialise the `gtcArchiveJSON` content.
+                        function
+
+                        ```python
+                        from GTC import ureal, pr
+
+                        # create an Archive and add items to it
+                        archive = pr.Archive()
+                        archive.add(x=ureal(1, 0.1))
+                        archive.add(y=ureal(2, 0.2))
+
+                        # print the archive to be able to copy-paste the output
+                        print(pr.dumps_json(archive, indent=4))
+                        ```
 
                         _Attention: This XSD document validates the content of an XML document
                         (e.g., that the `gtcArchiveJSON` element has content that may be any
@@ -2143,6 +2148,10 @@
                           {gtcArchiveJSON}{"CLASS": "Archive", ...}{/gtcArchiveJSON}
                         {/serialised}
                         ```
+
+                        If the [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
+                        function requires keyword arguments to load the Archive, these keyword arguments
+                        may be defined as the XML attributes for the `gtcArchiveJSON` element.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>
@@ -2179,8 +2188,8 @@
 
                 ```xml
                 {table}
-                  {type}  int       , double       , double{/type}
-                  {unit}  nm        , W/m^2        , W/m^2{/unit}
+                  {type}  int       , double       , double                     {/type}
+                  {unit}  nm        , W/m^2        , W/m^2                      {/unit}
                   {header}Wavelength, Irradiance   , Irradiance Std. Uncertainty{/header}
                   {data}  250       ,  0.018184693 , 0.020338474
                           300       ,  0.184783924 , 0.017558388

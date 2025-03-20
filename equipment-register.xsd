@@ -2050,18 +2050,22 @@
 
                 A `GTC` archive in XML format
                 ```xml
-                {gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"}
-                  {leafNodes}...{/leafNodes}
-                  {taggedReals}...{/taggedReals}
-                  {untaggedReals}...{/untaggedReals}
-                  {taggedComplexes}...{/taggedComplexes}
-                  {intermediates}...{/intermediates}
-                {/gtcArchive}
+                {serialised}
+                  {gtcArchive version="1.5.0" xmlns="https://measurement.govt.nz/gtc/xml"}
+                    {leafNodes}...{/leafNodes}
+                    {taggedReals}...{/taggedReals}
+                    {untaggedReals}...{/untaggedReals}
+                    {taggedComplexes}...{/taggedComplexes}
+                    {intermediates}...{/intermediates}
+                  {/gtcArchive}
+                {/serialised}
                 ```
 
                 A `GTC` archive in JSON format
                 ```xml
-                {gtcArchiveJSON}{"CLASS": "Archive", ...}{/gtcArchiveJSON}
+                {serialised}
+                  {gtcArchiveJSON}\{"CLASS": "Archive", ...\}{/gtcArchiveJSON}
+                {/serialised}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -2145,7 +2149,7 @@
 
                         ```xml
                         {serialised}
-                          {gtcArchiveJSON}{"CLASS": "Archive", ...}{/gtcArchiveJSON}
+                          {gtcArchiveJSON}\{"CLASS": "Archive", ...\}{/gtcArchiveJSON}
                         {/serialised}
                         ```
 

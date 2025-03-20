@@ -437,6 +437,8 @@
                      highlight: function (str, lang) {
                         if (lang && hljs.getLanguage(lang)) {
                            var text = str.replace(new RegExp("{", "gm"), "<").replace(new RegExp("}", "gm"), ">")
+                           <!-- gtcArchiveJSON contains { } for the value -->
+                           text = text.replace('\\<', '{').replace('\\>', '}')
                            return '<pre><code class="hljs">' +
                                   hljs.highlight(text, { language: lang }).value +
                                   '</code></pre>'

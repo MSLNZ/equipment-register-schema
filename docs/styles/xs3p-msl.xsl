@@ -709,7 +709,7 @@
          </xsl:choose>
          <xsl:text>: </xsl:text>
          <!-- Name -->
-         <a id="{$componentID}" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name.">
+         <a id="{$componentID}" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name">
             <xsl:value-of select="$component/@name"/>
          </a>
       </h3>
@@ -720,7 +720,13 @@
      -->
    <xsl:template name="SectionFooter">
       <!-- Link to equipment element -->
-      <div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to the &lt;equipment&gt; element"><span class="glyphicon glyphicon-chevron-up"><xsl:text> </xsl:text></span></a></div>
+      <div style="text-align: center; clear: both;">
+         <a href="#type_equipment" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to the equipment element">
+            <span class="glyphicon glyphicon-link">
+               <xsl:text> </xsl:text>
+            </span>
+         </a>
+      </div>
       <hr/>
    </xsl:template>
 
@@ -7782,7 +7788,7 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
 
       <xsl:choose>
          <xsl:when test="$docFileLoc!=''">
-            <a title="Jump to schema documentation for '{$uri}'." href="{$docFileLoc}">
+            <a title="Jump to schema documentation for '{$uri}'" href="{$docFileLoc}">
                <xsl:value-of select="$uri"/>
             </a>
          </xsl:when>

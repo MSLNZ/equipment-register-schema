@@ -853,6 +853,7 @@ pre {
 
 <!-- highlight.js syntax highlighting in document tags -->
 pre code.hljs {display:block; overflow-x:auto; padding: 5px}
+.hljs-meta {color: #32356BAA}   <!-- XML -->
 .hljs-tag  {color: #32356BAA}   <!-- XML -->
 .hljs-name {color: #32356B}     <!-- XML -->
 .hljs-attr {color: #69875B}     <!-- XML -->
@@ -1919,6 +1920,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
      complex type definition.
      -->
    <xsl:template match="xsd:complexType" mode="properties">
+      <!--
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">
             <xsl:call-template name="GetComponentID">
@@ -1932,12 +1934,12 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="contents">
          <table class="table table-striped xs3p-in-panel-table">
             <tbody>
-               <!-- Name -->
+               <!- Name ->
                <tr>
                   <th>Name</th>
                   <td><xsl:value-of select="@name"/></td>
                </tr>
-               <!-- Abstract -->
+               <!- Abstract ->
                <tr>
                   <th>
                      <xsl:call-template name="PrintGlossaryTermRef">
@@ -1951,7 +1953,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                      </xsl:call-template>
                   </td>
                </tr>
-               <!-- Final -->
+               <!- Final ->
                <xsl:variable name="final">
                   <xsl:call-template name="PrintDerivationSet">
                      <xsl:with-param name="EBV">
@@ -1977,7 +1979,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                      <td><xsl:value-of select="$final"/></td>
                   </tr>
                </xsl:if>
-               <!-- Block -->
+               <!- Block ->
                <xsl:variable name="block">
                   <xsl:call-template name="PrintDerivationSet">
                      <xsl:with-param name="EBV">
@@ -2009,6 +2011,8 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
+      -->
+
       <!-- Annotation -->
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">
@@ -2035,6 +2039,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
      element declaration.
      -->
    <xsl:template match="xsd:element" mode="properties">
+      <!--
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">
             <xsl:call-template name="GetComponentID">
@@ -2048,12 +2053,12 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="contents">
             <table class="table table-striped xs3p-in-panel-table">
                <tbody>
-                  <!-- Name -->
+                  <!- Name ->
                   <tr>
                      <th>Name</th>
                      <td><xsl:value-of select="@name"/></td>
                   </tr>
-                  <!-- Type -->
+                  <!- Type ->
                   <tr>
                      <th>Type</th>
                      <td>
@@ -2075,7 +2080,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         </xsl:choose>
                      </td>
                   </tr>
-                  <!-- Nillable -->
+                  <!- Nillable ->
                   <tr>
                      <th>
                         <xsl:call-template name="PrintGlossaryTermRef">
@@ -2089,7 +2094,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         </xsl:call-template>
                      </td>
                   </tr>
-                  <!-- Abstract -->
+                  <!- Abstract ->
                   <tr>
                      <th>
                         <xsl:call-template name="PrintGlossaryTermRef">
@@ -2103,21 +2108,21 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         </xsl:call-template>
                      </td>
                   </tr>
-                  <!-- Default Value -->
+                  <!- Default Value ->
                   <xsl:if test="@default">
                      <tr>
                         <th>Default Value</th>
                         <td><xsl:value-of select="@default"/></td>
                      </tr>
                   </xsl:if>
-                  <!-- Fixed Value -->
+                  <!- Fixed Value ->
                   <xsl:if test="@fixed">
                      <tr>
                         <th>Fixed Value</th>
                         <td><xsl:value-of select="@fixed"/></td>
                      </tr>
                   </xsl:if>
-                  <!-- Final -->
+                  <!- Final ->
                   <xsl:variable name="final">
                      <xsl:call-template name="PrintDerivationSet">
                         <xsl:with-param name="EBV">
@@ -2143,7 +2148,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                         <td><xsl:value-of select="$final"/></td>
                      </tr>
                   </xsl:if>
-                  <!-- Block -->
+                  <!- Block ->
                   <xsl:variable name="block">
                      <xsl:call-template name="PrintBlockSet">
                         <xsl:with-param name="EBV">
@@ -2175,6 +2180,8 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          <xsl:with-param name="isOpened">false</xsl:with-param>
          <xsl:with-param name="omitPanelContainer">true</xsl:with-param>
       </xsl:call-template>
+      -->
+
       <!-- Annotation -->
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id">

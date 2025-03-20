@@ -25,12 +25,14 @@
     <xsd:element name="register">
         <xsd:annotation>
             <xsd:documentation>
-                Root `element` that contains zero or more [equipment](#type_equipment) elements.
+                Root element that contains zero or more [equipment](#type_equipment) elements.
 
                 **Examples**
 
+                The `xmlns` attribute specifies the XML namespace for the document and must be included
                 ```xml
-                {register team="Length" xmlns="https://measurement.govt.nz/equipment-register"}
+                {?xml version="1.0" encoding="utf-8"?}
+                {register team="Pressure" xmlns="https://measurement.govt.nz/equipment-register"}
                    {equipment}...{/equipment}
                    {equipment}...{/equipment}
                    {equipment}...{/equipment}

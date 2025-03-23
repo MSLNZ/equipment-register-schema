@@ -438,7 +438,7 @@
                 the `variables` attribute must be set to an empty string
                 ```xml
                 {equation}
-                  {value variables="">0.52{/value}
+                  {value variables=""}0.52{/value}
                   ...
                 {/equation}
                 ```
@@ -446,7 +446,7 @@
                 The [equation](#type_equation) requires one variable `x`
                 ```xml
                 {equation}
-                  {value variables="x">0.52 + 7.3*x{/value}
+                  {value variables="x"}0.52 + 7.3*x{/value}
                   ...
                 {/equation}
                 ```
@@ -454,7 +454,7 @@
                 The [equation](#type_equation) requires two variables `t` and `rh`
                 ```xml
                 {equation}
-                  {value variables="t rh">4.21*t + 0.2/rh{/value}
+                  {value variables="t rh"}4.21*t + 0.2/rh{/value}
                   ...
                 {/equation}
                 ```

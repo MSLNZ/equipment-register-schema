@@ -1308,10 +1308,10 @@
     <xsd:complexType name="component">
         <xsd:annotation>
             <xsd:documentation>
-                A component of the equipment that measures the [quantity](#type_quantity).
+                A component of the equipment that measures the [quantity](#type_quantityEnumerationString).
 
                 Contains a sequence of reports (either digital and/or non-digital reports),
-                adjustments and performance checks for the measured [quantity](#type_quantity).
+                adjustments and performance checks for the measured [quantity](#type_quantityEnumerationString).
 
                 **Examples**
 

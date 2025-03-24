@@ -1,0 +1,319 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and HTML settings */
+html, body {
+    height: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    background-color: #fff;
+    overflow: hidden; /* Prevent the main window from scrolling */
+}
+
+ul {
+    padding-left: 2.0rem;  /* For item lists in the element's documentation (e.g. equation) */
+}
+
+p {
+    margin: 0 0 10px;
+    font-family: Roboto;
+}
+
+pre {
+    padding: 5px;
+    background-color: #E9E9E9;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    color: #333;
+    background-color: #333;
+}
+
+a.name {
+    color: #19578a;
+}
+
+/*
+  Hide the default tooltip for the "Show documentation for ..." button
+  and the "Go to ..." hyperlinks
+*/
+#showDocButton, #gotoLink, #gotoNamespace {
+    position: relative;
+}
+
+#showDocButton:hover::after, #gotoLink:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+#gotoNamespace:hover::after {
+    content: attr(data-title);
+    position: absolute;
+    top: -5px;
+    transform: translateX(2%);
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Roboto;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.top-banner {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Height of the fixed top banner */
+    background-color: #333;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+.top-banner .title {
+    color: white;
+    font-size: 24px;
+    padding-left: 4rem;
+}
+.top-banner .git-icon {
+    margin-right: 2rem;
+}
+
+/* Holds the table of contents (toc) and the schema documentation (docs) */
+.container {
+    display: flex;
+    height: calc(100vh - 70px);  /* Adjust height for the fixed top banner */
+    width: 100%;
+    margin-top: 70px;  /* Space for the fixed top banner */
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+/* Table of contents */
+.toc {
+    width: max-content;
+    background-color: #453831;
+    overflow: auto; /* Scrollable */
+}
+.toc-bullet {
+    color: #CDB2B2;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.toc-section-header {
+    color: #ddd5e5;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: -2.0rem; /* Negative of ul.padding-left */
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+}
+.toc-link {
+    color: #bcb39f;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0.4rem 0.4rem;
+    text-decoration: none;
+    font-weight: normal;
+}
+.toc-link:hover {
+    color: #af570a;
+}
+
+.docs {
+    flex: 1; /* Takes remaining space */
+    padding: 20px;
+    overflow-y: auto; /* Scrollable */
+    background-color: #fff;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-group {
+    margin-bottom: 20px;
+}
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 4px;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+.xs3p-panel-help {
+    color: #CCCCCC;
+    cursor: pointer;
+}
+.pull-right {
+    float: right !important;
+}
+
+/* Syntax highlighting */
+code {
+    color: #32356B;
+    background-color: #E9E9E9;
+}
+
+.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
+.codehilite .c   {color: #999;}
+.codehilite .cs  {color: #999; font-style: italic;}
+.codehilite .nt  {color: #32356B} /* make same as .hljs-name */
+.codehilite .na  {color: #69875B} /* make same as .hljs-attr */
+.codehilite .s   {color: #96372F} /* make same as .hljs-string */
+.codehilite .nn  {color: #FF0000} /* don't think it is used, red should be very visible */
+.codehilite a    {color: inherit !important; text-decoration: underline !important;}
+/* .codehilite a:hover {opacity: 0.7 !important;} */
+
+/* highlight.js syntax highlighting in document tags */
+pre code.hljs {display: block; overflow-x: auto; padding: 5px}
+.hljs-meta {color: #32356BAA}   /* XML */
+.hljs-tag  {color: #32356BAA}   /* XML */
+.hljs-name {color: #32356B}     /* XML */
+.hljs-attr {color: #69875B}     /* XML */
+.hljs-string {color: #96372F}   /* XML and Python */
+.hljs-keyword {color: #cf222e}  /* Python */
+.hljs-comment {color: #999999}  /* Python */
+.hljs-built_in {color: #128A2A} /* Python */
+.hljs-literal {color: #cf222e}  /* Python */
+.hljs-number {color: #030A8C}   /* Python */
+
+.md-version {
+    font-size: 1.0rem;
+    height: 1.5rem;
+    color: #1c7d93;
+}
+.md-version__current {
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+.md-version__list {
+    background-color: #fff;
+    border-radius: .5rem;
+    color: #000;
+    list-style-type: none;
+    margin: .4rem .4rem;
+    width: 8rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: auto;
+    padding: 0;
+    position: relative;
+    scroll-snap-type: y mandatory;
+    top: .15rem;
+    transform: translateX(-10%);
+    transition: max-height 0ms .5s,opacity .25s .25s;
+    z-index: 1
+}
+.md-version:focus-within .md-version__list,.md-version:hover .md-version__list {
+    width: 8rem;
+    max-height: 10rem;
+    opacity: 1;
+    transition: max-height 0ms,opacity .25s
+}
+.md-version__item {
+    line-height: 1.6rem;
+    margin-left: 0.5rem;
+}
+.md-version__link {
+    cursor: pointer;
+    display: block;
+    outline: none;
+    scroll-snap-align: start;
+    transition: color .25s,background-color .25s;
+    white-space: nowrap;
+    width: 100%
+}
+.md-version__link:focus,.md-version__link:hover {
+    color: #F76B2F;
+}
+
+h3.xs3p-subsection-heading {
+    margin-bottom: 20px;
+}
+
+.xs3p-in-panel-table {
+    margin-bottom: 0px;
+}
+
+.panel-heading .xs3p-panel-title:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";
+    float: left;
+    color: grey;
+    margin-right: 10px;
+}
+.panel-heading .xs3p-panel-title.collapsed:after {
+    content: "\e080";
+}
+.panel-info > .panel-heading .xs3p-panel-title:after {
+    color: white;
+}
+
+.btn-doc {
+    padding: 0px;
+    border: 0px none;
+    background: none repeat scroll 0% 0% transparent;
+    line-height: 1;
+    font-size: 12px;
+}
+
+.unpre {
+    font-family: Roboto;
+    font-size: 14px;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+
+.popover {
+    max-width: 400px;
+}
+
+.schemaImports {
+    padding-left: 1.0rem;
+}

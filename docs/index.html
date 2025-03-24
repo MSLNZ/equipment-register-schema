@@ -1643,7 +1643,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
 
                 One option is to think of the file-system path as a combination of two parts
 
-                ```
+                ```console
                 root \ {url}
                 ```
 
@@ -1651,7 +1651,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                 * root: This is not stored in an equipment register. Instead, it may be
                         stored in a separate file (ideally in a single file) on a local
                         hard drive. How and where this is stored is up to the individual.
-                * url: This is the `{url}` element in an equipment register.
+                * url: This is the value of the `url` element in an equipment register.
 
                 For example, consider the following absolute path
                 ```
@@ -1660,12 +1660,12 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                 each part could be broken down as follows
 
                 * root = `C:\Users\username\OneDrive - My Company Name\`
-                  - this value could be stored, for example, in a file in the users home directory
+                  - this value could be stored, for example, in a file in the user's home directory
                     or as a constant in the analysis software
                 * url = `Length\Quality\Equipment\register.xml`
 
                 Whenever someone needs to load the file, the `root` is read from a local
-                file and the `{url}` element is read from the equipment register and
+                file and the `url` is read from the equipment register and then
                 the absolute path is constructed.
 
                 _Attention: This XSD document validates the content of an XML document

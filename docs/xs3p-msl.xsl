@@ -141,9 +141,6 @@
         type hierarchy box. -->
    <xsl:param name="printAllSubTypes">true</xsl:param>
 
-   <!-- If 'true', adds "Interactive Diagram" to the table of contents. -->
-   <xsl:param name="printSVG">true</xsl:param>
-
    <!-- If 'true', prints out the Glossary section. -->
    <xsl:param name="printGlossary">false</xsl:param>
 
@@ -164,14 +161,6 @@
         of their XHTML documentation. -->
    <xsl:param name="linksFile"/>
 
-   <!-- Set the base URL for resolving links. -->
-   <xsl:param name="baseURL"/>
-
-   <!-- Uses an external CSS stylesheet rather than using
-        internally-declared CSS properties. This refers to xs3p
-        specific CSS, not the Bootstrap CSS. -->
-   <xsl:param name="externalCSSURL"/>
-
    <!-- Link to JQuery. -->
    <xsl:param name="jQueryURL">https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</xsl:param>
 
@@ -190,14 +179,14 @@
 
    <!-- Number of spaces to indent from parent element's start tag to
         child element's start tag -->
-   <xsl:variable name="ELEM_INDENT">3</xsl:variable>
+   <xsl:variable name="ELEM_INDENT">2</xsl:variable>
 
    <!-- Number of spaces to indent from parent element's start tag to
         attribute's tag -->
    <xsl:variable name="ATTR_INDENT">1</xsl:variable>
 
    <!-- Title to use if none provided -->
-   <xsl:variable name="DEFAULT_TITLE">XML Schema Definition (XSD) for an Equipment Register</xsl:variable>
+   <!--<xsl:variable name="DEFAULT_TITLE">XML Schema Definition (XSD) for an Equipment Register</xsl:variable>-->
 
    <!-- Prefixes used for anchor names -->
       <!-- Type definitions -->
@@ -254,177 +243,111 @@
 
    <!-- ******** Main Document ******** -->
 
-   <!--
-     Main template that starts the process
-     -->
+   <!-- Main template that starts the process -->
    <xsl:template match="/xsd:schema">
-      <!-- Check that links file is provided if searching external
-           schemas for components. -->
-      <xsl:if test="$linksFile='' and (normalize-space(translate($searchIncludedSchemas, 'TRUE', 'true'))='true' or normalize-space(translate($searchImportedSchemas, 'TRUE', 'true'))='true')">
-         <xsl:call-template name="HandleError">
-            <xsl:with-param name="isTerminating">true</xsl:with-param>
-            <xsl:with-param name="errorMsg">
-'linksFile' variable must be provided if either
-'searchIncludedSchemas' or 'searchImportedSchemas' is true.
-            </xsl:with-param>
-         </xsl:call-template>
-      </xsl:if>
-
-      <!-- Get title of document -->
-      <xsl:variable name="actualTitle">
-         <xsl:choose>
-            <xsl:when test="$title != ''">
-               <xsl:value-of select="$title"/>
-            </xsl:when>
-            <xsl:otherwise>
-               <xsl:value-of select="$DEFAULT_TITLE"/>
-            </xsl:otherwise>
-         </xsl:choose>
-      </xsl:variable>
-
       <html>
          <head>
-            <!-- Set title bar -->
             <title>Equipment Register XSD</title>
-
-            <!-- Set content type -->
             <meta charset="UTF-8"/>
-
-            <!-- Set base URL to use in working out relative paths -->
-            <xsl:if test="$baseURL != ''">
-               <xsl:element name="base">
-                  <xsl:attribute name="href"><xsl:value-of select="$baseURL"/></xsl:attribute>
-               </xsl:element>
-            </xsl:if>
-
-            <!-- CSS included here, JS at end of body. -->
-			<link href="{$bootstrapURL}/css/bootstrap.min.css" rel="stylesheet" charset="UTF-8"/>
-
-            <!-- Set CSS styles -->
-            <style type="text/css">
-               <xsl:choose>
-                  <!-- Use external CSS stylesheet -->
-                  <xsl:when test="$externalCSSURL != ''">
-                     <xsl:text>
-@import url(</xsl:text><xsl:value-of select="$externalCSSURL"/><xsl:text>);
-</xsl:text>
-                  </xsl:when>
-                  <!-- Use internal CSS styles -->
-                  <xsl:otherwise>
-                     <xsl:call-template name="DocumentCSSStyles"/>
-                  </xsl:otherwise>
-               </xsl:choose>
-            </style>
-            <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css"/>-->
-            <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"/>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i"/>
+            <link rel="stylesheet" href="{$bootstrapURL}/css/bootstrap.min.css" type='text/css' charset="UTF-8"/>
+            <link rel="stylesheet" href="css/index.css" type='text/css' charset="UTF-8"/>
+            <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+            <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js" type="text/javascript" charset="UTF-8"/>
             <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js" type="text/javascript" charset="UTF-8"/>
          </head>
-         <body data-spy="scroll" data-target=".xs3p-sidebar" data-offset="65">
-
-            <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-               <div class="container">
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                         <span class="sr-only">Toggle navigation</span>
-                         <span class="icon-bar"><xsl:text> </xsl:text></span>
-                         <span class="icon-bar"><xsl:text> </xsl:text></span>
-                         <span class="icon-bar"><xsl:text> </xsl:text></span>
-                      </button>
-                      <a class="navbar-brand xs3p-navbar-title"><xsl:value-of select="$actualTitle"/></a>
-                  </div>
+         <body>
+            <div class="top-banner">
+               <div class="git-icon">
+                  <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to repository" target="_blank">
+                     <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="35px"/>
+                  </a>
                </div>
+               <div class="msl-icon">
+                  <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank">
+                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="55px"/>
+                  </a>
+               </div>
+               <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
             </div>
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-md-3" id="menu-cols">
-                     <div class="xs3p-sidebar hidden-print" role="complementary">
-                        <xsl:apply-templates select="." mode="toc"/>
+
+            <div class="container">
+
+               <div class="toc">
+                  <xsl:apply-templates select="." mode="toc"/>
+               </div>
+
+               <div class="docs">
+                  <!-- Section: Schema Document Properties -->
+                  <section id="SectionSchemaProperties">
+                     <h2><a id="SchemaProperties" class="name" href="#SchemaProperties">Schema Document Properties</a></h2>
+                     <!-- Subsection: Properties table -->
+                     <xsl:apply-templates select="." mode="properties"/>
+                     <!-- Subsection: Namespace Legend -->
+                     <!--<h3>Declared Namespaces</h3>-->
+                     <xsl:apply-templates select="." mode="namespaces"/>
+                     <!-- Subsection: Schema Component Representation table -->
+                     <xsl:call-template name="SchemaComponentTable">
+                        <xsl:with-param name="component" select="."/>
+                     </xsl:call-template>
+                     <xsl:call-template name="SectionFooter"/>
+                  </section>
+
+                  <!-- Sections: Top-level Schema Components -->
+                  <xsl:choose>
+                     <!-- Sort schema components -->
+                     <xsl:when test="normalize-space(translate($sortByComponent,'TRUE','true'))='true'">
+                        <!-- Declarations -->
+                        <xsl:if test="xsd:attribute or xsd:element">
+                           <section id="SectionSchemaDeclarations">
+                           <!--<h2><a id="SchemaDeclarations">Global Declarations</a></h2>-->
+                           <xsl:apply-templates select="xsd:attribute | xsd:element" mode="topSection">
+                              <xsl:sort select="@id" order="ascending"/>
+                              <xsl:sort select="local-name(.)" order="ascending"/>
+                              <xsl:sort select="@name" order="ascending"/>
+                           </xsl:apply-templates>
+                           </section>
+                        </xsl:if>
+                        <!-- Definitions -->
+                        <xsl:if test="xsd:attributeGroup or xsd:complexType or xsd:group or xsd:notation or xsd:simpleType">
+                           <section id="SectionSchemaDefinitions">
+                              <!--<h2><a id="SchemaDefinitions">Global Definitions</a></h2>-->
+                              <xsl:apply-templates select="xsd:attributeGroup | xsd:complexType | xsd:group | xsd:notation | xsd:simpleType" mode="topSection">
+                                 <xsl:sort select="@id" order="ascending"/>
+                                 <xsl:sort select="local-name(.)" order="ascending"/>
+                                 <xsl:sort select="@name" order="ascending"/>
+                              </xsl:apply-templates>
+                           </section>
+                        </xsl:if>
+                     </xsl:when>
+                     <!-- Display schema components as they occur -->
+                     <xsl:otherwise>
+                        <h2><a id="SchemaComponents">Global Schema Components</a></h2>
+                        <xsl:apply-templates select="xsd:attribute | xsd:attributeGroup | xsd:complexType | xsd:element | xsd:group | xsd:notation | xsd:simpleType" mode="topSection"/>
+                     </xsl:otherwise>
+                  </xsl:choose>
+
+                  <!-- Section: Glossary -->
+                  <xsl:if test="normalize-space(translate($printGlossary,'TRUE','true'))='true'">
+                     <div id="glossary">
+                        <h2><a id="Glossary">Glossary</a></h2>
+                        <xsl:call-template name="Glossary"/>
+                        <xsl:call-template name="SectionFooter"/>
                      </div>
-                  </div>
-                 <div class="col-md-9 content" role="main" id="xs3p-content">
-
-<!-- Note: some indentation resets in order to keep a minimum diff readability. -->
-
-         <!-- Hidden documentation snippets for display in the popup -->
-         <xsl:apply-templates select="." mode="hiddendoc"/>
-
-         <!-- Title -->
-         <h1><a id="top"><xsl:value-of select="$actualTitle"/></a></h1>
-
-         <!-- Section: Schema Document Properties -->
-         <section id="SectionSchemaProperties">
-            <h2><a id="SchemaProperties">Schema Document Properties</a></h2>
-            <!-- Subsection: Properties table -->
-            <xsl:apply-templates select="." mode="properties"/>
-            <!-- Subsection: Namespace Legend -->
-            <!--<h3>Declared Namespaces</h3>-->
-            <xsl:apply-templates select="." mode="namespaces"/>
-            <!-- Subsection: Schema Component Representation table -->
-            <xsl:call-template name="SchemaComponentTable">
-               <xsl:with-param name="component" select="."/>
-            </xsl:call-template>
-            <xsl:call-template name="SectionFooter"/>
-         </section>
-
-         <!-- Section: Redefined Schema Components -->
-         <xsl:if test="xsd:redefine">
-            <h2><a id="Redefinitions">Redefined Schema Components</a></h2>
-            <xsl:apply-templates select="xsd:redefine/xsd:simpleType | xsd:redefine/xsd:complexType | xsd:redefine/xsd:attributeGroup | xsd:redefine/xsd:group" mode="topSection"/>
-         </xsl:if>
-
-            <!-- Sections: Top-level Schema Components -->
-            <xsl:choose>
-               <!-- Sort schema components -->
-               <xsl:when test="normalize-space(translate($sortByComponent,'TRUE','true'))='true'">
-                  <!-- Declarations -->
-                  <xsl:if test="xsd:attribute or xsd:element">
-                     <section id="SectionSchemaDeclarations">
-                     <h2><a id="SchemaDeclarations">Global Declarations</a></h2>
-                     <xsl:apply-templates select="xsd:attribute | xsd:element" mode="topSection">
-                        <xsl:sort select="@id" order="ascending"/>
-                        <xsl:sort select="local-name(.)" order="ascending"/>
-                        <xsl:sort select="@name" order="ascending"/>
-                     </xsl:apply-templates>
-                     </section>
                   </xsl:if>
-                  <!-- Definitions -->
-                  <xsl:if test="xsd:attributeGroup or xsd:complexType or xsd:group or xsd:notation or xsd:simpleType">
-                     <section id="SectionSchemaDefinitions">
-                        <h2><a id="SchemaDefinitions">Global Definitions</a></h2>
-                        <xsl:apply-templates select="xsd:attributeGroup | xsd:complexType | xsd:group | xsd:notation | xsd:simpleType" mode="topSection">
-                           <xsl:sort select="@id" order="ascending"/>
-                           <xsl:sort select="local-name(.)" order="ascending"/>
-                           <xsl:sort select="@name" order="ascending"/>
-                        </xsl:apply-templates>
-                     </section>
-                  </xsl:if>
-               </xsl:when>
-               <!-- Display schema components as they occur -->
-               <xsl:otherwise>
-                  <h2><a id="SchemaComponents">Global Schema Components</a></h2>
-                  <xsl:apply-templates select="xsd:attribute | xsd:attributeGroup | xsd:complexType | xsd:element | xsd:group | xsd:notation | xsd:simpleType" mode="topSection"/>
-               </xsl:otherwise>
-            </xsl:choose>
 
-            <!-- Section: Glossary -->
-            <xsl:if test="normalize-space(translate($printGlossary,'TRUE','true'))='true'">
-               <div id="glossary">
-                  <h2><a id="Glossary">Glossary</a></h2>
-                  <xsl:call-template name="Glossary"/>
-                  <xsl:call-template name="SectionFooter"/>
-               </div>
-            </xsl:if>
+                  <!-- Document Footer -->
+                  <!-- <p class="footer">
+                     <xsl:text>Generated by </xsl:text>
+                     <a href="https://github.com/MSLNZ/equipment-register-schema">xs3p-msl</a>
+                     <xsl:text>.</xsl:text>
+                  </p> -->
 
-            <!-- Document Footer -->
-            <p class="footer">
-               <xsl:text>Generated by </xsl:text>
-               <a href="https://github.com/MSLNZ/equipment-register-schema">xs3p-msl</a>
-               <xsl:text>.</xsl:text>
-            </p>
-
-                  </div>
                </div>
             </div>
+
+            <!-- Hidden documentation snippets for display in the popup -->
+            <xsl:apply-templates select="." mode="hiddendoc"/>
 
             <script src="{$jQueryURL}" type="text/javascript" charset="UTF-8"/>
             <script src="{$bootstrapURL}/js/bootstrap.min.js" type="text/javascript" charset="UTF-8"/>
@@ -457,19 +380,12 @@
                      $(this).html(md.render(normalized));
                   });
 
-                  $(window).scroll(function() {
-                     if ($(".xs3p-sidebar").css("position") == "fixed" && $(window).height() < $(".xs3p-sidebar").height()) {
-                        var perc = $(window).scrollTop() / $("#xs3p-content").height();
-                        var overflow = $(".xs3p-sidebar").height() + 105 - $(window).height();
-                        $(".xs3p-sidebar").css("top", (65 - Math.round(overflow * perc)) + "px");
-                     }
+                  $.getJSON( "../versions.json", function( data ) {
+                     $.each( data, function( i, version ) {
+                        $('.md-version__list').append('<li class="md-version__item"><a href="../' + version + '/" class="md-version__link">' + version + '</a></li>');
+                     });
                   });
 
-                  $(window).resize(function() {
-                     if ($(".xs3p-sidebar").css("position") == "fixed") {
-                        $(".xs3p-sidebar").css("top", "65px");
-                     }
-                  });
                ]]>
             </script>
          </body>
@@ -556,60 +472,67 @@
      Prints out the Table of Contents.
      -->
    <xsl:template match="xsd:schema" mode="toc">
-      <ul class="nav nav-list xs3p-sidenav">
-         <!-- Section: Schema Document Properties -->
-         <li>
-            <a href="#SchemaProperties">Schema Document Properties</a>
+      <ul>
+         <li class="toc-bullet">
+            <a class="toc-link" href="diagram.svg" target="_blank" rel="noopener noreferrer">Interactive Diagram</a>
          </li>
-
-         <!-- Section: Interactive Diagram -->
-         <xsl:if test="normalize-space(translate($printSVG,'TRUE','true'))='true'">
-            <li>
-               <a href="diagram.svg" target="_blank" rel="noopener noreferrer">Interactive Diagram</a>
-            </li>
-         </xsl:if>
-
-         <!-- Section: Redefined Schema Components -->
-         <xsl:if test="xsd:redefine">
-            <li>
-               <a href="#Redefinitions">Redefined Schema Components</a>
-            </li>
-         </xsl:if>
+         <li class="toc-bullet">
+            <a class="toc-link" href="#SchemaProperties">Schema Document Properties</a>
+         </li>
 
          <!-- Sections: Top-level Schema Components -->
          <xsl:choose>
             <!-- Sort schema components -->
             <xsl:when test="normalize-space(translate($sortByComponent,'TRUE','true'))='true'">
-               <!-- Declarations -->
-               <xsl:if test="xsd:attribute or xsd:element">
-                  <li><a href="#SchemaDeclarations">Global Declarations</a></li>
-                  <xsl:apply-templates select="xsd:attribute | xsd:element" mode="toc">
+               <xsl:if test="xsd:element">
+                  <div class="toc-section-header">Root Element</div>
+                  <xsl:apply-templates select="xsd:element" mode="toc">
                      <xsl:sort select="@id" order="ascending"/>
                      <xsl:sort select="local-name(.)" order="ascending"/>
                      <xsl:sort select="@name" order="ascending"/>
                   </xsl:apply-templates>
                </xsl:if>
-               <!-- Definitions -->
-               <xsl:if test="xsd:attributeGroup or xsd:complexType or xsd:group or xsd:notation or xsd:simpleType">
-                  <li><a href="#SchemaDefinitions">Global Definitions</a></li>
-                  <xsl:apply-templates select="xsd:attributeGroup | xsd:complexType | xsd:group | xsd:notation | xsd:simpleType" mode="toc">
+               <xsl:if test="xsd:complexType">
+                  <div class="toc-section-header">Complex Types</div>
+                  <xsl:apply-templates select="xsd:complexType" mode="toc">
                      <xsl:sort select="@id" order="ascending"/>
                      <xsl:sort select="local-name(.)" order="ascending"/>
                      <xsl:sort select="@name" order="ascending"/>
                   </xsl:apply-templates>
+               </xsl:if>
+               <xsl:if test="xsd:simpleType">
+                  <div class="toc-section-header">Simple Types</div>
+                  <xsl:apply-templates select="xsd:simpleType" mode="toc">
+                     <xsl:sort select="@id" order="ascending"/>
+                     <xsl:sort select="local-name(.)" order="ascending"/>
+                     <xsl:sort select="@name" order="ascending"/>
+                  </xsl:apply-templates>
+               </xsl:if>
+               <xsl:if test="xsd:attribute or xsd:attributeGroup or xsd:group or xsd:notation">
+                  <xsl:message terminate="yes">
+                     ERROR: Unhandled schema component, either xsd:attribute or xsd:attributeGroup or xsd:group or xsd:notation
+                  </xsl:message>
                </xsl:if>
             </xsl:when>
             <!-- Display schema components in order as they appear in schema -->
             <xsl:otherwise>
-               <li><a href="#SchemaComponents">Global Schema Components</a></li>
+               <div class="toc-section-header">Schema Components</div>
                <xsl:apply-templates select="xsd:attribute | xsd:attributeGroup | xsd:complexType | xsd:element | xsd:group | xsd:notation | xsd:simpleType" mode="toc"/>
             </xsl:otherwise>
          </xsl:choose>
+
+         <!-- Section: Redefined Schema Components -->
+         <xsl:if test="xsd:redefine">
+            <xsl:message terminate="yes">
+               ERROR: Unhandled Redefined Schema Components
+            </xsl:message>
+         </xsl:if>
 
          <!-- Section: Glossary -->
          <xsl:if test="normalize-space(translate($printGlossary,'TRUE','true'))='true'">
             <li><a href="#Glossary">Glossary</a></li>
          </xsl:if>
+
       </ul>
    </xsl:template>
 
@@ -624,13 +547,12 @@
          </xsl:call-template>
       </xsl:variable>
 
-      <li class="nav-sub-item">
-         <a href="#{$componentID}">
+      <li class="toc-bullet">
+         <a class="toc-link" href="#{$componentID}">
             <xsl:call-template name="GetComponentDescription">
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
-            <xsl:text>: </xsl:text>
-            <strong><xsl:value-of select="@name"/></strong>
+            <xsl:value-of select="@name"/>
          </a>
       </li>
    </xsl:template>
@@ -707,9 +629,7 @@
                <xsl:value-of select="$componentDescription"/>
             </xsl:otherwise>
          </xsl:choose>
-         <xsl:text>: </xsl:text>
-         <!-- Name -->
-         <a id="{$componentID}" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Schema component name">
+         <a id="{$componentID}" href="#{$componentID}" class="name">
             <xsl:value-of select="$component/@name"/>
          </a>
       </h3>
@@ -721,7 +641,7 @@
    <xsl:template name="SectionFooter">
       <!-- Link to equipment element -->
       <div style="text-align: center; clear: both;">
-         <a href="#type_equipment" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to the equipment element">
+         <a href="#type_equipment" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to 'equipment' type definition">
             <span class="glyphicon glyphicon-link">
                <xsl:text> </xsl:text>
             </span>
@@ -744,14 +664,37 @@
 /* XS3P specific CSS */
 body {
     background-color: #FFF;
-    padding-top: 50px;
+    <!-- padding-top: 7.0rem; -->
+}
+
+.banner {
+    font-size: 18px;
+    color: #FFF;
+    padding: 2.0rem 5.0rem;
+    <!-- line-height: 5rem; -->
+    font-family: "Roboto Slab";
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background-color: #222;
+    z-index: 2;
 }
 
 .nav &gt; li.active {
+   color: #F00;
     background-color: #FFF;
 }
 .nav &gt; li &gt; a:hover {
-    background-color: #CCC;
+   color: #F00;
+   background-color: #CCC;
+}
+
+.nav-section-header {
+   color: #482f63;
+   margin-top: 0.2rem;
+   margin-bottom: 0.2rem;
 }
 
 code {
@@ -759,12 +702,46 @@ code {
     background-color: #E9E9E9;
 }
 
+.container {
+    display: flex;
+    <!-- flex-direction: row; -->
+}
+
+<!-- .sidebar,
+.content {
+    display: flex;
+    flex-direction: column;
+    background: #333;
+    color: #fff;
+    min-height: 500px;
+    border-radius: 4px;
+    margin: 20px;
+    border:1px solid #777;
+} -->
+
+.sidebar {
+    flex-grow: 1;
+    min-width: 300px;
+    overflow:scroll;
+}
+
+.content {
+    flex-grow: 5;
+    min-width: 630px;
+    overflow:scroll;
+}
+
 .container-fluid {
     padding: 15px 15px;
 }
 
+.content {
+    flex-grow: 5;
+    min-width: 630px;
+}
+
 .nav-sub-item &gt; a {
-    padding-left: 30px !important;
+    padding-left: 10px !important;
 }
 
 a.name {
@@ -786,10 +763,13 @@ pre {
 }
 
 .xs3p-sidenav {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #EEE;
     border-radius: 10px;
+    width: max-content;
+    overflow: auto;
+    <!-- scroll-snap-type: y mandatory; -->
 }
 .xs3p-navbar-title {
     color: #FFF !important;
@@ -835,7 +815,7 @@ pre {
 }
 
 .unpre {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-famiy: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     white-space: normal;
     word-break: normal;
@@ -846,37 +826,15 @@ pre {
     max-width: 400px;
 }
 
-// Syntax highlighting
-.codehilite .err {color: #FFF; background-color: #D2322D; font-weight: bold;} /* Error */
-.codehilite .c   {color: #999;}
-.codehilite .cs  {color: #999; font-style: italic;}
-.codehilite .nt  {color: #32356B} <!-- make same as .hljs-name -->
-.codehilite .na  {color: #69875B} <!-- make same as .hljs-attr -->
-.codehilite .s   {color: #96372F} <!-- make same as .hljs-string -->
-.codehilite .nn  {color: #FF0000} <!-- don't think it is used, red should be very visible -->
-.codehilite a       {color: inherit !important; text-decoration: underline !important;}
-.codehilite a:hover {opacity: 0.7 !important;}
 
-<!-- highlight.js syntax highlighting in document tags -->
-pre code.hljs {display:block; overflow-x:auto; padding: 5px}
-.hljs-meta {color: #32356BAA}   <!-- XML -->
-.hljs-tag  {color: #32356BAA}   <!-- XML -->
-.hljs-name {color: #32356B}     <!-- XML -->
-.hljs-attr {color: #69875B}     <!-- XML -->
-.hljs-string {color: #96372F}   <!-- XML and Python -->
-.hljs-keyword {color: #cf222e}  <!-- Python -->
-.hljs-comment {color: #999999}  <!-- Python -->
-.hljs-built_in {color: #128A2A} <!-- Python -->
-.hljs-literal {color: #cf222e}  <!-- Python -->
-.hljs-number {color: #030A8C}   <!-- Python -->
-
-@media (min-width: 992px) {
+<!-- @media (min-width: 992px) {
     .xs3p-sidebar {
         position: fixed;
         top: 65px;
-        width: 22%;
+        width: max-content;
     }
-}
+} -->
+
 </xsl:text>
    </xsl:template>
 
@@ -2315,7 +2273,12 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                   <xsl:if test="@version">
                      <tr>
                         <th>Version</th>
-                        <td><xsl:value-of select="@version"/></td>
+                        <td>
+                           <div class="md-version">
+                              <a class="md-version__current"><xsl:value-of select="@version"/></a>
+                              <ul class="md-version__list"></ul>
+                           </div>
+                        </td>
                      </tr>
                   </xsl:if>
                   <!-- Language -->
@@ -2326,7 +2289,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                      </tr>
                   </xsl:if>
                   <!-- Element/Attribute Form Defaults -->
-                  <tr>
+                  <!-- <tr>
                      <th>Element and Attribute Namespaces</th>
                      <td>
                         <ul>
@@ -2353,13 +2316,13 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                            </li>
                         </ul>
                      </td>
-                  </tr>
+                  </tr> -->
                   <!-- Schema Composition, e.g. include, import, redefine -->
                   <xsl:if test="xsd:include or xsd:import or xsd:redefine">
                      <tr>
                         <th>Schema Composition</th>
                         <td>
-                           <ul>
+                           <ul class="schemaImports">
                               <!-- Import -->
                               <xsl:if test="xsd:import">
                                  <li>
@@ -2368,13 +2331,13 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                                     <xsl:for-each select="xsd:import">
                                        <li>
                                           <em><xsl:value-of select="@namespace"/></em>
-                                          <xsl:if test="@schemaLocation">
+                                          <!-- <xsl:if test="@schemaLocation">
                                              <xsl:text> (at </xsl:text>
                                              <xsl:call-template name="PrintSchemaLink">
                                                 <xsl:with-param name="uri" select="@schemaLocation"/>
                                              </xsl:call-template>
                                              <xsl:text>)</xsl:text>
-                                          </xsl:if>
+                                          </xsl:if> -->
                                        </li>
                                     </xsl:for-each>
                                     </ul>
@@ -4044,9 +4007,8 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                <xsl:value-of select="generate-id(.)"/>
             </xsl:for-each>
          </xsl:variable>
-
          <xsl:text> </xsl:text>
-         <button title="Show documentation for {$component/@name}" class="btn btn-link btn-doc" data-toggle="modal" data-target="#{$documentation}-popup"><span class="glyphicon glyphicon-info-sign"><xsl:text> </xsl:text></span></button>
+         <button id="showDocButton" data-title="Show '{$component/@name}' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#{$documentation}-popup"><span class="glyphicon glyphicon-info-sign"><xsl:text> </xsl:text></span></button>
       </xsl:if>
    </xsl:template>
 
@@ -6315,7 +6277,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                   </xsl:if>
                   <xsl:value-of select="concat('#', $NS_PREFIX, $prefix)"/>
                </xsl:variable>
-               <a href="{$link}" title="Find out namespace of '{$prefix}' prefix">
+               <a id="gotoNamespace" href="{$link}" data-title="Go to '{$prefix}' namespace definition">
                   <xsl:value-of select="$prefix"/>
                </a>
             </xsl:when>
@@ -6648,9 +6610,9 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
             <!-- There exists a link to the schema component's
                  documentation. -->
             <xsl:otherwise>
-               <xsl:text>Jump to "</xsl:text>
+               <xsl:text>Go to '</xsl:text>
                <xsl:value-of select="$name"/>
-               <xsl:text>" </xsl:text>
+               <xsl:text>' </xsl:text>
                <xsl:value-of select="$compType"/>
                <xsl:text> </xsl:text>
                <xsl:value-of select="$noun"/>
@@ -6660,7 +6622,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
                </xsl:if>
             </xsl:otherwise>
          </xsl:choose>
-         <xsl:text>.</xsl:text>
+         <!-- <xsl:text>.</xsl:text> -->
       </xsl:variable>
 
       <!-- Generate href link -->
@@ -6681,7 +6643,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
          </xsl:choose>
       </xsl:variable>
 
-      <a title="{$title}" href="{$link}">
+      <a id="gotoLink" data-title="{$title}" href="{$link}">
          <!-- External link -->
          <xsl:if test="normalize-space($baseURI)!=''">
             <xsl:attribute name="class">externalLink</xsl:attribute>
@@ -7274,10 +7236,10 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
             <xsl:text>Choice Model Group</xsl:text>
          </xsl:when>
          <xsl:when test="local-name($component)='complexType'">
-            <xsl:text>Complex Type</xsl:text>
+            <!--<xsl:text>Complex Type</xsl:text>-->
          </xsl:when>
          <xsl:when test="local-name($component)='element'">
-            <xsl:text>Element</xsl:text>
+            <!--<xsl:text>Element</xsl:text>-->
          </xsl:when>
          <xsl:when test="local-name($component)='group'">
             <xsl:text>Model Group</xsl:text>
@@ -7289,7 +7251,7 @@ pre code.hljs {display:block; overflow-x:auto; padding: 5px}
             <xsl:text>Sequence Model Group</xsl:text>
          </xsl:when>
          <xsl:when test="local-name($component)='simpleType'">
-            <xsl:text>Simple Type</xsl:text>
+            <!--<xsl:text>Simple Type</xsl:text>-->
          </xsl:when>
          <xsl:otherwise>
             <xsl:call-template name="HandleError">
@@ -7525,7 +7487,6 @@ Unknown schema component, <xsl:value-of select="local-name($component)"/>.
      -->
    <xsl:template name="GetSchemaDocLocation">
       <xsl:param name="uri"/>
-
       <xsl:if test="$linksFile!=''">
          <xsl:variable name="schemaDocFile" select="document($linksFile)/ppp:links/ppp:schema[@file-location=$uri]/@docfile-location"/>
          <xsl:if test="$schemaDocFile=''">

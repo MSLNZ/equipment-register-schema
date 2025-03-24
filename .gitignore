@@ -11,6 +11,7 @@ __pycache__/
 /.vscode/
 /.pytest_cache/
 /docs/bin/xsdvi/build/
+/docs/build/
 
 # Root files
 /test*.xml

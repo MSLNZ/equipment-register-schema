@@ -219,6 +219,8 @@ pre code.hljs {display: block; overflow-x: auto; padding: 5px}
 .hljs-built_in {color: #128A2A} /* Python */
 .hljs-literal {color: #cf222e}  /* Python */
 .hljs-number {color: #030A8C}   /* Python */
+.hljs-punctuation {color: #030A8C} /* regex, using the r language syntax highlighter */
+.hljs-operator {color: #000}       /* regex, using the r language syntax highlighter */
 
 .md-version {
     font-size: 1.0rem;

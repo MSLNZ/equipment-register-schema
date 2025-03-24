@@ -42,7 +42,14 @@
         </xsd:annotation>
         <xsd:complexType>
             <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-                <xsd:element name="equipment" type="msl:equipment"/>
+                <xsd:element name="equipment" type="msl:equipment">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Contains information about the equipment to satisfy ISO/IEC 17025:2017
+                            Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
             </xsd:sequence>
             <xsd:attribute name="team" type="msl:teamEnumerationString" use="required">
                 <xsd:annotation>
@@ -768,7 +775,14 @@
         </xsd:annotation>
         <xsd:simpleContent>
             <xsd:extension base="msl:nonEmptyString">
-                <xsd:attribute name="date" type="xsd:date" use="required"/>
+                <xsd:attribute name="date" type="xsd:date" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The date in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
             </xsd:extension>
         </xsd:simpleContent>
     </xsd:complexType>
@@ -1808,14 +1822,17 @@
                   - tan
                   - atan
                   - exp
-                  - log (natural logarithm, base _e_)
-                  - log10 (common logarithm, base _10_)
+                  - log (natural logarithm, base _e_ )
+                  - log10 (common logarithm, base _10_ )
 
                 Depending on the programming language that is used to parse an equation,
                 a search and replace may need to be performed. If the programming language
                 does not support the `pow(x,y)` function to raise `x` to the power of `y`,
-                you may use the following regular expression (which uses a named capture
-                group for the `x` and `y` text) `pow\((?{x}[^,]+),(?{y}[^,]+)\)`
+                you may use the following [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
+                (which uses a named capture group for the `x` and `y` value)
+                ```r
+                pow\(\s*(?{x}[^,]+),\s*(?{y}[^)]+)\)
+                ```
                 to perform a search and replace.
 
                 _Attention: This XSD document validates the content of an XML document
@@ -1868,7 +1885,7 @@
                             <xsd:attribute name="variables" type="msl:variables" use="required">
                                 <xsd:annotation>
                                     <xsd:documentation>
-                                        The variables that are required to evaluate the `value`.
+                                        The name(s) of the variable(s) that are required to evaluate the `value`.
                                     </xsd:documentation>
                                 </xsd:annotation>
                             </xsd:attribute>
@@ -1909,7 +1926,7 @@
                             <xsd:attribute name="variables" type="msl:variables" use="required">
                                 <xsd:annotation>
                                     <xsd:documentation>
-                                        The variables that are required to evaluate the `uncertainty`.
+                                        The name(s) of the variable(s) that are required to evaluate the `uncertainty`.
                                     </xsd:documentation>
                                 </xsd:annotation>
                             </xsd:attribute>

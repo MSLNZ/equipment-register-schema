@@ -259,12 +259,12 @@
          <body>
             <div class="top-banner">
                <div class="git-icon">
-                  <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to repository" target="_blank">
+                  <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to repository" target="_blank" rel="noopener noreferrer">
                      <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="35px"/>
                   </a>
                </div>
                <div class="msl-icon">
-                  <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank">
+                  <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank" rel="noopener noreferrer">
                      <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="55px"/>
                   </a>
                </div>

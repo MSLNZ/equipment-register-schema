@@ -2919,7 +2919,7 @@ pre {
             <xsl:call-template name="PrintSampleDocumentation">
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
-         </span><br/>
+         </span><xsl:text>&#xa;</xsl:text>
 
          <!-- Content -->
          <xsl:apply-templates select="xsd:*" mode="sample">
@@ -2933,7 +2933,7 @@ pre {
          <!-- Footer -->
          <span class="group" style="margin-left: {$margin}em">
             <xsl:text>End All</xsl:text>
-         </span><br/>
+         </span><xsl:text>&#xa;</xsl:text>
       </xsl:if>
    </xsl:template>
 

@@ -105,7 +105,8 @@
                 If the equipment is not at MSL (e.g., at another institute,
                 at the landfill, ...) then there is only one option available,
                 `Not at MSL`, and you should document the actual location
-                somewhere else in the equipment register.
+                where the equipment is located somewhere else in the equipment register
+                (such as in a [maintenance](#type_maintenance) task).
                 ```xml
                 {location}Not at MSL{/location}
                 ```
@@ -458,6 +459,7 @@
                   ...
                 {/equation}
                 ```
+                where the variable names are separated by whitespace in the attribute value.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:list>
@@ -828,7 +830,13 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-                        <xsd:element name="task" type="msl:plannedTask"/>
+                        <xsd:element name="task" type="msl:plannedTask">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    A planned maintenance task to be performed.
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -840,7 +848,13 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-                        <xsd:element name="task" type="msl:completedTask"/>
+                        <xsd:element name="task" type="msl:completedTask">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    A planned maintenance task that was completed.
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
@@ -953,7 +967,13 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="alteration" type="msl:alteration"/>
+            <xsd:element name="alteration" type="msl:alteration">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The details of the alteration. Such as any damage, malfunction, modification to, or repair of, the equipment.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -1037,7 +1057,14 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-            <xsd:element name="version" type="msl:comment"/>
+            <xsd:element name="version" type="msl:comment">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The firmware version number and the date (in the YYYY-MM-DD format)
+                        when the firmware was installed or upgraded.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -1438,7 +1465,13 @@
         </xsd:annotation>
         <xsd:complexContent>
             <xsd:extension base="msl:file">
-                <xsd:attribute name="format" type="msl:digitalFormatEnumerationString" use="required"/>
+                <xsd:attribute name="format" type="msl:digitalFormatEnumerationString" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The format of the digital calibration report.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
                 <xsd:attribute name="id" type="msl:nonEmptyString" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1832,7 +1865,13 @@
                 <xsd:complexType>
                     <xsd:simpleContent>
                         <xsd:extension base="msl:nonEmptyString">
-                            <xsd:attribute name="variables" type="msl:variables" use="required"/>
+                            <xsd:attribute name="variables" type="msl:variables" use="required">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        The variables that are required to evaluate the `value`.
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
@@ -1867,7 +1906,13 @@
                 <xsd:complexType>
                     <xsd:simpleContent>
                         <xsd:extension base="msl:nonEmptyString">
-                            <xsd:attribute name="variables" type="msl:variables" use="required"/>
+                            <xsd:attribute name="variables" type="msl:variables" use="required">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        The variables that are required to evaluate the `uncertainty`.
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
@@ -2036,13 +2081,13 @@
                         terminal (e.g., PowerShell or Command Prompt) using
 
                         ```console
-                        > CertUtil -hashfile "path_to_your_file" SHA256
+                        CertUtil -hashfile "path_to_your_file" SHA256
                         ```
 
                         On UNIX-based computers, the SHA-256 checksum can be calculated using
 
                         ```console
-                        $ shasum -a 256 "path_to_your_file"
+                        shasum -a 256 "path_to_your_file"
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2179,7 +2224,7 @@
                         ```
 
                         If the [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                        function requires keyword arguments to load the Archive, these keyword arguments
+                        function requires keyword arguments to load the `Archive`, these keyword arguments
                         may be defined as the XML attributes for the `gtcArchiveJSON` element.
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2240,19 +2285,19 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The data type of each column in the `table`.
-                        Each data type shall be separated by a comma (`,`).
+                        Each data type shall be separated by a comma.
                         Whitespace may be used.
 
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
                         ```
-                        |  Data  |  Size   |                   Description                         |
-                        |  Type  | (bytes) |                                                       |
-                        | ------ | ------- | ----------------------------------------------------- |
-                        | bool   |    1    | Value is one of: true True TRUE 1 false False FALSE 0 |
-                        | int    |    4    | Values from -2147483648 to +2147483647 (inclusive)    |
-                        | double |    8    | Approx. 2E-308 to 2E+308 (15-16 digits of precision)  |
-                        | string |         | Unicode character strings                             |
+                          Data    Size                      Description
+                          Type   (bytes)
+                         ------  -------  -----------------------------------------------------
+                         bool       1     Value is one of: true True TRUE 1 false False FALSE 0
+                         int        4     Values from -2147483648 to +2147483647 (inclusive)
+                         double     8     Approx. 2E-308 to 2E+308 (15-16 digits of precision)
+                         string           Unicode character string
                         ```
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2266,7 +2311,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The unit of each column in the `table`.
-                        Each unit shall be separated by a comma (`,`).
+                        Each unit shall be separated by a comma.
                         If a column does not have a unit (for example, a column is for comments),
                         the unit for that column may be an empty string.
                         Whitespace may be used.
@@ -2280,7 +2325,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The label of each column in the `table`.
-                        Each label shall be separated by a comma (`,`).
+                        Each label shall be separated by a comma.
                         Whitespace may be used.
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2295,11 +2340,11 @@
                     <xsd:documentation>
                         The data in the `table`.
                         Each row shall be separated by a line-feed character (0x0A).
-                        Each column in a row shall be separated by a comma (`,`).
+                        Each column in a row shall be separated by a comma.
 
                         If splitting the content by a line-feed character results in
                         an empty row or a row that contains only whitespace characters,
-                        that row shall be ignored.
+                        that row shall be ignored by analysis software.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>

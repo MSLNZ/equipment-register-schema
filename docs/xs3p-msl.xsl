@@ -270,11 +270,6 @@
                      <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="40vh"/>
                   </a>
                </div>
-               <div class="msl-icon">
-                  <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank" rel="noopener noreferrer">
-                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="50vh"/>
-                  </a>
-               </div>
             </div>
 
             <div class="container">

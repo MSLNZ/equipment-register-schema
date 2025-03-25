@@ -389,10 +389,10 @@
 
                   function toggleToc() {
                      const toc = document.getElementById("toc");
-                     if (toc.style.display === "block" || toc.style.display === "") {
-                         toc.style.display = "none"; // Hide TOC
+                     if (window.getComputedStyle(toc).display === "none") {
+                        toc.style.display = "block"; // Show TOC
                      } else {
-                         toc.style.display = "block"; // Show TOC
+                         toc.style.display = "none"; // Hide TOC
                      }
                   }
 

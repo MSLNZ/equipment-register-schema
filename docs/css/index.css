@@ -203,9 +203,11 @@ a.name {
     color: #CCCCCC;
     cursor: pointer;
 }
+
+/* Used by the HELP button in a CollapseableBox /*
 .pull-right {
     float: right !important;
-}
+} */
 
 /* Syntax highlighting */
 

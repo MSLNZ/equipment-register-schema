@@ -1768,7 +1768,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_PROPERTIES"/>
+         <!-- <xsl:with-param name="help" select="$HELP_PROPERTIES"/> -->
          <xsl:with-param name="anchor">properties-table</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Properties</xsl:with-param>
@@ -1826,7 +1826,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -1851,7 +1851,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_PROPERTIES"/>
+         <!-- <xsl:with-param name="help" select="$HELP_PROPERTIES"/> -->
          <xsl:with-param name="anchor">properties-table</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Properties</xsl:with-param>
@@ -1876,7 +1876,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -1995,7 +1995,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -2164,7 +2164,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -2189,7 +2189,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_PROPERTIES"/>
+         <!-- <xsl:with-param name="help" select="$HELP_PROPERTIES"/> -->
          <xsl:with-param name="anchor">properties-table</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Properties</xsl:with-param>
@@ -2226,7 +2226,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -2251,7 +2251,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_PROPERTIES"/>
+         <!-- <xsl:with-param name="help" select="$HELP_PROPERTIES"/> -->
          <xsl:with-param name="anchor">properties-table</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Properties</xsl:with-param>
@@ -2401,7 +2401,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -2426,7 +2426,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_PROPERTIES"/>
+         <!-- <xsl:with-param name="help" select="$HELP_PROPERTIES"/> -->
          <xsl:with-param name="anchor">properties-table</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Properties</xsl:with-param>
@@ -2486,7 +2486,7 @@ pre {
                <xsl:with-param name="component" select="."/>
             </xsl:call-template>
          </xsl:with-param>
-         <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_DOCUMENTATION"/> -->
          <xsl:with-param name="anchor">doc-panel</xsl:with-param>
          <xsl:with-param name="styleClass">sample</xsl:with-param>
          <xsl:with-param name="caption">Documentation</xsl:with-param>
@@ -2875,7 +2875,7 @@ pre {
 
          <xsl:call-template name="CollapseableBox">
             <xsl:with-param name="id" select="$componentID"/>
-            <xsl:with-param name="help" select="$HELP_INSTANCE"/>
+            <!-- <xsl:with-param name="help" select="$HELP_INSTANCE"/> -->
             <xsl:with-param name="anchor">instance-table</xsl:with-param>
             <xsl:with-param name="styleClass">sample</xsl:with-param>
             <xsl:with-param name="caption">XML Instance Representation</xsl:with-param>
@@ -5437,7 +5437,7 @@ pre {
 
       <xsl:call-template name="CollapseableBox">
          <xsl:with-param name="id" select="$componentID"/>
-         <xsl:with-param name="help" select="$HELP_REPRESENTATION"/>
+         <!-- <xsl:with-param name="help" select="$HELP_REPRESENTATION"/> -->
          <xsl:with-param name="anchor">schemaComponent</xsl:with-param>
          <xsl:with-param name="styleClass">schemaComponent</xsl:with-param>
          <xsl:with-param name="caption">Schema Component Representation</xsl:with-param>

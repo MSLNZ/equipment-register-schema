@@ -9,7 +9,7 @@
 html, body {
     height: 100%;
     font-family: Roboto;
-    font-size: 14px;
+    font-size: max(10px, min(2vw, 14px));
     background-color: #fff;
     overflow: hidden; /* Prevent the main window from scrolling */
 }
@@ -23,9 +23,8 @@ p {
     font-family: Roboto;
 }
 
-pre {
-    padding: 5px;
-    background-color: #E9E9E9;
+h2 {
+    margin-top: 0px;
 }
 
 hr {
@@ -37,6 +36,7 @@ hr {
 
 a.name {
     color: #19578a;
+    font-size: max(12px, min(4vw, 20px));
 }
 
 /*
@@ -84,7 +84,7 @@ a.name {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* Height of the fixed top banner */
+    height: 10vh; /* Height of the fixed top banner */
     background-color: #333;
     align-items: center;
     padding: 0 20px;
@@ -92,7 +92,7 @@ a.name {
 }
 .top-banner .title {
     color: white;
-    font-size: 24px;
+    font-size: max(14px, min(3vw, 28px));
     padding-left: 4rem;
 }
 .top-banner .git-icon {
@@ -102,9 +102,9 @@ a.name {
 /* Holds the table of contents (toc) and the schema documentation (docs) */
 .container {
     display: flex;
-    height: calc(100vh - 70px);  /* Adjust height for the fixed top banner */
-    width: 100%;
-    margin-top: 70px;  /* Space for the fixed top banner */
+    height: calc(100vh - 10vh);  /* Adjust height for the fixed top banner */
+    width: 100vw;
+    margin-top: 10vh;  /* Space for the fixed top banner */
     padding-right: 0px;
     padding-left: 0px;
     margin-right: 0px;
@@ -128,7 +128,7 @@ a.name {
     margin-bottom: 0.2rem;
     margin-left: -2.0rem; /* Negative of ul.padding-left */
     font-weight: normal;
-    font-size: 16px;
+    font-size: max(10px, min(2.3vw, 15px));
     text-align: center;
 }
 .toc-link {
@@ -138,6 +138,7 @@ a.name {
     padding: 0.4rem 0.4rem;
     text-decoration: none;
     font-weight: normal;
+    font-size: max(10px, min(2vw, 14px));
 }
 .toc-link:hover {
     color: #af570a;
@@ -164,6 +165,7 @@ a.name {
 .panel-group .panel {
     margin-bottom: 0;
     border-radius: 4px;
+    overflow: auto;
 }
 .panel-heading {
     padding: 10px 15px;
@@ -180,7 +182,7 @@ a.name {
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: max(10px, min(2vw, 16px));
     color: inherit;
 }
 .xs3p-panel-help {
@@ -192,6 +194,19 @@ a.name {
 }
 
 /* Syntax highlighting */
+
+pre {
+    padding: 5px;
+    background-color: #E9E9E9;
+    font-size: max(10px, min(2vw, 14px));
+}
+
+pre code {
+    color: #32356B;
+    background-color: #E9E9E9;
+    white-space: unset;
+}
+
 code {
     color: #32356B;
     background-color: #E9E9E9;
@@ -208,7 +223,7 @@ code {
 /* .codehilite a:hover {opacity: 0.7 !important;} */
 
 /* highlight.js syntax highlighting in document tags */
-pre code.hljs {display: block; overflow-x: auto; padding: 5px}
+pre code.hljs {display: block; overflow-x: auto; padding: 0.1rem}
 .hljs-meta {color: #32356BAA}   /* XML */
 .hljs-tag  {color: #32356BAA}   /* XML */
 .hljs-name {color: #32356B}     /* XML */
@@ -301,19 +316,19 @@ h3.xs3p-subsection-heading {
     border: 0px none;
     background: none repeat scroll 0% 0% transparent;
     line-height: 1;
-    font-size: 12px;
+    font-size: max(10px, min(2vw, 14px));
 }
 
 .unpre {
     font-family: Roboto;
-    font-size: 14px;
+    font-size: max(12px, min(1.5vw, 14px));
     white-space: normal;
     word-break: normal;
     word-wrap: normal;
 }
 
 .popover {
-    max-width: 400px;
+    max-width: 30vw;
 }
 
 .schemaImports {

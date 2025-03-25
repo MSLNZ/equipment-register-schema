@@ -249,6 +249,7 @@
          <head>
             <title>Equipment Register XSD</title>
             <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i"/>
             <link rel="stylesheet" href="{$bootstrapURL}/css/bootstrap.min.css" type='text/css' charset="UTF-8"/>
             <link rel="stylesheet" href="css/index.css" type='text/css' charset="UTF-8"/>
@@ -260,12 +261,12 @@
             <div class="top-banner">
                <div class="git-icon">
                   <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to repository" target="_blank" rel="noopener noreferrer">
-                     <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="35px"/>
+                     <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="40vh"/>
                   </a>
                </div>
                <div class="msl-icon">
                   <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank" rel="noopener noreferrer">
-                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="55px"/>
+                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="60vh"/>
                   </a>
                </div>
                <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
@@ -641,7 +642,7 @@
    <xsl:template name="SectionFooter">
       <!-- Link to equipment element -->
       <div style="text-align: center; clear: both;">
-         <a href="#type_equipment" class="name" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to 'equipment' type definition">
+         <a href="#type_equipment" class="equipment-link" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to 'equipment' type definition">
             <span class="glyphicon glyphicon-link">
                <xsl:text> </xsl:text>
             </span>

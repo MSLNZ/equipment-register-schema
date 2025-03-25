@@ -43,11 +43,11 @@ a.name {
   Hide the default tooltip for the "Show documentation for ..." button
   and the "Go to ..." hyperlinks
 */
-#showDocButton, #gotoLink, #gotoNamespace {
+#showDocButton, #gotoLink, #gotoNamespace, #gotoEquipment {
     position: relative;
 }
 
-#showDocButton:hover::after, #gotoLink:hover::after {
+#showDocButton:hover::after, #gotoLink:hover::after, #gotoEquipment:hover::after {
     content: attr(data-title);
     position: absolute;
     top: -25px;

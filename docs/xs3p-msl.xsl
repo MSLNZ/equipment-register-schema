@@ -354,7 +354,7 @@
             <script src="{$bootstrapURL}/js/bootstrap.min.js" type="text/javascript" charset="UTF-8"/>
             <script>
                <![CDATA[
-                  $(function () { $("[data-toggle='tooltip']").tooltip(); });
+                  // $(function () { $("[data-toggle='tooltip']").tooltip(); });
                   $(function () { $("[data-toggle='popover']").popover(); });
 
                   var md = window.markdownit({
@@ -651,10 +651,13 @@
    <xsl:template name="SectionFooter">
       <!-- Link to equipment element -->
       <div style="text-align: center; clear: both;">
-         <a href="#type_equipment" class="equipment-link" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to 'equipment' type definition">
+         <!--<a href="#type_equipment" class="equipment-link" data-html="true" data-placement="bottom" data-toggle="tooltip" title="Go to 'equipment' type definition">
             <span class="glyphicon glyphicon-link">
                <xsl:text> </xsl:text>
             </span>
+         </a>-->
+         <a id="gotoEquipment" href="#type_equipment" data-title="Go to 'equipment' type definition">
+            <span class="glyphicon glyphicon-link"/>
          </a>
       </div>
       <hr/>

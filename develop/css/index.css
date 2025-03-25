@@ -98,12 +98,12 @@ a.name {
     flex: 1;
 }
 .top-banner .git-icon {
-    margin-right: 2rem;
+    margin-left: 2rem;
 }
 .top-banner .toc-button {
     cursor: pointer;
-    height: 4vh;
-    width: 4vh;
+    height: 3vh;
+    width: 3vh;
 }
 
 /* Holds the table of contents (toc) and the schema documentation (docs) */
@@ -123,7 +123,6 @@ a.name {
     width: max-content;
     background-color: #453831;
     overflow-y: auto; /* Scrollable */
-    height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
     overflow-x: hidden;
 }
 .toc-bullet {
@@ -153,12 +152,17 @@ a.name {
     color: #af570a;
 }
 
+@media screen and (max-width: 600px) {
+    .toc {
+        display: none;
+    }
+}
+
 .docs {
     flex: 1; /* Takes remaining space */
     padding: 10px;
     overflow-y: auto; /* Scrollable */
     background-color: #fff;
-    height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
 }
 
 .panel {

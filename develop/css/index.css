@@ -343,6 +343,8 @@ h3.xs3p-subsection-heading {
 
 .popover {
     max-width: 30vw;
+    font-family: Roboto;
+    font-size: max(10px, min(2vw, 14px));
 }
 
 .schemaImports {

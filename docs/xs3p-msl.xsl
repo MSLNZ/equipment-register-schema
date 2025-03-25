@@ -267,7 +267,7 @@
                <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
                <div class="git-icon">
                   <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to the repository" target="_blank" rel="noopener noreferrer">
-                     <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="25vh"/>
+                     <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="25px"/>
                   </a>
                </div>
             </div>

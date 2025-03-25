@@ -152,6 +152,12 @@ a.name {
     color: #af570a;
 }
 
+@media screen and (max-width: 600px) {
+    .toc {
+        display: none;
+    }
+}
+
 .docs {
     flex: 1; /* Takes remaining space */
     padding: 10px;

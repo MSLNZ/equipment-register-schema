@@ -428,13 +428,13 @@
     <xsd:simpleType name="variables">
         <xsd:annotation>
             <xsd:documentation>
-                A list of variable name(s) in an [equation](#type_equation).
+                A list of variable(s) in an [equation](#type_equation).
 
-                Each variable name must begin with a letter and may be
+                Each variable must begin with a letter and may be
                 followed by zero or more letter, digit or underscore
                 characters.
 
-                Whitespace shall be used to separate each variable name.
+                Whitespace shall be used to separate each variable.
 
                 If no variables are used in the [equation](#type_equation)
                 (i.e., the equation is a constant numerical value), the `variables`
@@ -459,10 +459,10 @@
                 {/equation}
                 ```
 
-                The [equation](#type_equation) requires two variables `t` and `rh`
+                The [equation](#type_equation) requires two variables `temp` and `rh`
                 ```xml
                 {equation}
-                  {value variables="t rh"}4.21*t + 0.2/rh{/value}
+                  {value variables="temp rh"}4.21*temp + 0.2/rh{/value}
                   ...
                 {/equation}
                 ```
@@ -1885,7 +1885,7 @@
                             <xsd:attribute name="variables" type="msl:variables" use="required">
                                 <xsd:annotation>
                                     <xsd:documentation>
-                                        The name(s) of the variable(s) that are required to evaluate the `value`.
+                                        The variable(s) that are required to evaluate the `value`.
                                     </xsd:documentation>
                                 </xsd:annotation>
                             </xsd:attribute>
@@ -1926,7 +1926,7 @@
                             <xsd:attribute name="variables" type="msl:variables" use="required">
                                 <xsd:annotation>
                                     <xsd:documentation>
-                                        The name(s) of the variable(s) that are required to evaluate the `uncertainty`.
+                                        The variable(s) that are required to evaluate the `uncertainty`.
                                     </xsd:documentation>
                                 </xsd:annotation>
                             </xsd:attribute>
@@ -2445,12 +2445,12 @@
                     <xsd:attribute name="variable" type="msl:nonEmptyString" use="required">
                         <xsd:annotation>
                             <xsd:documentation>
-                                The name of a variable in the `equation` that this `range` applies to.
+                                The variable in the `equation` that this `range` applies to.
 
                                 _Attention: This XSD document validates the content of an XML document
                                 (e.g., that the `variable` attribute exist and the content
                                 is a [nonEmptyString](#type_nonEmptyString)). It does not attempt to
-                                validate that the range for every `variable` is uniquely defined.
+                                validate that the range for every `variable` is defined.
                                 You must use another tool to validate that every `variable` is
                                 uniquely defined._
                             </xsd:documentation>

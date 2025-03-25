@@ -111,6 +111,9 @@ a.name {
 .container {
     display: flex;
     height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
+    height: -o-calc(100vh - 6vh); /* vendor prefix for the calc function */
+    height: -moz-calc(100vh - 6vh); /* vendor prefix for the calc function */
+    height: -webkit-calc(100vh - 6vh); /* vendor prefix for the calc function */
     width: 100vw;
     margin-top: 6vh;  /* Space for the fixed top banner */
     padding-right: 0px;

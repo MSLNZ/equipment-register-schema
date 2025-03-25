@@ -84,7 +84,7 @@ a.name {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10vh; /* Height of the fixed top banner */
+    height: 6vh; /* Height of the fixed top banner */
     background-color: #333;
     align-items: center;
     padding: 0 20px;
@@ -92,19 +92,26 @@ a.name {
 }
 .top-banner .title {
     color: white;
-    font-size: max(12px, min(3vw, 28px));
+    font-size: max(12px, min(2.5vw, 28px));
     padding-left: 4rem;
+    padding-right: 4rem;
+    flex: 1;
 }
 .top-banner .git-icon {
     margin-right: 2rem;
+}
+.top-banner .toc-button {
+    cursor: pointer;
+    height: 4vh;
+    width: 4vh;
 }
 
 /* Holds the table of contents (toc) and the schema documentation (docs) */
 .container {
     display: flex;
-    height: calc(100vh - 10vh);  /* Adjust height for the fixed top banner */
+    height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
     width: 100vw;
-    margin-top: 10vh;  /* Space for the fixed top banner */
+    margin-top: 6vh;  /* Space for the fixed top banner */
     padding-right: 0px;
     padding-left: 0px;
     margin-right: 0px;
@@ -115,7 +122,9 @@ a.name {
 .toc {
     width: max-content;
     background-color: #453831;
-    overflow: auto; /* Scrollable */
+    overflow-y: auto; /* Scrollable */
+    height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
+    overflow-x: hidden;
 }
 .toc-bullet {
     color: #CDB2B2;
@@ -146,9 +155,10 @@ a.name {
 
 .docs {
     flex: 1; /* Takes remaining space */
-    padding: 20px;
+    padding: 10px;
     overflow-y: auto; /* Scrollable */
     background-color: #fff;
+    height: calc(100vh - 6vh);  /* Adjust height for the fixed top banner */
 }
 
 .panel {
@@ -165,7 +175,7 @@ a.name {
 .panel-group .panel {
     margin-bottom: 0;
     border-radius: 4px;
-    overflow: auto;
+    overflow-x: auto;
 }
 .panel-heading {
     padding: 10px 15px;

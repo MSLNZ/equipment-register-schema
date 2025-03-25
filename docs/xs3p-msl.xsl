@@ -259,6 +259,12 @@
          </head>
          <body>
             <div class="top-banner">
+               <div class="toc-button">
+                  <button onclick="toggleToc()" class="toc-button" title="Toggle the table of contents">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+                  </button>
+               </div>
+               <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
                <div class="git-icon">
                   <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to repository" target="_blank" rel="noopener noreferrer">
                      <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="40vh"/>
@@ -266,15 +272,14 @@
                </div>
                <div class="msl-icon">
                   <a href="https://www.measurement.govt.nz/" title="Go to MSL website" target="_blank" rel="noopener noreferrer">
-                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="60vh"/>
+                     <img src="images/msl-icon.png" alt="MSL" loading="lazy" width="auto" height="50vh"/>
                   </a>
                </div>
-               <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
             </div>
 
             <div class="container">
 
-               <div class="toc">
+               <div class="toc" id="toc">
                   <xsl:apply-templates select="." mode="toc"/>
                </div>
 
@@ -386,6 +391,15 @@
                         $('.md-version__list').append('<li class="md-version__item"><a href="../' + version + '/" class="md-version__link">' + version + '</a></li>');
                      });
                   });
+
+                  function toggleToc() {
+                     const toc = document.getElementById("toc");
+                     if (toc.style.display === "block" || toc.style.display === "") {
+                         toc.style.display = "none"; // Hide TOC
+                     } else {
+                         toc.style.display = "block"; // Show TOC
+                     }
+                  }
 
                ]]>
             </script>

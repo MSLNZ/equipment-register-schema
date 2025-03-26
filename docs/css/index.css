@@ -34,6 +34,10 @@ hr {
     background-color: #333;
 }
 
+a:focus {
+    outline: none;
+}
+
 a.name {
     color: #19578a;
     font-size: max(12px, min(4vw, 20px));

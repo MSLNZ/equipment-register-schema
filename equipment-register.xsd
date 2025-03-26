@@ -1151,10 +1151,9 @@
             <xsd:documentation>
                 _Optional:_ The MSL technical procedure(s) that depend on this equipment.
 
-                The motivation for specifying the technical procedure(s) is to be able to
-                identify where there are risks due to a single equipment failing that results
-                in calibration service(s) shutting down until a suitable replacement equipment
-                is acquired.
+                The motivation for specifying the technical procedure(s) is to help identify
+                where there are risks due to an equipment failing which result in calibration
+                service(s) shutting down until suitable replacement equipment is acquired.
 
                 **Examples**
 

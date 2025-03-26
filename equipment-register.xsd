@@ -974,7 +974,7 @@
                 Some alterations have been performed
                 ```xml
                 {alterations}
-                  {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with Texas Instruments LMP7721{/alteration}
+                  {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
                   {alteration date="2022-06-23" performedBy="Chris, MSL"}Attach heatsink to voltage regulator{/alteration}
                 {/alterations}
                 ```

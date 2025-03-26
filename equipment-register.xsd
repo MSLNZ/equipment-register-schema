@@ -178,7 +178,7 @@
                 **Examples**
 
                 ```xml
-                {equipment keywords="Source Voltage AC DC"}...{/equipment"}
+                {equipment keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>

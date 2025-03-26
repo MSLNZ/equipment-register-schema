@@ -186,7 +186,7 @@
    <xsl:variable name="ATTR_INDENT">1</xsl:variable>
 
    <!-- Title to use if none provided -->
-   <!--<xsl:variable name="DEFAULT_TITLE">XML Schema Definition (XSD) for an Equipment Register</xsl:variable>-->
+   <!--<xsl:variable name="DEFAULT_TITLE">XML Schema Definition for an Equipment Register</xsl:variable>-->
 
    <!-- Prefixes used for anchor names -->
       <!-- Type definitions -->
@@ -247,7 +247,7 @@
    <xsl:template match="/xsd:schema">
       <html>
          <head>
-            <title>Equipment Register XSD</title>
+            <title>MSL Equipment Register</title>
             <meta charset="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i"/>
@@ -264,7 +264,7 @@
                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
                   </button>
                </div>
-               <div class="title">XML Schema Definition (XSD) for an Equipment Register</div>
+               <div class="title">MSL Equipment-Register Schema</div>
                <div class="git-icon">
                   <a href="https://github.com/MSLNZ/equipment-register-schema" title="Go to the repository" target="_blank" rel="noopener noreferrer">
                      <img src="images/git-icon.png" alt="repository" loading="lazy" width="auto" height="24px"/>

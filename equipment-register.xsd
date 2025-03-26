@@ -1643,7 +1643,30 @@
                 **Examples**
 
                 ```xml
-                {report id="Radiometry/2024/615"}...{/report}
+                {report id="Humidity/2023/1024"}
+                    {reportIssueDate}2023-08-18{/reportIssueDate}
+                    {measurementStartDate}2023-08-08{/measurementStartDate}
+                    {measurementStopDate}2023-08-14{/measurementStopDate}
+                    {issuingLaboratory}MSL{/issuingLaboratory}
+                    {technicalProcedure}MSLT.H.062{/technicalProcedure}
+                    {conditions/}
+                    {acceptanceCriteria/}
+                    {equation}
+                        {value variables="R t"}R - 7.1e-2 - 3.9e-2*R + 3e-4*pow(R,2) + 2.4e-3*t + 1.03e-3*R*t - 5.2e-6*pow(R,2)*t{/value}
+                        {uncertainty variables=""}0.355{/uncertainty}
+                        {unit}%rh{/unit}
+                        {ranges}
+                            {range variable="R"}
+                                {minimum}30{/minimum}
+                                {maximum}80{/maximum}
+                            {/range}
+                            {range variable="t"}
+                                {minimum}15{/minimum}
+                                {maximum}25{/maximum}
+                            {/range}
+                        {/ranges}
+                    {/equation}
+                {/report}
                 ```
             </xsd:documentation>
         </xsd:annotation>

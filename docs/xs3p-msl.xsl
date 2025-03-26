@@ -656,7 +656,7 @@
                <xsl:text> </xsl:text>
             </span>
          </a>-->
-         <a id="gotoEquipment" href="#type_equipment" data-title="Go to 'equipment' type definition">
+         <a href="#type_equipment" title="Go to 'equipment' type definition">
             <span class="glyphicon glyphicon-link"/>
          </a>
       </div>
@@ -4021,7 +4021,7 @@ pre {
             </xsl:for-each>
          </xsl:variable>
          <xsl:text> </xsl:text>
-         <button id="showDocButton" data-title="Show '{$component/@name}' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#{$documentation}-popup"><span class="glyphicon glyphicon-info-sign"><xsl:text> </xsl:text></span></button>
+         <button title="Show '{$component/@name}' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#{$documentation}-popup"><span class="glyphicon glyphicon-info-sign"><xsl:text> </xsl:text></span></button>
       </xsl:if>
    </xsl:template>
 
@@ -6290,7 +6290,7 @@ pre {
                   </xsl:if>
                   <xsl:value-of select="concat('#', $NS_PREFIX, $prefix)"/>
                </xsl:variable>
-               <a id="gotoNamespace" href="{$link}" data-title="Go to '{$prefix}' namespace definition">
+               <a href="{$link}" title="Go to '{$prefix}' namespace definition">
                   <xsl:value-of select="$prefix"/>
                </a>
             </xsl:when>
@@ -6656,7 +6656,7 @@ pre {
          </xsl:choose>
       </xsl:variable>
 
-      <a id="gotoLink" data-title="{$title}" href="{$link}">
+      <a title="{$title}" href="{$link}">
          <!-- External link -->
          <xsl:if test="normalize-space($baseURI)!=''">
             <xsl:attribute name="class">externalLink</xsl:attribute>

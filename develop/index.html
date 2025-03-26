@@ -58,7 +58,7 @@
                 **Examples**
 
                 ```xml
-                {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with Texas Instruments LMP7721{/alteration}
+                {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
                 ```
             </div><div class="xs3p-doc" id="id5-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_alteration-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_alteration-instance-table-panel-group" href="#type_alteration-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_alteration-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
  <span class="na">date=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:date</span>"</span> <span class="cs">[1]</span><div class="modal fade date" id="id6-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id6-label">Attribute date</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id6-hidden"><div class="hidden" id="id6-hidden-doc-raw">
@@ -1066,7 +1066,30 @@
                 **Examples**
 
                 ```xml
-                {report id="Radiometry/2024/615"}...{/report}
+                {report id="Humidity/2023/1024"}
+                    {reportIssueDate}2023-08-18{/reportIssueDate}
+                    {measurementStartDate}2023-08-08{/measurementStartDate}
+                    {measurementStopDate}2023-08-14{/measurementStopDate}
+                    {issuingLaboratory}MSL{/issuingLaboratory}
+                    {technicalProcedure}MSLT.H.062{/technicalProcedure}
+                    {conditions/}
+                    {acceptanceCriteria/}
+                    {equation}
+                        {value variables="R t"}R - 7.1e-2 - 3.9e-2*R + 3e-4*pow(R,2) + 2.4e-3*t + 1.03e-3*R*t - 5.2e-6*pow(R,2)*t{/value}
+                        {uncertainty variables=""}0.355{/uncertainty}
+                        {unit}%rh{/unit}
+                        {ranges}
+                            {range variable="R"}
+                                {minimum}30{/minimum}
+                                {maximum}80{/maximum}
+                            {/range}
+                            {range variable="t"}
+                                {minimum}15{/minimum}
+                                {maximum}25{/maximum}
+                            {/range}
+                        {/ranges}
+                    {/equation}
+                {/report}
                 ```
             </div><div class="xs3p-doc" id="id103-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_report-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_report-instance-table-panel-group" href="#type_report-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_report-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
  <span class="na">id=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>"</span> <span class="cs">[1]</span><div class="modal fade id" id="id104-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id104-label">Attribute id</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id104-hidden"><div class="hidden" id="id104-hidden-doc-raw">
@@ -1241,19 +1264,19 @@
 
                 ```xml
                 {table}
-                  {type}  int       , double       , double                     {/type}
-                  {unit}  nm        , W/m^2        , W/m^2                      {/unit}
-                  {header}Wavelength, Irradiance   , Irradiance Std. Uncertainty{/header}
-                  {data}  250       ,  0.018184693 , 0.020338474
-                          300       ,  0.184783924 , 0.017558388
-                          350       ,  0.808454870 , 0.016061036
-                          400       ,  2.213559358 , 0.014050724
-                          450       ,  4.490045649 , 0.012509585
-                          500       ,  7.451358772 , 0.012003620
-                          550       , 10.75754957  , 0.011528671
-                          600       , 14.03809504  , 0.011028261
-                          650       , 16.99469553  , 0.011031749
-                          700       , 19.44093973  , 0.010771097
+                  {type}              int        ,    double      ,   double         {/type}
+                  {unit}              nm        ,    W/m^2     ,   W/m^2        {/unit}
+                  {header} Wavelength, Irradiance   , u(Irradiance) {/header}
+                  {data}            250       ,    0.01818    ,   0.02033
+                                          300       ,    0.18478    ,   0.01755
+                                          350       ,    0.80845    ,   0.01606
+                                          400       ,    2.21355    ,   0.01405
+                                          450       ,    4.49004    ,   0.01250
+                                          500       ,    7.45135    ,   0.01200
+                                          550       ,  10.75753    ,   0.01152
+                                          600       ,  14.03809    ,   0.01102
+                                          650       ,  16.99469    ,   0.01103
+                                          700       ,  19.44093    ,   0.01077
                   {/data}
                 {/table}
                 ```
@@ -1297,10 +1320,9 @@
 </pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_technicalProcedures" href="#type_technicalProcedures" class="name">technicalProcedures</a></h3><div class="panel-group" id="type_technicalProcedures-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_technicalProcedures-doc-panel-panel-group" href="#type_technicalProcedures-doc-panel-collapse">Documentation</a></h4></div><div id="type_technicalProcedures-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id127"><div class="hidden" id="id127-doc-raw">
                 _Optional:_ The MSL technical procedure(s) that depend on this equipment.
 
-                The motivation for specifying the technical procedure(s) is to be able to
-                identify where there are risks due to a single equipment failing that results
-                in calibration service(s) shutting down until a suitable replacement equipment
-                is acquired.
+                The motivation for specifying the technical procedure(s) is to help identify
+                where there are risks due to an equipment failing which result in calibration
+                service(s) shutting down until suitable replacement equipment is acquired.
 
                 **Examples**
 

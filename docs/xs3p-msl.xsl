@@ -8120,22 +8120,25 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
 
       <xsl:if test="$simpleRestrict/xsd:enumeration">
          <em>value</em>
-         <xsl:text> comes from list: {</xsl:text>
+         <xsl:text> may be one of </xsl:text>
 
-         <xsl:for-each select="$simpleRestrict/xsd:enumeration">
-            <xsl:if test="position()!=1">
-               <xsl:text>|</xsl:text>
-            </xsl:if>
-            <xsl:if test="count($simpleRestrict/xsd:enumeration)>5">
-               <xsl:text>
-    </xsl:text>
-            </xsl:if>
-            <xsl:text>'</xsl:text>
-            <xsl:value-of select="@value"/>
-            <xsl:text>'</xsl:text>
-         </xsl:for-each>
+         <ul>
+            <xsl:for-each select="$simpleRestrict/xsd:enumeration">
+               <!--<xsl:if test="position()!=1">
+                  <xsl:text>, </xsl:text>
+               </xsl:if>
+               <xsl:if test="count($simpleRestrict/xsd:enumeration)>5">
+                  <xsl:text></xsl:text>
+               </xsl:if>
+               <xsl:text>`</xsl:text>-->
+               <li><xsl:value-of select="@value"/></li>
+               <!-- <xsl:value-of select="@value"/> -->
+               <!-- <xsl:text>&#xa;</xsl:text> -->
+               <!--<xsl:text>`</xsl:text>-->
+            </xsl:for-each>
+         </ul>
 
-         <xsl:text>}</xsl:text>
+         <!--<xsl:text>]</xsl:text>-->
       </xsl:if>
    </xsl:template>
 

@@ -216,7 +216,7 @@ pre code.hljs {
     padding: 0.1rem;
     font-size: max(12px, min(2vw, 16px));
     font-family: Roboto;
-    color: #4f7ec3;
+    color: #000;
 }
 .hljs-meta {color: #32356BAA}   /* XML */
 .hljs-tag  {color: #32356BAA}   /* XML */

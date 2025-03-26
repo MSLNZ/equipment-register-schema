@@ -1,7 +1,5 @@
 # Release Notes
 
--------------
+## 0.1.0 (2025-03-26)
 
-## Version 0.1 (in development)
-
-* 
+* Initial release

@@ -17,8 +17,10 @@ $ python build_docs.py v0.1.0
 # ]
 # ///
 import os
+import re
 import shutil
 import sys
+import zlib
 from pathlib import Path
 from subprocess import run
 
@@ -82,5 +84,26 @@ if os.getenv("GITHUB_ACTIONS") == "true":
             with open(version_file, "w") as fp:
                 json.dump(versions, fp, indent=4)
             print(f"Inserted {tag!r} into {version_file}")
+
+# Creates the objects.inv file (for inter-sphinx mapping)
+inventory = []
+with open(f"build/{tag}/index.html") as f:
+    hrefs = sorted(
+        set(
+            item["href"] for item in re.finditer(r'href="#(?P<href>[^"]+)"', f.read())
+            if "_" in item["href"] and not item["href"].endswith("-collapse")
+        )
+    )
+
+    for href in hrefs:
+        role, name = href.split("_")
+        inventory.append(f"{name} xsd:{role} 1 #{href} -".encode())
+
+with open(f"build/{tag}/objects.inv", "wb") as f:
+    f.write(b"# Sphinx inventory version 2\n")
+    f.write(b"# Project: MSL-Equipment-Register-Schema\n")
+    f.write(f"# Version: {xsd.getroot().attrib['version']}\n".encode())
+    f.write(b"# The remainder of this file is compressed using zlib.\n")
+    f.write(zlib.compress(b"\n".join(inventory) + b"\n", 9))
 
 print(f"Saved to docs/build/{tag}")

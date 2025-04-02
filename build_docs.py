@@ -97,7 +97,7 @@ with open(f"build/{tag}/index.html") as f:
 
     for href in hrefs:
         role, name = href.split("_")
-        inventory.append(f"{name} xsd:{role} 1 #{href} -".encode())
+        inventory.append(f"{href} xsd:{role} 1 #{href} {name}".encode())
 
 with open(f"build/{tag}/objects.inv", "wb") as f:
     f.write(b"# Sphinx inventory version 2\n")

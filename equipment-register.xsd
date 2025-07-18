@@ -284,6 +284,7 @@
             <xsd:enumeration value="Current DC"/>
             <xsd:enumeration value="Cylindricity"/>
             <xsd:enumeration value="Deviation in Length"/>
+            <xsd:enumeration value="Diameter"/>
             <xsd:enumeration value="Flatness"/>
             <xsd:enumeration value="Frequency"/>
             <xsd:enumeration value="Gloss"/>
@@ -299,6 +300,7 @@
             <xsd:enumeration value="Parallelism"/>
             <xsd:enumeration value="Perpendicularity"/>
             <xsd:enumeration value="Pressure"/>
+            <xsd:enumeration value="Radius"/>
             <xsd:enumeration value="Reflectance"/>
             <xsd:enumeration value="Resistance AC"/>
             <xsd:enumeration value="Resistance DC"/>

@@ -103,12 +103,12 @@
                 ```xml
                 {location}Cryogenic Radiometer{/location}
                 ```
-                
+
                 A lab of the Temperature team
                 ```xml
                 {location}MicroK 2 resistance bath{/location}
                 ```
-                
+
                 If the equipment is not at MSL (e.g., at another institute,
                 at the landfill, ...) then there is only one option available,
                 `Not at MSL`, and you should document the actual location
@@ -279,6 +279,7 @@
             <xsd:enumeration value="Angularity"/>
             <xsd:enumeration value="BRDF"/>
             <xsd:enumeration value="BTDF"/>
+            <xsd:enumeration value="Capacitance"/>
             <xsd:enumeration value="Colour"/>
             <xsd:enumeration value="Current AC"/>
             <xsd:enumeration value="Current DC"/>
@@ -292,6 +293,7 @@
             <xsd:enumeration value="Humidity"/>
             <xsd:enumeration value="Illuminance"/>
             <xsd:enumeration value="Illuminance Responsivity"/>
+            <xsd:enumeration value="Isotope"/>
             <xsd:enumeration value="Length"/>
             <xsd:enumeration value="Luminance"/>
             <xsd:enumeration value="Luminance Responsivity"/>
@@ -346,7 +348,7 @@
                 ```xml
                 MSLE.P.024
                 ```
-                
+
                 ```xml
                 MSLE.F.061
                 ```
@@ -801,7 +803,7 @@
                 ```xml
                 {maintenance/}
                 ```
-                
+
                 Some maintenance tasks are planned but none have been completed
                 ```xml
                 {maintenance}
@@ -812,7 +814,7 @@
                   {completed/}
                 {/maintenance}
                 ```
-                
+
                 Some maintenance tasks are planned and some have been completed
                 ```xml
                 {maintenance}
@@ -824,7 +826,7 @@
                   {/completed}
                 {/maintenance}
                 ```
-                
+
                 No maintenance tasks are planned and some have been completed
                 ```xml
                 {maintenance}
@@ -972,7 +974,7 @@
                 ```xml
                 {alterations/}
                 ```
-                
+
                 Some alterations have been performed
                 ```xml
                 {alterations}
@@ -1440,7 +1442,7 @@
                     {component name="Front"}
                     {component name="Rear terminal"}
                     ```
-                    
+
                     A data acquisition (DAQ) system
                     ```xml
                     {component name="AO1"}
@@ -1448,7 +1450,7 @@
                     {component name="PFI2"}
                     {component name="Counter 1"}
                     ```
-                    
+
                     A scanner or multiplexer
                     ```xml
                     {component name="Ch1"}

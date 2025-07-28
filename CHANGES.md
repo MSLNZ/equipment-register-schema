@@ -1,6 +1,10 @@
 # Release Notes
 
-## 0.1.1 (in development)
+---
+
+## unreleased
+
+* Added the following to `quantityEnumerationString`: Capacitance, Diameter, Isotope, Radius
 
 ## 0.1.0 (2025-03-26)
 

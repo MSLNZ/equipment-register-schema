@@ -213,6 +213,7 @@
                     <xsd:enumeration value="Optical"/>
                     <xsd:enumeration value="Oscilloscope"/>
                     <xsd:enumeration value="Photomultiplier"/>
+                    <xsd:enumeration value="Power"/>
                     <xsd:enumeration value="PRT"/>
                     <xsd:enumeration value="Pyro"/>
                     <xsd:enumeration value="Radiation"/>
@@ -225,6 +226,7 @@
                     <xsd:enumeration value="SPRT"/>
                     <xsd:enumeration value="Stage"/>
                     <xsd:enumeration value="Stepper"/>
+                    <xsd:enumeration value="Supply"/>
                     <xsd:enumeration value="Tape"/>
                     <xsd:enumeration value="Thermocouple"/>
                     <xsd:enumeration value="Thermometer"/>

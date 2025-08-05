@@ -29,7 +29,7 @@ def test_alias(xml, value):
      '   \t \r  \n',
      'DMM',
      '  PRT   ',
-     'GaugeBlock',
+     'Gauge Block',
      'Laser\n',
      'Barometer\t',
      'Hygrometer ',

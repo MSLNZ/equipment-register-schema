@@ -206,6 +206,7 @@
                     <xsd:enumeration value="Laser"/>
                     <xsd:enumeration value="Linescale"/>
                     <xsd:enumeration value="Lock-in"/>
+                    <xsd:enumeration value="Measure"/>
                     <xsd:enumeration value="Mechanical"/>
                     <xsd:enumeration value="Meter"/>
                     <xsd:enumeration value="Monochromator"/>
@@ -220,7 +221,6 @@
                     <xsd:enumeration value="Resistance"/>
                     <xsd:enumeration value="Rule"/>
                     <xsd:enumeration value="Sample"/>
-                    <xsd:enumeration value="Sense"/>
                     <xsd:enumeration value="Set"/>
                     <xsd:enumeration value="Source"/>
                     <xsd:enumeration value="SPRT"/>

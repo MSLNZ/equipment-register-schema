@@ -226,7 +226,6 @@
                     <xsd:enumeration value="SPRT"/>
                     <xsd:enumeration value="Stage"/>
                     <xsd:enumeration value="Stepper"/>
-                    <xsd:enumeration value="Supply"/>
                     <xsd:enumeration value="Tape"/>
                     <xsd:enumeration value="Thermocouple"/>
                     <xsd:enumeration value="Thermometer"/>

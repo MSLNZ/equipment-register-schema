@@ -1530,7 +1530,7 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Darrin"}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}
                   {url}reports\2025\job092.pdf{/url}
                   {sha256}76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54{/sha256}
                 {/digitalReport}

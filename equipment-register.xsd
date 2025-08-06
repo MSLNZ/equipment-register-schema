@@ -536,7 +536,7 @@
                 An `equipment` element showing the minimal child elements that must
                 contain values so that the equipment register remains valid
                 ```xml
-                {equipment}
+                {equipment enteredBy="Peter"}
                     {id}MSLE.L.001{/id}
                     {manufacturer}MSL{/manufacturer}
                     {model}ABC{/model}
@@ -559,10 +559,10 @@
 
                 The following shows different ways that attributes may be specified
                 ```xml
-                {equipment}...{/equipment}
-                {equipment alias="bench-top probe"}...{/equipment}
-                {equipment keywords="Thermometer Hygrometer"}...{/equipment}
-                {equipment alias="main" keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Adam"}...{/equipment}
+                {equipment enteredBy="Tim" alias="bench-top probe"}...{/equipment}
+                {equipment enteredBy="Ben" keywords="Thermometer Hygrometer"}...{/equipment}
+                {equipment enteredBy="Tom" alias="main" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -775,6 +775,32 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who initially entered the `equipment` element in the register.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedBy" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who checked the information in the `equipment` element.
+                    When modified, the `checkedDate` attribute should also be updated.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedDate" type="xsd:date">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The date that the information in the `equipment` element was last checked.
+                    When modified, the `checkedBy` attribute should also be updated.
+
+                    The date must be in the YYYY-MM-DD format (see
+                    [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute name="alias" type="xsd:string">
             <xsd:annotation>
                 <xsd:documentation>
@@ -1502,7 +1528,7 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Darrin"}
                   {url}reports/2025/job092.pdf{/url}
                   {sha256}76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54{/sha256}
                 {/digitalReport}
@@ -1526,6 +1552,35 @@
                             Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
                             d) unique identification that all its components are recognized
                                as a portion of a complete report and a clear identification of the end
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the person who initially entered the `digitalReport`
+                            element in the register.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="checkedBy" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The name of the person who checked the information in the
+                            `digitalReport` element. When modified, the `checkedDate`
+                            attribute should also be updated.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="checkedDate" type="xsd:date">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            The date that the information in the `digitalReport` element
+                            was last checked. When modified, the `checkedBy` attribute
+                            should also be updated.
+
+                            The date must be in the YYYY-MM-DD format (see
+                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
@@ -1849,6 +1904,35 @@
                     Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
                     d) unique identification that all its components are recognized
                        as a portion of a complete report and a clear identification of the end
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who initially entered the `report`
+                    element in the register.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedBy" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who checked the information in the
+                    `report` element. When modified, the `checkedDate`
+                    attribute should also be updated.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedDate" type="xsd:date">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The date that the information in the `report` element
+                    was last checked. When modified, the `checkedBy` attribute
+                    should also be updated.
+
+                    The date must be in the YYYY-MM-DD format (see
+                    [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

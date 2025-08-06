@@ -78,7 +78,7 @@ class XML:
         self.source: str = ''
         self._root_prefix: str = f'<register team="Light" xmlns="{XML.NAMESPACE}">'
         self._root_suffix: str = '</register>'
-        self._equipment_prefix: str = '<equipment keywords="Laser">'
+        self._equipment_prefix: str = '<equipment enteredBy="Me">'
         self._equipment_suffix: str = '</equipment>'
         self._id: str = self.element('id', text='MSLE.L.000')
         self._manufacturer: str = self.element('manufacturer', text='Company, Inc.')
@@ -203,8 +203,10 @@ class XML:
         else:
             self._root_prefix = f'<{name}>'
 
-    def equipment(self, name: str, **attribs) -> None:
+    def equipment(self, name: str, auto_add_entered_by=True, **attribs) -> None:
         """Overwrite the equipment element prefix and suffix."""
+        if auto_add_entered_by:
+            attribs.setdefault('enteredBy', 'Me')
         attributes = XML.attributes(**attribs)
         self._equipment_suffix = f'</{name}>'
         if attributes:
@@ -298,6 +300,7 @@ class XML:
     @staticmethod
     def report(*,
                number: str = 'any',
+               entered_by: str = 'me',
                issue: str = '2023-09-18',
                start: str = '2023-09-18',
                stop: str = '2023-09-18',
@@ -312,7 +315,7 @@ class XML:
             attributes = XML.attributes(**attribs)
             report = f'<report {attributes}>'
         else:
-            report = f'<report id="{number}">'
+            report = f'<report id="{number}" enteredBy="{entered_by}">'
 
         if conditions is None:
             conditions = '<conditions/>'
@@ -393,7 +396,7 @@ class XML:
             attributes = XML.attributes(**attribs)
             report = f'<digitalReport {attributes}>'
         else:
-            report = f'<digitalReport id="{number}" format="{XML.FORMAT}">'
+            report = f'<digitalReport id="{number}" format="{XML.FORMAT}" enteredBy="Me">'
 
         if not url:
             url = f'<url>calibration.pdf</url>'

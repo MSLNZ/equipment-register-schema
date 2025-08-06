@@ -27,13 +27,18 @@ def test_report_invalid_element_name(xml):
 
 
 def test_report_no_content(xml):
-    xml.calibrations(xml.measurand(xml.component('<report id="anything"/>')))
+    xml.calibrations(xml.measurand(xml.component('<report id="anything" enteredBy="M"/>')))
     xml.raises(r'Expected is .*reportIssueDate')
 
 
 def test_report_no_id(xml):
     xml.calibrations(xml.measurand(xml.component('<report/>')))
     xml.raises("The attribute 'id' is required but missing")
+
+
+def test_report_no_entered_by(xml):
+    xml.calibrations(xml.measurand(xml.component('<report id="x"/>')))
+    xml.raises("The attribute 'enteredBy' is required but missing")
 
 
 @pytest.mark.parametrize(

@@ -1891,10 +1891,9 @@
 
                 _Attention: This XSD document validates the content of an XML document
                 (e.g., that the `value` and `uncertainty` elements exist and the content
-                is a [nonEmptyString](#type_nonEmptyString)). It does not attempt to validate
-                that the equation is mathematically correct (e.g., whether the equation
-                is missing a closing bracket). You must use another tool to validate the
-                mathematical correctness of the equation._
+                is a [nonEmptyString](#type_nonEmptyString)). It does not validate that
+                the equation syntax is correct (e.g., whether the equation is missing
+                a closing bracket). You must use another tool to validate the syntax._
 
                 **Examples**
 
@@ -2047,9 +2046,8 @@
                 ```
 
                 where,
-                * *root*: This is not stored in an equipment register. Instead, it may be
-                          stored in a separate file (ideally in a single file) on a local
-                          hard drive. How and where this is stored is up to the individual.
+                * *root*: This is not stored in an equipment register. Instead, it is stored
+                          in a separate file. How and where this is stored is up to the individual.
                 * *url*: This is the value of the `url` element in an equipment register.
 
                 For example, consider the following absolute path
@@ -2081,7 +2079,7 @@
                 The data is stored in an Excel file that is located at a _relative_ path
                 ```xml
                 {file}
-                  {url sheet="2024-May" cell="B2:D25"}relative\path\data.xlsx{/url}
+                  {url sheet="2024-May" cells="B2:D25"}relative\path\data.xlsx{/url}
                   {sha256}70d79d2eb24dc2515faaf4ab7fa3540e5a73ca6080181908a0ea87a309293609{/sha256}
                 {/file}
                 ```
@@ -2089,7 +2087,7 @@
                 The data is stored in a digital calibration certificate on a network server
                 ```xml
                 {file comment="calibration of second grating"}
-                  {url}file://msl-nas/Photometry/Calibrations/job123456.xml{/filename}
+                  {url}\\hostname\Photometry\Calibrations\job123456.xml{/filename}
                   {sha256}8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728{/sha256}
                 {/file}
                 ```

@@ -5,8 +5,9 @@
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
-            An Equipment Register contains information to satisfy Section 6.4 of ISO/IEC 17025:2017
-            as well as Section 4.3.6 of the MSL Quality Manual.
+            An Equipment Register contains information about the equipment to satisfy
+            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as
+            Section 4.3.6 of the MSL Quality Manual.
         </div><div class="xs3p-doc" id="id1-doc"> </div></div></div></div></div></div><div class="panel-group" id="schema-declared-namespaces-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#schema-declared-namespaces-panel-group" href="#schema-declared-namespaces-collapse">Declared Namespaces</a></h4></div><div id="schema-declared-namespaces-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><thead><tr><th>Prefix</th><th>Namespace</th></tr></thead><tbody><tr><td><a id="ns_xml">xml</a></td><td>http://www.w3.org/XML/1998/namespace</td></tr><tr><td><a id="ns_msl">msl</a></td><td><span class="targetNS">https://measurement.govt.nz/equipment-register</span></td></tr><tr><td><a id="ns_gtc">gtc</a></td><td>https://measurement.govt.nz/gtc/xml</td></tr><tr><td><a id="ns_vc">vc</a></td><td>http://www.w3.org/2007/XMLSchema-versioning</td></tr><tr><td><a id="ns_xsd">xsd</a></td><td>http://www.w3.org/2001/XMLSchema</td></tr></tbody></table></div></div></div><div class="panel-group" id="schema-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#schema-schemaComponent-panel-group" href="#schema-schemaComponent-collapse">Schema Component Representation</a></h4></div><div id="schema-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:schema</span> <span class="na">version=</span><span class="s">"0.1.1.dev0"</span> <span class="na">elementFormDefault=</span><span class="s">"qualified"</span> <span class="na">minVersion=</span><span class="s">"1.0"</span> <span class="na">targetNamespace=</span><span class="s">"https://measurement.govt.nz/equipment-register"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:import</span> <span class="na">namespace=</span><span class="s">"https://measurement.govt.nz/gtc/xml"</span> <span class="na">schemaLocation=</span><span class="s">"./external/gtc.xsd"</span><span class="nt">/&gt;</span>
 <span class="scContent">...</span>
@@ -19,10 +20,10 @@
                 The `xmlns` attribute specifies the XML namespace for the document and must be included
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
-                {register team="Pressure" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
+                {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
+                   {equipment enteredBy="Neil"}...{/equipment}
+                   {equipment enteredBy="Ellie"}...{/equipment}
+                   {equipment enteredBy="Yang Yenn"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id2-doc"> </div></div></div></div></div></div><div class="panel-group" id="element_register-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#element_register-instance-table-panel-group" href="#element_register-instance-table-collapse">XML Instance Representation</a></h4></div><div id="element_register-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:register</span>
@@ -258,7 +259,7 @@
                 The `name` attribute must be defined, but it may be an empty string
                 ```xml
                 {component name=""}
-                  {report id="Electrical/2024/618"}...{/report}
+                  {report id="Electrical/2024/618" enteredBy="Joe"}...{/report}
                 {/component}
                 ```
 
@@ -267,10 +268,10 @@
                 ```xml
                 {component name="Probe 1"}
                   {adjustment date="2024-10-17"}Cleaned the filter{/adjustment}
-                  {report id="Humidity/2023/583"}...{/report}
+                  {report id="Humidity/2023/583" enteredBy="Francois"}...{/report}
                   {performanceCheck completedDate="2021-11-20"}...{/performanceCheck}
-                  {report id="Humidity/2019/421"}...{/report}
-                  {report id="Humidity/2015/183"}...{/report}
+                  {report id="Humidity/2019/421" enteredBy="Chris"}...{/report}
+                  {report id="Humidity/2015/183" enteredBy="Lucy"}...{/report}
                 {/component}
                 ```
             </div><div class="xs3p-doc" id="id23-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_component-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_component-instance-table-panel-group" href="#type_component-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_component-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
@@ -1101,7 +1102,7 @@
                 **Examples**
 
                 ```xml
-                {report id="Humidity/2023/1024"}
+                {report id="Humidity/2023/1024" enteredBy="Lenice"}
                     {reportIssueDate}2023-08-18{/reportIssueDate}
                     {measurementStartDate}2023-08-08{/measurementStartDate}
                     {measurementStopDate}2023-08-14{/measurementStopDate}
@@ -1404,8 +1405,8 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}...{/digitalReport}
-                {digitalReport format="PTB DCC" id="PTB 4434/18"}...{/digitalReport}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Greg"}...{/digitalReport}
+                {digitalReport format="PTB DCC" id="PTB 4434/18" enteredBy="Greg"}...{/digitalReport}
                 ```
             </div><div class="xs3p-doc" id="id138-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_digitalFormatEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_digitalFormatEnumerationString-schemaComponent-panel-group" href="#type_digitalFormatEnumerationString-schemaComponent-collapse">Schema Component Representation</a></h4></div><div id="type_digitalFormatEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"digitalFormatEnumerationString"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:restriction</span> <span class="na">base=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:string</span>"</span><span class="nt">&gt;</span>
@@ -1454,7 +1455,7 @@
                 **Examples**
 
                 ```xml
-                {equipment keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Guy" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </div><div class="xs3p-doc" id="id140-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_keywordsList-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_keywordsList-schemaComponent-panel-group" href="#type_keywordsList-schemaComponent-collapse">Schema Component Representation</a></h4></div><div id="type_keywordsList-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"keywordsList"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:list</span><span class="nt">&gt;</span>
@@ -1695,7 +1696,7 @@
 
                 ```xml
                 {register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
+                   {equipment enteredBy="Rebecca"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id146-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_teamEnumerationString-schemaComponent-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title collapsed" data-toggle="collapse" data-parent="#type_teamEnumerationString-schemaComponent-panel-group" href="#type_teamEnumerationString-schemaComponent-collapse">Schema Component Representation</a></h4></div><div id="type_teamEnumerationString-schemaComponent-collapse" class="panel-collapse collapse"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType</span> <span class="na">name=</span><span class="s">"teamEnumerationString"</span><span class="nt">&gt;</span>
@@ -1817,10 +1818,10 @@
                 The `xmlns` attribute specifies the XML namespace for the document and must be included
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
-                {register team="Pressure" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
+                {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
+                   {equipment enteredBy="Neil"}...{/equipment}
+                   {equipment enteredBy="Ellie"}...{/equipment}
+                   {equipment enteredBy="Yang Yenn"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id2-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade equipment" id="id4-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id4-label"> equipment</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id4-hidden"><div class="hidden" id="id4-hidden-doc-raw">
@@ -1837,7 +1838,7 @@
 
                 ```xml
                 {register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
+                   {equipment enteredBy="Rebecca"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id146-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade labEnumerationString" id="id141-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id141-label"> labEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id141-hidden"><div class="hidden" id="id141-hidden-doc-raw">
@@ -1869,8 +1870,8 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}...{/digitalReport}
-                {digitalReport format="PTB DCC" id="PTB 4434/18"}...{/digitalReport}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Greg"}...{/digitalReport}
+                {digitalReport format="PTB DCC" id="PTB 4434/18" enteredBy="Greg"}...{/digitalReport}
                 ```
             </div><div class="xs3p-doc" id="id138-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade keywordsList" id="id140-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id140-label"> keywordsList</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id140-hidden"><div class="hidden" id="id140-hidden-doc-raw">
                 Keywords that may be used to describe the [equipment](#type_equipment).
@@ -1880,7 +1881,7 @@
                 **Examples**
 
                 ```xml
-                {equipment keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Guy" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </div><div class="xs3p-doc" id="id140-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade statusEnumerationString" id="id145-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id145-label"> statusEnumerationString</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id145-hidden"><div class="hidden" id="id145-hidden-doc-raw">
                 The status of the equipment is an indication of whether the

@@ -13,7 +13,7 @@ def test_multiple_attributes(xml):
 
 @pytest.mark.parametrize('fmt', ['MSL PDF/A-3', 'PTB DCC'])
 def test_valid_attribute_value(xml, fmt):
-    xml.calibrations(xml.measurand(xml.component(xml.digital_report(format=fmt, id='any', enteredBy='abc'))))
+    xml.calibrations(xml.measurand(xml.component(xml.digital_report(format=fmt, id='any'))))
     assert xml.is_valid()
 
 
@@ -42,7 +42,7 @@ def test_invalid_sha256_element(xml):
 
 
 def test_extra_url_element(xml):
-    e = (f'<digitalReport format="MSL PDF/A-3" id="any" enteredBy="Last, First">'
+    e = (f'<digitalReport format="MSL PDF/A-3" id="any">'
          f'  <url>file.pdf</url>'
          f'  <sha256>{xml.SHA256}</sha256>'
          f'  <url>file2.pdf</url>'
@@ -52,7 +52,7 @@ def test_extra_url_element(xml):
 
 
 def test_extra_sha256_element(xml):
-    e = (f'<digitalReport format="MSL PDF/A-3" id="any" enteredBy="x">'
+    e = (f'<digitalReport format="MSL PDF/A-3" id="any">'
          f'  <url>file.pdf</url>'
          f'  <sha256>{xml.SHA256}</sha256>'
          f'  <sha256>{xml.SHA256}</sha256>'
@@ -111,31 +111,6 @@ def test_invalid_number_value(xml, value):
 
 @pytest.mark.parametrize('c', ['', ' ', '\t\t\t', 'BW:2nm', 'Can be any string!'])
 def test_attribute_comment(xml, c):
-    attribs = {'id': 'a', 'comment': c, 'format': xml.FORMAT, 'enteredBy': 'a'}
+    attribs = {'id': 'a', 'comment': c, 'format': xml.FORMAT}
     xml.calibrations(xml.measurand(xml.component(xml.digital_report(**attribs))))
     assert xml.is_valid()
-
-
-@pytest.mark.parametrize('name', ['', '    '])
-def test_entered_by_empty_string(xml, name):
-    xml.calibrations(xml.measurand(xml.component(xml.digital_report(format='MSL PDF/A-3', id='any', enteredBy=name))))
-    xml.raises('not accepted by the pattern')
-
-
-@pytest.mark.parametrize('name', ['me', '', '    '])
-def test_checked_by(xml, name):
-    dr = xml.digital_report(format='MSL PDF/A-3', id='any', enteredBy='x', checkedBy=name)
-    xml.calibrations(xml.measurand(xml.component(dr)))
-    assert xml.is_valid()
-
-
-def test_checked_date_valid(xml):
-    dr = xml.digital_report(format='MSL PDF/A-3', id='any', enteredBy='x', checkedDate="2025-08-06")
-    xml.calibrations(xml.measurand(xml.component(dr)))
-    assert xml.is_valid()
-
-
-def test_checked_date_invalid(xml):
-    dr = xml.digital_report(format='MSL PDF/A-3', id='any', enteredBy='x', checkedDate="06-2025-08")
-    xml.calibrations(xml.measurand(xml.component(dr)))
-    xml.raises('not a valid value')

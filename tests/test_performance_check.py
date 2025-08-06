@@ -72,7 +72,7 @@ def test_date_valid(xml, date):
 
 
 def test_empty(xml):
-    check = '<performanceCheck completedDate="2024-12-18"/>'
+    check = '<performanceCheck completedDate="2024-12-18" enteredBy="M"/>'
     xml.calibrations(xml.measurand(xml.component(check)))
     xml.raises(r'Expected is .*competency')
 
@@ -84,7 +84,7 @@ def test_competency_missing(xml):
 
 
 def test_competency_empty(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency/>'
              '</performanceCheck>')
     xml.calibrations(xml.measurand(xml.component(check)))
@@ -92,7 +92,7 @@ def test_competency_empty(xml):
 
 
 def test_competency_unexpected_child(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency>'
              '    <unexpected/>'
              '  </competency>'
@@ -102,10 +102,10 @@ def test_competency_unexpected_child(xml):
 
 
 def test_worker_missing(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency>'
              '    <checker>MSL</checker>'
-             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'             
+             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'
              '  </competency>'
              '</performanceCheck>')
     xml.calibrations(xml.measurand(xml.component(check)))
@@ -113,10 +113,10 @@ def test_worker_missing(xml):
 
 
 def test_checker_missing(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency>'
              '    <worker>MSL</worker>'
-             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'             
+             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'
              '  </competency>'
              '</performanceCheck>')
     xml.calibrations(xml.measurand(xml.component(check)))
@@ -124,7 +124,7 @@ def test_checker_missing(xml):
 
 
 def test_technical_procedure_missing(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency>'
              '    <worker>MSL</worker>'
              '    <checker>MSL</checker>'
@@ -135,11 +135,11 @@ def test_technical_procedure_missing(xml):
 
 
 def test_competency_extra_child(xml):
-    check = ('<performanceCheck completedDate="2024-12-18">'
+    check = ('<performanceCheck completedDate="2024-12-18" enteredBy="X">'
              '  <competency>'
              '    <worker>MSL</worker>'
              '    <checker>MSL</checker>'
-             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'             
+             '    <technicalProcedure>MSLT.E.0</technicalProcedure>'
              '    <extra>MSL</extra>'
              '  </competency>'
              '</performanceCheck>')
@@ -244,3 +244,29 @@ def test_technical_procedure_valid(xml, value):
     check = xml.performance_check(technical_procedure=value)
     xml.calibrations(xml.measurand(xml.component(check)))
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize('name', ['', '    '])
+def test_entered_by_empty_string(xml, name):
+    check = xml.performance_check(entered_by=name)
+    xml.calibrations(xml.measurand(xml.component(check)))
+    xml.raises('not accepted by the pattern')
+
+
+@pytest.mark.parametrize('name', ['me', '', '    '])
+def test_checked_by(xml, name):
+    check = xml.performance_check(completedDate="2025-08-05", enteredBy="me", checkedBy=name)
+    xml.calibrations(xml.measurand(xml.component(check)))
+    assert xml.is_valid()
+
+
+def test_checked_date_valid(xml):
+    check = xml.performance_check(completedDate="2025-08-05", enteredBy="me", checkedDate="2025-08-06")
+    xml.calibrations(xml.measurand(xml.component(check)))
+    assert xml.is_valid()
+
+
+def test_checked_date_invalid(xml):
+    check = xml.performance_check(completedDate="2025-08-05", enteredBy="me", checkedDate="06-2025-08")
+    xml.calibrations(xml.measurand(xml.component(check)))
+    xml.raises('not a valid value')

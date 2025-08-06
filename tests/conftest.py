@@ -341,7 +341,7 @@ class XML:
                 f'            {lab}\n'
                 f'            <technicalProcedure>{method}</technicalProcedure>\n'
                 f'            {conditions}\n'
-                f'            {acceptance_criteria}\n'                
+                f'            {acceptance_criteria}\n'
                 f'            {choice}\n'
                 f'            {extra}\n'
                 f'          </report>')
@@ -356,12 +356,13 @@ class XML:
                           conditions: str | None = '',
                           choice: str = 'file',
                           extra: str = '',
+                          entered_by: str = 'Me',
                           **attribs) -> str:
         if attribs:
             attributes = XML.attributes(**attribs)
             check = f'<performanceCheck {attributes}>'
         else:
-            check = f'<performanceCheck completedDate="{date}">'
+            check = f'<performanceCheck completedDate="{date}" enteredBy="{entered_by}">'
 
         if conditions is None:
             conditions = ''
@@ -396,7 +397,7 @@ class XML:
             attributes = XML.attributes(**attribs)
             report = f'<digitalReport {attributes}>'
         else:
-            report = f'<digitalReport id="{number}" format="{XML.FORMAT}" enteredBy="Me">'
+            report = f'<digitalReport id="{number}" format="{XML.FORMAT}">'
 
         if not url:
             url = f'<url>calibration.pdf</url>'

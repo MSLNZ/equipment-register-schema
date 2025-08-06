@@ -16,7 +16,7 @@
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
-            An Equipment Register contains information about the equipment to satisfy
+            An Equipment Register contains information about equipment to satisfy
             ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as
             Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
@@ -46,9 +46,9 @@
                 <xsd:element name="equipment" type="msl:equipment">
                     <xsd:annotation>
                         <xsd:documentation>
-                            Contains information about the equipment to satisfy ISO/IEC 17025:2017
-                            Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6 of
-                            the MSL Quality Manual.
+                            Contains information about equipment to satisfy ISO/IEC 17025:2017
+                            Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6
+                            of the MSL Quality Manual.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>
@@ -159,8 +159,8 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Greg"}...{/digitalReport}
-                {digitalReport format="PTB DCC" id="PTB 4434/18" enteredBy="Greg"}...{/digitalReport}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}...{/digitalReport}
+                {digitalReport format="PTB DCC" id="PTB 4434/18"}...{/digitalReport}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -529,8 +529,9 @@
     <xsd:complexType name="equipment">
         <xsd:annotation>
             <xsd:documentation>
-                Contains information about the equipment to satisfy ISO/IEC 17025:2017
-                Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
+                Contains information about equipment to satisfy ISO/IEC 17025:2017
+                Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6
+                of the MSL Quality Manual.
 
                 **Examples**
 
@@ -1418,7 +1419,7 @@
                 The `name` attribute must be defined, but it may be an empty string
                 ```xml
                 {component name=""}
-                  {report id="Electrical/2024/618" enteredBy="Joe"}...{/report}
+                  {report id="Electrical/2024/618" enteredBy="Greg"}...{/report}
                 {/component}
                 ```
 
@@ -1428,7 +1429,7 @@
                 {component name="Probe 1"}
                   {adjustment date="2024-10-17"}Cleaned the filter{/adjustment}
                   {report id="Humidity/2023/583" enteredBy="Francois"}...{/report}
-                  {performanceCheck completedDate="2021-11-20"}...{/performanceCheck}
+                  {performanceCheck completedDate="2021-11-20" enteredBy="Fung"}...{/performanceCheck}
                   {report id="Humidity/2019/421" enteredBy="Chris"}...{/report}
                   {report id="Humidity/2015/183" enteredBy="Lucy"}...{/report}
                 {/component}
@@ -1556,35 +1557,6 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
-                <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
-                    <xsd:annotation>
-                        <xsd:documentation>
-                            The name of the person who initially entered the `digitalReport`
-                            element in the register.
-                        </xsd:documentation>
-                    </xsd:annotation>
-                </xsd:attribute>
-                <xsd:attribute name="checkedBy" type="xsd:string">
-                    <xsd:annotation>
-                        <xsd:documentation>
-                            The name of the person who checked the information in the
-                            `digitalReport` element. When modified, the `checkedDate`
-                            attribute should also be updated.
-                        </xsd:documentation>
-                    </xsd:annotation>
-                </xsd:attribute>
-                <xsd:attribute name="checkedDate" type="xsd:date">
-                    <xsd:annotation>
-                        <xsd:documentation>
-                            The date that the information in the `digitalReport` element
-                            was last checked. When modified, the `checkedBy` attribute
-                            should also be updated.
-
-                            The date must be in the YYYY-MM-DD format (see
-                            [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
-                        </xsd:documentation>
-                    </xsd:annotation>
-                </xsd:attribute>
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -1600,7 +1572,7 @@
                 **Examples**
 
                 ```xml
-                {performanceCheck completedDate="2023-04-02"}
+                {performanceCheck completedDate="2023-04-02" enteredBy="Ana" checkedBy="Hamish" checkedDate="2023-04-04"}
                   {competency}...{/competency}
                   {conditions/}
                   {equation}...{/equation}
@@ -1668,6 +1640,35 @@
             <xsd:annotation>
                 <xsd:documentation>
                     The date that the performance check was completed. \
+                    The date must be in the YYYY-MM-DD format (see
+                    [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who initially entered the `performanceCheck`
+                    element in the register.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedBy" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The name of the person who checked the information in the
+                    `performanceCheck` element. When modified, the `checkedDate`
+                    attribute should also be updated.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="checkedDate" type="xsd:date">
+            <xsd:annotation>
+                <xsd:documentation>
+                    The date that the information in the `performanceCheck` element
+                    was last checked. When modified, the `checkedBy` attribute
+                    should also be updated.
+
                     The date must be in the YYYY-MM-DD format (see
                     [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                 </xsd:documentation>

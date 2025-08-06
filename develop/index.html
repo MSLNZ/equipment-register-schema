@@ -333,7 +333,7 @@
 
                 ```xml
                 {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Darrin"}
-                  {url}reports/2025/job092.pdf{/url}
+                  {url}reports\2025\job092.pdf{/url}
                   {sha256}76e4e036da8722b55362912396a01a07bb61e6260c7c4b6150d431e613529a54{/sha256}
                 {/digitalReport}
                 ```
@@ -669,10 +669,10 @@
                 {/file}
                 ```
 
-                The data is stored in a digital calibration certificate on a network server
+                The data is stored in a digital calibration certificate on a network drive
                 ```xml
                 {file comment="calibration of second grating"}
-                  {url}\\hostname\Photometry\Calibrations\job123456.xml{/filename}
+                  {url}\\msl-nas\Light\Calibrations\job123456.xml{/filename}
                   {sha256}8392e473a047543773138653b98037956fa2086e4a54fc882d913f10cc217728{/sha256}
                 {/file}
                 ```
@@ -2515,8 +2515,7 @@
                         scheme:scheme-specific-part
                         ```
                         except, if the `scheme:` is not specified, it is assumed to be `file:`,
-                        which corresponds to a file that is on the local file system of the computer
-                        (which may be a mapped network drive).
+                        which is used to designate files accessible on a particular host computer.
 
                         Including the `scheme:` is required if a particular protocol must be used
                         to access the file, for example, `ftp:` or `https:`. Custom MSL-standardised
@@ -2525,9 +2524,9 @@
 
                         **Examples**
 
-                        The data is stored in a digital calibration report on a network server
+                        The data is stored in a digital calibration report on a network drive
                         ```xml
-                        {url}file://msl-nas/Photometry/Calibrations/job123456.pdf{/url}
+                        {url}\\msl-nas\Light\Calibrations\job123456.pdf{/url}
                         ```
 
                         The data is stored in an Excel file that is located at a local _relative_ path

@@ -16,8 +16,9 @@
 
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
-            An Equipment Register contains information to satisfy Section 6.4 of ISO/IEC 17025:2017
-            as well as Section 4.3.6 of the MSL Quality Manual.
+            An Equipment Register contains information about the equipment to satisfy
+            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as
+            Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
     </xsd:annotation>
 
@@ -32,10 +33,10 @@
                 The `xmlns` attribute specifies the XML namespace for the document and must be included
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
-                {register team="Pressure" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
-                   {equipment}...{/equipment}
+                {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
+                   {equipment enteredBy="Neil"}...{/equipment}
+                   {equipment enteredBy="Ellie"}...{/equipment}
+                   {equipment enteredBy="Yang Yenn"}...{/equipment}
                 {/register}
                 ```
             </xsd:documentation>
@@ -76,7 +77,7 @@
 
                 ```xml
                 {register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment}...{/equipment}
+                   {equipment enteredBy="Rebecca"}...{/equipment}
                 {/register}
                 ```
             </xsd:documentation>
@@ -158,8 +159,8 @@
                 **Examples**
 
                 ```xml
-                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092"}...{/digitalReport}
-                {digitalReport format="PTB DCC" id="PTB 4434/18"}...{/digitalReport}
+                {digitalReport format="MSL PDF/A-3" id="Pressure/2025/092" enteredBy="Greg"}...{/digitalReport}
+                {digitalReport format="PTB DCC" id="PTB 4434/18" enteredBy="Greg"}...{/digitalReport}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -179,7 +180,7 @@
                 **Examples**
 
                 ```xml
-                {equipment keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Guy" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -1417,7 +1418,7 @@
                 The `name` attribute must be defined, but it may be an empty string
                 ```xml
                 {component name=""}
-                  {report id="Electrical/2024/618"}...{/report}
+                  {report id="Electrical/2024/618" enteredBy="Joe"}...{/report}
                 {/component}
                 ```
 
@@ -1426,10 +1427,10 @@
                 ```xml
                 {component name="Probe 1"}
                   {adjustment date="2024-10-17"}Cleaned the filter{/adjustment}
-                  {report id="Humidity/2023/583"}...{/report}
+                  {report id="Humidity/2023/583" enteredBy="Francois"}...{/report}
                   {performanceCheck completedDate="2021-11-20"}...{/performanceCheck}
-                  {report id="Humidity/2019/421"}...{/report}
-                  {report id="Humidity/2015/183"}...{/report}
+                  {report id="Humidity/2019/421" enteredBy="Chris"}...{/report}
+                  {report id="Humidity/2015/183" enteredBy="Lucy"}...{/report}
                 {/component}
                 ```
             </xsd:documentation>
@@ -1731,7 +1732,7 @@
                 **Examples**
 
                 ```xml
-                {report id="Humidity/2023/1024"}
+                {report id="Humidity/2023/1024" enteredBy="Lenice"}
                     {reportIssueDate}2023-08-18{/reportIssueDate}
                     {measurementStartDate}2023-08-08{/measurementStartDate}
                     {measurementStopDate}2023-08-14{/measurementStopDate}

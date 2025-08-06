@@ -46,7 +46,8 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             Contains information about the equipment to satisfy ISO/IEC 17025:2017
-                            Clause 6.4.13 as well as the MSL Quality Manual Section 4.3.6.
+                            Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6 of
+                            the MSL Quality Manual.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>

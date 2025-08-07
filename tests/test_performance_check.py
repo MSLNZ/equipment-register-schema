@@ -178,7 +178,17 @@ def test_multiple_choices(xml):
          '  <ranges/>'
          '</equation>')
 
-    choice = f'{t}{e}{f}{s}{t}{t}{t}{s}{s}{f}{e}{e}{f}{e}{s}{s}{f}{t}{t}'
+    c = ('<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
+        '  <uncertainty variables="">0.2</uncertainty>'
+        '  <unit>C</unit>'
+        '  <ranges/>'
+        '</cvdCoefficients>')
+
+    choice = f'{t}{e}{c}{f}{s}{t}{t}{t}{c}{s}{s}{f}{e}{e}{f}{e}{s}{s}{f}{t}{t}{c}'
     check = xml.performance_check(choice=choice)
     xml.calibrations(xml.measurand(xml.component(check)))
     assert xml.is_valid()

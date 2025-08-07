@@ -254,6 +254,16 @@ def test_multiple_choices_valid(xml):
                 '  <ranges/>'
                 '</equation>')
 
+    cvd = ('<cvdCoefficients>'
+           '  <R0>100</R0>'
+           '  <A>1</A>'
+           '  <B>1</B>'
+           '  <C>1</C>'
+           '  <uncertainty variables="">0.2</uncertainty>'
+           '  <unit>C</unit>'
+           '  <ranges/>'
+           '</cvdCoefficients>')
+
     r = (f'<report id="any" enteredBy="Joseph Borbely">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
@@ -264,15 +274,20 @@ def test_multiple_choices_valid(xml):
          f'  <acceptanceCriteria/>'
          f'  {file}'
          f'  {table}'
+         f'  {cvd}'
          f'  {equation}'
          f'  {equation}'
+         f'  {cvd}'
          f'  {serialised}'
          f'  {table}'
          f'  {file}'
          f'  {equation}'
+         f'  {cvd}'
+         f'  {cvd}'
          f'  {file}'
          f'  {serialised}'
          f'  {serialised}'
+         f'  {cvd}'
          f'</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
     assert xml.is_valid()
@@ -297,6 +312,16 @@ def test_multiple_choices_one_invalid(xml):
                 '  <ranges/>'
                 '</equation>')
 
+    cvd = ('<cvdCoefficients>'
+           '  <R0>100</R0>'
+           '  <A>1</A>'
+           '  <B>1</B>'
+           '  <C>1</C>'
+           '  <uncertainty variables="">0.2</uncertainty>'
+           '  <unit>C</unit>'
+           '  <ranges/>'
+           '</cvdCoefficients>')
+
     r = (f'<report id="any" enteredBy="Joseph Borbely">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
@@ -308,6 +333,7 @@ def test_multiple_choices_one_invalid(xml):
          f'  {file}'
          f'  {table}'
          f'  {serialised}'
+         f'  {cvd}'
          f'  <apple>red</apple>'
          f'  {equation}'
          f'</report>')

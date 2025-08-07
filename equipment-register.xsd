@@ -1653,6 +1653,14 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice maxOccurs="unbounded">
+                <xsd:element name="cvdCoefficients" type="msl:callendarVanDusenCoefficients">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Performance-check data is expressed as coefficients for the
+                            Callendar-Van Dusen equation.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
                 <xsd:element name="equation" type="msl:equation">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1915,6 +1923,14 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice maxOccurs="unbounded">
+                <xsd:element name="cvdCoefficients" type="msl:callendarVanDusenCoefficients">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Calibration data is expressed as coefficients for the
+                            Callendar-Van Dusen equation.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
                 <xsd:element name="equation" type="msl:equation">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -2161,6 +2177,142 @@
             <xsd:annotation>
                 <xsd:documentation>
                     _Optional:_ A comment to associate with the `equation`.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="callendarVanDusenCoefficients">
+        <xsd:annotation>
+            <xsd:documentation>
+                The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
+
+                **Examples**
+
+                ```xml
+                {cvdCoefficients}
+                  {R0}100.1041{/R0}
+                  {A}3.91324e-3{/A}
+                  {B}-6.056e-7{/B}
+                  {C}0{/C}
+                  {uncertainty variables=""}0.0056/2{/uncertainty}
+                  {unit}°C{/unit}
+                  {ranges}
+                    {range variable="t"}
+                      {minimum}0{/minimum}
+                      {maximum}40{/maximum}
+                    {/range}
+                  {/ranges}
+                {/cvdCoefficients}
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="R0" type="xsd:double">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The R(0 °C) coefficient.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="A" type="xsd:double">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The A coefficient.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="B" type="xsd:double">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The B coefficient.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="C" type="xsd:double">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The C coefficient.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="uncertainty">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The equation to parse to calculate the standard uncertainty.
+
+                        If the `uncertainty` is a constant numerical value, set the
+                        `variables` attribute value to be empty (the `variables`
+                        attribute must still be defined).
+
+                        A calibration report may state the expanded uncertainty and
+                        the coverage factor. The parsed `uncertainty` equation must
+                        return the standard uncertainty. If you want to specify
+                        the expanded uncertainty and the coverage factor in your XML
+                        document, you may define the `uncertainty` equation as
+
+                        `expanded_uncertainty / coverage_factor`
+
+                        where, you must replace `expanded_uncertainty` and
+                        `coverage_factor` with the actual numerical value.
+
+                        See the documentation of [equation](#type_equation) for
+                        more details about the characters that may be used.
+
+                        See the documentation of [variables](#type_variables) for
+                        more details about the `variables` attribute.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="msl:nonEmptyString">
+                            <xsd:attribute name="variables" type="msl:variables" use="required">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        The variable(s) that are required to evaluate the `uncertainty`.
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="unit" type="msl:nonEmptyString">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The unit of the measured quantity.
+
+                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
+                        m) the results with, where appropriate, the units of measurement
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ranges" type="msl:ranges">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The numeric ranges that the Callendar-Van Dusen coefficients are valid for.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="degreeFreedom" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The degrees of freedom. If not specified, the degrees of freedom
+                        shall be considered to be `+INF`.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:double">
+                        <xsd:minInclusive value="1"/>
+                        <xsd:maxInclusive value="INF"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="comment" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>
+                    _Optional:_ A comment to associate with the `cvdCoefficients` element.
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>

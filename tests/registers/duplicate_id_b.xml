@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <register team="Mass" xmlns="https://measurement.govt.nz/equipment-register">
-    <equipment enteredBy="Me">
+    <equipment enteredBy="Joseph Borbely">
         <id>MSLE.M.004</id>
         <manufacturer>Skynet</manufacturer>
         <model>T-1000</model>
@@ -19,7 +19,7 @@
         <referenceMaterials/>
         <qualityManual/>
     </equipment>
-    <equipment enteredBy="Me">
+    <equipment enteredBy="Joseph Borbely">
         <id>MSLE.M.002</id>
         <manufacturer>Skynet</manufacturer>
         <model>T-1000</model>
@@ -38,7 +38,7 @@
         <referenceMaterials/>
         <qualityManual/>
     </equipment>
-    <equipment enteredBy="Me">
+    <equipment enteredBy="Joseph Borbely">
         <id>MSLE.M.005</id>
         <manufacturer>Skynet</manufacturer>
         <model>T-1000</model>

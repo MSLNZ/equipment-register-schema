@@ -67,13 +67,19 @@ def test_entered_by_missing(xml):
 @pytest.mark.parametrize('name', ['', '    '])
 def test_entered_by_empty_string(xml, name):
     xml.equipment('equipment', enteredBy=name)
-    xml.raises('not accepted by the pattern')
+    xml.raises('not an element of the set')
 
 
-@pytest.mark.parametrize('name', ['me', '', '    '])
-def test_checked_by(xml, name):
+@pytest.mark.parametrize('name', ['Minyu Zhang', 'Darrin Jack', 'Chris Young'])
+def test_checked_by_valid(xml, name):
     xml.equipment('equipment', checkedBy=name)
     assert xml.is_valid()
+
+
+@pytest.mark.parametrize('name', ['Minyu', 'Darrin  Jack', ''])
+def test_checked_by_invalid(xml, name):
+    xml.equipment('equipment', checkedBy=name)
+    xml.raises('not an element of the set')
 
 
 def test_checked_date_valid(xml):

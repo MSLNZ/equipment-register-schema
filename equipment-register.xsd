@@ -34,9 +34,9 @@
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
                 {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment enteredBy="Neil"}...{/equipment}
-                   {equipment enteredBy="Ellie"}...{/equipment}
-                   {equipment enteredBy="Yang Yenn"}...{/equipment}
+                  {equipment enteredBy="Neil Swift"}...{/equipment}
+                  {equipment enteredBy="Ellie Molloy"}...{/equipment}
+                  {equipment enteredBy="Yang Yenn Tan"}...{/equipment}
                 {/register}
                 ```
             </xsd:documentation>
@@ -77,7 +77,7 @@
 
                 ```xml
                 {register team="Mass" xmlns="https://measurement.govt.nz/equipment-register"}
-                   {equipment enteredBy="Rebecca"}...{/equipment}
+                  {equipment enteredBy="Rebecca Hawke"}...{/equipment}
                 {/register}
                 ```
             </xsd:documentation>
@@ -170,6 +170,56 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="staffEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The name of the MSL staff member who either entered or checked the content of an
+                element in the equipment register.
+
+                **Examples**
+
+                ```xml
+                {register team="Temperature" xmlns="https://measurement.govt.nz/equipment-register"}
+                  {equipment enteredBy="Ellie Molloy" checkedBy="Peter Saunders" checkedDate="2025-07-18"}...{/equipment}
+                {/register}
+                ```
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Adam Dunford"/>
+            <xsd:enumeration value="Adam Knight"/>
+            <xsd:enumeration value="Ana Rakonjac"/>
+            <xsd:enumeration value="Annette Koo"/>
+            <xsd:enumeration value="Ben Sherson"/>
+            <xsd:enumeration value="Blair Hall"/>
+            <xsd:enumeration value="Cheng Yang"/>
+            <xsd:enumeration value="Chris Young"/>
+            <xsd:enumeration value="Darrin Jack"/>
+            <xsd:enumeration value="Ellie Molloy"/>
+            <xsd:enumeration value="François Shindo"/>
+            <xsd:enumeration value="Greg Reid"/>
+            <xsd:enumeration value="Guy Dubuis"/>
+            <xsd:enumeration value="Hamish Edgar"/>
+            <xsd:enumeration value="Johan Grand"/>
+            <xsd:enumeration value="Joseph Borbely"/>
+            <xsd:enumeration value="Keith Jones"/>
+            <xsd:enumeration value="Lenice Evergreen"/>
+            <xsd:enumeration value="Lucy Forde"/>
+            <xsd:enumeration value="Minyu Zhang"/>
+            <xsd:enumeration value="Murray Early"/>
+            <xsd:enumeration value="Neil Swift"/>
+            <xsd:enumeration value="Peter McDowall"/>
+            <xsd:enumeration value="Peter Saunders"/>
+            <xsd:enumeration value="Rebecca Hawke"/>
+            <xsd:enumeration value="Stefaan Janssens"/>
+            <xsd:enumeration value="Tim Lawson"/>
+            <xsd:enumeration value="Tom Stewart"/>
+            <xsd:enumeration value="Vladimir Bubanja"/>
+            <xsd:enumeration value="Yang Yenn Tan"/>
+            <xsd:enumeration value="Yin Hsien Fung"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="keywordsList">
         <xsd:annotation>
             <xsd:documentation>
@@ -180,7 +230,7 @@
                 **Examples**
 
                 ```xml
-                {equipment enteredBy="Guy" keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Guy Dubuis" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -538,33 +588,33 @@
                 An `equipment` element showing the minimal child elements that must
                 contain values so that the equipment register remains valid
                 ```xml
-                {equipment enteredBy="Peter"}
-                    {id}MSLE.L.001{/id}
-                    {manufacturer}MSL{/manufacturer}
-                    {model}ABC{/model}
-                    {serial}123{/serial}
-                    {description}A short description about the equipment{/description}
-                    {specifications/}
-                    {location}CMM Lab{/location}
-                    {status}Active{/status}
-                    {loggable/}
-                    {traceable}false{/traceable}
-                    {calibrations/}
-                    {maintenance/}
-                    {alterations/}
-                    {firmware/}
-                    {specifiedRequirements/}
-                    {referenceMaterials/}
-                    {qualityManual/}
+                {equipment enteredBy="Peter McDowall"}
+                  {id}MSLE.P.001{/id}
+                  {manufacturer}MSL{/manufacturer}
+                  {model}ABC{/model}
+                  {serial}123{/serial}
+                  {description}A short description about the equipment{/description}
+                  {specifications/}
+                  {location}CMM Lab{/location}
+                  {status}Active{/status}
+                  {loggable/}
+                  {traceable}false{/traceable}
+                  {calibrations/}
+                  {maintenance/}
+                  {alterations/}
+                  {firmware/}
+                  {specifiedRequirements/}
+                  {referenceMaterials/}
+                  {qualityManual/}
                 {/equipment}
                 ```
 
                 The following shows different ways that attributes may be specified
                 ```xml
-                {equipment enteredBy="Adam"}...{/equipment}
-                {equipment enteredBy="Tim" alias="bench-top probe"}...{/equipment}
-                {equipment enteredBy="Ben" keywords="Thermometer Hygrometer"}...{/equipment}
-                {equipment enteredBy="Tom" alias="main" keywords="Source Voltage AC DC"}...{/equipment}
+                {equipment enteredBy="Adam Dunford"}...{/equipment}
+                {equipment enteredBy="Tim Lawson" alias="bench-top probe"}...{/equipment}
+                {equipment enteredBy="Ben Sherson" keywords="Thermometer Hygrometer"}...{/equipment}
+                {equipment enteredBy="Tom Stewart" alias="main" keywords="Source Voltage AC DC"}...{/equipment}
                 ```
             </xsd:documentation>
         </xsd:annotation>
@@ -777,14 +827,15 @@
                 </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+        <xsd:attribute name="enteredBy" type="msl:staffEnumerationString" use="required">
             <xsd:annotation>
                 <xsd:documentation>
-                    The name of the person who initially entered the `equipment` element in the register.
+                    The name of the person who initially entered the `equipment` element
+                    in the register.
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="checkedBy" type="xsd:string">
+        <xsd:attribute name="checkedBy" type="msl:staffEnumerationString">
             <xsd:annotation>
                 <xsd:documentation>
                     The name of the person who checked the information in the `equipment` element.
@@ -1164,16 +1215,16 @@
                 Specify only the year that the equipment was purchased
                 ```xml
                 {financial}
-                    {yearPurchased}2010{/yearPurchased}
+                  {yearPurchased}2010{/yearPurchased}
                 {/financial}
                 ```
 
                 Specify all financial information
                 ```xml
                 {financial}
-                    {assetNumber}7265817{/assetNumber}
-                    {warrantyExpirationDate}2026-08-01{/warrantyExpirationDate}
-                    {yearPurchased}2025{/yearPurchased}
+                  {assetNumber}7265817{/assetNumber}
+                  {warrantyExpirationDate}2026-08-01{/warrantyExpirationDate}
+                  {yearPurchased}2025{/yearPurchased}
                 {/financial}
                 ```
             </xsd:documentation>
@@ -1419,7 +1470,7 @@
                 The `name` attribute must be defined, but it may be an empty string
                 ```xml
                 {component name=""}
-                  {report id="Electrical/2024/618" enteredBy="Greg"}...{/report}
+                  {report id="Electrical/2024/618" enteredBy="Greg Reid"}...{/report}
                 {/component}
                 ```
 
@@ -1428,10 +1479,10 @@
                 ```xml
                 {component name="Probe 1"}
                   {adjustment date="2024-10-17"}Cleaned the filter{/adjustment}
-                  {report id="Humidity/2023/583" enteredBy="Francois"}...{/report}
-                  {performanceCheck completedDate="2021-11-20" enteredBy="Fung"}...{/performanceCheck}
-                  {report id="Humidity/2019/421" enteredBy="Chris"}...{/report}
-                  {report id="Humidity/2015/183" enteredBy="Lucy"}...{/report}
+                  {report id="Humidity/2023/583" enteredBy="François Shindo"}...{/report}
+                  {performanceCheck completedDate="2021-11-20" enteredBy="Yin Hsien Fung"}...{/performanceCheck}
+                  {report id="Humidity/2019/421" enteredBy="Chris Young"}...{/report}
+                  {report id="Humidity/2015/183" enteredBy="Lucy Forde"}...{/report}
                 {/component}
                 ```
             </xsd:documentation>
@@ -1572,7 +1623,7 @@
                 **Examples**
 
                 ```xml
-                {performanceCheck completedDate="2023-04-02" enteredBy="Ana" checkedBy="Hamish" checkedDate="2023-04-04"}
+                {performanceCheck completedDate="2023-04-02" enteredBy="Ana Rakonjac" checkedBy="Hamish Edgar" checkedDate="2023-04-04"}
                   {competency}...{/competency}
                   {conditions/}
                   {equation}...{/equation}
@@ -1645,7 +1696,7 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+        <xsd:attribute name="enteredBy" type="msl:staffEnumerationString" use="required">
             <xsd:annotation>
                 <xsd:documentation>
                     The name of the person who initially entered the `performanceCheck`
@@ -1653,7 +1704,7 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="checkedBy" type="xsd:string">
+        <xsd:attribute name="checkedBy" type="msl:staffEnumerationString">
             <xsd:annotation>
                 <xsd:documentation>
                     The name of the person who checked the information in the
@@ -1733,29 +1784,29 @@
                 **Examples**
 
                 ```xml
-                {report id="Humidity/2023/1024" enteredBy="Lenice"}
-                    {reportIssueDate}2023-08-18{/reportIssueDate}
-                    {measurementStartDate}2023-08-08{/measurementStartDate}
-                    {measurementStopDate}2023-08-14{/measurementStopDate}
-                    {issuingLaboratory}MSL{/issuingLaboratory}
-                    {technicalProcedure}MSLT.H.062{/technicalProcedure}
-                    {conditions/}
-                    {acceptanceCriteria/}
-                    {equation}
-                        {value variables="R t"}R - 7.1e-2 - 3.9e-2*R + 3e-4*pow(R,2) + 2.4e-3*t + 1.03e-3*R*t - 5.2e-6*pow(R,2)*t{/value}
-                        {uncertainty variables=""}0.355{/uncertainty}
-                        {unit}%rh{/unit}
-                        {ranges}
-                            {range variable="R"}
-                                {minimum}30{/minimum}
-                                {maximum}80{/maximum}
-                            {/range}
-                            {range variable="t"}
-                                {minimum}15{/minimum}
-                                {maximum}25{/maximum}
-                            {/range}
-                        {/ranges}
-                    {/equation}
+                {report id="Humidity/2023/1024" enteredBy="Lenice Evergreen"}
+                  {reportIssueDate}2023-08-18{/reportIssueDate}
+                  {measurementStartDate}2023-08-08{/measurementStartDate}
+                  {measurementStopDate}2023-08-14{/measurementStopDate}
+                  {issuingLaboratory}MSL{/issuingLaboratory}
+                  {technicalProcedure}MSLT.H.062{/technicalProcedure}
+                  {conditions/}
+                  {acceptanceCriteria/}
+                  {equation}
+                    {value variables="R t"}R - 7.1e-2 - 3.9e-2*R + 3e-4*pow(R,2) + 2.4e-3*t + 1.03e-3*R*t - 5.2e-6*pow(R,2)*t{/value}
+                    {uncertainty variables=""}0.355{/uncertainty}
+                    {unit}%rh{/unit}
+                    {ranges}
+                      {range variable="R"}
+                        {minimum}30{/minimum}
+                        {maximum}80{/maximum}
+                      {/range}
+                      {range variable="t"}
+                        {minimum}15{/minimum}
+                        {maximum}25{/maximum}
+                      {/range}
+                    {/ranges}
+                  {/equation}
                 {/report}
                 ```
             </xsd:documentation>
@@ -1909,7 +1960,7 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="enteredBy" type="msl:nonEmptyString" use="required">
+        <xsd:attribute name="enteredBy" type="msl:staffEnumerationString" use="required">
             <xsd:annotation>
                 <xsd:documentation>
                     The name of the person who initially entered the `report`
@@ -1917,7 +1968,7 @@
                 </xsd:documentation>
             </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="checkedBy" type="xsd:string">
+        <xsd:attribute name="checkedBy" type="msl:staffEnumerationString">
             <xsd:annotation>
                 <xsd:documentation>
                     The name of the person who checked the information in the

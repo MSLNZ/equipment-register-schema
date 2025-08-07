@@ -27,7 +27,7 @@ def test_report_invalid_element_name(xml):
 
 
 def test_report_no_content(xml):
-    xml.calibrations(xml.measurand(xml.component('<report id="anything" enteredBy="M"/>')))
+    xml.calibrations(xml.measurand(xml.component('<report id="anything" enteredBy="Joseph Borbely"/>')))
     xml.raises(r'Expected is .*reportIssueDate')
 
 

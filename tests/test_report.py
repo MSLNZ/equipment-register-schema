@@ -102,7 +102,7 @@ def test_no_number(xml):
 
 
 def test_no_issue_date(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <anything/>'
          '</report>')
     xml.calibrations(xml.measurand(xml.component(r)))
@@ -110,7 +110,7 @@ def test_no_issue_date(xml):
 
 
 def test_no_start_date(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <anything/>'
          '</report>')
@@ -119,7 +119,7 @@ def test_no_start_date(xml):
 
 
 def test_no_stop_date(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <anything/>'
@@ -129,7 +129,7 @@ def test_no_stop_date(xml):
 
 
 def test_no_issuing_lab(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -139,7 +139,7 @@ def test_no_issuing_lab(xml):
 
 
 def test_no_technical_procedure(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -150,7 +150,7 @@ def test_no_technical_procedure(xml):
 
 
 def test_no_conditions(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -162,7 +162,7 @@ def test_no_conditions(xml):
 
 
 def test_no_acceptance_criteria(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -212,7 +212,7 @@ def test_conditions(xml, text, attribs):
 
 
 def test_no_choice(xml):
-    r = ('<report id="any" enteredBy="M">'
+    r = ('<report id="any" enteredBy="Joseph Borbely">'
          '  <reportIssueDate>2024-06-25</reportIssueDate>'
          '  <measurementStartDate>2000-01-01</measurementStartDate>'
          '  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -254,7 +254,7 @@ def test_multiple_choices_valid(xml):
                 '  <ranges/>'
                 '</equation>')
 
-    r = (f'<report id="any" enteredBy="M">'
+    r = (f'<report id="any" enteredBy="Joseph Borbely">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -297,14 +297,14 @@ def test_multiple_choices_one_invalid(xml):
                 '  <ranges/>'
                 '</equation>')
 
-    r = (f'<report id="any" enteredBy="M">'
+    r = (f'<report id="any" enteredBy="Joseph Borbely">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
          f'  <issuingLaboratory>MSL</issuingLaboratory>'
          f'  <technicalProcedure/>'
          f'  <conditions/>'
-         f'  <acceptanceCriteria/>'         
+         f'  <acceptanceCriteria/>'
          f'  {file}'
          f'  {table}'
          f'  {serialised}'
@@ -317,7 +317,7 @@ def test_multiple_choices_one_invalid(xml):
 
 def test_multiple_choices_unexpected_element_interleaved(xml):
     table = xml.table()
-    r = (f'<report id="any" enteredBy="M">'
+    r = (f'<report id="any" enteredBy="Joseph Borbely">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -336,12 +336,12 @@ def test_multiple_choices_unexpected_element_interleaved(xml):
 @pytest.mark.parametrize('name', ['', '    '])
 def test_entered_by_empty_string(xml, name):
     xml.calibrations(xml.measurand(xml.component(xml.report(entered_by=name))))
-    xml.raises('not accepted by the pattern')
+    xml.raises('not an element of the set')
 
 
-@pytest.mark.parametrize('name', ['me', '', '    '])
-def test_checked_by(xml, name):
-    r = (f'<report id="any" enteredBy="M" checkedBy="{name}">'
+@pytest.mark.parametrize('name', ['Tom Stewart', 'Hamish Edgar', 'Ellie Molloy'])
+def test_checked_by_valid(xml, name):
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="{name}">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -355,8 +355,24 @@ def test_checked_by(xml, name):
     assert xml.is_valid()
 
 
+@pytest.mark.parametrize('name', ['Tim Stewart', 'Hamish   Edgar', ' Ellie Molloy'])
+def test_checked_by_invalid(xml, name):
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="{name}">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
+         f'  {xml.table()}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises("not an element of the set")
+
+
 def test_checked_date_valid(xml):
-    r = (f'<report id="any" enteredBy="M" checkedBy="Me" checkedDate="2025-08-06">'
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="2025-08-06">'
          f'  <reportIssueDate>2024-06-25</reportIssueDate>'
          f'  <measurementStartDate>2000-01-01</measurementStartDate>'
          f'  <measurementStopDate>2000-01-01</measurementStopDate>'
@@ -371,6 +387,6 @@ def test_checked_date_valid(xml):
 
 
 def test_checked_date_invalid(xml):
-    r = '<report id="any" enteredBy="M" checkedBy="Me" checkedDate="06-2025-08" />'
+    r = '<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="06-2025-08" />'
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises('not a valid value')

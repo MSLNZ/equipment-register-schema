@@ -2187,52 +2187,72 @@
             <xsd:documentation>
                 The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
 
+                This equation describes the relationship between resistance (`R`) and temperature
+                (`T`) of platinum resistance thermometers. It is typically defined in two temperature
+                ranges.
+
+                If 0 °C ≤ `T` &lt; 661 °C
+
+                ```
+                R(T) = R₀⋅[1 + A⋅T + B⋅T²]
+                ```
+
+                If -200 °C &lt; `T` &lt; 0 °C
+
+                ```
+                R(T) = R₀⋅[1 + A⋅T + B⋅T² + C⋅(T-100)⋅T³]
+                ```
+
                 **Examples**
 
                 ```xml
                 {cvdCoefficients}
-                  {R0}100.1041{/R0}
-                  {A}3.91324e-3{/A}
+                  {R0}100.0189{/R0}
+                  {A}3.913e-3{/A}
                   {B}-6.056e-7{/B}
-                  {C}0{/C}
+                  {C}1.372e-12{/C}
                   {uncertainty variables=""}0.0056/2{/uncertainty}
-                  {unit}°C{/unit}
-                  {ranges}
-                    {range variable="t"}
-                      {minimum}0{/minimum}
-                      {maximum}40{/maximum}
-                    {/range}
-                  {/ranges}
+                  {range}
+                    {minimum}-10{/minimum}
+                    {maximum}70{/maximum}
+                  {/range}
                 {/cvdCoefficients}
                 ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="R0" type="xsd:double">
+            <xsd:element name="R0" type="msl:nonNegativeDecimal">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The R(0 °C) coefficient.
+                        The value of the resistance at 0 °C, `R₀`.\
+                        unit: Ω
+
+                        *NOTE: This value does not accept scientific notation.
+                        For example, use `100.0189` instead of `1.000189e+02`*
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="A" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The A coefficient.
+                        The value of the A coefficient, `A⋅T`.\
+                        unit: 1/°C.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="B" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The B coefficient.
+                        The value of the B coefficient, `B⋅T²`.\
+                        unit: 1/°C²
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="C" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The C coefficient.
+                        The value of the C coefficient, `C⋅(T-100)⋅T³`.\
+                        unit: 1/°C⁴
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -2277,22 +2297,32 @@
                     </xsd:simpleContent>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="unit" type="msl:nonEmptyString">
+            <xsd:element name="range">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The unit of the measured quantity.
-
-                        Satisfy ISO/IEC 17025:2017 Clause 7.8.2.1 \
-                        m) the results with, where appropriate, the units of measurement
+                        The temperature range, in °C, that the Callendar-Van Dusen coefficients are valid.
                     </xsd:documentation>
                 </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="ranges" type="msl:ranges">
-                <xsd:annotation>
-                    <xsd:documentation>
-                        The numeric ranges that the Callendar-Van Dusen coefficients are valid for.
-                    </xsd:documentation>
-                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="minimum" type="xsd:double">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    The minimum temperature value.\
+                                    unit: °C
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                        <xsd:element name="maximum" type="xsd:double">
+                            <xsd:annotation>
+                                <xsd:documentation>
+                                    The maximum temperature value.\
+                                    unit: °C
+                                </xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
             </xsd:element>
             <xsd:element name="degreeFreedom" minOccurs="0">
                 <xsd:annotation>

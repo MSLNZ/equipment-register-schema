@@ -184,8 +184,7 @@ def test_multiple_choices(xml):
         '  <B>1</B>'
         '  <C>1</C>'
         '  <uncertainty variables="">0.2</uncertainty>'
-        '  <unit>C</unit>'
-        '  <ranges/>'
+        '  <range><minimum>0</minimum><maximum>100</maximum></range>'
         '</cvdCoefficients>')
 
     choice = f'{t}{e}{c}{f}{s}{t}{t}{t}{c}{s}{s}{f}{e}{e}{f}{e}{s}{s}{f}{t}{t}{c}'

@@ -13,11 +13,17 @@ def test_expect_r0(xml):
     xml.raises(r"Expected is .*R0")
 
 
-@pytest.mark.parametrize("r0", ["", "one hundred", "3.f0"])
-def test_r0_value_invalid(xml, r0):
+@pytest.mark.parametrize("r0", ["", "one hundred", "1.000189e+02", "3.f0"])
+def test_r0_value_invalid_syntax(xml, r0):
     choice = f"<cvdCoefficients>  <R0>{r0}</R0></cvdCoefficients>"
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises(r"not a valid value of the atomic type 'xs:double'")
+    xml.raises(r"not a valid value of the atomic type .+nonNegativeDecimal")
+
+
+def test_r0_value_negative(xml):
+    choice = f"<cvdCoefficients>  <R0>-1</R0></cvdCoefficients>"
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"value '-1' is less than the minimum value allowed")
 
 
 def test_r0_does_not_accept_attributes(xml):
@@ -173,15 +179,14 @@ def test_uncertainty_as_equation(xml):
         "  <B>1</B>"
         "  <C>1</C>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>C</unit>"
-        "  <ranges/>"
+        "  <range><minimum>0</minimum><maximum>100</maximum></range>"
         "</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
 
 
-def test_expect_unit_element(xml):
+def test_expect_range_element(xml):
     choice = (
         "<cvdCoefficients>"
         "  <R0>100</R0>"
@@ -193,22 +198,7 @@ def test_expect_unit_element(xml):
         "</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises(r"Expected is .*unit")
-
-
-def test_expect_ranges_element(xml):
-    choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
-        '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "</cvdCoefficients>"
-    )
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises(r"Expected is .*ranges")
+    xml.raises(r"Expected is .*range")
 
 
 def test_expect_degree_freedom_element(xml):
@@ -219,8 +209,7 @@ def test_expect_degree_freedom_element(xml):
         "  <B>1</B>"
         "  <C>1</C>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges/>"
+        '  <range><minimum>0</minimum><maximum>100</maximum></range>'
         "  <invalid>3*x+1</invalid>"
         "</cvdCoefficients>"
     )
@@ -236,73 +225,80 @@ def test_degree_freedom_optional(xml):
         "  <B>1</B>"
         "  <C>1</C>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges/>"
+        "  <range><minimum>0</minimum><maximum>100</maximum></range>"
         "</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     assert xml.is_valid()
-
-
-def test_ranges_with_children_valid(xml):
-    choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
-        '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "        <minimum>0</minimum>"
-        "        <maximum>100</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
-    )
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    assert xml.is_valid()
-
-
-def test_ranges_with_children_no_variable_attribute(xml):
-    choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
-        '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        "    <range>"
-        "        <minimum>0</minimum>"
-        "        <maximum>100</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
-    )
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises("attribute 'variable' is required but missing")
 
 
 def test_range_expect_minimum(xml):
     choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
+        '  <range/>'
+        '</cvdCoefficients>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises("Expected is .*minimum")
+    xml.raises('Expected is .+minimum')
+
+
+def test_range_expect_maximum(xml):
+    choice = (
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
+        '  <uncertainty variables="">0.2/2.1</uncertainty>'
+        '  <range>'
+        '    <minimum>1</minimum>'
+        '  </range>'
+        '</cvdCoefficients>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises('Expected is .+maximum')
+
+
+def test_range_unexpected(xml):
+    choice = (
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
+        '  <uncertainty variables="">0.2/2.1</uncertainty>'
+        '  <range>'
+        '    <minimum>1</minimum>'
+        '    <maximum>1</maximum>'
+        '    <extra>1</extra>'
+        '  </range>'
+        '</cvdCoefficients>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises("extra': This element is not expected")
+
+
+def test_range_no_attributes(xml):
+    choice = (
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
+        '  <uncertainty variables="">0.2/2.1</uncertainty>'
+        '  <range variable="t">'
+        '    <minimum>1</minimum>'
+        '    <maximum>1</maximum>'
+        '  </range>'
+        '</cvdCoefficients>'
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises("attribute 'variable' is not allowed")
 
 
 def test_range_invalid_minimum(xml):
@@ -313,99 +309,48 @@ def test_range_invalid_minimum(xml):
         "  <B>1</B>"
         "  <C>1</C>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>A</minimum>"
-        "    </range>"
-        "  </ranges>"
+        '  <range>'
+        "    <minimum>A</minimum>"
+        "  </range>"
         "</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises("not a valid value of the atomic type 'xs:double'")
-
-
-def test_range_maximum_expected(xml):
-    choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
-        '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>1</minimum>"
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
-    )
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises("Expected is .*maximum")
 
 
 def test_range_invalid_maximum(xml):
     choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>1</minimum>"
-        "      <maximum>A</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
+        '  <range>'
+        '    <minimum>1</minimum>'
+        '    <maximum>A</maximum>'
+        '  </range>'
+        '</cvdCoefficients>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises("not a valid value of the atomic type 'xs:double'")
 
 
-def test_range_extra_element(xml):
-    choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
-        '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>1</minimum>"
-        "      <maximum>10</maximum>"
-        "      <maximum>10</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "</cvdCoefficients>"
-    )
-    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
-    xml.raises("maximum': This element is not expected")
-
-
 def test_element_after_degree_freedom(xml):
     choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>1</minimum>"
-        "      <maximum>10</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "  <degreeFreedom>1</degreeFreedom>"
-        "  <extra>1</extra>"
-        "</cvdCoefficients>"
+        '  <range>'
+        '    <minimum>1</minimum>'
+        '    <maximum>10</maximum>'
+        '  </range>'
+        '  <degreeFreedom>1</degreeFreedom>'
+        '  <extra>1</extra>'
+        '</cvdCoefficients>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises("extra': This element is not expected")
@@ -413,21 +358,18 @@ def test_element_after_degree_freedom(xml):
 
 def test_degree_freedom_invalid(xml):
     choice = (
-        "<cvdCoefficients>"
-        "  <R0>100</R0>"
-        "  <A>1</A>"
-        "  <B>1</B>"
-        "  <C>1</C>"
+        '<cvdCoefficients>'
+        '  <R0>100</R0>'
+        '  <A>1</A>'
+        '  <B>1</B>'
+        '  <C>1</C>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
-        "  <unit>whatever</unit>"
-        "  <ranges>"
-        '    <range variable="t">'
-        "      <minimum>1</minimum>"
-        "      <maximum>10</maximum>"
-        "    </range>"
-        "  </ranges>"
-        "  <degreeFreedom>-1</degreeFreedom>"
-        "</cvdCoefficients>"
+        '  <range>'
+        '    <minimum>1</minimum>'
+        '    <maximum>10</maximum>'
+        '  </range>'
+        '  <degreeFreedom>-1</degreeFreedom>'
+        '</cvdCoefficients>'
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises("value '-1' is less than the minimum value allowed")

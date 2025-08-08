@@ -87,7 +87,7 @@ if os.getenv("GITHUB_ACTIONS") == "true":
 
 # Creates the objects.inv file (for inter-sphinx mapping)
 inventory = []
-with open(f"build/{tag}/index.html") as f:
+with open(f"build/{tag}/index.html", encoding="utf-8") as f:
     hrefs = sorted(
         set(
             item["href"] for item in re.finditer(r'href="#(?P<href>[^"]+)"', f.read())

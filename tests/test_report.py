@@ -260,8 +260,7 @@ def test_multiple_choices_valid(xml):
            '  <B>1</B>'
            '  <C>1</C>'
            '  <uncertainty variables="">0.2</uncertainty>'
-           '  <unit>C</unit>'
-           '  <ranges/>'
+           '  <range><minimum>0</minimum><maximum>100</maximum></range>'
            '</cvdCoefficients>')
 
     r = (f'<report id="any" enteredBy="Joseph Borbely">'
@@ -318,8 +317,7 @@ def test_multiple_choices_one_invalid(xml):
            '  <B>1</B>'
            '  <C>1</C>'
            '  <uncertainty variables="">0.2</uncertainty>'
-           '  <unit>C</unit>'
-           '  <ranges/>'
+           '  <range><minimum>0</minimum><maximum>100</maximum></range>'
            '</cvdCoefficients>')
 
     r = (f'<report id="any" enteredBy="Joseph Borbely">'

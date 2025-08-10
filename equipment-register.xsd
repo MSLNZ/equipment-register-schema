@@ -17,7 +17,7 @@
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
             An Equipment Register contains information about equipment to satisfy
-            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as
+            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
             Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
     </xsd:annotation>
@@ -47,8 +47,8 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             Contains information about equipment to satisfy ISO/IEC 17025:2017
-                            Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6
-                            of the MSL Quality Manual.
+                            Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
+                            Section 4.3.6 of the MSL Quality Manual.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:element>
@@ -580,8 +580,8 @@
         <xsd:annotation>
             <xsd:documentation>
                 Contains information about equipment to satisfy ISO/IEC 17025:2017
-                Clauses 6.4.4, 6.4.10, 6.4.13 and 7.8.2.1 as well as Section 4.3.6
-                of the MSL Quality Manual.
+                Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
+                Section 4.3.6 of the MSL Quality Manual.
 
                 **Examples**
 
@@ -1653,7 +1653,7 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice maxOccurs="unbounded">
-                <xsd:element name="cvdCoefficients" type="msl:callendarVanDusenCoefficients">
+                <xsd:element name="cvdCoefficients" type="msl:cvdCoefficients">
                     <xsd:annotation>
                         <xsd:documentation>
                             Performance-check data is expressed as coefficients for the
@@ -1923,7 +1923,7 @@
                 </xsd:annotation>
             </xsd:element>
             <xsd:choice maxOccurs="unbounded">
-                <xsd:element name="cvdCoefficients" type="msl:callendarVanDusenCoefficients">
+                <xsd:element name="cvdCoefficients" type="msl:cvdCoefficients">
                     <xsd:annotation>
                         <xsd:documentation>
                             Calibration data is expressed as coefficients for the
@@ -2053,12 +2053,12 @@
 
                 The correction to apply for a temperature `value` is expressed as a
                 second-order polynomial and the _expanded_ `uncertainty` is specified to be
-                0.45 °C with a coverage factor of 2.
+                0.45 &#8451; with a coverage factor of 2.
                 ```xml
                 {equation}
                   {value variables="T"}T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2)){/value}
                   {uncertainty variables=""}0.45/2{/uncertainty}
-                  {unit}°C{/unit}
+                  {unit}&#8451;{/unit}
                   {ranges}
                     {range variable="T"}
                       {minimum}15{/minimum}
@@ -2182,7 +2182,7 @@
         </xsd:attribute>
     </xsd:complexType>
 
-    <xsd:complexType name="callendarVanDusenCoefficients">
+    <xsd:complexType name="cvdCoefficients">
         <xsd:annotation>
             <xsd:documentation>
                 The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
@@ -2191,16 +2191,16 @@
                 (`T`) of platinum resistance thermometers. It is typically defined in two temperature
                 ranges.
 
-                If 0 °C ≤ `T` &lt; 661 °C
+                If 0 &#8451; &#8804; `T` &lt; 661 &#8451;
 
                 ```
-                R(T) = R₀⋅[1 + A⋅T + B⋅T²]
-                ```
+                R(T) = R&#x2080;&#x2219;[1 + A&#x2219;T + B&#x2219;T&#178;]
+                ````
 
-                If -200 °C &lt; `T` &lt; 0 °C
+                If -200 &#8451; &lt; `T` &lt; 0 &#8451;
 
                 ```
-                R(T) = R₀⋅[1 + A⋅T + B⋅T² + C⋅(T-100)⋅T³]
+                R(T) = R&#x2080;&#x2219;[1 + A&#x2219;T + B&#x2219;T&#178; + C&#x2219;(T-100)&#x2219;T&#179;]
                 ```
 
                 **Examples**
@@ -2224,8 +2224,8 @@
             <xsd:element name="R0" type="msl:nonNegativeDecimal">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the resistance at 0 °C, `R₀`.\
-                        unit: Ω
+                        The value of the resistance at 0 &#8451;, `R&#x2080;`.\
+                        unit: &#937;
 
                         *NOTE: This value does not accept scientific notation.
                         For example, use `100.0189` instead of `1.000189e+02`*
@@ -2235,24 +2235,24 @@
             <xsd:element name="A" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the A coefficient, `A⋅T`.\
-                        unit: 1/°C.
+                        The value of the A coefficient, `A&#x2219;T`.\
+                        unit: &#8451;&#8315;&#185;.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="B" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the B coefficient, `B⋅T²`.\
-                        unit: 1/°C²
+                        The value of the B coefficient, `B&#x2219;T&#178;`.\
+                        unit: &#8451;&#8315;&#178;
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="C" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the C coefficient, `C⋅(T-100)⋅T³`.\
-                        unit: 1/°C⁴
+                        The value of the C coefficient, `C&#x2219;(T-100)&#x2219;T&#179;`.\
+                        unit: &#8451;&#8315;&#8308;
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -2300,7 +2300,7 @@
             <xsd:element name="range">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The temperature range, in °C, that the Callendar-Van Dusen coefficients are valid.
+                        The temperature range, in &#8451;, that the Callendar-Van Dusen coefficients are valid.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>
@@ -2309,7 +2309,7 @@
                             <xsd:annotation>
                                 <xsd:documentation>
                                     The minimum temperature value.\
-                                    unit: °C
+                                    unit: &#8451;
                                 </xsd:documentation>
                             </xsd:annotation>
                         </xsd:element>
@@ -2317,7 +2317,7 @@
                             <xsd:annotation>
                                 <xsd:documentation>
                                     The maximum temperature value.\
-                                    unit: °C
+                                    unit: &#8451;
                                 </xsd:documentation>
                             </xsd:annotation>
                         </xsd:element>

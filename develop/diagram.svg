@@ -798,7 +798,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_2")' onmouseout='makeHid
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>cvdCoefficients</text>
-<text class='element-type' x='5' y='41'>type: callendarVanDusenCoefficients</text>
+<text class='element-type' x='5' y='41'>type: cvdCoefficients</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 <use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1' onclick='show("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1")'/>
 </g>
@@ -2583,7 +2583,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_7")' onmouseout='makeHid
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>cvdCoefficients</text>
-<text class='element-type' x='5' y='41'>type: callendarVanDusenCoefficients</text>
+<text class='element-type' x='5' y='41'>type: cvdCoefficients</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 <use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1' onclick='show("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1")'/>
 </g>

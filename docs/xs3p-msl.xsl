@@ -8164,14 +8164,14 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
             <em>
                <xsl:text>length</xsl:text>
             </em>
-            <xsl:text> >= </xsl:text>
+            <xsl:text> &#8805; </xsl:text>
             <xsl:value-of select="$simpleRestrict/xsd:minLength/@value"/>
          </xsl:when>
          <xsl:when test="$simpleRestrict/xsd:maxLength">
             <em>
                <xsl:text>length</xsl:text>
             </em>
-            <xsl:text> &lt;= </xsl:text>
+            <xsl:text> &#8804; </xsl:text>
             <xsl:value-of select="$simpleRestrict/xsd:maxLength/@value"/>
          </xsl:when>
       </xsl:choose>
@@ -8229,7 +8229,7 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
             <xsl:choose>
                <xsl:when test="$simpleRestrict/xsd:minInclusive">
                   <xsl:value-of select="$simpleRestrict/xsd:minInclusive/@value"/>
-                  <xsl:text> &lt;= </xsl:text>
+                  <xsl:text> &#8804; </xsl:text>
                </xsl:when>
                <xsl:otherwise>
                   <xsl:value-of select="$simpleRestrict/xsd:minExclusive/@value"/>
@@ -8241,7 +8241,7 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
             </em>
             <xsl:choose>
                <xsl:when test="$simpleRestrict/xsd:maxInclusive">
-                  <xsl:text> &lt;= </xsl:text>
+                  <xsl:text> &#8804; </xsl:text>
                   <xsl:value-of select="$simpleRestrict/xsd:maxInclusive/@value"/>
                </xsl:when>
                <xsl:otherwise>
@@ -8254,7 +8254,7 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
             <em>
                <xsl:text>value</xsl:text>
             </em>
-            <xsl:text> >= </xsl:text>
+            <xsl:text> &#8805; </xsl:text>
             <xsl:value-of select="$simpleRestrict/xsd:minInclusive/@value"/>
          </xsl:when>
          <xsl:when test="$simpleRestrict/xsd:minExclusive">
@@ -8268,7 +8268,7 @@ was not specified in the links file, <xsl:value-of select="$linksFile"/>.
             <em>
                <xsl:text>value</xsl:text>
             </em>
-            <xsl:text> &lt;= </xsl:text>
+            <xsl:text> &#8804; </xsl:text>
             <xsl:value-of select="$simpleRestrict/xsd:maxInclusive/@value"/>
          </xsl:when>
          <xsl:when test="$simpleRestrict/xsd:maxExclusive">

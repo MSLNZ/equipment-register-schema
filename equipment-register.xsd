@@ -17,7 +17,7 @@
             XML Schema Definition for the vocabulary and structure of an Equipment Register.
 
             An Equipment Register contains information about equipment to satisfy
-            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
+            ISO/IEC 17025:2017 Clauses 6.4.4, 6.4.10, 6.4.13 and _some_ of 7.8.2.1 as well as
             Section 4.3.6 of the MSL Quality Manual.
         </xsd:documentation>
     </xsd:annotation>
@@ -47,7 +47,7 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             Contains information about equipment to satisfy ISO/IEC 17025:2017
-                            Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
+                            Clauses 6.4.4, 6.4.10, 6.4.13 and _some_ of 7.8.2.1 as well as
                             Section 4.3.6 of the MSL Quality Manual.
                         </xsd:documentation>
                     </xsd:annotation>
@@ -565,7 +565,7 @@
     <xsd:simpleType name="nonNegativeDecimal">
         <xsd:annotation>
             <xsd:documentation>
-                A decimal number that is &#x2265; 0.
+                A decimal number that is &#8805; 0.
 
                 Derived from [xsd:decimal](https://www.w3.org/TR/xmlschema-2/#decimal)
                 by setting the value of _minInclusive_ to be 0.
@@ -580,7 +580,7 @@
         <xsd:annotation>
             <xsd:documentation>
                 Contains information about equipment to satisfy ISO/IEC 17025:2017
-                Clauses 6.4.4, 6.4.10, 6.4.13 and _some of_ 7.8.2.1 as well as
+                Clauses 6.4.4, 6.4.10, 6.4.13 and _some_ of 7.8.2.1 as well as
                 Section 4.3.6 of the MSL Quality Manual.
 
                 **Examples**
@@ -2194,13 +2194,13 @@
                 If 0 &#8451; &#8804; `T` &lt; 661 &#8451;
 
                 ```
-                R(T) = R&#x2080;&#x2219;[1 + A&#x2219;T + B&#x2219;T&#178;]
+                R(T) = R&#8320;&#8729;[1 + A&#8729;T + B&#8729;T&#178;]
                 ````
 
                 If -200 &#8451; &lt; `T` &lt; 0 &#8451;
 
                 ```
-                R(T) = R&#x2080;&#x2219;[1 + A&#x2219;T + B&#x2219;T&#178; + C&#x2219;(T-100)&#x2219;T&#179;]
+                R(T) = R&#8320;&#8729;[1 + A&#8729;T + B&#8729;T&#178; + C&#8729;(T-100)&#8729;T&#179;]
                 ```
 
                 **Examples**
@@ -2224,7 +2224,7 @@
             <xsd:element name="R0" type="msl:nonNegativeDecimal">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the resistance at 0 &#8451;, `R&#x2080;`.\
+                        The value of the resistance at 0 &#8451;, `R&#8320;`.\
                         unit: &#937;
 
                         *NOTE: This value does not accept scientific notation.
@@ -2235,7 +2235,7 @@
             <xsd:element name="A" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the A coefficient, `A&#x2219;T`.\
+                        The value of the A coefficient, `A&#8729;T`.\
                         unit: &#8451;&#8315;&#185;.
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2243,7 +2243,7 @@
             <xsd:element name="B" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the B coefficient, `B&#x2219;T&#178;`.\
+                        The value of the B coefficient, `B&#8729;T&#178;`.\
                         unit: &#8451;&#8315;&#178;
                     </xsd:documentation>
                 </xsd:annotation>
@@ -2251,7 +2251,7 @@
             <xsd:element name="C" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value of the C coefficient, `C&#x2219;(T-100)&#x2219;T&#179;`.\
+                        The value of the C coefficient, `C&#8729;(T-100)&#8729;T&#179;`.\
                         unit: &#8451;&#8315;&#8308;
                     </xsd:documentation>
                 </xsd:annotation>

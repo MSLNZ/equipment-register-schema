@@ -562,6 +562,19 @@
         </xsd:list>
     </xsd:simpleType>
 
+    <xsd:simpleType name="degreeFreedomDouble">
+        <xsd:annotation>
+            <xsd:documentation>
+               The degrees of freedom. If not specified, the degrees of freedom
+               shall be considered to be `+INF`.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:double">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="INF"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:simpleType name="nonNegativeDecimal">
         <xsd:annotation>
             <xsd:documentation>
@@ -2158,19 +2171,13 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="degreeFreedom" minOccurs="0">
+            <xsd:element name="degreeFreedom" type="msl:degreeFreedomDouble" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
                         The degrees of freedom. If not specified, the degrees of freedom
                         shall be considered to be `+INF`.
                     </xsd:documentation>
                 </xsd:annotation>
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:double">
-                        <xsd:minInclusive value="1"/>
-                        <xsd:maxInclusive value="INF"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="comment" type="xsd:string">
@@ -2319,19 +2326,13 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="degreeFreedom" minOccurs="0">
+            <xsd:element name="degreeFreedom" type="msl:degreeFreedomDouble" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
                         The degrees of freedom. If not specified, the degrees of freedom
                         shall be considered to be `+INF`.
                     </xsd:documentation>
                 </xsd:annotation>
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:double">
-                        <xsd:minInclusive value="1"/>
-                        <xsd:maxInclusive value="INF"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="comment" type="xsd:string">

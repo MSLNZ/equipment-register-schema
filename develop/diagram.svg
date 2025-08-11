@@ -926,7 +926,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1_1_6_1_2")' onmouseou
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1_1_7")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1_1_7")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>degreeFreedom</text>
-<text class='element-type' x='5' y='41'>base: double</text>
+<text class='element-type' x='5' y='41'>type: degreeFreedomDouble</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_1_1_7' x1='-35' y1='-474' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -1103,7 +1103,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_2")' onmouse
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>degreeFreedom</text>
-<text class='element-type' x='5' y='41'>base: double</text>
+<text class='element-type' x='5' y='41'>type: degreeFreedomDouble</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_5' x1='-35' y1='-403' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -2711,7 +2711,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1_1_6_1_2")' onmouseou
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1_1_7")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1_1_7")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>degreeFreedom</text>
-<text class='element-type' x='5' y='41'>base: double</text>
+<text class='element-type' x='5' y='41'>type: degreeFreedomDouble</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_1_1_7' x1='-35' y1='-474' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -2888,7 +2888,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_2")' onmouse
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_5")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_5")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>degreeFreedom</text>
-<text class='element-type' x='5' y='41'>base: double</text>
+<text class='element-type' x='5' y='41'>type: degreeFreedomDouble</text>
 <text x='5' y='59'>0..1</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_5' x1='-35' y1='-403' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>

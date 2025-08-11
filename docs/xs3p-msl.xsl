@@ -256,6 +256,7 @@
             <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
             <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js" type="text/javascript" charset="UTF-8"/>
             <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js" type="text/javascript" charset="UTF-8"/>
+            <script src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js" type="text/javascript" charset="UTF-8"/>
          </head>
          <body>
             <div class="top-banner">

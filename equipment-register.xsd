@@ -2195,8 +2195,8 @@
                 The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
 
                 This equation describes the relationship between resistance, \\(R\\), and temperature,
-                \\(T\\), of platinum resistance thermometers. It is typically defined in two temperature
-                ranges:
+                \\(T\\), of platinum resistance thermometers. It is typically defined in two
+                temperature ranges:
 
                 If \\(0~^{\circ}\text{C} \leq T \lt 661~^{\circ}\text{C}\\)
                 \begin{equation}
@@ -2212,6 +2212,9 @@
                 \\(B\\) and \\(C\\) are the Callendar-Van Dusen coefficients.
 
                 **Examples**
+
+                A PT100 was calibrated between \\(-10~^{\circ}\text{C}\\) and \\(70~^{\circ}\text{C}\\).
+                The expanded uncertainty is \\(0.0056~\Omega\\) with a coverage factor of \\(2\\).
 
                 ```xml
                 {cvdCoefficients}

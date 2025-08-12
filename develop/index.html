@@ -59,8 +59,12 @@
                 **Examples**
 
                 ```xml
-                {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
+                {alteration date="2024-10-16" performedBy="Chris Young"}Replace blown op-amp with LMP7721{/alteration}
                 ```
+
+                Although the `performedBy` value may be any string, if the alteration was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </div><div class="xs3p-doc" id="id5-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_alteration-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_alteration-instance-table-panel-group" href="#type_alteration-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_alteration-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
  <span class="na">date=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:date</span>"</span> <span class="cs">[1]</span><div class="modal fade date" id="id6-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id6-label">Attribute date</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id6-hidden"><div class="hidden" id="id6-hidden-doc-raw">
                             The date that the alteration was performed.
@@ -69,6 +73,10 @@
                         </div><div class="xs3p-doc" id="id6-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'date' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id6-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
  <span class="na">performedBy=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>"</span> <span class="cs">[1]</span><div class="modal fade performedBy" id="id7-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id7-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id7-hidden"><div class="hidden" id="id7-hidden-doc-raw">
                             The person or company that performed the alteration.
+
+                            Although the `performedBy` value may be any string, if the alteration was
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </div><div class="xs3p-doc" id="id7-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'performedBy' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id7-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
 <span class="nt">&gt;</span>
    <span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>
@@ -95,10 +103,14 @@
                 Some alterations have been performed
                 ```xml
                 {alterations}
-                  {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
-                  {alteration date="2022-06-23" performedBy="Chris, MSL"}Attach heatsink to voltage regulator{/alteration}
+                  {alteration date="2024-10-16" performedBy="Chris Young"}Replace blown op-amp with LMP7721{/alteration}
+                  {alteration date="2022-06-23" performedBy="Chris Young"}Attach heatsink to voltage regulator{/alteration}
                 {/alterations}
                 ```
+
+                Although the `performedBy` value may be any string, if the alteration was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </div><div class="xs3p-doc" id="id8-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_alterations-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_alterations-instance-table-panel-group" href="#type_alterations-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_alterations-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
   <span class="group">Start Sequence <span class="cs">[0..*]</span></span>
     <span class="nt">&lt;<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:alteration&gt;</span> <span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'alteration' type definition" href="#type_alteration">alteration</a></span> <span class="nt">&lt;/<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:alteration&gt;</span> <span class="cs">[1]</span> <button title="Show 'alteration' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id9-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
@@ -220,8 +232,12 @@
                 **Examples**
 
                 ```xml
-                {completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"}Clean fan{/completedTask}
+                {completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam Knight"}Clean fan{/completedTask}
                 ```
+
+                Although the `performedBy` value may be any string, if the completed task was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </div><div class="xs3p-doc" id="id19-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_completedTask-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_completedTask-instance-table-panel-group" href="#type_completedTask-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_completedTask-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
  <span class="na">dueDate=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:date</span>"</span> <span class="cs">[1]</span><div class="modal fade dueDate" id="id20-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id20-label">Attribute dueDate</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id20-hidden"><div class="hidden" id="id20-hidden-doc-raw">
                             The date that the planned maintenance task was due to be completed.
@@ -235,6 +251,11 @@
                         </div><div class="xs3p-doc" id="id21-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'completedDate' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id21-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
  <span class="na">performedBy=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>"</span> <span class="cs">[1]</span><div class="modal fade performedBy" id="id22-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id22-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id22-hidden"><div class="hidden" id="id22-hidden-doc-raw">
                             The person or company that performed the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the completed
+                            task was performed by an MSL staff member then you are encouraged to
+                            use one of the [staffEnumerationString](#type_staffEnumerationString)
+                            values.
                         </div><div class="xs3p-doc" id="id22-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'performedBy' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id22-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
 <span class="nt">&gt;</span>
    <span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>
@@ -896,7 +917,7 @@
                     {task dueDate="2025-05-15" performedBy="Company X"}Service laser{/task}
                   {/planned}
                   {completed}
-                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom Stewart"}Refill helium gas{/task}
                   {/completed}
                 {/maintenance}
                 ```
@@ -907,10 +928,14 @@
                   {planned/}
                   {completed}
                     {task dueDate="2025-05-15" completedDate="2025-05-15" performedBy="Company X"}Service laser{/task}
-                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom Stewart"}Refill helium gas{/task}
                   {/completed}
                 {/maintenance}
                 ```
+
+                Although the `performedBy` value may be any string, if the task is to be
+                performed (or was performed) by an MSL staff member then you are encouraged
+                to use one of the [staffEnumerationString](#type_staffEnumerationString) values.
             </div><div class="xs3p-doc" id="id86-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_maintenance-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_maintenance-instance-table-panel-group" href="#type_maintenance-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_maintenance-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
   <span class="group">Start Sequence <span class="cs">[0..1]</span></span>
     <span class="nt">&lt;<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:planned</span>    <span class="nt">&gt;</span> <span class="cs">[1]</span>  <button title="Show 'planned' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id88-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
@@ -1053,8 +1078,12 @@
 
                 or if it is known who will perform the task
                 ```xml
-                {plannedTask dueDate="2025-06-15" performedBy="Tom"}Buy replacement air filter{/plannedTask}
+                {plannedTask dueDate="2025-06-15" performedBy="Darrin Jack"}Buy replacement air filter{/plannedTask}
                 ```
+
+                Although the `performedBy` value may be any string, if the planned task is to be
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </div><div class="xs3p-doc" id="id107-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_plannedTask-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_plannedTask-instance-table-panel-group" href="#type_plannedTask-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_plannedTask-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span>
  <span class="na">dueDate=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:date</span>"</span> <span class="cs">[1]</span><div class="modal fade dueDate" id="id108-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id108-label">Attribute dueDate</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id108-hidden"><div class="hidden" id="id108-hidden-doc-raw">
                             The date that the planned maintenance task is due to be completed.
@@ -1063,6 +1092,10 @@
                         </div><div class="xs3p-doc" id="id108-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'dueDate' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id108-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
  <span class="na">performedBy=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:string</span>"</span> <span class="cs">[0..1]</span><div class="modal fade performedBy" id="id109-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id109-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id109-hidden"><div class="hidden" id="id109-hidden-doc-raw">
                             _Optional:_ The person or company that will perform the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the planned task is to be
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </div><div class="xs3p-doc" id="id109-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div> <button title="Show 'performedBy' documentation" class="btn btn-link btn-doc" data-toggle="modal" data-target="#id109-popup"><span class="glyphicon glyphicon-info-sign"> </span></button>
 <span class="nt">&gt;</span>
    <span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'nonEmptyString' type definition" href="#type_nonEmptyString">nonEmptyString</a></span>
@@ -2348,6 +2381,10 @@
                             [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </div><div class="xs3p-doc" id="id108-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade performedBy" id="id109-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id109-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id109-hidden"><div class="hidden" id="id109-hidden-doc-raw">
                             _Optional:_ The person or company that will perform the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the planned task is to be
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </div><div class="xs3p-doc" id="id109-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade dueDate" id="id20-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id20-label">Attribute dueDate</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id20-hidden"><div class="hidden" id="id20-hidden-doc-raw">
                             The date that the planned maintenance task was due to be completed.
                             The date must be in the YYYY-MM-DD format (see
@@ -2358,6 +2395,11 @@
                             [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </div><div class="xs3p-doc" id="id21-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade performedBy" id="id22-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id22-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id22-hidden"><div class="hidden" id="id22-hidden-doc-raw">
                             The person or company that performed the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the completed
+                            task was performed by an MSL staff member then you are encouraged to
+                            use one of the [staffEnumerationString](#type_staffEnumerationString)
+                            values.
                         </div><div class="xs3p-doc" id="id22-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade alteration" id="id9-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id9-label"> alteration</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id9-hidden"><div class="hidden" id="id9-hidden-doc-raw">
                         The details of the alteration. Such as any damage, malfunction, modification to, or repair of, the equipment.
                     </div><div class="xs3p-doc" id="id9-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade date" id="id6-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id6-label">Attribute date</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id6-hidden"><div class="hidden" id="id6-hidden-doc-raw">
@@ -2366,6 +2408,10 @@
                             [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
                         </div><div class="xs3p-doc" id="id6-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade performedBy" id="id7-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id7-label">Attribute performedBy</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id7-hidden"><div class="hidden" id="id7-hidden-doc-raw">
                             The person or company that performed the alteration.
+
+                            Although the `performedBy` value may be any string, if the alteration was
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </div><div class="xs3p-doc" id="id7-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade version" id="id85-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id85-label"> version</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id85-hidden"><div class="hidden" id="id85-hidden-doc-raw">
                         The firmware version number and the date (in the YYYY-MM-DD format)
                         when the firmware was installed or upgraded.

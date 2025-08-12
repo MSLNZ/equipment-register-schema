@@ -943,7 +943,7 @@
                     {task dueDate="2025-05-15" performedBy="Company X"}Service laser{/task}
                   {/planned}
                   {completed}
-                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom Stewart"}Refill helium gas{/task}
                   {/completed}
                 {/maintenance}
                 ```
@@ -954,10 +954,14 @@
                   {planned/}
                   {completed}
                     {task dueDate="2025-05-15" completedDate="2025-05-15" performedBy="Company X"}Service laser{/task}
-                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom, MSL"}Refill helium gas{/task}
+                    {task dueDate="2024-12-01" completedDate="2024-12-02" performedBy="Tom Stewart"}Refill helium gas{/task}
                   {/completed}
                 {/maintenance}
                 ```
+
+                Although the `performedBy` value may be any string, if the task is to be
+                performed (or was performed) by an MSL staff member then you are encouraged
+                to use one of the [staffEnumerationString](#type_staffEnumerationString) values.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0">
@@ -1014,8 +1018,12 @@
 
                 or if it is known who will perform the task
                 ```xml
-                {plannedTask dueDate="2025-06-15" performedBy="Tom"}Buy replacement air filter{/plannedTask}
+                {plannedTask dueDate="2025-06-15" performedBy="Darrin Jack"}Buy replacement air filter{/plannedTask}
                 ```
+
+                Although the `performedBy` value may be any string, if the planned task is to be
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -1033,6 +1041,10 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             _Optional:_ The person or company that will perform the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the planned task is to be
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
@@ -1048,8 +1060,12 @@
                 **Examples**
 
                 ```xml
-                {completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam"}Clean fan{/completedTask}
+                {completedTask dueDate="2022-08-10" completedDate="2022-08-04" performedBy="Adam Knight"}Clean fan{/completedTask}
                 ```
+
+                Although the `performedBy` value may be any string, if the completed task was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -1076,6 +1092,11 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             The person or company that performed the planned maintenance task.
+
+                            Although the `performedBy` value may be any string, if the completed
+                            task was performed by an MSL staff member then you are encouraged to
+                            use one of the [staffEnumerationString](#type_staffEnumerationString)
+                            values.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
@@ -1099,10 +1120,14 @@
                 Some alterations have been performed
                 ```xml
                 {alterations}
-                  {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
-                  {alteration date="2022-06-23" performedBy="Chris, MSL"}Attach heatsink to voltage regulator{/alteration}
+                  {alteration date="2024-10-16" performedBy="Chris Young"}Replace blown op-amp with LMP7721{/alteration}
+                  {alteration date="2022-06-23" performedBy="Chris Young"}Attach heatsink to voltage regulator{/alteration}
                 {/alterations}
                 ```
+
+                Although the `performedBy` value may be any string, if the alteration was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence minOccurs="0" maxOccurs="unbounded">
@@ -1125,8 +1150,12 @@
                 **Examples**
 
                 ```xml
-                {alteration date="2024-10-16" performedBy="Chris, MSL"}Replace blown op-amp with LMP7721{/alteration}
+                {alteration date="2024-10-16" performedBy="Chris Young"}Replace blown op-amp with LMP7721{/alteration}
                 ```
+
+                Although the `performedBy` value may be any string, if the alteration was
+                performed by an MSL staff member then you are encouraged to use one of the
+                [staffEnumerationString](#type_staffEnumerationString) values.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
@@ -1144,6 +1173,10 @@
                     <xsd:annotation>
                         <xsd:documentation>
                             The person or company that performed the alteration.
+
+                            Although the `performedBy` value may be any string, if the alteration was
+                            performed by an MSL staff member then you are encouraged to use one of the
+                            [staffEnumerationString](#type_staffEnumerationString) values.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>

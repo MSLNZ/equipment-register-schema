@@ -707,7 +707,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1")' onmouseout='makeHid
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1_1_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1_1_1")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>worker</text>
-<text class='element-type' x='5' y='41'>type: nonEmptyString</text>
+<text class='element-type' x='5' y='41'>type: staffEnumerationString</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
@@ -717,7 +717,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1_1_1")' onmouseout='mak
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_1_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>checker</text>
-<text class='element-type' x='5' y='41'>type: nonEmptyString</text>
+<text class='element-type' x='5' y='41'>type: staffEnumerationString</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 

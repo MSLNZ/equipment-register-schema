@@ -1758,15 +1758,15 @@
 
                 ```xml
                 {competency}
-                  {worker}Tim{/worker}
-                  {checker}Laurie{/checker}
+                  {worker}Minyu Zhang{/worker}
+                  {checker}Tim Lawson{/checker}
                   {technicalProcedure}MSLT.E.048.005{/technicalProcedure}
                 {/competency}
                 ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="worker" type="msl:nonEmptyString">
+            <xsd:element name="worker" type="msl:staffEnumerationString">
                 <xsd:annotation>
                     <xsd:documentation>
                         The competent person who executed the technical
@@ -1774,7 +1774,7 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="checker" type="msl:nonEmptyString">
+            <xsd:element name="checker" type="msl:staffEnumerationString">
                 <xsd:annotation>
                     <xsd:documentation>
                         The competent person who reviewed the work done by the `worker`.

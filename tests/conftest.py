@@ -349,8 +349,8 @@ class XML:
     @staticmethod
     def performance_check(*,
                           date: str = '2023-09-18',
-                          worker: str = 'MSL',
-                          checker: str = 'MSL',
+                          worker: str = 'Joseph Borbely',
+                          checker: str = 'Joseph Borbely',
                           technical_procedure: str = 'MSLT.E.0',
                           competency: str | None = '',
                           conditions: str | None = '',

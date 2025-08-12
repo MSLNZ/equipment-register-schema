@@ -20,16 +20,14 @@ INVALID_PERSON_NAME = [
     'First Last\r',
     'First Last\r\n',
     '\nFirst Last',
+    'Francois Shindo',
 ]
 
 VALID_PERSON_NAME = [
-    'a',
-    ' a',
-    'a ',
-    '  a     ',
-    'First X. Last',
-    '   First Last',
-    '   F i r s    t           L a s t   ~-_=+)(*^%$#!',
+    'Adam Dunford',
+    'Lucy Forde',
+    'Rebecca Hawke',
+    'François Shindo'
 ]
 
 
@@ -115,7 +113,7 @@ def test_worker_missing(xml):
 def test_checker_missing(xml):
     check = ('<performanceCheck completedDate="2024-12-18" enteredBy="Joseph Borbely">'
              '  <competency>'
-             '    <worker>MSL</worker>'
+             '    <worker>Joseph Borbely</worker>'
              '    <technicalProcedure>MSLT.E.0</technicalProcedure>'
              '  </competency>'
              '</performanceCheck>')
@@ -126,8 +124,8 @@ def test_checker_missing(xml):
 def test_technical_procedure_missing(xml):
     check = ('<performanceCheck completedDate="2024-12-18" enteredBy="Joseph Borbely">'
              '  <competency>'
-             '    <worker>MSL</worker>'
-             '    <checker>MSL</checker>'
+             '    <worker>Joseph Borbely</worker>'
+             '    <checker>Joseph Borbely</checker>'
              '  </competency>'
              '</performanceCheck>')
     xml.calibrations(xml.measurand(xml.component(check)))
@@ -137,8 +135,8 @@ def test_technical_procedure_missing(xml):
 def test_competency_extra_child(xml):
     check = ('<performanceCheck completedDate="2024-12-18" enteredBy="Joseph Borbely">'
              '  <competency>'
-             '    <worker>MSL</worker>'
-             '    <checker>MSL</checker>'
+             '    <worker>Joseph Borbely</worker>'
+             '    <checker>Joseph Borbely</checker>'
              '    <technicalProcedure>MSLT.E.0</technicalProcedure>'
              '    <extra>MSL</extra>'
              '  </competency>'
@@ -217,7 +215,7 @@ def test_conditions(xml, text, attribs):
 def test_worker_invalid(xml, name):
     check = xml.performance_check(worker=name)
     xml.calibrations(xml.measurand(xml.component(check)))
-    xml.raises(r'not accepted by the pattern')
+    xml.raises(r'not an element of the set')
 
 
 @pytest.mark.parametrize('name', VALID_PERSON_NAME)
@@ -231,7 +229,7 @@ def test_worker_valid(xml, name):
 def test_checker_invalid(xml, name):
     check = xml.performance_check(checker=name)
     xml.calibrations(xml.measurand(xml.component(check)))
-    xml.raises(r'not accepted by the pattern')
+    xml.raises(r'not an element of the set')
 
 
 @pytest.mark.parametrize('name', VALID_PERSON_NAME)

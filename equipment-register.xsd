@@ -2214,7 +2214,7 @@
                 **Examples**
 
                 A PT100 was calibrated between \\(-10~^{\circ}\text{C}\\) and \\(70~^{\circ}\text{C}\\).
-                The expanded uncertainty is \\(0.0056~\Omega\\) with a coverage factor of \\(2\\).
+                The expanded uncertainty is \\(0.0056~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
 
                 ```xml
                 {cvdCoefficients}

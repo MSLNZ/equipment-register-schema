@@ -2098,8 +2098,8 @@
                 **Examples**
 
                 The correction to apply for a temperature `value` is expressed as a
-                second-order polynomial and the _expanded_ `uncertainty` is specified to be
-                0.45 &#8451; with a coverage factor of 2.
+                second-order polynomial and the _expanded_ `uncertainty` is a constant
+                \\(0.45~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
                 ```xml
                 {equation}
                   {value variables="T"}T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2)){/value}
@@ -2247,7 +2247,7 @@
                 **Examples**
 
                 A PT100 was calibrated between \\(-10~^{\circ}\text{C}\\) and \\(70~^{\circ}\text{C}\\).
-                The expanded uncertainty is \\(0.0056~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
+                The _expanded_ `uncertainty` is \\(0.0056~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
 
                 ```xml
                 {cvdCoefficients}

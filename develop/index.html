@@ -518,9 +518,12 @@
 
                 **Examples**
 
-                The correction to apply for a temperature `value` is expressed as a
-                second-order polynomial and the _expanded_ `uncertainty` is a constant
-                \\(0.45~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
+                A temperature probe was calibrated between \\(15~^{\circ}\text{C}\\) and
+                \\(25~^{\circ}\text{C}\\). The _corrected_ temperature `value` is expressed
+                as a second-order polynomial and the _expanded_ `uncertainty` is a constant
+                \\(0.45~^{\circ}\text{C}\\), within the calibration temperature range, with
+                a coverage factor of \\(2\\).
+
                 ```xml
                 {equation}
                   {value variables="T"}T + (-10.66 + 1.58e-2*T + 1.212e-3*pow(T,2)){/value}

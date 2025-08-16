@@ -2648,10 +2648,6 @@
                           {gtcArchiveJSON}\{"CLASS": "Archive", ...\}{/gtcArchiveJSON}
                         {/serialised}
                         ```
-
-                        If the [loads_json](https://gtc.readthedocs.io/en/stable/API/persistence.html#persistence.loads_json)
-                        function requires keyword arguments to load the `Archive`, these keyword arguments
-                        may be defined as the XML attributes for the `gtcArchiveJSON` element.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:complexType>

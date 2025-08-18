@@ -130,15 +130,15 @@ def test_expect_capital_d(xml):
     xml.raises(r"Expected is .*D")
 
 
-@pytest.mark.parametrize("c", ["", "one hundred", "3.f0"])
-def test_d_value_invalid(xml, c):
+@pytest.mark.parametrize("d", ["", "one hundred", "3.f0"])
+def test_d_value_invalid(xml, d):
     choice = (
         f"<cvdCoefficients>"
         f"  <R0>100</R0>"
         f"  <A>1</A>"
         f"  <B>1</B>"
         f"  <C>1</C>"
-        f"  <D>{c}</D>"
+        f"  <D>{d}</D>"
         f"</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))

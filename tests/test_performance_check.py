@@ -181,6 +181,7 @@ def test_multiple_choices(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2</uncertainty>'
         '  <range><minimum>0</minimum><maximum>100</maximum></range>'
         '</cvdCoefficients>')

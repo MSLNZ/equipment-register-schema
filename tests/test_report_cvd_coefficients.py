@@ -116,6 +116,49 @@ def test_c_does_not_accept_attributes(xml):
     xml.raises(r"attribute 'variables' is not allowed")
 
 
+def test_expect_capital_d(xml):
+    choice = (
+        "<cvdCoefficients>"
+        "  <R0>100</R0>"
+        "  <A>1</A>"
+        "  <B>1</B>"
+        "  <C>1</C>"
+        "  <B>1</B>"
+        "</cvdCoefficients>"
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"Expected is .*D")
+
+
+@pytest.mark.parametrize("c", ["", "one hundred", "3.f0"])
+def test_d_value_invalid(xml, c):
+    choice = (
+        f"<cvdCoefficients>"
+        f"  <R0>100</R0>"
+        f"  <A>1</A>"
+        f"  <B>1</B>"
+        f"  <C>1</C>"
+        f"  <D>{c}</D>"
+        f"</cvdCoefficients>"
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"not a valid value of the atomic type 'xs:double'")
+
+
+def test_d_does_not_accept_attributes(xml):
+    choice = (
+        "<cvdCoefficients>"
+        "  <R0>100</R0>"
+        "  <A>1</A>"
+        "  <B>1</B>"
+        "  <C>1</C>"
+        '  <D variables="t">1</D>'
+        "</cvdCoefficients>"
+    )
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    xml.raises(r"attribute 'variables' is not allowed")
+
+
 def test_expect_uncertainty(xml):
     choice = (
         "<cvdCoefficients>"
@@ -123,6 +166,7 @@ def test_expect_uncertainty(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         "</cvdCoefficients>"
     )
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
@@ -136,6 +180,7 @@ def test_missing_uncertainty_variables_attribute(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         "  <uncertainty>0.2</uncertainty>"
         "</cvdCoefficients>"
     )
@@ -150,6 +195,7 @@ def test_wrong_uncertainty_attribute_name(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty apple="red">0.2</uncertainty>'
         "</cvdCoefficients>"
     )
@@ -164,6 +210,7 @@ def test_extra_uncertainty_attribute(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="" save="true">0.2</uncertainty>'
         "</cvdCoefficients>"
     )
@@ -178,6 +225,7 @@ def test_uncertainty_as_equation(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         "  <range><minimum>0</minimum><maximum>100</maximum></range>"
         "</cvdCoefficients>"
@@ -193,6 +241,7 @@ def test_expect_range_element(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         "  <ranges/>"
         "</cvdCoefficients>"
@@ -208,6 +257,7 @@ def test_expect_degree_freedom_element(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range><minimum>0</minimum><maximum>100</maximum></range>'
         "  <invalid>3*x+1</invalid>"
@@ -224,6 +274,7 @@ def test_degree_freedom_optional(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         "  <range><minimum>0</minimum><maximum>100</maximum></range>"
         "</cvdCoefficients>"
@@ -239,6 +290,7 @@ def test_range_expect_minimum(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range/>'
         '</cvdCoefficients>'
@@ -254,6 +306,7 @@ def test_range_expect_maximum(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         '    <minimum>1</minimum>'
@@ -271,6 +324,7 @@ def test_range_unexpected(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         '    <minimum>1</minimum>'
@@ -290,6 +344,7 @@ def test_range_no_attributes(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range variable="t">'
         '    <minimum>1</minimum>'
@@ -308,6 +363,7 @@ def test_range_invalid_minimum(xml):
         "  <A>1</A>"
         "  <B>1</B>"
         "  <C>1</C>"
+        "  <D>1</D>"
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         "    <minimum>A</minimum>"
@@ -325,6 +381,7 @@ def test_range_invalid_maximum(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         '    <minimum>1</minimum>'
@@ -343,6 +400,7 @@ def test_element_after_degree_freedom(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         '    <minimum>1</minimum>'
@@ -363,6 +421,7 @@ def test_degree_freedom_invalid(xml):
         '  <A>1</A>'
         '  <B>1</B>'
         '  <C>1</C>'
+        '  <D>1</D>'
         '  <uncertainty variables="">0.2/2.1</uncertainty>'
         '  <range>'
         '    <minimum>1</minimum>'

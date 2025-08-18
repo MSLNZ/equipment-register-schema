@@ -2234,21 +2234,22 @@
                 The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
 
                 This equation describes the relationship between resistance, \\(R\\), and temperature,
-                \\(T\\), of platinum resistance thermometers. It is typically defined in two
-                temperature ranges:
+                \\(t\\), of platinum resistance thermometers. It is defined in two temperature ranges,
+                depending on whether the temperature is \\(\lt 0~^{\circ}\text{C}\\) or \\(\geq 0~^{\circ}\text{C}\\):
 
-                If \\(0~^{\circ}\text{C} \leq T \lt 661~^{\circ}\text{C}\\)
+                If \\(R(t) \geq R_0\\) (\\(t \geq 0~^{\circ}\text{C}\\))
                 \begin{equation}
-                    R(T) = R_0 \cdot [1 + A \cdot T + B \cdot T^2] \\
+                    R(t) = R_0 \cdot [1 + A \cdot t + B \cdot t^2 + D \cdot t^3] \\
                 \end{equation}
 
-                and if \\(-200~^{\circ}\text{C} \lt T \lt 0~^{\circ}\text{C}\\)
+                and \\(R(t) \lt R_0\\) (\\(t \lt 0~^{\circ}\text{C}\\))
                 \begin{equation}
-                    R(T) = R_0 \cdot [1 + A \cdot T + B \cdot T^2 + C \cdot (T-100) \cdot T^3] \\
+                    R(t) = R_0 \cdot [1 + A \cdot t + B \cdot t^2 + C \cdot (t-100) \cdot t^3] \\
                 \end{equation}
 
-                where, \\(R_0\\) is the measured resistance at \\(T = 0~^{\circ}\text{C}\\) and \\(A\\),
-                \\(B\\) and \\(C\\) are the Callendar-Van Dusen coefficients.
+                where, \\(R_0\\) is the measured resistance at \\(t = 0~^{\circ}\text{C}\\) and \\(A\\),
+                \\(B\\), \\(C\\) and \\(D\\) are the Callendar-Van Dusen coefficients. The \\(D\\)
+                coefficient is typically zero but may be non-zero above \\(\approx 200~^{\circ}\text{C}\\).
 
                 **Examples**
 
@@ -2261,6 +2262,7 @@
                   {A}3.913e-3{/A}
                   {B}-6.056e-7{/B}
                   {C}1.372e-12{/C}
+                  {D}0{/D}
                   {uncertainty variables=""}0.0056/2{/uncertainty}
                   {range}
                     {minimum}-10{/minimum}
@@ -2284,21 +2286,28 @@
             <xsd:element name="A" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value, in \\(^{\circ}\text{C}^{-1}\\), of the \\(A\\) coefficient, \\(A \cdot T\\).
+                        The value, in \\(^{\circ}\text{C}^{-1}\\), of the \\(A\\) coefficient, \\(A \cdot t\\).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="B" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value, in \\(^{\circ}\text{C}^{-2}\\), of the \\(B\\) coefficient, \\(B \cdot T^2\\).
+                        The value, in \\(^{\circ}\text{C}^{-2}\\), of the \\(B\\) coefficient, \\(B \cdot t^2\\).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="C" type="xsd:double">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The value, in \\(^{\circ}\text{C}^{-4}\\), of the \\(C\\) coefficient, \\(C \cdot (T-100) \cdot T^3\\).
+                        The value, in \\(^{\circ}\text{C}^{-4}\\), of the \\(C\\) coefficient, \\(C \cdot (t-100) \cdot t^3\\).
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="D" type="xsd:double">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The value, in \\(^{\circ}\text{C}^{-3}\\), of the \\(D\\) coefficient, \\(D \cdot t^3\\).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>

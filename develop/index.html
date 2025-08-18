@@ -345,30 +345,30 @@
   <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:attribute</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:string</span>"</span> <span class="na">use=</span><span class="s">"required"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:complexType&gt;</span>
 </pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_cvdCoefficients" href="#type_cvdCoefficients" class="name">cvdCoefficients</a></h3><div class="panel-group" id="type_cvdCoefficients-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_cvdCoefficients-doc-panel-panel-group" href="#type_cvdCoefficients-doc-panel-collapse">Documentation</a></h4></div><div id="type_cvdCoefficients-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id29"><div class="hidden" id="id29-doc-raw">
-                The calibration is expressed as coefficients for the Callendar-Van Dusen equation.
+                The calibration is expressed as coefficients for the Callendar-Van Dusen (CVD) equation.
 
                 This equation describes the relationship between resistance, \\(R\\), and temperature,
-                \\(t\\), of platinum resistance thermometers. It is defined in two temperature ranges,
-                depending on whether the temperature is \\(\lt 0~^{\circ}\text{C}\\) or \\(\geq 0~^{\circ}\text{C}\\):
+                \\(t\\), of platinum resistance thermometers.
 
-                If \\(R(t) \geq R_0\\) (\\(t \geq 0~^{\circ}\text{C}\\))
+                If \\(R(t) \geq R_0\\)
                 \begin{equation}
-                    R(t) = R_0 \cdot [1 + A \cdot t + B \cdot t^2 + D \cdot t^3] \\
+                    \frac{R(t)}{R_0} = 1 + A \cdot t + B \cdot t^2 + D \cdot t^3 \\
                 \end{equation}
 
-                and \\(R(t) \lt R_0\\) (\\(t \lt 0~^{\circ}\text{C}\\))
+                and if \\(R(t) \lt R_0\\)
                 \begin{equation}
-                    R(t) = R_0 \cdot [1 + A \cdot t + B \cdot t^2 + C \cdot (t-100) \cdot t^3] \\
+                    \frac{R(t)}{R_0} = 1 + A \cdot t + B \cdot t^2 + C \cdot t^3 \cdot (t-100) \\
                 \end{equation}
 
-                where, \\(R_0\\) is the measured resistance at \\(t = 0~^{\circ}\text{C}\\) and \\(A\\),
-                \\(B\\), \\(C\\) and \\(D\\) are the Callendar-Van Dusen coefficients. The \\(D\\)
-                coefficient is typically zero but may be non-zero above \\(\approx 200~^{\circ}\text{C}\\).
+                where, \\(R_0=R(0~^{\circ}\text{C})\\) is the measured resistance at \\(t = 0~^{\circ}\text{C}\\)
+                and \\(A\\), \\(B\\), \\(C\\) and \\(D\\) are the CVD coefficients. The \\(D\\) coefficient is
+                typically zero but may be non-zero if \\(t \gtrsim 200~^{\circ}\text{C}\\). If a calibration
+                report does not specify the \\(D\\) coefficient, set the value to be \\(0\\).
 
                 **Examples**
 
                 A PT100 was calibrated between \\(-10~^{\circ}\text{C}\\) and \\(70~^{\circ}\text{C}\\).
-                The _expanded_ `uncertainty` is \\(0.0056~^{\circ}\text{C}\\) with a coverage factor of \\(2\\).
+                The _expanded_ `uncertainty` is \\(0.0056~^{\circ}\text{C}\\) with a coverage factor \\(k=2\\).
 
                 ```xml
                 {cvdCoefficients}
@@ -526,7 +526,7 @@
                 \\(25~^{\circ}\text{C}\\). The _corrected_ temperature `value` is expressed
                 as a second-order polynomial and the _expanded_ `uncertainty` is a constant
                 \\(0.45~^{\circ}\text{C}\\), within the calibration temperature range, with
-                a coverage factor of \\(2\\).
+                a coverage factor \\(k=2\\).
 
                 ```xml
                 {equation}
@@ -2731,13 +2731,13 @@
                         *NOTE: This value does not accept scientific notation.
                         For example, use `100.0189` instead of `1.000189e+02`*
                     </div><div class="xs3p-doc" id="id31-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade A" id="id32-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id32-label"> A</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id32-hidden"><div class="hidden" id="id32-hidden-doc-raw">
-                        The value, in \\(^{\circ}\text{C}^{-1}\\), of the \\(A\\) coefficient, \\(A \cdot t\\).
+                        The value, in \\((^{\circ}\text{C})^{-1}\\), of the \\(A\\) coefficient, \\(A \cdot t\\).
                     </div><div class="xs3p-doc" id="id32-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade B" id="id33-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id33-label"> B</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id33-hidden"><div class="hidden" id="id33-hidden-doc-raw">
-                        The value, in \\(^{\circ}\text{C}^{-2}\\), of the \\(B\\) coefficient, \\(B \cdot t^2\\).
+                        The value, in \\((^{\circ}\text{C})^{-2}\\), of the \\(B\\) coefficient, \\(B \cdot t^2\\).
                     </div><div class="xs3p-doc" id="id33-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade C" id="id34-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id34-label"> C</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id34-hidden"><div class="hidden" id="id34-hidden-doc-raw">
-                        The value, in \\(^{\circ}\text{C}^{-4}\\), of the \\(C\\) coefficient, \\(C \cdot (t-100) \cdot t^3\\).
+                        The value, in \\((^{\circ}\text{C})^{-4}\\), of the \\(C\\) coefficient, \\(C \cdot t^3 \cdot (t-100)\\).
                     </div><div class="xs3p-doc" id="id34-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade D" id="id35-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id35-label"> D</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id35-hidden"><div class="hidden" id="id35-hidden-doc-raw">
-                        The value, in \\(^{\circ}\text{C}^{-3}\\), of the \\(D\\) coefficient, \\(D \cdot t^3\\).
+                        The value, in \\((^{\circ}\text{C})^{-3}\\), of the \\(D\\) coefficient, \\(D \cdot t^3\\).
                     </div><div class="xs3p-doc" id="id35-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade uncertainty" id="id37-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id37-label"> uncertainty</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id37-hidden"><div class="hidden" id="id37-hidden-doc-raw">
                         The equation to parse to calculate the standard uncertainty.
 

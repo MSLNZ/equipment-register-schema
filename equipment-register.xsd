@@ -244,6 +244,7 @@
                     <xsd:enumeration value="Barometer"/>
                     <xsd:enumeration value="Block"/>
                     <xsd:enumeration value="Bridge"/>
+                    <xsd:enumeration value="Comparator"/>
                     <xsd:enumeration value="Component"/>
                     <xsd:enumeration value="Current"/>
                     <xsd:enumeration value="DAQ"/>

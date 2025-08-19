@@ -255,6 +255,7 @@
                     <xsd:enumeration value="Gateway"/>
                     <xsd:enumeration value="Gauge"/>
                     <xsd:enumeration value="Infrared"/>
+                    <xsd:enumeration value="Interferometer"/>
                     <xsd:enumeration value="Hygrometer"/>
                     <xsd:enumeration value="Lamp"/>
                     <xsd:enumeration value="Laser"/>

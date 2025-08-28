@@ -1023,7 +1023,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_2_1")' onmouseout=
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>unit</text>
-<text class='element-type' x='5' y='41'>type: nonEmptyString</text>
+<text class='element-type' x='5' y='41'>type: tokenizedString</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
@@ -1097,11 +1097,11 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_1_2")' onmou
 </g>
 
 <g id='_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_2' class='box' transform='translate(4202,2677)'>
-<rect class='shadow' x='3' y='3' width='135' height='46' rx='9'/>
-<rect class='boxattribute1' x='0' y='0' width='135' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
+<rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> variable</text>
-<text class='visible' x='5' y='41'>type: nonEmptyString</text>
+<text class='visible' x='5' y='41'>type: tokenizedString</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_3_1_3_2_1_4_1_1_2' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -2460,11 +2460,11 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_4")' onmouseout='makeHid
 </g>
 
 <g id='_1_1_1_1_1_11_1_1_1_1_1_1_4_1_4_1' class='box' transform='translate(3215,6653)'>
-<rect class='shadow' x='3' y='3' width='135' height='46' rx='9'/>
-<rect class='boxattribute2' x='0' y='0' width='135' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
+<rect class='boxattribute2' x='0' y='0' width='141' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_4_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_4_1")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> person</text>
-<text class='visible' x='5' y='41'>type: nonEmptyString</text>
+<text class='visible' x='5' y='41'>type: tokenizedString</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
@@ -2818,7 +2818,7 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_2_1")' onmouseout=
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_3")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>unit</text>
-<text class='element-type' x='5' y='41'>type: nonEmptyString</text>
+<text class='element-type' x='5' y='41'>type: tokenizedString</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
@@ -2892,11 +2892,11 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_1_2")' onmou
 </g>
 
 <g id='_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_2' class='box' transform='translate(4202,8144)'>
-<rect class='shadow' x='3' y='3' width='135' height='46' rx='9'/>
-<rect class='boxattribute1' x='0' y='0' width='135' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
+<rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> variable</text>
-<text class='visible' x='5' y='41'>type: nonEmptyString</text>
+<text class='visible' x='5' y='41'>type: tokenizedString</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' id='p_1_1_1_1_1_11_1_1_1_1_1_1_4_1_8_2_1_4_1_1_2' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -4414,11 +4414,11 @@ onmouseover='makeVisible("_1_1_1_1_1_12_1_2_1_1_2")' onmouseout='makeHidden("_1_
 </g>
 
 <g id='_1_1_1_1_1_12_1_2_1_1_3' class='box' transform='translate(2228,12688)'>
-<rect class='shadow' x='3' y='3' width='135' height='46' rx='9'/>
-<rect class='boxattribute1' x='0' y='0' width='135' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
+<rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_12_1_2_1_1_3")' onmouseout='makeHidden("_1_1_1_1_1_12_1_2_1_1_3")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> performedBy</text>
-<text class='visible' x='5' y='41'>type: nonEmptyString</text>
+<text class='visible' x='5' y='41'>type: tokenizedString</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' id='p_1_1_1_1_1_12_1_2_1_1_3' x1='-35' y1='-119' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>
@@ -4471,11 +4471,11 @@ onmouseover='makeVisible("_1_1_1_1_1_13_1_1_1")' onmouseout='makeHidden("_1_1_1_
 </g>
 
 <g id='_1_1_1_1_1_13_1_1_2' class='box' transform='translate(1787,12830)'>
-<rect class='shadow' x='3' y='3' width='135' height='46' rx='9'/>
-<rect class='boxattribute1' x='0' y='0' width='135' height='46' rx='9'
+<rect class='shadow' x='3' y='3' width='141' height='46' rx='9'/>
+<rect class='boxattribute1' x='0' y='0' width='141' height='46' rx='9'
 onmouseover='makeVisible("_1_1_1_1_1_13_1_1_2")' onmouseout='makeHidden("_1_1_1_1_1_13_1_1_2")'/>
 <text class='strong' x='5' y='27'><tspan class='big'>@</tspan> performedBy</text>
-<text class='visible' x='5' y='41'>type: nonEmptyString</text>
+<text class='visible' x='5' y='41'>type: tokenizedString</text>
 <text class='hidden' visibility='hidden' x='5' y='41'>use: required</text>
 <line class='connection' id='p_1_1_1_1_1_13_1_1_2' x1='-35' y1='-48' x2='-35' y2='-40'/>
 <path class='connection' d='M-35,-40 Q-35,15 0,23'/>

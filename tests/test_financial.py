@@ -2,95 +2,207 @@ import pytest
 
 from .conftest import INVALID_DATES
 
+unexpected = "<unexpected>text</unexpected>"
+purchase = "<purchaseYear>2020</purchaseYear>"
+warranty = "<warrantyExpirationDate>2025-08-15</warrantyExpirationDate>"
+capex = (
+    "<capitalExpenditure>"
+    "<assetNumber/>"
+    "<depreciationEndYear>2030</depreciationEndYear>"
+    '<price currency="NZD">10000</price>'
+    "</capitalExpenditure>"
+)
 
-def test_empty(xml):
-    xml.quality_manual('<financial/>')
+
+def test_empty(xml) -> None:
+    xml.quality_manual("<financial/>")
     assert xml.is_valid()
 
 
 def test_multiple(xml):
-    xml.quality_manual('<financial/><financial/>')
+    xml.quality_manual("<financial/><financial/>")
     xml.raises(r"financial': This element is not expected")
 
 
 @pytest.mark.parametrize(
-    'asset', [' ', '01234', 'ABC123', ':any-\n@thing '])
-def test_asset_number_only(xml, asset):
-    xml.quality_manual(xml.financial(asset_number=asset))
+    "asset", ["", " \n \t   ", "01234", "ABC123", ":any-\n@thing "]
+)
+def test_asset_number_valid(xml, asset):
+    f = (
+        f"<financial>"
+        f"  <capitalExpenditure>"
+        f"    <assetNumber>{asset}</assetNumber>"
+        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        f'    <price currency="NZD">10000</price>'
+        f"  </capitalExpenditure>"
+        f"</financial>"
+    )
+    xml.quality_manual(f)
     assert xml.is_valid()
 
 
-def test_warranty_date_only(xml):
-    xml.quality_manual(xml.financial(warranty_date='2024-07-23'))
+def test_asset_number_repeated(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        "    <depreciationEndYear>2030</depreciationEndYear>"
+        '    <price currency="NZD">10000</price>'
+        "    <assetNumber/>"
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"assetNumber': This element is not expected")
+
+
+def test_capex_order_invalid_1(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <depreciationEndYear>2030</depreciationEndYear>"
+        '    <price currency="NZD">10000</price>'
+        "    <assetNumber/>"
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"depreciationEndYear': This element is not expected")
+
+
+def test_capex_order_invalid_2(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        '    <price currency="NZD">10000</price>'
+        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"price': This element is not expected")
+
+
+def test_price_currency_invalid(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        "    <depreciationEndYear>2030</depreciationEndYear>"
+        '    <price currency="ABC">10000</price>'
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"ABC' is not an element of the set")
+
+
+@pytest.mark.parametrize("price", ["0", "150000", "150e3", "150000.00"])
+def test_price_valid(xml, price):
+    f = (
+        f"<financial>"
+        f"  <capitalExpenditure>"
+        f"    <assetNumber/>"
+        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        f'    <price currency="NZD">{price}</price>'
+        f"  </capitalExpenditure>"
+        f"</financial>"
+    )
+    xml.quality_manual(f)
     assert xml.is_valid()
 
 
-def test_year_purchased_only(xml):
-    xml.quality_manual(xml.financial(year_purchased='2024'))
+@pytest.mark.parametrize("price", ["", "  \n ", "150k"])
+def test_price_invalid(xml, price):
+    f = (
+        f"<financial>"
+        f"  <capitalExpenditure>"
+        f"    <assetNumber/>"
+        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        f'    <price currency="NZD">{price}</price>'
+        f"  </capitalExpenditure>"
+        f"</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"not a valid value of the atomic type 'xs:float'")
+
+
+def test_warranty_date_valid(xml):
+    xml.quality_manual(f"<financial>{warranty}</financial>")
     assert xml.is_valid()
 
 
-@pytest.mark.parametrize('date', INVALID_DATES)
+@pytest.mark.parametrize("date", INVALID_DATES)
 def test_warranty_date_invalid(xml, date):
-    xml.quality_manual(xml.financial(warranty_date=date))
+    f = f"<financial><warrantyExpirationDate>{date}</warrantyExpirationDate></financial>"
+    xml.quality_manual(f)
     xml.raises(r"atomic type 'xs:date'")
 
 
-@pytest.mark.parametrize('year', ['202', '1', '', 'two'])
+def test_year_purchased_valid(xml):
+    xml.quality_manual(f"<financial>{purchase}</financial>")
+    assert xml.is_valid()
+
+
+@pytest.mark.parametrize("year", ["202", "1", "", "two"])
 def test_year_purchased_invalid(xml, year):
-    xml.quality_manual(xml.financial(year_purchased=year))
+    f = f"<financial><purchaseYear>{year}</purchaseYear></financial>"
+    xml.quality_manual(f)
     xml.raises(r"atomic type 'xs:gYear'")
 
 
 @pytest.mark.parametrize(
-    'kwargs',
-    [{'yearPurchased': 2025, 'warrantyExpirationDate': '2024-06-29'},
-     {'warrantyExpirationDate': '2024-06-29', 'yearPurchased': 2025},
-     {'warrantyExpirationDate': '2024-06-29', 'assetNumber': '1', 'yearPurchased': 2025},
-     {'yearPurchased': 2025, 'assetNumber': '1'},
-     {'assetNumber': '1', 'yearPurchased': 2025},
-     ])
-def test_any_order(xml, kwargs):
-    xml.quality_manual(xml.financial(**kwargs))
+    "children",
+    [
+        f"{purchase}{warranty}{capex}",
+        f"{purchase}{capex}{warranty}",
+        f"{capex}{warranty}{purchase}",
+        f"{capex}{purchase}{warranty}",
+        f"{warranty}{capex}{purchase}",
+        f"{warranty}{purchase}{capex}",
+    ],
+)
+def test_any_order_valid(xml, children):
+    xml.quality_manual(f"<financial>{children}</financial>")
     assert xml.is_valid()
 
 
 @pytest.mark.parametrize(
-    'kwargs',
-    [{'yearPurchased': 2025, 'unexpected': 'anything'},
-     {'unexpected': '2024-06-29', 'yearPurchased': 2025},
-     {'warrantyExpirationDate': '2024-06-29', 'assetNumber': '1', 'unexpected': 2025},
-     ])
-def test_unexpected_element(xml, kwargs):
-    xml.quality_manual(xml.financial(**kwargs))
+    "children",
+    [
+        f"{unexpected}",
+        f"{purchase}{unexpected}",
+        f"{warranty}{unexpected}",
+        f"{capex}{unexpected}",
+        f"{purchase}{warranty}{unexpected}",
+        f"{warranty}{purchase}{capex}{unexpected}",
+    ],
+)
+def test_unexpected_element(xml, children):
+    xml.quality_manual(f"<financial>{children}</financial>")
     xml.raises(r"unexpected': This element is not expected")
 
 
 @pytest.mark.parametrize(
-    'kwargs',
-    [{'yearPurchased': 2025, 'assetNumber': '1'},
-     {'assetNumber': '1'},
-     ])
-def test_asset_number_repeated(xml, kwargs):
-    xml.quality_manual(xml.financial(asset_number='123', **kwargs))
-    xml.raises(r"assetNumber': This element is not expected")
-
-
-@pytest.mark.parametrize(
-    'kwargs',
-    [{'yearPurchased': 2025, 'warrantyExpirationDate': '2025-01-01'},
-     {'warrantyExpirationDate': '2025-01-01'},
-     ])
-def test_warranty_repeated(xml, kwargs):
-    xml.quality_manual(xml.financial(warranty_date='2030-05-19', **kwargs))
+    "children",
+    [
+        f"{warranty}{warranty}",
+        f"{warranty}{capex}{warranty}",
+    ],
+)
+def test_warranty_repeated(xml, children):
+    xml.quality_manual(f"<financial>{children}</financial>")
     xml.raises(r"warrantyExpirationDate': This element is not expected")
 
 
 @pytest.mark.parametrize(
-    'kwargs',
-    [{'warrantyExpirationDate': '2025-01-01', 'yearPurchased': 2025},
-     {'yearPurchased': 2025},
-     ])
-def test_year_purchased_repeated(xml, kwargs):
-    xml.quality_manual(xml.financial(year_purchased='1984', **kwargs))
-    xml.raises(r"yearPurchased': This element is not expected")
+    "children",
+    [
+        f"{purchase}{purchase}",
+        f"{purchase}{capex}{purchase}",
+    ],
+)
+def test_year_purchased_repeated(xml, children):
+    xml.quality_manual(f"<financial>{children}</financial>")
+    xml.raises(r"purchaseYear': This element is not expected")

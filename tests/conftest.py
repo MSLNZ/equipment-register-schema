@@ -424,24 +424,6 @@ class XML:
                 f'              <data>{data}</data>\n'
                 f'            </table>')
 
-    @staticmethod
-    def financial(*,
-                  asset_number: str = None,
-                  warranty_date: str = None,
-                  year_purchased: str = None,
-                  **kwargs: dict[str, str]) -> str:
-        element = ['<financial>']
-        if asset_number is not None:
-            element.append(f'<assetNumber>{asset_number}</assetNumber>')
-        if warranty_date is not None:
-            element.append(f'<warrantyExpirationDate>{warranty_date}</warrantyExpirationDate>')
-        if year_purchased is not None:
-            element.append(f'<yearPurchased>{year_purchased}</yearPurchased>')
-        for k, v in kwargs.items():
-            element.append(f'<{k}>{v}</{k}>')
-        element.append('</financial>')
-        return ''.join(element)
-
     def quality_manual(self, body: str | None = '', **attribs) -> None:
         if body is None:
             self._quality_manual = ''

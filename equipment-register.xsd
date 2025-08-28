@@ -594,6 +594,17 @@
         </xsd:restriction>
     </xsd:simpleType>
 
+    <xsd:simpleType name="currencyEnumerationString">
+        <xsd:annotation>
+            <xsd:documentation>
+                The currency of a [capitalExpenditure](#type_capitalExpenditure) asset.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="NZD"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
     <xsd:complexType name="equipment">
         <xsd:annotation>
             <xsd:documentation>
@@ -1256,35 +1267,53 @@
 
                 **Examples**
 
-                Specify only the asset number
+                No financial information is specified
+                ```xml
+                {financial/}
+                ```
+
+                Specify only the date that the warranty expires
                 ```xml
                 {financial}
-                  {assetNumber}002297{/assetNumber}
+                  {warrantyExpirationDate}2025-03-15{/warrantyExpirationDate}
                 {/financial}
                 ```
 
                 Specify only the year that the equipment was purchased
                 ```xml
                 {financial}
-                  {yearPurchased}2010{/yearPurchased}
+                  {purchaseYear}2010{/purchaseYear}
                 {/financial}
                 ```
 
-                Specify all financial information
+                Specify all financial information (the equipment is a capital asset)
                 ```xml
                 {financial}
-                  {assetNumber}7265817{/assetNumber}
-                  {warrantyExpirationDate}2026-08-01{/warrantyExpirationDate}
-                  {yearPurchased}2025{/yearPurchased}
+                  {purchaseYear}2025{/purchaseYear}
+                  {warrantyExpirationDate}2026-07-31{/warrantyExpirationDate}
+                  {capitalExpenditure}
+                    {assetNumber}7265817{/assetNumber}
+                    {depreciationEndYear}2033{/depreciationEndYear}
+                    {price currency="NZD"}150e3{/price}
+                  {/capitalExpenditure}
                 {/financial}
                 ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:all>
-            <xsd:element name="assetNumber" type="xsd:string" minOccurs="0">
+            <xsd:element name="capitalExpenditure" type="msl:capitalExpenditure" minOccurs="0">
                 <xsd:annotation>
                     <xsd:documentation>
-                        _Optional_: The asset number in the financial system.
+                        _Optional_: The equipment is a capital expenditure.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="purchaseYear" type="xsd:gYear" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        _Optional_: The (approximate) year that the equipment was purchased.
+                        The year must be in the YYYY format (see
+                        [xsd:gYear](https://www.w3.org/TR/xmlschema-2/#gYear) for details).
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -1297,16 +1326,52 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="yearPurchased" type="xsd:gYear" minOccurs="0">
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="capitalExpenditure">
+        <xsd:annotation>
+            <xsd:documentation>
+                _Optional:_ The equipment is a capital expenditure (for the [financial](#type_financial) element).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="assetNumber" type="xsd:string">
                 <xsd:annotation>
                     <xsd:documentation>
-                        _Optional_: Approximate year that the equipment was purchased.
-                        The year must be in the YYYY format (see
-                        [xsd:gYear](https://www.w3.org/TR/xmlschema-2/#gYear) for details).
+                        The asset number in the financial system.
+
+                        The `assetNumber` element must exist, but the value may be empty.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-        </xsd:all>
+            <xsd:element name="depreciationEndYear" type="xsd:gYear">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The year (inclusive) that depreciation ends for the asset.
+
+                        If the asset was purchased in _2020_ and the lifetime of the asset
+                        is _8_ years, then depreciation will end in `2028`.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="price">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The price of the asset. Do _not_ include the currency symbol, e.g. `$`, in the value.
+
+                        You may use scientific notation, so `150e3` is equivalent to `150000`.
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:float">
+                            <xsd:attribute name="currency" type="msl:currencyEnumerationString" use="required"/>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="technicalProcedures">

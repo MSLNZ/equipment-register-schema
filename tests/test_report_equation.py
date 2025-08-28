@@ -327,7 +327,6 @@ def test_valid_uncertainty_variables(xml, variables):
 @pytest.mark.parametrize(
     'unit',
     ['m',
-     '\tm ',
      '°C',
      '\u00B0C',
      '%rh',
@@ -356,6 +355,9 @@ def test_valid_unit_content(xml, unit):
      '\r\nm',
      'm\n',
      'contains a \newline character',
+     '\tm ',
+     ' m',
+     'm ',
      ])
 def test_invalid_unit_content(xml, unit):
     choice = (f'<equation>'

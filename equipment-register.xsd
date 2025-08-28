@@ -915,7 +915,7 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
-            <xsd:extension base="msl:nonEmptyString">
+            <xsd:extension base="msl:tokenizedString">
                 <xsd:attribute name="date" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1043,7 +1043,7 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
-            <xsd:extension base="msl:nonEmptyString">
+            <xsd:extension base="msl:tokenizedString">
                 <xsd:attribute name="dueDate" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1085,7 +1085,7 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
-            <xsd:extension base="msl:nonEmptyString">
+            <xsd:extension base="msl:tokenizedString">
                 <xsd:attribute name="dueDate" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1104,7 +1104,7 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
-                <xsd:attribute name="performedBy" type="msl:nonEmptyString" use="required">
+                <xsd:attribute name="performedBy" type="msl:tokenizedString" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
                             The person or company that performed the planned maintenance task.
@@ -1175,7 +1175,7 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:simpleContent>
-            <xsd:extension base="msl:nonEmptyString">
+            <xsd:extension base="msl:tokenizedString">
                 <xsd:attribute name="date" type="xsd:date" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
@@ -1185,7 +1185,7 @@
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>
-                <xsd:attribute name="performedBy" type="msl:nonEmptyString" use="required">
+                <xsd:attribute name="performedBy" type="msl:tokenizedString" use="required">
                     <xsd:annotation>
                         <xsd:documentation>
                             The person or company that performed the alteration.
@@ -2010,8 +2010,8 @@
                 </xsd:annotation>
                 <xsd:complexType>
                     <xsd:simpleContent>
-                        <xsd:extension base="msl:nonEmptyString">
-                            <xsd:attribute name="person" type="msl:nonEmptyString">
+                        <xsd:extension base="msl:tokenizedString">
+                            <xsd:attribute name="person" type="msl:tokenizedString">
                                 <xsd:annotation>
                                     <xsd:documentation>
                                         _Optional:_ A person at the issuing laboratory that
@@ -2283,7 +2283,7 @@
                     </xsd:simpleContent>
                 </xsd:complexType>
             </xsd:element>
-            <xsd:element name="unit" type="msl:nonEmptyString">
+            <xsd:element name="unit" type="msl:tokenizedString">
                 <xsd:annotation>
                     <xsd:documentation>
                         The unit of the measured quantity.
@@ -2946,14 +2946,14 @@
                             </xsd:annotation>
                         </xsd:element>
                     </xsd:sequence>
-                    <xsd:attribute name="variable" type="msl:nonEmptyString" use="required">
+                    <xsd:attribute name="variable" type="msl:tokenizedString" use="required">
                         <xsd:annotation>
                             <xsd:documentation>
                                 The variable in the `equation` that this `range` applies to.
 
                                 _Attention: This XSD document validates the content of an XML document
                                 (e.g., that the `variable` attribute exist and the content
-                                is a [nonEmptyString](#type_nonEmptyString)). It does not attempt to
+                                is a [tokenizedString](#type_tokenizedString)). It does not attempt to
                                 validate that the range for every `variable` is defined.
                                 You must use another tool to validate that every `variable` is
                                 uniquely defined._

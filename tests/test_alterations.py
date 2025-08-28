@@ -128,6 +128,11 @@ def test_multiple_invalid_text(xml):
      'Replaced\nthe\tdiode',
      'Replaced\rthe diode',
      'Replaced\rthe\tdiode',
+     ' a',
+     'a ',
+     '  a     ',
+     ' Replace the    diode',
+     'Replace\tthe\tdiode',
 ])
 def test_invalid_text(xml, text):
     xml.alterations(f'<alterations>'
@@ -139,12 +144,7 @@ def test_invalid_text(xml, text):
 @pytest.mark.parametrize(
     'text',
     ['a',
-     ' a',
-     'a ',
-     '  a     ',
      'Replace the diode',
-     ' Replace the    diode',
-     'Replace\tthe\tdiode',
      'The diode (model: xxx) is flaky and it should be replaced with a newer model (yyy)',
 ])
 def test_valid_text(xml, text):

@@ -41,6 +41,11 @@ def test_date_valid(xml, date):
      'Cleaned\nthe\tfilter',
      'Cleaned\rthe filter',
      'Cleaned\rthe\tfilter',
+     ' a',
+     'a ',
+     '  a     ',
+     ' Cleaned the    filter',
+     'Cleaned\tthe\tfilter',
 ])
 def test_text_invalid(xml, text):
     adj = f'<adjustment date="2024-10-17">{text}</adjustment>'
@@ -51,12 +56,7 @@ def test_text_invalid(xml, text):
 @pytest.mark.parametrize(
     'text',
     ['a',
-     ' a',
-     'a ',
-     '  a     ',
      'Cleaned the filter',
-     ' Cleaned the    filter',
-     'Cleaned\tthe\tfilter',
      'The filter was dirty so it was cleaned an then another set of measurements were acquired',
 ])
 def test_text_valid(xml, text):

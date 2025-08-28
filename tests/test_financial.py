@@ -84,6 +84,20 @@ def test_capex_order_invalid_2(xml):
     xml.raises(r"price': This element is not expected")
 
 
+def test_price_currency_missing(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        "    <depreciationEndYear>2030</depreciationEndYear>"
+        '    <price>10000</price>'
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"attribute 'currency' is required")
+
+
 def test_price_currency_invalid(xml):
     f = (
         "<financial>"

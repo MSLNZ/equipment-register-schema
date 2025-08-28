@@ -1333,6 +1333,29 @@
         <xsd:annotation>
             <xsd:documentation>
                 _Optional:_ The equipment is a capital expenditure (for the [financial](#type_financial) element).
+
+                The order of the elements must be `assetNumber`, `depreciationEndYear` then `price`.
+
+                **Examples**
+
+                The `assetNumber` may be empty, if, for example, there is a delay with the
+                Finance Department issuing an asset number
+                ```xml
+                {capitalExpenditure}
+                  {assetNumber/}
+                  {depreciationEndYear}2030{/depreciationEndYear}
+                  {price currency="NZD"}48000{/price}
+                {/capitalExpenditure}
+                ```
+
+                The `assetNumber` is known and the `price` is specified in scientific notation
+                ```xml
+                {capitalExpenditure}
+                  {assetNumber}0123456789{/assetNumber}
+                  {depreciationEndYear}2032{/depreciationEndYear}
+                  {price currency="NZD"}400e3{/price}
+                {/capitalExpenditure}
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>

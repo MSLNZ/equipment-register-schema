@@ -1388,7 +1388,7 @@
             <xsd:element name="price">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The price of the asset. Do _not_ include the currency symbol, e.g. `$`, in the value.
+                        The purchase price of the asset. Do _not_ include the currency symbol, e.g. `$`, in the value.
 
                         You may use scientific notation, so `150e3` is equivalent to `150000`.
                     </xsd:documentation>

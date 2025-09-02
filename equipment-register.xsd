@@ -598,6 +598,8 @@
         <xsd:annotation>
             <xsd:documentation>
                 The currency of a [capitalExpenditure](#type_capitalExpenditure) asset.
+
+                The value is an [ISO 4217](https://www.iso.org/iso-4217-currency-codes.html) currency code.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">

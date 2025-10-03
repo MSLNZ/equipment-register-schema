@@ -2,7 +2,7 @@
 
 ---
 
-## unreleased
+## 0.2.0 (2025-10-03)
 
 * Added the `cvdCoefficients` element
 * Added the following to `quantityEnumerationString`: Capacitance, Diameter, Isotope, Radius

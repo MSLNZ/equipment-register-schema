@@ -394,6 +394,7 @@
             <xsd:enumeration value="Runout"/>
             <xsd:enumeration value="Spectral Irradiance"/>
             <xsd:enumeration value="Spectral Irradiance Responsivity"/>
+            <xsd:enumeration value="Spectral Power Responsivity"/>
             <xsd:enumeration value="Sphericity"/>
             <xsd:enumeration value="Straightness"/>
             <xsd:enumeration value="Temperature"/>

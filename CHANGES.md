@@ -4,6 +4,7 @@
 
 ## unreleased
 
+* Added the following to `quantityEnumerationString`: `Spectral Power Responsivity`
 
 ## 0.2.0 (2025-10-03)
 

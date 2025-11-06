@@ -670,7 +670,8 @@
                         file). It does not validate that the `id` is universally (within MSL)
                         unique, for example, if an equipment-register for a team is distributed
                         across multiple XML files. To validate the universal uniqueness of the
-                        `id` content, you must use another tool._
+                        `id` content, you must use another tool, for example
+                        [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/)._
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -2193,7 +2194,9 @@
                 (e.g., that the `value` and `uncertainty` elements exist and the content
                 is a [nonEmptyString](#type_nonEmptyString)). It does not validate that
                 the equation syntax is correct (e.g., whether the equation is missing
-                a closing bracket). You must use another tool to validate the syntax._
+                a closing bracket). You must use another tool, for example
+                [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
+                to validate the syntax._
 
                 **Examples**
 
@@ -2535,8 +2538,8 @@
                 that the file exists nor if the SHA-256 checksum is correct for the file
                 (although the general format of the checksum, i.e., has the proper length
                 and contains only allowed characters, is validated). You must use another
-                tool to validate the existence of the file and the validity of the
-                checksum value._
+                tool, for example [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
+                to validate the existence of the file and the validity of the checksum value._
 
                 **Examples**
 
@@ -2745,7 +2748,9 @@
                         (e.g., that the `gtcArchiveJSON` element has content that may be any
                         string). It does not attempt to validate that the content is a valid
                         string that can be used to create an `Archive` object. You must use
-                        `GTC` to validate the content._
+                        GTC or another tool, for example
+                        [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
+                        to validate the content._
 
                         **Examples**
 
@@ -2783,7 +2788,8 @@
                 (e.g., that the `header` element exists and that the content matches
                 the allowed pattern). It does not attempt to validate that the table
                 is structurally correct (e.g., whether `type`, `unit`, `header` and
-                `data` contain the same number of columns). You must use another tool
+                `data` contain the same number of columns). You must use another tool,
+                for example [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
                 to validate the structure of the table._
 
                 **Examples**
@@ -2986,8 +2992,9 @@
                                 (e.g., that the `variable` attribute exist and the content
                                 is a [tokenizedString](#type_tokenizedString)). It does not attempt to
                                 validate that the range for every `variable` is defined.
-                                You must use another tool to validate that every `variable` is
-                                uniquely defined._
+                                You must use another tool, for example
+                                [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
+                                to validate that every `variable` is uniquely defined._
                             </xsd:documentation>
                         </xsd:annotation>
                     </xsd:attribute>

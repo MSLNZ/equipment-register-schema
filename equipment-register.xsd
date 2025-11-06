@@ -415,7 +415,7 @@
 
                 The identity pattern shall consist of
                 * the upper-case letters **MSLE**
-                * followed by one period **.** (0x2E)
+                * followed by one period **.**
                 * followed by one of the following letters
                     * **E**: Electrical
                     * **F**: Frequency (Time)
@@ -425,7 +425,7 @@
                     * **O**: Optics (Light)
                     * **P**: Pressure
                     * **T**: Temperature
-                * followed by one period **.** (0x2E)
+                * followed by one period **.**
                 * followed by one or more upper-case letters and/or digits
 
                 **Examples**
@@ -449,7 +449,7 @@
             <xsd:documentation>
                 The pattern for an MSL technical procedure shall consist of
                 * the upper-case letters **MSLT**
-                * followed by one period **.** (0x2E)
+                * followed by one period **.**
                 * followed by one of the following letters
                     * **E**: Electrical
                     * **F**: Frequency (Time)
@@ -459,9 +459,9 @@
                     * **O**: Optics (Light)
                     * **P**: Pressure
                     * **T**: Temperature
-                * followed by one period **.** (0x2E)
+                * followed by one period **.**
                 * followed by one or more digits [0-9]
-                * optionally, followed by one period **.** (0x2E) and one or more digits [0-9]
+                * optionally, followed by one period **.** and one or more digits [0-9]
 
                 **Examples**
 
@@ -482,8 +482,8 @@
     <xsd:simpleType name="nonEmptyString">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that shall not contain the line feed (0x0A)
-                nor carriage return (0x0D) characters.
+                A non-empty string that shall not contain the line feed (`\n`)
+                nor carriage return (`\r`) characters.
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
@@ -495,8 +495,8 @@
         <xsd:annotation>
             <xsd:documentation>
                 A non-empty string that shall not
-                * contain the tab (0x09), line feed (0x0A) nor carriage return (0x0D) characters,
-                * contain sequences of two or more spaces (0x20),
+                * contain the tab (`\t`), line feed (`\n`) nor carriage return (`\r`) characters,
+                * contain sequences of two or more spaces (` `),
                 * have leading or trailing spaces.
 
                 This implementation is what [xsd:token](https://www.w3.org/TR/xmlschema-2/#token)
@@ -909,8 +909,8 @@
     <xsd:complexType name="comment">
         <xsd:annotation>
             <xsd:documentation>
-                A non-empty string that shall not contain the line feed (0x0A)
-                nor carriage return (0x0D) characters and shall have a date
+                A non-empty string that shall not contain the line feed (`\n`)
+                nor carriage return (`\r`) characters and shall have a date
                 as an attribute. The date must be in the YYYY-MM-DD format (see
                 [xsd:date](https://www.w3.org/TR/xmlschema-2/#date) for details).
 
@@ -2160,7 +2160,7 @@
                 `uncertainty` may be expressed as an equation.
 
                 The content of the equation to parse may contain
-                * the space (0x20) and tab (0x09) characters
+                * the space (` `) and tab (`\t`) characters
                 * integer and floating-point numbers (e.g., 100, 100.0, 1e2, 1.0E+02)
                 * the following brackets: `(` `)`
                 * the following (unary) operators: `+` `-` `*` `/`
@@ -2867,7 +2867,7 @@
                 <xsd:annotation>
                     <xsd:documentation>
                         The data in the `table`.
-                        Each row shall be separated by a line-feed character (0x0A).
+                        Each row shall be separated by a line-feed character (`\n`).
                         Each column in a row shall be separated by a comma.
 
                         If splitting the content by a line-feed character results in

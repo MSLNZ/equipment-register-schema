@@ -244,6 +244,8 @@
                     <xsd:enumeration value="Barometer"/>
                     <xsd:enumeration value="Block"/>
                     <xsd:enumeration value="Bridge"/>
+                    <xsd:enumeration value="Camera"/>
+                    <xsd:enumeration value="Controller"/>
                     <xsd:enumeration value="Comparator"/>
                     <xsd:enumeration value="Component"/>
                     <xsd:enumeration value="Current"/>
@@ -281,6 +283,7 @@
                     <xsd:enumeration value="Set"/>
                     <xsd:enumeration value="Source"/>
                     <xsd:enumeration value="SPRT"/>
+                    <xsd:enumeration value="Stabiliser"/>
                     <xsd:enumeration value="Stage"/>
                     <xsd:enumeration value="Stepper"/>
                     <xsd:enumeration value="Tape"/>

@@ -6,6 +6,7 @@
 
 * Added the following to `quantityEnumerationString`: `Spectral Power Responsivity`
 * Added the following to `staffEnumerationString`: `Charlotte Hayton`
+* Added the following to `keywordsList`: `Camera`, `Controller`, `Stabiliser`
 
 ## 0.2.0 (2025-10-03)
 

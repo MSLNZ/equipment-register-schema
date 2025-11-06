@@ -5,6 +5,7 @@
 ## unreleased
 
 * Added the following to `quantityEnumerationString`: `Spectral Power Responsivity`
+* Added the following to `staffEnumerationString`: `Charlotte Hayton`
 
 ## 0.2.0 (2025-10-03)
 

@@ -1771,6 +1771,16 @@
                 confidence in the performance of the equipment, these
                 checks shall be carried out according to a procedure.
 
+                A `performanceCheck` supports a _choice_ for how the calibration data is specified
+                (e.g., [equation](#type_equation), [file](#type_file), [table](#type_table)).
+                The intention of having a _choice_ is to handle the situation when it is
+                appropriate to specify different calibration data in different ways. Having
+                a _choice_ is not intended as a way to duplicate information. If, for example,
+                the calibration data has been saved in a spreadsheet then you may choose to
+                either specify the calibration data as a [file](#type_file) or convert it to a
+                [table](#type_table), but not both. It is important to have a single source
+                of truth when accessing the calibration data.
+
                 **Examples**
 
                 ```xml
@@ -1939,6 +1949,16 @@
                 metadata and data) _some_ of the information that is required
                 by ISO/IEC 17025:2017 Clause 7.8.2.1 must be explicitly
                 included in the equipment register.
+
+                A `report` supports a _choice_ for how the calibration data is specified
+                (e.g., [equation](#type_equation), [file](#type_file), [table](#type_table)).
+                The intention of having a _choice_ is to handle the situation when it is
+                appropriate to specify different calibration data in different ways. Having
+                a _choice_ is not intended as a way to duplicate information. If, for example,
+                the calibration data has been saved in a spreadsheet then you may choose to
+                either specify the calibration data as a [file](#type_file) or convert it to a
+                [table](#type_table), but not both. It is important to have a single source
+                of truth when accessing the calibration data.
 
                 **Examples**
 

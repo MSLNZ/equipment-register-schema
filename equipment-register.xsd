@@ -245,20 +245,20 @@
                     <xsd:enumeration value="Block"/>
                     <xsd:enumeration value="Bridge"/>
                     <xsd:enumeration value="Camera"/>
-                    <xsd:enumeration value="Controller"/>
                     <xsd:enumeration value="Comparator"/>
                     <xsd:enumeration value="Component"/>
+                    <xsd:enumeration value="Controller"/>
                     <xsd:enumeration value="Current"/>
                     <xsd:enumeration value="DAQ"/>
                     <xsd:enumeration value="DC"/>
-                    <xsd:enumeration value="DMM"/>
                     <xsd:enumeration value="Detector"/>
+                    <xsd:enumeration value="DMM"/>
                     <xsd:enumeration value="Driver"/>
                     <xsd:enumeration value="Gateway"/>
                     <xsd:enumeration value="Gauge"/>
+                    <xsd:enumeration value="Hygrometer"/>
                     <xsd:enumeration value="Infrared"/>
                     <xsd:enumeration value="Interferometer"/>
-                    <xsd:enumeration value="Hygrometer"/>
                     <xsd:enumeration value="Lamp"/>
                     <xsd:enumeration value="Laser"/>
                     <xsd:enumeration value="Linescale"/>
@@ -267,8 +267,8 @@
                     <xsd:enumeration value="Mechanical"/>
                     <xsd:enumeration value="Meter"/>
                     <xsd:enumeration value="Monochromator"/>
-                    <xsd:enumeration value="Multiplexor"/>
                     <xsd:enumeration value="Motor"/>
+                    <xsd:enumeration value="Multiplexor"/>
                     <xsd:enumeration value="Network"/>
                     <xsd:enumeration value="Optical"/>
                     <xsd:enumeration value="Oscilloscope"/>
@@ -287,15 +287,17 @@
                     <xsd:enumeration value="Stage"/>
                     <xsd:enumeration value="Stepper"/>
                     <xsd:enumeration value="Tape"/>
+                    <xsd:enumeration value="Temperature"/>
                     <xsd:enumeration value="Thermocouple"/>
                     <xsd:enumeration value="Thermometer"/>
                     <xsd:enumeration value="Tile"/>
-                    <xsd:enumeration value="Trap"/>
                     <xsd:enumeration value="Translation"/>
-                    <xsd:enumeration value="Voltage"/>
-                    <xsd:enumeration value="Weight"/>
+                    <xsd:enumeration value="Trap"/>
                     <xsd:enumeration value="UV"/>
                     <xsd:enumeration value="Visible"/>
+                    <xsd:enumeration value="Voltage"/>
+                    <xsd:enumeration value="Wavelength"/>
+                    <xsd:enumeration value="Weight"/>
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:list>

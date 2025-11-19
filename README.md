@@ -8,7 +8,7 @@ For background information about XSD, please see the following overview provided
 
 and the [XML Schema Tutorial](https://www.w3schools.com/xml/schema_intro.asp) provided by [w3schools](https://www.w3schools.com/).
 
-The documentation for the Equipment-Register schema is available [here](https://mslnz.github.io/equipment-register-schema/).
+The documentation for the Equipment-Register schema is available [here](https://mslnz.github.io/equipment-register-schema/develop/).
 
 ## Contributing Guide
 [Python](https://www.python.org/) is required to run the tests and to build the documentation.

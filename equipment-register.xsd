@@ -30,13 +30,47 @@
 
                 **Examples**
 
-                The `xmlns` attribute specifies the XML namespace for the document and must be included
+                The `xmlns` attribute specifies the XML namespace for the document and must be included.
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
                 {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
                   {equipment enteredBy="Neil Swift"}...{/equipment}
                   {equipment enteredBy="Ellie Molloy"}...{/equipment}
                   {equipment enteredBy="Yang Yenn Tan"}...{/equipment}
+                {/register}
+                ```
+
+                You may also include the `xsi:schemaLocation` attribute, to provide hints to
+                the location of the schema documents which may be used for validation. This
+                may be helpful for the editor you use to modify the equipment-register document
+                to provide real-time validation and suggestions for an enumeration value.
+
+                The schema location can be a local path on your computer by using an absolute
+                or a relative path. *NOTE: the `external` directory (see the
+                [repository](https://github.com/MSLNZ/equipment-register-schema))
+                must also be saved with the `equipment-register.xsd` file.*
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Mass"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register ..\equipment-register-schema\equipment-register.xsd"}
+                   {equipment enteredBy="Yin Hsien Fung"}...{/equipment}
+                   {equipment enteredBy="Greg Reid"}...{/equipment}
+                {/register}
+                ```
+
+                Alternatively, you could use the URL to the file in the repository as the schema location
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Pressure"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register https://raw.githubusercontent.com/MSLNZ/equipment-register-schema/main/equipment-register.xsd"}
+                   {equipment enteredBy="Darrin Jack"}...{/equipment}
+                   {equipment enteredBy="Rebecca Hawke"}...{/equipment}
                 {/register}
                 ```
             </xsd:documentation>

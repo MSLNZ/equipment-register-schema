@@ -17,13 +17,47 @@
 
                 **Examples**
 
-                The `xmlns` attribute specifies the XML namespace for the document and must be included
+                The `xmlns` attribute specifies the XML namespace for the document and must be included.
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
                 {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
                   {equipment enteredBy="Neil Swift"}...{/equipment}
                   {equipment enteredBy="Ellie Molloy"}...{/equipment}
                   {equipment enteredBy="Yang Yenn Tan"}...{/equipment}
+                {/register}
+                ```
+
+                You may also include the `xsi:schemaLocation` attribute, to provide hints to
+                the location of the schema documents which may be used for validation. This
+                may be helpful for the editor you use to modify the equipment-register document
+                to provide real-time validation and suggestions for an enumeration value.
+
+                The schema location can be a local path on your computer by using an absolute
+                or a relative path. *NOTE: the `external` directory (see the
+                [repository](https://github.com/MSLNZ/equipment-register-schema))
+                must also be saved with the `equipment-register.xsd` file.*
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Mass"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register ..\equipment-register-schema\equipment-register.xsd"}
+                   {equipment enteredBy="Yin Hsien Fung"}...{/equipment}
+                   {equipment enteredBy="Greg Reid"}...{/equipment}
+                {/register}
+                ```
+
+                Alternatively, you could use the URL to the file in the repository as the schema location
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Pressure"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register https://raw.githubusercontent.com/MSLNZ/equipment-register-schema/main/equipment-register.xsd"}
+                   {equipment enteredBy="Darrin Jack"}...{/equipment}
+                   {equipment enteredBy="Rebecca Hawke"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id2-doc"> </div></div></div></div></div></div><div class="panel-group" id="element_register-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#element_register-instance-table-panel-group" href="#element_register-instance-table-collapse">XML Instance Representation</a></h4></div><div id="element_register-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:register</span>
@@ -2103,13 +2137,47 @@
 
                 **Examples**
 
-                The `xmlns` attribute specifies the XML namespace for the document and must be included
+                The `xmlns` attribute specifies the XML namespace for the document and must be included.
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
                 {register team="Light" xmlns="https://measurement.govt.nz/equipment-register"}
                   {equipment enteredBy="Neil Swift"}...{/equipment}
                   {equipment enteredBy="Ellie Molloy"}...{/equipment}
                   {equipment enteredBy="Yang Yenn Tan"}...{/equipment}
+                {/register}
+                ```
+
+                You may also include the `xsi:schemaLocation` attribute, to provide hints to
+                the location of the schema documents which may be used for validation. This
+                may be helpful for the editor you use to modify the equipment-register document
+                to provide real-time validation and suggestions for an enumeration value.
+
+                The schema location can be a local path on your computer by using an absolute
+                or a relative path. *NOTE: the `external` directory (see the
+                [repository](https://github.com/MSLNZ/equipment-register-schema))
+                must also be saved with the `equipment-register.xsd` file.*
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Mass"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register ..\equipment-register-schema\equipment-register.xsd"}
+                   {equipment enteredBy="Yin Hsien Fung"}...{/equipment}
+                   {equipment enteredBy="Greg Reid"}...{/equipment}
+                {/register}
+                ```
+
+                Alternatively, you could use the URL to the file in the repository as the schema location
+                ```xml
+                {?xml version="1.0" encoding="utf-8"?}
+                {register
+                   team="Pressure"
+                   xmlns="https://measurement.govt.nz/equipment-register"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register https://raw.githubusercontent.com/MSLNZ/equipment-register-schema/main/equipment-register.xsd"}
+                   {equipment enteredBy="Darrin Jack"}...{/equipment}
+                   {equipment enteredBy="Rebecca Hawke"}...{/equipment}
                 {/register}
                 ```
             </div><div class="xs3p-doc" id="id2-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade equipment" id="id4-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id4-label"> equipment</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id4-hidden"><div class="hidden" id="id4-hidden-doc-raw">

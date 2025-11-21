@@ -55,7 +55,7 @@
                    team="Mass"
                    xmlns="https://measurement.govt.nz/equipment-register"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register ..\equipment-register-schema\equipment-register.xsd"}
+                   xsi:schemaLocation="https://measurement.govt.nz/equipment-register ../equipment-register-schema/equipment-register.xsd"}
                    {equipment enteredBy="Yin Hsien Fung"}...{/equipment}
                    {equipment enteredBy="Greg Reid"}...{/equipment}
                 {/register}

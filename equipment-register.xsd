@@ -40,14 +40,17 @@
                 {/register}
                 ```
 
-                You may also include the `xsi:schemaLocation` attribute, to provide hints to
-                the location of the schema documents which may be used for validation. This
-                may be helpful for the editor you use to modify the equipment-register document
-                to provide real-time validation and suggestions for an enumeration value.
+                You may also include the `xsi:schemaLocation` attribute, to provide the
+                location of the schema documents that shall be used for validation. This
+                attribute has two values, separated by a space. The first value is the
+                namespace to use. The second value is the location of the XML schema to use
+                for that namespace. Including this attribute may be helpful when modifying
+                the equipment-register XML document so that the editor can provide real-time
+                validation and suggestions for an enumeration value.
 
-                The schema location can be a local path on your computer by using an absolute
-                or a relative path. *NOTE: the `external` directory (see the
-                [repository](https://github.com/MSLNZ/equipment-register-schema))
+                The schema location can be defined as a local path on your computer, by
+                specifying an absolute or a relative path. *NOTE: the `external` directory
+                (see the [repository](https://github.com/MSLNZ/equipment-register-schema))
                 must also be saved with the `equipment-register.xsd` file.*
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
@@ -61,7 +64,7 @@
                 {/register}
                 ```
 
-                Alternatively, you could use the URL to the file in the repository as the schema location
+                Alternatively, you can use the URL to the file in the repository as the schema location
                 ```xml
                 {?xml version="1.0" encoding="utf-8"?}
                 {register

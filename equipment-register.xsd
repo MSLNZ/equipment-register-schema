@@ -231,6 +231,7 @@
             <xsd:enumeration value="Charlotte Hayton"/>
             <xsd:enumeration value="Cheng Yang"/>
             <xsd:enumeration value="Chris Young"/>
+            <xsd:enumeration value="Claude Meffan"/>
             <xsd:enumeration value="Darrin Jack"/>
             <xsd:enumeration value="Ellie Molloy"/>
             <xsd:enumeration value="François Shindo"/>
@@ -238,6 +239,7 @@
             <xsd:enumeration value="Guy Dubuis"/>
             <xsd:enumeration value="Hamish Edgar"/>
             <xsd:enumeration value="Johan Grand"/>
+            <xsd:enumeration value="Johannes Kaiser"/>
             <xsd:enumeration value="Joseph Borbely"/>
             <xsd:enumeration value="Keith Jones"/>
             <xsd:enumeration value="Lenice Evergreen"/>

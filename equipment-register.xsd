@@ -2227,7 +2227,7 @@
                 * the space (` `) and tab (`\t`) characters
                 * integer and floating-point numbers (e.g., 100, 100.0, 1e2, 1.0E+02)
                 * the following brackets: `(` `)`
-                * the following (unary) operators: `+` `-` `*` `/`
+                * the following operators: `+` `-` `*` `/`
                 * the following names to represent the corresponding numerical value:
                   - pi = 3.14159...
                 * the following functions:

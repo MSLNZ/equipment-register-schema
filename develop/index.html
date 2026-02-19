@@ -1293,13 +1293,13 @@
             </div><div class="xs3p-doc" id="id122-doc"> </div></div></div></div></div></div><div class="panel-group" id="type_ranges-instance-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_ranges-instance-table-panel-group" href="#type_ranges-instance-table-collapse">XML Instance Representation</a></h4></div><div id="type_ranges-instance-table-collapse" class="panel-collapse collapse in"><div class="panel-body"><pre class="codehilite"><span class="nt">&lt;...</span><span class="nt">&gt;</span>
   <span class="group">Start Sequence <span class="cs">[0..*]</span></span>
     <span class="nt">&lt;<a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:range</span>
-     <span class="na">variable=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'tokenizedString' type definition" href="#type_tokenizedString">tokenizedString</a></span>"</span> <span class="cs">[1]</span><div class="modal fade variable" id="id123-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id123-label">Attribute variable</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id123-hidden"><div class="hidden" id="id123-hidden-doc-raw">
-                                The variable in the `equation` that this `range` applies to.
+     <span class="na">variable=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'variables' type definition" href="#type_variables">variables</a></span>"</span> <span class="cs">[1]</span><div class="modal fade variable" id="id123-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id123-label">Attribute variable</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id123-hidden"><div class="hidden" id="id123-hidden-doc-raw">
+                                A variable in the `equation` that this `range` applies to.
 
                                 _Attention: This XSD document validates the content of an XML document
                                 (e.g., that the `variable` attribute exist and the content
-                                is a [tokenizedString](#type_tokenizedString)). It does not attempt to
-                                validate that the range for every `variable` is defined.
+                                is of type [variables](#type_variables)). It does not attempt to
+                                validate that the range for every `variable` in the `equation` is defined.
                                 You must use another tool, for example
                                 [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
                                 to validate that every `variable` is uniquely defined._
@@ -1318,7 +1318,7 @@
           <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:element</span> <span class="na">name=</span><span class="s">"minimum"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:double</span>"</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:element</span> <span class="na">name=</span><span class="s">"maximum"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:double</span>"</span><span class="nt">/&gt;</span>
         <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:sequence&gt;</span>
-        <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:attribute</span> <span class="na">name=</span><span class="s">"variable"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'tokenizedString' type definition" href="#type_tokenizedString">tokenizedString</a></span>"</span> <span class="na">use=</span><span class="s">"required"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:attribute</span> <span class="na">name=</span><span class="s">"variable"</span> <span class="na">type=</span><span class="s">"<span class="type"><a href="#ns_msl" title="Go to 'msl' namespace definition">msl</a>:<a title="Go to 'variables' type definition" href="#type_variables">variables</a></span>"</span> <span class="na">use=</span><span class="s">"required"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:complexType&gt;</span>
     <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:element&gt;</span>
   <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:sequence&gt;</span>
@@ -3171,12 +3171,12 @@
                                 </div><div class="xs3p-doc" id="id124-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade maximum" id="id125-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id125-label"> maximum</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id125-hidden"><div class="hidden" id="id125-hidden-doc-raw">
                                     The maximum value of the `variable` that the `equation` is valid for.
                                 </div><div class="xs3p-doc" id="id125-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade variable" id="id123-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id123-label">Attribute variable</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id123-hidden"><div class="hidden" id="id123-hidden-doc-raw">
-                                The variable in the `equation` that this `range` applies to.
+                                A variable in the `equation` that this `range` applies to.
 
                                 _Attention: This XSD document validates the content of an XML document
                                 (e.g., that the `variable` attribute exist and the content
-                                is a [tokenizedString](#type_tokenizedString)). It does not attempt to
-                                validate that the range for every `variable` is defined.
+                                is of type [variables](#type_variables)). It does not attempt to
+                                validate that the range for every `variable` in the `equation` is defined.
                                 You must use another tool, for example
                                 [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
                                 to validate that every `variable` is uniquely defined._

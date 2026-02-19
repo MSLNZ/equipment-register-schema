@@ -569,3 +569,19 @@ def test_attribute_unexpected(xml):
               '</equation>')
     xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
     xml.raises(r"attribute 'apple' is not allowed")
+
+
+def test_no_variables_with_range(xml):
+    choice = ('<equation>'
+              '  <value variables="">2</value>'
+              '  <uncertainty variables="">0.1</uncertainty>'
+              '  <unit>m</unit>'
+              '  <ranges>'
+              '    <range variable="">'
+              '      <minimum>0</minimum>'
+              '      <maximum>10</maximum>'
+              '    </range>'
+              '  </ranges>'
+              '</equation>')
+    xml.calibrations(xml.measurand(xml.component(xml.report(choice=choice))))
+    assert xml.is_valid()

@@ -4,6 +4,7 @@
 
 ## unreleased
 
+* Fixed: replace `msl:tokenizedString` with `msl:variables` in the `variable` attribute of `range`
 * Added the following to `quantityEnumerationString`: Spectral Power Responsivity
 * Added the following to `staffEnumerationString`: Claude Meffan, Charlotte Hayton, Johannes Kaiser
 * Added the following to `keywordsList`: Camera, Controller, Stabiliser, Temperature, Wavelength

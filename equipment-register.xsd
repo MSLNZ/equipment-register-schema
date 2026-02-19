@@ -3048,15 +3048,15 @@
                             </xsd:annotation>
                         </xsd:element>
                     </xsd:sequence>
-                    <xsd:attribute name="variable" type="msl:tokenizedString" use="required">
+                    <xsd:attribute name="variable" type="msl:variables" use="required">
                         <xsd:annotation>
                             <xsd:documentation>
-                                The variable in the `equation` that this `range` applies to.
+                                A variable in the `equation` that this `range` applies to.
 
                                 _Attention: This XSD document validates the content of an XML document
                                 (e.g., that the `variable` attribute exist and the content
-                                is a [tokenizedString](#type_tokenizedString)). It does not attempt to
-                                validate that the range for every `variable` is defined.
+                                is of type [variables](#type_variables)). It does not attempt to
+                                validate that the range for every `variable` in the `equation` is defined.
                                 You must use another tool, for example
                                 [msl-equipment-validate](https://mslnz.github.io/msl-equipment/dev/validate/),
                                 to validate that every `variable` is uniquely defined._

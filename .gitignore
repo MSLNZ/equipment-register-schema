@@ -9,6 +9,7 @@ __pycache__/
 /venv/
 /.idea/
 /.vscode/
+/.vs/
 /.pytest_cache/
 /docs/bin/xsdvi/build/
 /docs/build/

@@ -288,6 +288,7 @@
                     <xsd:enumeration value="Comparator"/>
                     <xsd:enumeration value="Component"/>
                     <xsd:enumeration value="Controller"/>
+                    <xsd:enumeration value="Counter"/>
                     <xsd:enumeration value="Current"/>
                     <xsd:enumeration value="DAQ"/>
                     <xsd:enumeration value="DC"/>
@@ -311,6 +312,7 @@
                     <xsd:enumeration value="Motor"/>
                     <xsd:enumeration value="Multiplexor"/>
                     <xsd:enumeration value="Network"/>
+                    <xsd:enumeration value="NIR"/>
                     <xsd:enumeration value="Optical"/>
                     <xsd:enumeration value="Oscilloscope"/>
                     <xsd:enumeration value="Photomultiplier"/>
@@ -319,6 +321,7 @@
                     <xsd:enumeration value="Pyro"/>
                     <xsd:enumeration value="Radiation"/>
                     <xsd:enumeration value="Resistance"/>
+                    <xsd:enumeration value="Rotation"/>
                     <xsd:enumeration value="Rule"/>
                     <xsd:enumeration value="Sample"/>
                     <xsd:enumeration value="Set"/>

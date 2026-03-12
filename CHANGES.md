@@ -7,6 +7,7 @@
 * Fixed: replace `msl:tokenizedString` with `msl:variables` in the `variable` attribute of `range`
 * Added the following to `quantityEnumerationString`: Spectral Power Responsivity
 * Added the following to `staffEnumerationString`: Claude Meffan, Charlotte Hayton, Johannes Kaiser
+* Added the following to `currencyEnumerationString`: CHF
 * Added the following to `keywordsList`: Actuator, Camera, Controller, Counter, Filter, NIR, Rotation, Shutter, Stabiliser, Temperature, Wavelength, Wheel
 
 ## 0.2.0 (2025-10-03)

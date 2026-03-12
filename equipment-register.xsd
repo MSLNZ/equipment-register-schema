@@ -656,6 +656,7 @@
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="AUD"/>
+            <xsd:enumeration value="CHF"/>
             <xsd:enumeration value="EUR"/>
             <xsd:enumeration value="GBP"/>
             <xsd:enumeration value="JPY"/>

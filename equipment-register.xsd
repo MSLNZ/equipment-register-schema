@@ -159,6 +159,7 @@
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="A-wing cabinets"/>
             <xsd:enumeration value="CMM Lab"/>
             <xsd:enumeration value="Contact thermometry lab"/>
             <xsd:enumeration value="Cryogenic Radiometer"/>

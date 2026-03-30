@@ -623,8 +623,23 @@
     <xsd:simpleType name="degreeFreedomDouble">
         <xsd:annotation>
             <xsd:documentation>
-               The degrees of freedom. If not specified, the degrees of freedom
-               shall be considered to be \\(+\infty\\).
+                The degrees of freedom. If not specified, the degrees of freedom
+                shall be considered to be \\(+\infty\\).
+
+                [GUM Tree Calculator (GTC)](https://gtc.readthedocs.io/en/stable/index.html)
+                has functions to calculate the degrees of freedom from a coverage factor
+                and the coverage probability. The
+                [k_to_dof](https://gtc.readthedocs.io/en/stable/API/reporting_functions.html#reporting.k_to_dof)
+                function should be used for real-valued quantities (univariate) and the
+                [k2_to_dof](https://gtc.readthedocs.io/en/stable/API/reporting_functions.html#reporting.k2_to_dof)
+                function should be used for complex-valued quantities (bivariate).
+
+                ```python
+                from GTC import reporting
+
+                # A coverage factor of 2.0 with a 95% level of confidence
+                dof = reporting.k_to_dof(2.0, 95)
+                ```
             </xsd:documentation>
         </xsd:annotation>
         <xsd:restriction base="xsd:double">

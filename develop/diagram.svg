@@ -2435,7 +2435,17 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_1")' onmouseout='makeHid
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>measurementStartDate</text>
-<text class='element-type' x='5' y='41'>type: date</text>
+<line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2' onclick='show("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2")'/>
+</g>
+
+<g id='_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2_1' class='box' transform='translate(3215,6511)'>
+<rect class='shadow' x='3' y='3' width='153' height='46' rx='9'/>
+<rect class='boxattribute2' x='0' y='0' width='153' height='46' rx='9'
+onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2_1")'/>
+<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> recalibrateReference</text>
+<text class='visible' x='5' y='41'>type: boolean</text>
+<text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 
@@ -2445,7 +2455,17 @@ onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_2")' onmouseout='makeHid
 onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3")'/>
 <text class='element-namespace' x='5' y='13'>https://measurement.govt.nz/equipment-register</text>
 <text class='element-name' x='5' y='27'>measurementStopDate</text>
-<text class='element-type' x='5' y='41'>type: date</text>
+<line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
+<use x='290' y='17' xlink:href='#minus' id='s_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3' onclick='show("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3")'/>
+</g>
+
+<g id='_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3_1' class='box' transform='translate(3215,6582)'>
+<rect class='shadow' x='3' y='3' width='153' height='46' rx='9'/>
+<rect class='boxattribute2' x='0' y='0' width='153' height='46' rx='9'
+onmouseover='makeVisible("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3_1")' onmouseout='makeHidden("_1_1_1_1_1_11_1_1_1_1_1_1_4_1_3_1")'/>
+<text class='strong' x='5' y='27'><tspan class='big'>@</tspan> recalibrateReference</text>
+<text class='visible' x='5' y='41'>type: boolean</text>
+<text class='hidden' visibility='hidden' x='5' y='41'>use: optional</text>
 <line class='connection' x1='-35' y1='23' x2='0' y2='23'/>
 </g>
 

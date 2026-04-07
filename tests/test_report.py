@@ -416,3 +416,67 @@ def test_checked_date_invalid(xml):
     r = '<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="06-2025-08" />'
     xml.calibrations(xml.measurand(xml.component(r)))
     xml.raises('not a valid value')
+
+
+@pytest.mark.parametrize("value", ["0", "1", "true", "false"])
+def test_recalibrate_reference_valid(xml, value):
+    # Asserting that recalibrateReference="true" has only been defined once in a <report> would
+    # require XSD 1.1 and the desired outcome may still not be achievable. Use msl-equipment-validate
+    # to perform the necessary checks. For XSD 1.1, see https://www.w3.org/TR/xmlschema11-1/#cAssertions
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="2025-08-06">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate recalibrateReference="{value}">2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate recalibrateReference="{value}">2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
+         f'  {xml.table()}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    assert xml.is_valid()
+
+
+def test_recalibrate_reference_invalid_start_date(xml):
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="2025-08-06">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate recalibrateReference="False">2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
+         f'  {xml.table()}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises("not a valid value")
+
+
+def test_recalibrate_reference_invalid_stop_date(xml):
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="2025-08-06">'
+         f'  <reportIssueDate>2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate recalibrateReference="True">2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
+         f'  {xml.table()}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises("not a valid value")
+
+
+def test_recalibrate_reference_invalid_issue_date(xml):
+    r = (f'<report id="any" enteredBy="Joseph Borbely" checkedBy="Joseph Borbely" checkedDate="2025-08-06">'
+         f'  <reportIssueDate recalibrateReference="true">2024-06-25</reportIssueDate>'
+         f'  <measurementStartDate>2000-01-01</measurementStartDate>'
+         f'  <measurementStopDate>2000-01-01</measurementStopDate>'
+         f'  <issuingLaboratory>MSL</issuingLaboratory>'
+         f'  <technicalProcedure/>'
+         f'  <conditions/>'
+         f'  <acceptanceCriteria/>'
+         f'  {xml.table()}'
+         f'</report>')
+    xml.calibrations(xml.measurand(xml.component(r)))
+    xml.raises("attribute 'recalibrateReference' is not allowed")

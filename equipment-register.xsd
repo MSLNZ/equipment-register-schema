@@ -2030,7 +2030,7 @@
                 ```xml
                 {report id="Humidity/2023/1024" enteredBy="Lenice Evergreen"}
                   {reportIssueDate}2023-08-18{/reportIssueDate}
-                  {measurementStartDate}2023-08-08{/measurementStartDate}
+                  {measurementStartDate recalibrateReference="true"}2023-08-08{/measurementStartDate}
                   {measurementStopDate}2023-08-14{/measurementStopDate}
                   {issuingLaboratory}MSL{/issuingLaboratory}
                   {technicalProcedure}MSLT.H.062{/technicalProcedure}
@@ -2068,7 +2068,7 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="measurementStartDate" type="xsd:date">
+            <xsd:element name="measurementStartDate">
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement started.
@@ -2079,8 +2079,34 @@
                         i) the date(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:date">
+                            <xsd:attribute name="recalibrateReference" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        Whether to use `measurementStartDate` along with `calibrationInterval`
+                                        (see [measurand](#type_measurand)) to define when a recalibration is due.
+
+                                        Either the `measurementStartDate` or the `measurementStopDate` element
+                                        can specify `recalibrateReference="true"` but not both.
+
+                                        Not specifying the `recalibrateReference` attribute shall be
+                                        considered equivalent to `recalibrateReference="false"`.
+
+                                        If neither `measurementStartDate` nor `measurementStopDate` specify
+                                        `recalibrateReference="true"` it is recommended that `measurementStartDate`
+                                        be used with `calibrationInterval` to define when a recalibration is due.
+
+                                        Supported values: _0_, _1_, _false_, _true_
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
             </xsd:element>
-            <xsd:element name="measurementStopDate" type="xsd:date">
+            <xsd:element name="measurementStopDate">
                 <xsd:annotation>
                     <xsd:documentation>
                         The date that the calibration measurement stopped.
@@ -2091,6 +2117,32 @@
                         i) the date(s) of performance of the laboratory activity
                     </xsd:documentation>
                 </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:date">
+                            <xsd:attribute name="recalibrateReference" type="xsd:boolean">
+                                <xsd:annotation>
+                                    <xsd:documentation>
+                                        Whether to use `measurementStopDate` along with `calibrationInterval`
+                                        (see [measurand](#type_measurand)) to define when a recalibration is due.
+
+                                        Either the `measurementStartDate` or the `measurementStopDate` element
+                                        can specify `recalibrateReference="true"` but not both.
+
+                                        Not specifying the `recalibrateReference` attribute shall be
+                                        considered equivalent to `recalibrateReference="false"`.
+
+                                        If neither `measurementStartDate` nor `measurementStopDate` specify
+                                        `recalibrateReference="true"` it is recommended that `measurementStartDate`
+                                        be used with `calibrationInterval` to define when a recalibration is due.
+
+                                        Supported values: _0_, _1_, _false_, _true_
+                                    </xsd:documentation>
+                                </xsd:annotation>
+                            </xsd:attribute>
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
             </xsd:element>
             <xsd:element name="issuingLaboratory">
                 <xsd:annotation>

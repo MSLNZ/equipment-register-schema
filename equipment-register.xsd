@@ -327,8 +327,8 @@
                     <xsd:enumeration value="Photomultiplier"/>
 					<xsd:enumeration value="Platen"/>
                     <xsd:enumeration value="Power"/>
-                    <xsd:enumeration value="PRT"/>
 					<xsd:enumeration value="Projector"/>
+                    <xsd:enumeration value="PRT"/>
                     <xsd:enumeration value="Pyro"/>
                     <xsd:enumeration value="Radiation"/>
                     <xsd:enumeration value="Resistance"/>
@@ -336,8 +336,8 @@
 					<xsd:enumeration value="Roundness"/>
                     <xsd:enumeration value="Rule"/>
                     <xsd:enumeration value="Sample"/>
-                    <xsd:enumeration value="Set"/>
 					<xsd:enumeration value="Sensor"/>
+                    <xsd:enumeration value="Set"/>
                     <xsd:enumeration value="Shutter"/>
                     <xsd:enumeration value="Source"/>
                     <xsd:enumeration value="SPRT"/>

@@ -1454,6 +1454,11 @@
                     <xsd:documentation>
                         The asset number in the financial system.
 
+                        The asset number is not the same as the number on the sticker, provided by
+                        the Finance department, that is adhered to the equipment. If the asset number
+                        in a historical financial system is unknown and the sticker number is known,
+                        only then shall the sticker number be used as the asset number.
+
                         The `assetNumber` element must exist, but the value may be empty.
                     </xsd:documentation>
                 </xsd:annotation>

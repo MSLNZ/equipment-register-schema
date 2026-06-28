@@ -2067,7 +2067,7 @@
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Yin Hsien Fung"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:restriction&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType&gt;</span>
-</pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_statusEnumerationString" href="#type_statusEnumerationString" class="name">statusEnumerationString</a></h3><div class="panel-group" id="type_statusEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-properties-table-panel-group" href="#type_statusEnumerationString-properties-table-collapse">Properties</a></h4></div><div id="type_statusEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>statusEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> may be one of <ul><li>Active</li><li>Damaged</li><li>Disposed</li><li>Dormant</li><li>Lost</li><li>Retired</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_statusEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-doc-panel-panel-group" href="#type_statusEnumerationString-doc-panel-collapse">Documentation</a></h4></div><div id="type_statusEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id169"><div class="hidden" id="id169-doc-raw">
+</pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_statusEnumerationString" href="#type_statusEnumerationString" class="name">statusEnumerationString</a></h3><div class="panel-group" id="type_statusEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-properties-table-panel-group" href="#type_statusEnumerationString-properties-table-collapse">Properties</a></h4></div><div id="type_statusEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>statusEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> may be one of <ul><li>Active</li><li>Damaged</li><li>Disposed</li><li>Dormant</li><li>Lost</li><li>Retired</li><li>Unassembled</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_statusEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-doc-panel-panel-group" href="#type_statusEnumerationString-doc-panel-collapse">Documentation</a></h4></div><div id="type_statusEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id169"><div class="hidden" id="id169-doc-raw">
                 The status of the equipment is an indication of whether the
                 equipment is _active_ (in use) or _inactive_ (not in use).
 
@@ -2080,12 +2080,14 @@
 
                 * **Damaged**: The equipment is damaged and is no longer usable
                 * **Disposed**: The equipment has been disposed of and is no longer at MSL
-                  (e.g. the equipment was sent to the landfill or to be recycled)
+                  (e.g., the equipment was sent to the landfill or to be recycled)
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
                   (e.g., the equipment was replaced with a newer model, and it is kept as a backup)
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+                * **Unassembled**: The equipment is not assembled and is currently a work in progress
+                  (e.g. the equipment has an asset number but the assembly and testing of the equipment is not complete)
 
                 **Examples**
 
@@ -2104,6 +2106,7 @@
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Dormant"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Lost"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Retired"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Unassembled"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:restriction&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType&gt;</span>
 </pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_teamEnumerationString" href="#type_teamEnumerationString" class="name">teamEnumerationString</a></h3><div class="panel-group" id="type_teamEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_teamEnumerationString-properties-table-panel-group" href="#type_teamEnumerationString-properties-table-collapse">Properties</a></h4></div><div id="type_teamEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>teamEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> may be one of <ul><li>Electrical</li><li>Humidity</li><li>Length</li><li>Light</li><li>Mass</li><li>Pressure</li><li>Temperature</li><li>Time</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_teamEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_teamEnumerationString-doc-panel-panel-group" href="#type_teamEnumerationString-doc-panel-collapse">Documentation</a></h4></div><div id="type_teamEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id170"><div class="hidden" id="id170-doc-raw">
@@ -2362,12 +2365,14 @@
 
                 * **Damaged**: The equipment is damaged and is no longer usable
                 * **Disposed**: The equipment has been disposed of and is no longer at MSL
-                  (e.g. the equipment was sent to the landfill or to be recycled)
+                  (e.g., the equipment was sent to the landfill or to be recycled)
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
                   (e.g., the equipment was replaced with a newer model, and it is kept as a backup)
                 * **Lost**: The equipment is lost, but if found may be put back into service.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+                * **Unassembled**: The equipment is not assembled and is currently a work in progress
+                  (e.g. the equipment has an asset number but the assembly and testing of the equipment is not complete)
 
                 **Examples**
 

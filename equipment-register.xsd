@@ -385,7 +385,7 @@
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
                   (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
                 * **Unassembled**: The equipment is not assembled and is currently a work in progress
-                  (e.g. the equipment has an asset number but the assembly and testing of the equipment is not complete)
+                  (e.g., the equipment has an asset number but the assembly and testing of the equipment is not complete)
 
                 **Examples**
 
@@ -1479,7 +1479,7 @@
             <xsd:element name="price">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The purchase price of the asset. Do _not_ include the currency symbol, e.g. `$`, in the value.
+                        The purchase price of the asset. Do _not_ include the currency symbol, e.g., `$`, in the value.
 
                         You may use scientific notation, so `150e3` is equivalent to `150000`.
                     </xsd:documentation>

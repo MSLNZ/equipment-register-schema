@@ -6,11 +6,12 @@
 
 * Fixed: replace `msl:tokenizedString` with `msl:variables` in the `variable` attribute of `range`
 * Added `recalibrateReference` attribute to `measurementStartDate` and `measurementStopDate` elements.
-* Added the following to `quantityEnumerationString`: Spectral Power Responsivity
-* Added the following to `staffEnumerationString`: Claude Meffan, Charlotte Hayton, Johannes Kaiser
 * Added the following to `currencyEnumerationString`: CHF
 * Added the following to `keywordsList`: Actuator, Atomic, Calliper, Camera, CMM, Controller, Counter, EDM, Filter, Force, Level, Micrometer, Microscope, NIR, Platen, Projector, Rotation, Roundness, Sensor, Shutter, Stabiliser, Surveying, Temperature, Wavelength, Wheel
 * Added the following to `labEnumerationString`: A-wing cabinets
+* Added the following to `quantityEnumerationString`: Spectral Power Responsivity
+* Added the following to `staffEnumerationString`: Claude Meffan, Charlotte Hayton, Johannes Kaiser
+* Added the following to `statusEnumerationString`: Unassembled
 
 ## 0.2.0 (2025-10-03)
 

@@ -5,6 +5,7 @@
 ## unreleased
 
 * Fixed: replace `msl:tokenizedString` with `msl:variables` in the `variable` attribute of `range`
+* Changed: `capitalExpenditure` now uses `depreciationStartDate` instead of `depreciationEndYear` and include `usefulLife`
 * Added `recalibrateReference` attribute to `measurementStartDate` and `measurementStopDate` elements.
 * Added the following to `currencyEnumerationString`: CHF
 * Added the following to `keywordsList`: Actuator, Atomic, Calliper, Camera, CMM, Controller, Counter, EDM, Filter, Force, Level, Micrometer, Microscope, NIR, Platen, Projector, Rotation, Roundness, Sensor, Shutter, Stabiliser, Surveying, Temperature, Wavelength, Wheel

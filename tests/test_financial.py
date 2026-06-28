@@ -8,8 +8,9 @@ warranty = "<warrantyExpirationDate>2025-08-15</warrantyExpirationDate>"
 capex = (
     "<capitalExpenditure>"
     "<assetNumber/>"
-    "<depreciationEndYear>2030</depreciationEndYear>"
+    "<depreciationStartDate>2020-02-10</depreciationStartDate>"
     '<price currency="NZD">10000</price>'
+    "<usefulLife>10</usefulLife>"
     "</capitalExpenditure>"
 )
 
@@ -27,13 +28,14 @@ def test_multiple(xml):
 @pytest.mark.parametrize(
     "asset", ["", " \n \t   ", "01234", "ABC123", ":any-\n@thing "]
 )
-def test_asset_number_valid(xml, asset):
+def test_capex_asset_number_valid(xml, asset):
     f = (
         f"<financial>"
         f"  <capitalExpenditure>"
         f"    <assetNumber>{asset}</assetNumber>"
-        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        f"    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         f'    <price currency="NZD">10000</price>'
+        f"    <usefulLife>10</usefulLife>"
         f"  </capitalExpenditure>"
         f"</financial>"
     )
@@ -41,13 +43,14 @@ def test_asset_number_valid(xml, asset):
     assert xml.is_valid()
 
 
-def test_asset_number_repeated(xml):
+def test_capex_asset_number_repeated(xml):
     f = (
         "<financial>"
         "  <capitalExpenditure>"
         "    <assetNumber/>"
-        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         '    <price currency="NZD">10000</price>'
+        "    <usefulLife>10</usefulLife>"
         "    <assetNumber/>"
         "  </capitalExpenditure>"
         "</financial>"
@@ -60,14 +63,15 @@ def test_capex_order_invalid_1(xml):
     f = (
         "<financial>"
         "  <capitalExpenditure>"
-        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         '    <price currency="NZD">10000</price>'
+        "    <usefulLife>10</usefulLife>"
         "    <assetNumber/>"
         "  </capitalExpenditure>"
         "</financial>"
     )
     xml.quality_manual(f)
-    xml.raises(r"depreciationEndYear': This element is not expected")
+    xml.raises(r"depreciationStartDate': This element is not expected")
 
 
 def test_capex_order_invalid_2(xml):
@@ -76,21 +80,51 @@ def test_capex_order_invalid_2(xml):
         "  <capitalExpenditure>"
         "    <assetNumber/>"
         '    <price currency="NZD">10000</price>'
-        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <usefulLife>10</usefulLife>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         "  </capitalExpenditure>"
         "</financial>"
     )
     xml.quality_manual(f)
     xml.raises(r"price': This element is not expected")
 
-
-def test_price_currency_missing(xml):
+def test_capex_order_invalid_3(xml):
     f = (
         "<financial>"
         "  <capitalExpenditure>"
         "    <assetNumber/>"
-        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
+        "    <usefulLife>10</usefulLife>"
+        '    <price currency="NZD">10000</price>'
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"usefulLife': This element is not expected")
+
+@pytest.mark.parametrize("date", INVALID_DATES)
+def test_capex_depreciation_invalid_date(xml, date):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        f"    <depreciationStartDate>{date}</depreciationStartDate>"
+        '    <price currency="NZD">10000</price>'
+        "    <usefulLife>10</usefulLife>"
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"depreciationStartDate':")
+
+def test_capex_price_currency_missing(xml):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         '    <price>10000</price>'
+        "    <usefulLife>10</usefulLife>"
         "  </capitalExpenditure>"
         "</financial>"
     )
@@ -98,13 +132,14 @@ def test_price_currency_missing(xml):
     xml.raises(r"attribute 'currency' is required")
 
 
-def test_price_currency_invalid(xml):
+def test_capex_price_currency_invalid(xml):
     f = (
         "<financial>"
         "  <capitalExpenditure>"
         "    <assetNumber/>"
-        "    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         '    <price currency="ABC">10000</price>'
+        "    <usefulLife>10</usefulLife>"
         "  </capitalExpenditure>"
         "</financial>"
     )
@@ -113,13 +148,14 @@ def test_price_currency_invalid(xml):
 
 
 @pytest.mark.parametrize("price", ["0", "150000", "150e3", "150000.00"])
-def test_price_valid(xml, price):
+def test_capex_price_valid(xml, price):
     f = (
         f"<financial>"
         f"  <capitalExpenditure>"
         f"    <assetNumber/>"
-        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         f'    <price currency="NZD">{price}</price>'
+        "    <usefulLife>10</usefulLife>"
         f"  </capitalExpenditure>"
         f"</financial>"
     )
@@ -128,19 +164,49 @@ def test_price_valid(xml, price):
 
 
 @pytest.mark.parametrize("price", ["", "  \n ", "150k"])
-def test_price_invalid(xml, price):
+def test_capex_price_invalid(xml, price):
     f = (
         f"<financial>"
         f"  <capitalExpenditure>"
         f"    <assetNumber/>"
-        f"    <depreciationEndYear>2030</depreciationEndYear>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
         f'    <price currency="NZD">{price}</price>'
+        "    <usefulLife>10</usefulLife>"
         f"  </capitalExpenditure>"
         f"</financial>"
     )
     xml.quality_manual(f)
     xml.raises(r"not a valid value of the atomic type 'xs:float'")
 
+@pytest.mark.parametrize("life", ["0", "8", "12.345", "100"])
+def test_capex_useful_life_valid(xml, life):
+    f = (
+        f"<financial>"
+        f"  <capitalExpenditure>"
+        f"    <assetNumber/>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
+        '    <price currency="NZD">10000</price>'
+        f"    <usefulLife>{life}</usefulLife>"
+        f"  </capitalExpenditure>"
+        f"</financial>"
+    )
+    xml.quality_manual(f)
+    assert xml.is_valid()
+
+@pytest.mark.parametrize("life", ["", "  \n ", "-1", "1e1"])
+def test_capex_useful_life_invalid(xml, life):
+    f = (
+        "<financial>"
+        "  <capitalExpenditure>"
+        "    <assetNumber/>"
+        "    <depreciationStartDate>2020-02-10</depreciationStartDate>"
+        '    <price currency="NZD">10000</price>'
+        f"    <usefulLife>{life}</usefulLife>"
+        "  </capitalExpenditure>"
+        "</financial>"
+    )
+    xml.quality_manual(f)
+    xml.raises(r"usefulLife':")
 
 def test_warranty_date_valid(xml):
     xml.quality_manual(f"<financial>{warranty}</financial>")

@@ -1386,8 +1386,9 @@
                   {warrantyExpirationDate}2026-07-31{/warrantyExpirationDate}
                   {capitalExpenditure}
                     {assetNumber}7265817{/assetNumber}
-                    {depreciationEndYear}2033{/depreciationEndYear}
+                    {depreciationStartDate}2025-04-20{/depreciationStartDate}
                     {price currency="NZD"}150e3{/price}
+                    {usefulLife}10{/usefulLife}
                   {/capitalExpenditure}
                 {/financial}
                 ```
@@ -1427,7 +1428,7 @@
             <xsd:documentation>
                 _Optional:_ The equipment is a capital expenditure (for the [financial](#type_financial) element).
 
-                The order of the elements must be `assetNumber`, `depreciationEndYear` then `price`.
+                The order of the elements must be `assetNumber`, `depreciationStartDate`, `price` then `usefulLife`.
 
                 **Examples**
 
@@ -1436,8 +1437,9 @@
                 ```xml
                 {capitalExpenditure}
                   {assetNumber/}
-                  {depreciationEndYear}2030{/depreciationEndYear}
+                  {depreciationStartDate}2024-03-15{/depreciationStartDate}
                   {price currency="NZD"}48000{/price}
+                  {usefulLife}8{/usefulLife}
                 {/capitalExpenditure}
                 ```
 
@@ -1445,8 +1447,9 @@
                 ```xml
                 {capitalExpenditure}
                   {assetNumber}0123456789{/assetNumber}
-                  {depreciationEndYear}2032{/depreciationEndYear}
+                  {depreciationStartDate}2025-08-26{/depreciationStartDate}
                   {price currency="NZD"}400e3{/price}
+                  {usefulLife}10{/usefulLife}
                 {/capitalExpenditure}
                 ```
             </xsd:documentation>
@@ -1466,13 +1469,10 @@
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
-            <xsd:element name="depreciationEndYear" type="xsd:gYear">
+            <xsd:element name="depreciationStartDate" type="xsd:date">
                 <xsd:annotation>
                     <xsd:documentation>
-                        The year (inclusive) that depreciation ends for the asset.
-
-                        If the asset was purchased in _2020_ and the lifetime of the asset
-                        is _8_ years, then depreciation will end in `2028`.
+                        The date that depreciation started for the asset.
                     </xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
@@ -1491,6 +1491,13 @@
                         </xsd:extension>
                     </xsd:simpleContent>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="usefulLife" type="msl:nonNegativeDecimal">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The number of years that the asset depreciates.
+                    </xsd:documentation>
+                </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

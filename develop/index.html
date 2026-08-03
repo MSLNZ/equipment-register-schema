@@ -2072,27 +2072,30 @@
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Yin Hsien Fung"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:restriction&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType&gt;</span>
-</pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_statusEnumerationString" href="#type_statusEnumerationString" class="name">statusEnumerationString</a></h3><div class="panel-group" id="type_statusEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-properties-table-panel-group" href="#type_statusEnumerationString-properties-table-collapse">Properties</a></h4></div><div id="type_statusEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>statusEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> may be one of <ul><li>Active</li><li>Damaged</li><li>Disposed</li><li>Dormant</li><li>Lost</li><li>Retired</li><li>Unassembled</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_statusEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-doc-panel-panel-group" href="#type_statusEnumerationString-doc-panel-collapse">Documentation</a></h4></div><div id="type_statusEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id170"><div class="hidden" id="id170-doc-raw">
+</pre></div></div></div></div><div style="text-align: center; clear: both;"><a href="#type_equipment" title="Go to 'equipment' type definition"><span class="glyphicon glyphicon-link"></span></a></div><hr></hr><h3 class="xs3p-subsection-heading"><a id="type_statusEnumerationString" href="#type_statusEnumerationString" class="name">statusEnumerationString</a></h3><div class="panel-group" id="type_statusEnumerationString-properties-table-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-properties-table-panel-group" href="#type_statusEnumerationString-properties-table-collapse">Properties</a></h4></div><div id="type_statusEnumerationString-properties-table-collapse" class="panel-collapse collapse in"><table class="table table-striped xs3p-in-panel-table"><tbody><tr><th>Name</th><td>statusEnumerationString</td></tr><tr><th>Content</th><td><ul><li>Base XSD Type: string</li></ul><ul><li><em>value</em> may be one of <ul><li>Active</li><li>Damaged</li><li>Disposed</li><li>Dormant</li><li>Lost</li><li>Ordered</li><li>Retired</li><li>Sent for calibration</li><li>Unassembled</li></ul></li></ul></td></tr></tbody></table></div></div></div><div class="panel-group" id="type_statusEnumerationString-doc-panel-panel-group"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a class="xs3p-panel-title" data-toggle="collapse" data-parent="#type_statusEnumerationString-doc-panel-panel-group" href="#type_statusEnumerationString-doc-panel-collapse">Documentation</a></h4></div><div id="type_statusEnumerationString-doc-panel-collapse" class="panel-collapse collapse in"><div class="panel-body"><div class="annotation documentation" id="wdoc-id170"><div class="hidden" id="id170-doc-raw">
                 The status of the equipment is an indication of whether the
                 equipment is _active_ (in use) or _inactive_ (not in use).
 
                 A single value indicates that the equipment is _active_:
 
-                * **Active**: The equipment is operable and may be used
+                * **Active**: The equipment is operable and may be used.
 
                 The following values indicate that the equipment is _inactive_, but
                 provide more context as to the reason why it is _inactive_:
 
-                * **Damaged**: The equipment is damaged and is no longer usable
+                * **Damaged**: The equipment is damaged and is no longer usable.
                 * **Disposed**: The equipment has been disposed of and is no longer at MSL
-                  (e.g., the equipment was sent to the landfill or to be recycled)
+                  (e.g., the equipment was sent to the landfill or to be recycled).
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
-                  (e.g., the equipment was replaced with a newer model, and it is kept as a backup)
+                  (e.g., the equipment was replaced with a newer model, and it is kept as a backup).
                 * **Lost**: The equipment is lost, but if found may be put back into service.
+                * **Ordered**: The equipment has been ordered. This option is considered as a temporary
+                  placeholder. When the equipment arrives, the [equipment](type_equipment) element must be updated.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
-                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured).
+                * **Sent for calibration**: The equipment is being calibrated at an external institute.
                 * **Unassembled**: The equipment is not assembled and is currently a work in progress
-                  (e.g., the equipment has an asset number but the assembly and testing of the equipment is not complete)
+                  (e.g., the equipment has an asset number but the assembly and testing of the equipment is not complete).
 
                 **Examples**
 
@@ -2110,7 +2113,9 @@
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Disposed"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Dormant"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Lost"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Ordered"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Retired"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Sent for calibration"</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:enumeration</span> <span class="na">value=</span><span class="s">"Unassembled"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:restriction&gt;</span>
 <span class="nt">&lt;/<a href="#ns_xsd" title="Go to 'xsd' namespace definition">xsd</a>:simpleType&gt;</span>
@@ -2363,21 +2368,24 @@
 
                 A single value indicates that the equipment is _active_:
 
-                * **Active**: The equipment is operable and may be used
+                * **Active**: The equipment is operable and may be used.
 
                 The following values indicate that the equipment is _inactive_, but
                 provide more context as to the reason why it is _inactive_:
 
-                * **Damaged**: The equipment is damaged and is no longer usable
+                * **Damaged**: The equipment is damaged and is no longer usable.
                 * **Disposed**: The equipment has been disposed of and is no longer at MSL
-                  (e.g., the equipment was sent to the landfill or to be recycled)
+                  (e.g., the equipment was sent to the landfill or to be recycled).
                 * **Dormant**: The equipment is still operable, it is no longer in use but may be used again
-                  (e.g., the equipment was replaced with a newer model, and it is kept as a backup)
+                  (e.g., the equipment was replaced with a newer model, and it is kept as a backup).
                 * **Lost**: The equipment is lost, but if found may be put back into service.
+                * **Ordered**: The equipment has been ordered. This option is considered as a temporary
+                  placeholder. When the equipment arrives, the [equipment](type_equipment) element must be updated.
                 * **Retired**: The equipment is still operable, but there are no intentions of using it again
-                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured)
+                  (e.g., the equipment depends on other equipment that is not available or is no longer manufactured).
+                * **Sent for calibration**: The equipment is being calibrated at an external institute.
                 * **Unassembled**: The equipment is not assembled and is currently a work in progress
-                  (e.g., the equipment has an asset number but the assembly and testing of the equipment is not complete)
+                  (e.g., the equipment has an asset number but the assembly and testing of the equipment is not complete).
 
                 **Examples**
 

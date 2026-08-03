@@ -12,7 +12,7 @@
 * Added the following to `labEnumerationString`: A-wing cabinets
 * Added the following to `quantityEnumerationString`: Spectral Power Responsivity
 * Added the following to `staffEnumerationString`: Claude Meffan, Charlotte Hayton, Johannes Kaiser
-* Added the following to `statusEnumerationString`: Unassembled
+* Added the following to `statusEnumerationString`: Ordered, Sent for calibration, Unassembled
 
 ## 0.2.0 (2025-10-03)
 

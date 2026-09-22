@@ -3033,6 +3033,7 @@
                     <xsd:documentation>
                         The label of each column in the `table`.
                         Each label shall be separated by a comma.
+                        Each label shall uniquely identify a column in the `table`.
                         Whitespace may be used.
                     </xsd:documentation>
                 </xsd:annotation>

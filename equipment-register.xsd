@@ -169,6 +169,7 @@
             <xsd:enumeration value="Furnace assembly room"/>
             <xsd:enumeration value="Goniospectrophotometer"/>
             <xsd:enumeration value="Hilger Lab"/>
+            <xsd:enumeration value="Humidity Lab"/>
             <xsd:enumeration value="Kibble Balance"/>
             <xsd:enumeration value="Laser Lab"/>
             <xsd:enumeration value="Long Room"/>

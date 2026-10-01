@@ -3054,8 +3054,10 @@
                         Each _value_ must be parsable into the corresponding _int_ or _double_
                         data type by using builtin functions that are provided by programming
                         languages. If the _value_ represents a _double_ it can only contain the
-                        `0123456789.+-eE` characters. Characters, such as, `/`, `%` and `,` are
-                        not allowed.
+                        `0123456789.+-eE` characters or the text `NaN`, `Inf` and `-Inf`
+                        (case-insensitive) to represent Not-a-Number or positive infinity and
+                        negative infinity. Characters, such as, `/`, `%`, `_`, and `,` are not
+                        allowed.
 
                         For example, if using Python the following must not raise an error to convert
                         a _value_ to an _int_ or _double_,

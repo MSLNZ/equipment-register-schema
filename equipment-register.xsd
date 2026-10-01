@@ -2999,14 +2999,18 @@
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
                         ```
-                          Data    Size                      Description
-                          Type   (bytes)
-                         ------  -------  -----------------------------------------------------
-                         bool       1     Value is one of: true True TRUE 1 false False FALSE 0
-                         int        4     Values from -2147483648 to +2147483647 (inclusive)
-                         double     8     Approx. 2E-308 to 2E+308 (15-16 digits of precision)
-                         string           Unicode character string
+                         Data    Size                      Description
+                         Type   (bytes)
+                        ------  -------  -----------------------------------------------------
+                        bool       1     Value is one of: true True TRUE 1 false False FALSE 0
+                        int        4     Values from -2147483648 to +2147483647 (inclusive)
+                        double     8     Approx. 2E-308 to 2E+308 (15-16 digits of precision)
+                        string           Unicode character string
                         ```
+
+                        The _value_ of a **double** type may also be `NaN`, `±Inf` or `±Infinity`
+                        (case-insensitive) to represent Not a Number or positive/negative infinity.
+                        The `+` sign may be omitted to represent positive infinity.
                     </xsd:documentation>
                 </xsd:annotation>
                 <xsd:simpleType>
@@ -3054,10 +3058,10 @@
                         Each _value_ must be parsable into the corresponding _int_ or _double_
                         data type by using builtin functions that are provided by programming
                         languages. If the _value_ represents a _double_ it can only contain the
-                        `0123456789.+-eE` characters or the text `NaN`, `Inf` and `-Inf`
-                        (case-insensitive) to represent Not-a-Number or positive infinity and
-                        negative infinity. Characters, such as, `/`, `%`, `_`, and `,` are not
-                        allowed.
+                        `0123456789.+-eE` characters or the text `NaN`, `±Inf` or `±Infinity`
+                        (case-insensitive) to represent Not a Number or positive/negative infinity.
+                        The `+` sign may be omitted to represent positive infinity.
+                        Characters, such as, `/`, `%`, `_`, and `,` are not allowed.
 
                         For example, if using Python the following must not raise an error to convert
                         a _value_ to an _int_ or _double_,

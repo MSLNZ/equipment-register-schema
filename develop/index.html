@@ -3266,14 +3266,18 @@
                         Allowed data types are: **bool**, **int**, **double**, **string**
 
                         ```
-                          Data    Size                      Description
-                          Type   (bytes)
-                         ------  -------  -----------------------------------------------------
-                         bool       1     Value is one of: true True TRUE 1 false False FALSE 0
-                         int        4     Values from -2147483648 to +2147483647 (inclusive)
-                         double     8     Approx. 2E-308 to 2E+308 (15-16 digits of precision)
-                         string           Unicode character string
+                         Data    Size                      Description
+                         Type   (bytes)
+                        ------  -------  -----------------------------------------------------
+                        bool       1     Value is one of: true True TRUE 1 false False FALSE 0
+                        int        4     Values from -2147483648 to +2147483647 (inclusive)
+                        double     8     Approx. 2E-308 to 2E+308 (15-16 digits of precision)
+                        string           Unicode character string
                         ```
+
+                        The _value_ of a **double** type may also be `NaN`, `±Inf` or `±Infinity`
+                        (case-insensitive) to represent Not a Number or positive/negative infinity.
+                        The `+` sign may be omitted to represent positive infinity.
                     </div><div class="xs3p-doc" id="id154-hidden-doc"> </div></div></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div><div class="modal fade unit" id="id155-popup" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog unpre"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h4 class="modal-title" id="id155-label"> unit</h4></div><div class="modal-body"><div class="annotation documentation" id="wdoc-id155-hidden"><div class="hidden" id="id155-hidden-doc-raw">
                         The unit of each column in the `table`.
                         Each unit shall be separated by a comma.
@@ -3296,10 +3300,10 @@
                         Each _value_ must be parsable into the corresponding _int_ or _double_
                         data type by using builtin functions that are provided by programming
                         languages. If the _value_ represents a _double_ it can only contain the
-                        `0123456789.+-eE` characters or the text `NaN`, `Inf` and `-Inf`
-                        (case-insensitive) to represent Not-a-Number or positive infinity and
-                        negative infinity. Characters, such as, `/`, `%`, `_`, and `,` are not
-                        allowed.
+                        `0123456789.+-eE` characters or the text `NaN`, `±Inf` or `±Infinity`
+                        (case-insensitive) to represent Not a Number or positive/negative infinity.
+                        The `+` sign may be omitted to represent positive infinity.
+                        Characters, such as, `/`, `%`, `_`, and `,` are not allowed.
 
                         For example, if using Python the following must not raise an error to convert
                         a _value_ to an _int_ or _double_,
